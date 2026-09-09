@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kazakhstan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header id="main-header">
+        <nav class="nav-menu">
+            <div class="logo">KZ Travel</div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="aktau.html">Aktau</a></li>
+                <li><a href="astana.html">Astana</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Главный экран (Hero Section) -->
+        <section class="hero fade-in">
+    <!-- Обычная картинка вместо фона -->
+    <img src="images/KZ.jpg" alt="Kazakhstan Landscape" class="hero-bg-img">
+    
+    <div class="hero-content">
+        <h1>Discover the Heart of Eurasia</h1>
+        <p>Your ultimate guide to the breathtaking nature, modern cities, and rich culture of Kazakhstan.</p>
+        <a href="#destinations" class="btn">Explore Destinations</a>
+    </div>
+         </section>
+
+        <!-- Блок о сайте (Списки) -->
+        <section class="about-site fade-in delay-1">
+            <div class="container">
+                <h2>What You Will Find Here</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Detailed City Guides</h3>
+                        <ul>
+                            <li>Top attractions and hidden gems</li>
+                            <li>Best places to eat local food</li>
+                            <li>Transportation and logistics</li>
+                        </ul>
+                    </div>
+                    <div class="about-card">
+                        <h3>Travel Tips</h3>
+                        <ul>
+                            <li>Packing lists for different seasons</li>
+                            <li>Cultural etiquette and language basics</li>
+                            <li>Safety and emergency contacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Доступные направления (Карточки городов) -->
+        <section id="destinations" class="destinations fade-in delay-2">
+            <div class="container">
+                <h2>Available Destinations</h2>
+                <p class="subtitle">Currently featuring 2 amazing cities. More destinations are coming soon!</p>
+                
+                <div class="cards-wrapper">
+                    <!-- Карточка Актау -->
+<div class="city-card">
+    <img src="images/Aktaumainpage.jpg" alt="Aktau Coastline" class="city-photo">
+    <div class="card-info">
+        <h3>Aktau</h3>
+        <p>The pearl of the Caspian Sea. Where the endless desert meets the deep blue waters.</p>
+        <a href="aktau.html" class="btn-outline">Read More</a>
+    </div>
+</div>
+
+<!-- Карточка Астаны -->
+<div class="city-card">
+    <img src="images/Astanamainpage.jpg" alt="Astana Cityscape" class="city-photo">
+    <div class="card-info">
+        <h3>Astana</h3>
+        <p>The modern capital of futuristic architecture, freezing winters, and warm hospitality.</p>
+        <a href="astana.html" class="btn-outline">Read More</a>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок с таблицей (Требование задания) -->
+        <section class="quick-facts fade-in delay-3">
+            <div class="container">
+                <h2>Kazakhstan Quick Facts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fact</th>
+                            <th>Detail</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Area</td>
+                            <td>2.7 million km²</td>
+                            <td>9th largest country in the world</td>
+                        </tr>
+                        <tr>
+                            <td>Population</td>
+                            <td>~20 Million</td>
+                            <td>Highly diverse and multicultural</td>
+                        </tr>
+                        <tr>
+                            <td>Climate</td>
+                            <td>Extreme Continental</td>
+                            <td>Very hot summers, very cold winters</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Форма подписки (Требование задания) -->
+        <section class="newsletter fade-in delay-4">
+            <div class="container">
+                <h2>Join Our Travelers Community</h2>
+                <p>Subscribe to get notified when we add new cities to our guide!</p>
+                
+                <form action="#" method="POST" class="sub-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-row radio-group">
+                        <label>Preferred upcoming region:</label>
+                        <label><input type="radio" name="region" value="south" checked> South (Almaty, Turkestan)</label>
+                        <label><input type="radio" name="region" value="east"> East (Oskemen, Altay)</label>
+                    </div>
+                    <button type="submit" class="btn">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Обязательный футер с именами -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kazakhstan Travel Guide.</p>
+            <p>Developed by: <strong>Ramazan Utegen & Ziyadinkhan</strong> | Group: SE-2501</p>
+        </div>
+    </footer>
+</body>
+</html>
