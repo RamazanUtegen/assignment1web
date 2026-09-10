@@ -1,0 +1,367 @@
+
+body {
+    background-color: #FBEEC1; 
+    color: #2b2b2b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    color: #659DBD; 
+    margin-top: 0;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+#main-header {
+    background-color: #8D8741; /* Оливковый цвет */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.nav-menu .logo {
+    color: #FBEEC1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #FBEEC1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: #DAAD86; 
+}
+
+.hero {
+    position: relative;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #BC986A; 
+    overflow: hidden;
+}
+
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #FBEEC1;
+    max-width: 800px;
+    padding: 20px;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #FBEEC1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    color: #FBEEC1;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.btn {
+    display: inline-block;
+    background-color: #DAAD86;
+    color: #2b2b2b;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #BC986A;
+    color: #FBEEC1;
+    transform: translateY(-3px); /* Анимация поднятия кнопки */
+}
+
+.btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: #659DBD;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #659DBD;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #659DBD;
+    color: #FBEEC1;
+}
+
+.about-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.about-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid #8D8741;
+}
+
+.about-card ul {
+    padding-left: 20px;
+    color: #555;
+}
+
+.destinations {
+    background-color: #eaddb6;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8D8741;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.destinations h2, .quick-facts h2, .newsletter h2, .about-site h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cards-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.city-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 45%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.city-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.card-info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+table th, table td {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+table th {
+    background-color: #659DBD;
+    color: #FBEEC1;
+    font-size: 1.1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #FBEEC1;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter {
+    background-color: #8D8741;
+    color: #FBEEC1;
+    text-align: center;
+}
+
+.newsletter h2 {
+    color: #FBEEC1;
+}
+
+.sub-form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"] {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-row input:focus {
+    box-shadow: 0 0 0 3px #DAAD86;
+}
+
+.radio-group {
+    color: #FBEEC1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.radio-group label {
+    cursor: pointer;
+}
+
+footer {
+    background-color: #2b2b2b;
+    color: #FBEEC1;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@keyframes fadeInOpacity {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeInOpacity 1s ease-out forwards;
+    opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
