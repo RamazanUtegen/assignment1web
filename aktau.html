@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Page credit: Ramazan Utegen. Team: Ramazan Utegen and Ziyadinkhan, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aktau Travel Guide</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/forms.js" defer></script>
 </head>
 <body>
     <header id="main-header">
@@ -12,8 +14,9 @@
             <div class="logo">KZ Travel</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="aktau.html" class="active">Aktau</a></li>
+                <li><a href="aktau.html" class="active" aria-current="page">Aktau</a></li>
                 <li><a href="astana.html">Astana</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -110,23 +113,23 @@
 
         <section class="newsletter fade-in delay-4" id="contact-form">
             <div class="container">
-                <h2>Book an Aktau Excursion</h2>
-                <p>Fill out the form below to reserve your guided tour across Mangystau.</p>
+                <h2>Plan an Aktau Excursion</h2>
+                <p>Try our excursion enquiry demo. No booking is made and no information is sent.</p>
                 
-                <form action="#" method="POST" class="sub-form">
+                <form class="sub-form" data-demo-form>
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <label class="field">Your name<input type="text" name="name" autocomplete="name" required></label>
+                        <label class="field">Your email<input type="email" name="email" autocomplete="email" required></label>
                     </div>
-                    <div class="form-row radio-group">
-                        <label>Select Tour Package:</label>
+                    <fieldset class="form-row radio-group">
+                        <legend>Select tour package</legend>
                         <label><input type="radio" name="package" value="bozjyra" checked> Bozjyra Jeep Tour</label>
                         <label><input type="radio" name="package" value="city"> City & Coast</label>
-                    </div>
-                    <div class="form-row" style="flex-direction: column;">
-                        <textarea name="message" rows="4" placeholder="Additional notes or questions..." style="width: 100%; padding: 12px; border-radius: 5px; border: none; outline: none;"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Booking Request</button>
+                    </fieldset>
+                    <label class="field">Message<textarea name="message" rows="4" placeholder="Additional notes or questions..." required></textarea></label>
+                    <button type="submit" class="btn" disabled>Try Enquiry</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                    <noscript>This demo needs JavaScript to display a confirmation. No booking will be made.</noscript>
                 </form>
             </div>
         </section>

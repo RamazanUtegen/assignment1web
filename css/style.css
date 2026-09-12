@@ -1,3 +1,29 @@
+/* Shared foundations: element selectors and the box model. */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 120px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: #315e77;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 3px solid #315e77;
+    outline-offset: 4px;
+}
 
 body {
     background-color: #FBEEC1; 
@@ -6,11 +32,10 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 h1, h2, h3 {
-    color: #659DBD; 
+    color: #315e77;
     margin-top: 0;
 }
 
@@ -64,7 +89,9 @@ h1, h2, h3 {
 }
 
 .nav-menu a:hover, .nav-menu a.active {
-    color: #DAAD86; 
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
 .hero {
@@ -76,16 +103,6 @@ h1, h2, h3 {
     text-align: center;
     background-color: #BC986A; 
     overflow: hidden;
-}
-
-.hero {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden; 
 }
 
 .hero-bg-img {
@@ -116,25 +133,6 @@ h1, h2, h3 {
     max-width: 800px;
     padding: 20px;
 }
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 2;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-    color: #FBEEC1;
-    max-width: 800px;
-    padding: 20px;
-}
-
 .hero-content h1 {
     color: #FBEEC1;
     font-size: 4rem;
@@ -168,10 +166,16 @@ h1, h2, h3 {
     transform: translateY(-3px); /* Анимация поднятия кнопки */
 }
 
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .btn-outline {
     display: inline-block;
     background-color: transparent;
-    color: #659DBD;
+    color: #315e77;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
@@ -319,17 +323,19 @@ table tr:hover {
     justify-content: center;
 }
 
-.form-row input[type="text"],
-.form-row input[type="email"] {
-    flex: 1;
+.field input, .field textarea {
+    width: 100%;
     padding: 12px;
-    border: none;
+    border: 2px solid #eaddb6;
     border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
+    font: inherit;
+    color: #2b2b2b;
+    background-color: #fff;
 }
 
-.form-row input:focus {
+.sub-form input:focus, .sub-form textarea:focus {
+    outline: 2px solid #2b2b2b;
+    outline-offset: 2px;
     box-shadow: 0 0 0 3px #DAAD86;
 }
 
@@ -338,6 +344,11 @@ table tr:hover {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
+    border: 1px solid #FBEEC1;
+    border-radius: 5px;
+    padding: 15px;
+    min-width: 0;
 }
 
 .radio-group label {
@@ -365,3 +376,182 @@ footer {
 .delay-2 { animation-delay: 0.6s; }
 .delay-3 { animation-delay: 0.9s; }
 .delay-4 { animation-delay: 1.2s; }
+
+/* Reusable fields keep all form styling in this external stylesheet. */
+.field {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    text-align: left;
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 120px;
+    margin-bottom: 20px;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status {
+    padding: 15px;
+    color: #2b2b2b;
+    background-color: #FBEEC1;
+    border-radius: 5px;
+}
+
+/* About page and Astana itinerary. */
+.about-intro {
+    background-color: #eaddb6;
+}
+
+.about-intro-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.about-intro h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.15;
+}
+
+.eyebrow {
+    color: #615d29;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+.feature-circle {
+    width: 320px;
+    height: 320px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+figcaption, caption {
+    padding: 12px 0;
+    color: #555;
+}
+
+.itinerary {
+    max-width: 850px;
+    margin: 30px auto;
+    padding-left: 35px;
+}
+
+.itinerary li {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 4px solid #8D8741;
+    border-radius: 5px;
+}
+
+.itinerary li::marker {
+    color: #315e77;
+    font-weight: 700;
+}
+
+.itinerary h3, .itinerary p {
+    margin-bottom: 8px;
+}
+
+.guide-note {
+    text-align: center;
+}
+
+.guide-note .btn-outline {
+    margin: 6px;
+}
+
+/* Stack wide layouts on small screens instead of clipping their content. */
+@media (max-width: 700px) {
+    .nav-menu, .nav-menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .nav-menu .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 65vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .about-grid, .cards-wrapper, .form-row {
+        flex-direction: column;
+    }
+
+    .city-card {
+        width: 100%;
+    }
+
+    .about-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .feature-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .destinations h2, .quick-facts h2, .newsletter h2, .about-site h2 {
+        font-size: 1.9rem;
+    }
+
+    .sub-form, .about-card, .card-info {
+        padding: 20px;
+    }
+
+    table {
+        table-layout: fixed;
+        overflow-wrap: anywhere;
+    }
+
+    table th, table td {
+        padding: 10px 7px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .fade-in {
+        opacity: 1;
+    }
+}

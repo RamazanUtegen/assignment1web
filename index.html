@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Page credit: Ramazan Utegen. Team: Ramazan Utegen and Ziyadinkhan, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Kazakhstan</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/forms.js" defer></script>
 </head>
 <body>
     <header id="main-header">
         <nav class="nav-menu">
             <div class="logo">KZ Travel</div>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                 <li><a href="aktau.html">Aktau</a></li>
                 <li><a href="astana.html">Astana</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -76,7 +79,6 @@
         <a href="astana.html" class="btn-outline">Read More</a>
     </div>
 </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -116,20 +118,30 @@
         <section class="newsletter fade-in delay-4">
             <div class="container">
                 <h2>Join Our Travelers Community</h2>
-                <p>Subscribe to get notified when we add new cities to our guide!</p>
+                <p>Try our community signup demo. No subscription is created and no information is sent.</p>
                 
-                <form action="#" method="POST" class="sub-form">
+                <form class="sub-form" data-demo-form>
                     <div class="form-row">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
+                        <label class="field">Your name<input type="text" name="name" autocomplete="name" required></label>
+                        <label class="field">Your email<input type="email" name="email" autocomplete="email" required></label>
                     </div>
-                    <div class="form-row radio-group">
-                        <label>Preferred upcoming region:</label>
+                    <fieldset class="form-row radio-group">
+                        <legend>Preferred upcoming region</legend>
                         <label><input type="radio" name="region" value="south" checked> South (Almaty, Turkestan)</label>
                         <label><input type="radio" name="region" value="east"> East (Oskemen, Altay)</label>
-                    </div>
-                    <button type="submit" class="btn">Subscribe Now</button>
+                    </fieldset>
+                    <label class="field">Message<textarea name="message" rows="4" required></textarea></label>
+                    <button type="submit" class="btn" disabled>Try Signup</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                    <noscript>This demo needs JavaScript to display a confirmation. No subscription will be created.</noscript>
                 </form>
+            </div>
+        </section>
+        <section class="about-site">
+            <div class="container">
+                <h2>About the Team Members</h2>
+                <p>We are Ramazan Utegen and Ziyadinkhan from group SE-2501. Our KZ Travel project explores Kazakhstan through city guides while we practise HTML and CSS.</p>
+                <p>Ramazan's assigned pages are Home and Aktau. Ziyadinkhan's assigned pages are Astana and About Us. <a href="about.html">Meet the team and see our roles.</a></p>
             </div>
         </section>
     </main>
