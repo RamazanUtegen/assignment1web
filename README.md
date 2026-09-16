@@ -1,6 +1,6 @@
 # KZ Travel - Assignment 1
 
-Team: Ramazan Utegen and Ziyadinkhan. Group: SE-2501.
+Team: Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad. Group: SE-2501.
 
 ## Run locally
 
@@ -12,8 +12,9 @@ Open `index.html` in a browser, or run `python3 -m http.server 8000` from this f
 | --- | --- |
 | Ramazan Utegen | `index.html`, `aktau.html` |
 | Ziyadinkhan | `astana.html`, `about.html` |
+| Ruzimuhammad | `almaty.html`, `shymkent.html` |
 
-All four pages use `css/style.css`. Images are in `images/`. No CSS frameworks or UI libraries are used.
+All six pages use `css/style.css`. Images are in `images/`. No CSS frameworks or UI libraries are used.
 
 ## Understanding your contribution
 
