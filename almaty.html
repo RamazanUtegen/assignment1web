@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Page credit: Ruzimuhammad. Team: Ramazan Utegen, Ziyadinkhan and Ruzimuhammad, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almaty - KZ Travel</title>
+    <title>Almaty Travel Guide</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/forms.js" defer></script>
 </head>
 <body>
     <header id="main-header">
-        <h1>KZ Travel</h1>
-        <nav>
-            <ul class="nav-menu">
+        <nav class="nav-menu">
+            <div class="logo">KZ Travel</div>
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aktau.html">Aktau</a></li>
                 <li><a href="astana.html">Astana</a></li>
-                <li><a href="almaty.html" aria-current="page">Almaty</a></li>
+                <li><a href="almaty.html" class="active" aria-current="page">Almaty</a></li>
                 <li><a href="shymkent.html">Shymkent</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
@@ -22,50 +24,124 @@
     </header>
 
     <main>
-        <section>
-            <h2>Welcome to Almaty</h2>
-            <p>Almaty is the largest city in Kazakhstan, located in the foothills of the Trans-Ili Alatau mountains. It is famous for its beautiful nature, apples, and vibrant culture.</p>
-            
-            <img src="images/almaty.jpg" alt="View of Almaty">
-            
-            <h3>Top Attractions</h3>
-            <ul>
-                <li>Medeu Skating Rink</li>
-                <li>Shymbulak Ski Resort</li>
-                <li>Kok Tobe Park</li>
-                <li>Big Almaty Lake</li>
-            </ul>
+        <section class="hero fade-in">
+            <img src="images/Mountain.jpg" alt="Almaty Mountain View" class="hero-bg-img">
+            <div class="hero-content">
+                <h1>Almaty: Southern Capital</h1>
+                <p>Explore majestic mountains, scenic ice rinks, and vibrant cultural landmarks.</p>
+            </div>
         </section>
 
-        <section>
-            <h3>Tourist Activities & Prices</h3>
-            <table>
-                <tr>
-                    <th>Activity</th>
-                    <th>Location</th>
-                    <th>Average Price</th>
-                </tr>
-                <tr>
-                    <td>Ice Skating</td>
-                    <td>Medeu</td>
-                    <td>2500 KZT</td>
-                </tr>
-                <tr>
-                    <td>Cable Car</td>
-                    <td>Kok Tobe</td>
-                    <td>3000 KZT</td>
-                </tr>
-                <tr>
-                    <td>Skiing</td>
-                    <td>Shymbulak</td>
-                    <td>9000 KZT</td>
-                </tr>
-            </table>
+        <section class="about-site fade-in delay-1">
+            <div class="container">
+                <h2>About Almaty Region</h2>
+                <p>Almaty is surrounded by the stunning Trans-Ili Alatau mountains. Here are the top locations you must visit:</p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Must-See Natural Spots</h3>
+                        <ul>
+                            <li><strong>Big Almaty Lake:</strong> High-altitude turquoise alpine reservoir.</li>
+                            <li><strong>Charyn Canyon:</strong> Dramatic rock formations resembling the Grand Canyon.</li>
+                            <li><strong>Kolsai Lakes:</strong> A system of picturesque mountain lakes.</li>
+                        </ul>
+                    </div>
+                    <div class="about-card">
+                        <h3>Cultural & Historical Sites</h3>
+                        <ul>
+                            <li><strong>Medeu Skating Rink:</strong> The highest Olympic-sized ice rink in the world.</li>
+                            <li><strong>Shymbulak Ski Resort:</strong> Premier ski resort in the Zailiysky Alatau.</li>
+                            <li><strong>Kok Tobe Park:</strong> Scenic hilltop park with panoramic city views.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations fade-in delay-2">
+            <div class="container">
+                <h2>Top Highlights in Detail</h2>
+                <p class="subtitle">Breathtaking locations you can explore during your trip.</p>
+                
+                <div class="cards-wrapper">
+                    <div class="city-card">
+                        <img src="images/Medeu.jpg" alt="Medeu and Shymbulak" class="city-photo">
+                        <div class="card-info">
+                            <h3>Medeu & Shymbulak</h3>
+                            <p>World-famous mountain sports complex located high above the city, offering stunning views and alpine trails.</p>
+                        </div>
+                    </div>
+                    <div class="city-card">
+                        <img src="images/Kok Tobe.jpg" alt="Kok Tobe" class="city-photo">
+                        <div class="card-info">
+                            <h3>Kok Tobe Hill</h3>
+                            <p>A popular recreation area accessible via cable car from the city center, featuring attractions and observation decks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-facts fade-in delay-3">
+            <div class="container">
+                <h2>Recommended 3-Day Excursion Schedule</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Destination / Route</th>
+                            <th>Activity Highlights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Day 1</td>
+                            <td>Almaty City & Kok Tobe</td>
+                            <td>Cable car ride, city museum, evening park walk</td>
+                        </tr>
+                        <tr>
+                            <td>Day 2</td>
+                            <td>Medeu & Shymbulak</td>
+                            <td>Mountain tourism, hiking, cableway trip</td>
+                        </tr>
+                        <tr>
+                            <td>Day 3</td>
+                            <td>Charyn Canyon & Kolsai</td>
+                            <td>Valley of Castles excursion, lakeside photography</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="newsletter fade-in delay-4" id="contact-form">
+            <div class="container">
+                <h2>Plan an Almaty Excursion</h2>
+                <p>Try our excursion enquiry demo. No booking is made and no information is sent.</p>
+                
+                <form class="sub-form" data-demo-form>
+                    <div class="form-row">
+                        <label class="field">Your name<input type="text" name="name" autocomplete="name" required></label>
+                        <label class="field">Your email<input type="email" name="email" autocomplete="email" required></label>
+                    </div>
+                    <fieldset class="form-row radio-group">
+                        <legend>Select tour package</legend>
+                        <label><input type="radio" name="package" value="mountains" checked> Mountain Adventure</label>
+                        <label><input type="radio" name="package" value="city"> City & Culture</label>
+                    </fieldset>
+                    <label class="field">Message<textarea name="message" rows="4" placeholder="Additional notes or questions..." required></textarea></label>
+                    <button type="submit" class="btn" disabled>Try Enquiry</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                    <noscript>This demo needs JavaScript to display a confirmation. No booking will be made.</noscript>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Team: Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad</p>
+        <div class="container">
+            <p>&copy; 2026 Kazakhstan Travel Guide - Almaty Section.</p>
+            <p>Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad</strong> | Group: SE-2501</p>
+        </div>
     </footer>
 </body>
 </html>
