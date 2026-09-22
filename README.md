@@ -56,3 +56,9 @@ Each team member should submit:
 2. The project report PDF with all six page screenshots and the live website link.
 
 The team should also be ready to explain the HTML structure, CSS selectors, box model, navigation, tables, forms, and responsive layout during the lesson.
+
+## Assignment 2: Astana and About Us
+
+Ziyadinkhan's pages now include Flexbox navigation and equal-height image cards, named CSS Grid page areas with sidebars, and a nine-image Grid gallery on About Us. Both pages adapt to mobile screens. Their additional styles are in `css/assignment2.css`; the other members' pages keep their existing styles.
+
+See [the implementation and defense notes](docs/assignment-2.md) for the task checklist, team responsibilities, verification, and image credits. The local `output` folder contains the contribution report, screenshots, and project ZIP; generated deliverables are excluded from Git.

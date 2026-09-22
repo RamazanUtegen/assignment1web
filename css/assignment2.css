@@ -1,0 +1,131 @@
+/* Ziyadinkhan's Assignment 2 pages. Loaded only by Astana and About Us. */
+
+/* Task 3: the body is the parent for all four named grid areas. */
+.assignment-two {
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    min-height: 100vh;
+}
+.assignment-two #main-header { grid-area: header; }
+.assignment-two main { grid-area: main; min-width: 0; }
+.assignment-two footer { grid-area: footer; }
+.assignment-two section, .assignment-two .itinerary li { scroll-margin-top: 110px; }
+.assignment-two .page-sidebar {
+    grid-area: sidebar;
+    padding: 42px 24px;
+    background: #f4e4b4;
+    border-right: 1px solid #d7c896;
+}
+.page-sidebar h2 { font-size: 1.45rem; line-height: 1.25; }
+.page-sidebar .eyebrow { font-size: .7rem; }
+.page-sidebar nav { display: flex; flex-direction: column; gap: 8px; }
+.page-sidebar nav a { padding: 12px 0; border-bottom: 1px solid #d7c896; font-weight: 600; }
+.sidebar-note { margin-top: 36px; padding-top: 24px; border-top: 3px solid #8d8741; font-size: .9rem; }
+.sidebar-note h3 { margin-bottom: 8px; }
+
+/* Task 1: horizontal navigation with space between the brand and link group. */
+.assignment-two .nav-menu { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.assignment-two .nav-menu ul { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+.assignment-two .nav-menu .logo { flex-shrink: 0; }
+.assignment-two .container { width: 90%; padding: 48px 0; }
+.assignment-two h2 { line-height: 1.2; }
+.assignment-two .hero { min-height: 430px; height: 62vh; max-height: 650px; }
+.assignment-two .hero-content h1 { font-size: clamp(2.2rem, 4.5vw, 4rem); line-height: 1.12; }
+.assignment-two .hero-content p { font-size: 1.15rem; }
+.assignment-two .eyebrow { font-size: .75rem; }
+.assignment-two .about-intro-grid { gap: 24px; }
+.assignment-two .feature-circle { width: min(100%, 300px); height: auto; aspect-ratio: 1; }
+.assignment-two .about-intro h1 { font-size: clamp(2rem, 3.5vw, 3.6rem); }
+.assignment-two .about-grid { gap: 20px; }
+.assignment-two .about-card { min-width: 0; }
+.assignment-two .subtitle { color: #615d29; }
+
+/* Task 2: stretch gives each card equal height; a growing body aligns buttons. */
+.feature-cards { display: flex; align-items: stretch; gap: 22px; margin-top: 28px; }
+.feature-card {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    min-width: 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgb(43 43 43 / 8%);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.feature-card:hover, .feature-card:focus-within { transform: translateY(-5px); box-shadow: 0 12px 24px rgb(43 43 43 / 16%); }
+.feature-card > img { display: block; width: 100%; height: 190px; object-fit: cover; }
+.feature-card-content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 24px; }
+.feature-card h3 { font-size: 1.3rem; overflow-wrap: anywhere; margin-bottom: 8px; }
+.feature-card p { margin: 0 0 18px; }
+.feature-card .eyebrow { font-size: .67rem; }
+.feature-card .btn-outline { margin-top: auto; font-size: .9rem; }
+
+/* Task 4: nine distinct photos in equal columns and equal-height rows. */
+.photo-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 230px; gap: 18px; margin-top: 28px; }
+.gallery-item { position: relative; display: block; overflow: hidden; border-radius: 10px; background: #315e77; }
+.gallery-item figure { height: 100%; }
+.gallery-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.gallery-item figcaption { position: absolute; inset: auto 0 0; padding: 36px 16px 16px; color: #fff; background: linear-gradient(transparent, rgb(0 0 0 / 90%)); text-align: left; font-weight: 700; }
+.gallery-item figcaption span { display: block; max-height: 0; opacity: 0; overflow: hidden; font-size: .8rem; font-weight: 400; transition: max-height .3s ease, opacity .3s ease; }
+.gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.06); }
+.gallery-item:hover span, .gallery-item:focus-visible span { max-height: 4em; opacity: 1; }
+.gallery-item:focus-visible { outline-offset: 4px; }
+.assignment-two .photo-credits { font-size: .8rem; }
+.assignment-two footer a { color: #fbeec1; text-decoration: underline; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 200; background: white; padding: 12px 20px; border-radius: 5px; }
+.skip-link:focus { top: 12px; }
+
+@media (max-width: 1100px) {
+    .assignment-two { grid-template-columns: 190px minmax(0, 1fr); }
+    .assignment-two .page-sidebar { padding: 32px 18px; }
+    .feature-cards { gap: 14px; }
+    .feature-card-content { padding: 18px; }
+    .feature-card > img { height: 150px; }
+    .assignment-two .about-intro-grid { grid-template-columns: 1fr; }
+    .assignment-two .about-intro figure { display: none; }
+    .photo-gallery { grid-auto-rows: 190px; }
+}
+@media (max-width: 850px) {
+    .assignment-two { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; grid-template-areas: "header" "sidebar" "main" "footer"; }
+    .assignment-two #main-header { position: static; }
+    .assignment-two .page-sidebar { padding: 20px 5%; border-right: 0; border-bottom: 1px solid #d7c896; }
+    .page-sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 8px 22px; }
+    .page-sidebar nav a { font-size: .85rem; padding: 6px 0; }
+    .page-sidebar .sidebar-note, .page-sidebar > .eyebrow { display: none; }
+    .page-sidebar h2 { font-size: 1.15rem; margin-bottom: 10px; }
+    .assignment-two .nav-menu { flex-wrap: wrap; justify-content: center; }
+    .assignment-two .nav-menu ul { justify-content: center; }
+    .assignment-two .nav-menu .logo { width: 100%; text-align: center; }
+    .assignment-two .about-intro-grid { grid-template-columns: 3fr 2fr; }
+    .assignment-two .about-intro figure { display: block; }
+    .assignment-two section, .assignment-two .itinerary li { scroll-margin-top: 20px; }
+}
+@media (max-width: 620px) {
+    .feature-cards { flex-direction: column; gap: 24px; }
+    .feature-card { flex: none; }
+    .feature-card > img { height: 220px; }
+    .feature-card-content { padding: 24px; }
+    .assignment-two .about-intro-grid { grid-template-columns: 1fr; }
+    .assignment-two .about-grid { flex-direction: column; }
+    .photo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; gap: 12px; }
+    .gallery-item figcaption { padding: 30px 12px 12px; }
+    .assignment-two .nav-menu a { font-size: 1rem; }
+    .assignment-two .container { padding: 36px 0; }
+    .assignment-two .hero { min-height: 430px; height: auto; }
+}
+@media (max-width: 380px) {
+    .photo-gallery { grid-template-columns: 1fr; grid-auto-rows: 230px; }
+}
+/* Touch users see the captions without needing a hover gesture. */
+@media (hover: none) {
+    .gallery-item figcaption span { max-height: 4em; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .feature-card:hover, .feature-card:focus-within, .gallery-item:hover img, .gallery-item:focus-visible img { transform: none; }
+}
