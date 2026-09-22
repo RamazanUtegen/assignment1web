@@ -4,13 +4,16 @@
     <!-- Page credit: Ramazan Utegen. Team: Ramazan Utegen, Ziyadinkhan and Rizamukahmanjan, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aktau Travel Guide</title>
+    <meta name="description" content="Aktau Travel Guide: discover Caspian coastlines, dramatic canyons like Bozjyra, underground mosques, and 3-day excursion itineraries.">
+    <title>Aktau Travel Guide | KZ Travel</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/assignment2.css">
     <script src="js/forms.js" defer></script>
 </head>
-<body>
+<body class="assignment-two">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header id="main-header">
-        <nav class="nav-menu">
+        <nav class="nav-menu" aria-label="Main navigation">
             <div class="logo">KZ Travel</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,84 +26,163 @@
         </nav>
     </header>
 
-    <main>
+    <aside class="page-sidebar" aria-labelledby="sidebar-title">
+        <p class="eyebrow">Your Caspian guide</p>
+        <h2 id="sidebar-title">Explore Aktau</h2>
+        <nav aria-label="On this page">
+            <a href="#highlights">01 / Mangystau spots</a>
+            <a href="#places">02 / Top highlights</a>
+            <a href="#gallery">03 / Coastal gallery</a>
+            <a href="#schedule">04 / 3-Day excursion</a>
+            <a href="#contact-form">05 / Plan excursion</a>
+        </nav>
+        <div class="sidebar-note">
+            <h3>Desert &amp; Sea</h3>
+            <p>Experience Caspian shores and otherworldly canyon landscapes.</p>
+            <a href="about.html#gallery">Explore our photo journal &rarr;</a>
+        </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
         <section class="hero fade-in">
             <img src="images/Aktaumainpage.jpg" alt="Aktau Caspian Coastline" class="hero-bg-img">
             <div class="hero-content">
                 <h1>Aktau: Pearl of the Caspian</h1>
                 <p>Discover ancient underground mosques, dramatic canyons, and breathtaking seaside views.</p>
+                <a href="#highlights" class="btn">Explore Aktau</a>
             </div>
         </section>
 
-        <section class="about-site fade-in delay-1">
+        <section class="about-site fade-in delay-1" id="highlights">
             <div class="container">
                 <h2>About Mangystau Region</h2>
                 <p>Aktau is your gateway to the unique landscapes of western Kazakhstan. Here are the top locations you must visit:</p>
                 <div class="about-grid">
-                    <div class="about-card">
+                    <article class="about-card">
                         <h3>Must-See Natural Spots</h3>
                         <ul>
                             <li><strong>Bozjyra Valley:</strong> Stunning chalk spires and desert canyons.</li>
                             <li><strong>Torysh (Valley of Balls):</strong> Mysterious spherical stone concretions.</li>
                             <li><strong>Karagiye Depression:</strong> One of the deepest dry depressions on Earth.</li>
                         </ul>
-                    </div>
-                    <div class="about-card">
-                        <h3>Cultural & Historical Sites</h3>
+                    </article>
+                    <article class="about-card">
+                        <h3>Cultural &amp; Historical Sites</h3>
                         <ul>
                             <li><strong>Beket-Ata Underground Mosque:</strong> A sacred 18th-century pilgrimage site.</li>
-                            <li><strong>Shakpak-Ata:</strong> Ancient rock-cut mosque with ancient petroglyphs.</li>
+                            <li><strong>Shakpak-Ata:</strong> Ancient rock-cut mosque with intricate petroglyphs.</li>
                             <li><strong>Aktau Rock Trail:</strong> Scenic pedestrian walkway along the Caspian cliffs.</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="destinations fade-in delay-2">
+        <section class="destinations fade-in delay-2" id="places">
             <div class="container">
+                <p class="eyebrow">Three iconic destinations</p>
                 <h2>Top Highlights in Detail</h2>
-                <p class="subtitle">Breathtaking locations you can explore during your trip.</p>
+                <p class="subtitle">Breathtaking locations you can explore during your Mangystau adventure.</p>
                 
-                <div class="cards-wrapper">
-                    <div class="city-card">
-                        <img src="images/bozjyra.jpg" alt="Bozjyra Canyon" class="city-photo">
-                        <div class="card-info">
+                <div class="feature-cards">
+                    <article class="feature-card">
+                        <img src="images/bozjyra.jpg" alt="Bozjyra Canyon chalk spires" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Desert Canyons</p>
                             <h3>Bozjyra Canyon</h3>
-                            <p>A majestic architectural creation of nature located in the Ustyurt Plateau. Famous for its white clay mountains.</p>
+                            <p>A majestic architectural creation of nature located on the Ustyurt Plateau. Famous for its towering white chalk cliffs and prehistoric seabed remnants.</p>
+                            <a class="btn-outline" href="#schedule">Plan a canyon jeep tour</a>
                         </div>
-                    </div>
-                    <div class="city-card">
-                        <img src="images/rocktrail.jpg" alt="Aktau Rock Trail" class="city-photo">
-                        <div class="card-info">
+                    </article>
+                    <article class="feature-card">
+                        <img src="images/rocktrail.jpg" alt="Aktau Rock Trail along Caspian Sea" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Pedestrian Coast</p>
                             <h3>Aktau Rock Trail</h3>
-                            <p>A modern walking path along the Caspian Sea cliffs equipped with lighting, observation decks, and historical monuments.</p>
+                            <p>A modern cliffside walkway carved directly between rocky limestone walls and the Caspian Sea, featuring evening illumination and scenic overlooks.</p>
+                            <a class="btn-outline" href="#schedule">Explore the coastal path</a>
                         </div>
-                    </div>
+                    </article>
+                    <article class="feature-card">
+                        <img src="images/Aktaumainpage.jpg" alt="Aktau Caspian Coastline and beaches" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Seaside Escapes</p>
+                            <h3>Caspian Coastline</h3>
+                            <p>Relax beside warm turquoise waters where endless steppe meets sea. Enjoy stunning sunset promenades, seaside cafes, and quiet coastal beaches.</p>
+                            <a class="btn-outline" href="#contact-form">Plan coastal relaxation</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="quick-facts fade-in delay-3">
+        <section class="about-site" id="gallery" aria-labelledby="aktau-gallery-title">
+            <div class="container">
+                <p class="eyebrow">Western Kazakhstan Photo Journal</p>
+                <h2 id="aktau-gallery-title">Mangystau &amp; Caspian Horizons</h2>
+                <p>From the chalk spires of the Ustyurt Plateau to the shimmering waters of the Caspian Sea, experience the visual marvels of Aktau.</p>
+                <div class="photo-gallery">
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/bozjyra.jpg" alt="Bozjyra canyon panoramic view" loading="lazy" width="800" height="600">
+                            <figcaption>Bozjyra Plateau <span>Chalk spires sculpted by time</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/rocktrail.jpg" alt="Aktau Rock Trail pedestrian boardwalk" loading="lazy" width="800" height="600">
+                            <figcaption>Rock Trail Boardwalk <span>Clifftop pathways along the sea</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/Aktaumainpage.jpg" alt="Caspian shore turquoise water" loading="lazy" width="800" height="600">
+                            <figcaption>Caspian Shoreline <span>Deep blue meets western sands</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="index.html#destinations">
+                        <figure>
+                            <img src="images/KZ.jpg" alt="Kazakhstan vast steppe and canyon vista" loading="lazy" width="800" height="600">
+                            <figcaption>Ustyurt Horizons <span>Endless steppe and golden plateaus</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/rocktrail.jpg" alt="Caspian limestone rocks and waves" loading="lazy" width="800" height="600">
+                            <figcaption>Limestone Cliffs <span>Wave-swept maritime formations</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/bozjyra.jpg" alt="Bozjyra twin fangs rock peaks" loading="lazy" width="800" height="600">
+                            <figcaption>White Fang Peaks <span>Iconic geological monuments</span></figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-facts fade-in delay-3" id="schedule">
             <div class="container">
                 <h2>Recommended 3-Day Excursion Schedule</h2>
                 <table>
+                    <caption>Curated 3-day itinerary through Aktau and the Mangystau region</caption>
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Destination / Route</th>
-                            <th>Activity Highlights</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">Destination / Route</th>
+                            <th scope="col">Activity Highlights</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Day 1</td>
-                            <td>Aktau City & Rock Trail</td>
+                            <td>Aktau City &amp; Rock Trail</td>
                             <td>Seaside walk, local museum, sunset view at Caspian shore</td>
                         </tr>
                         <tr>
                             <td>Day 2</td>
-                            <td>Bozjyra & Ustyurt Plateau</td>
+                            <td>Bozjyra &amp; Ustyurt Plateau</td>
                             <td>Off-road jeep tour, canyon viewpoints, photography</td>
                         </tr>
                         <tr>
@@ -126,13 +208,22 @@
                     <fieldset class="form-row radio-group">
                         <legend>Select tour package</legend>
                         <label><input type="radio" name="package" value="bozjyra" checked> Bozjyra Jeep Tour</label>
-                        <label><input type="radio" name="package" value="city"> City & Coast</label>
+                        <label><input type="radio" name="package" value="city"> City &amp; Coast</label>
                     </fieldset>
                     <label class="field">Message<textarea name="message" rows="4" placeholder="Additional notes or questions..." required></textarea></label>
                     <button type="submit" class="btn" disabled>Try Enquiry</button>
                     <p class="form-status" role="status" aria-live="polite"></p>
                     <noscript>This demo needs JavaScript to display a confirmation. No booking will be made.</noscript>
                 </form>
+            </div>
+        </section>
+
+        <section class="about-site">
+            <div class="container guide-note">
+                <h2>Behind This Guide</h2>
+                <p>Ramazan Utegen is a student in group SE-2501. His assigned pages are this Aktau guide and the Homepage. He worked on coastal guides, destination cards, and responsive layouts.</p>
+                <a href="about.html" class="btn-outline">Meet Our Team</a>
+                <a href="astana.html" class="btn-outline">Explore Astana Next</a>
             </div>
         </section>
     </main>

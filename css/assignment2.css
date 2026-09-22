@@ -1,4 +1,4 @@
-/* Ziyadinkhan's Assignment 2 pages. Loaded only by Astana and About Us. */
+/* KZ Travel: Assignment 2 Advanced CSS (Flexbox & Grid). Loaded by Astana, About Us, Home, and Aktau. */
 
 /* Task 3: the body is the parent for all four named grid areas. */
 .assignment-two {
@@ -45,8 +45,9 @@
 .assignment-two .about-card { min-width: 0; }
 .assignment-two .subtitle { color: #615d29; }
 
-/* Task 2: stretch gives each card equal height; a growing body aligns buttons. */
-.feature-cards { display: flex; align-items: stretch; gap: 22px; margin-top: 28px; }
+/* Task 2: stretch gives each card equal height; flex-wrap allows flexible rows; a growing body aligns buttons. */
+.feature-cards { display: flex; flex-wrap: wrap; align-items: stretch; gap: 22px; margin-top: 28px; }
+.feature-cards.cards-4 .feature-card { flex: 1 1 calc(50% - 22px); min-width: 250px; }
 .feature-card {
     display: flex;
     flex: 1 1 0;

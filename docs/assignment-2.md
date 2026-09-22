@@ -10,8 +10,16 @@ Team: KZ Travel. Group: SE-2501.
 
 ## Scope and implementation
 
-This update implements Assignment 2 on **Astana and About Us only**. Other members remain responsible for updating and documenting their pages. The shared Assignment 1 stylesheet is preserved; only these two pages load `css/assignment2.css`.
+This update implements Assignment 2 on **Home (`index.html`) and Aktau (`aktau.html`) by Ramazan Utegen**, alongside **Astana (`astana.html`) and About Us (`about.html`) by Ziyadinkhan**. The shared Assignment 1 stylesheet is preserved; Assignment 2 pages load `css/assignment2.css`.
 
+### Ramazan Utegen's Implementation (Home and Aktau)
+1. **Task 1 (Navigation Bar via Flexbox)**: `.nav-menu` uses Flexbox with `justify-content: space-between` and `align-items: center` to keep the brand logo on the left and navigation links on the right. Links are neatly spaced using `gap`, vertically centered, and wrap cleanly on narrow viewports.
+2. **Task 2 (Card Row via Flexbox)**: Both pages feature Flexbox card containers (`.feature-cards`) with `display: flex`, `flex-wrap: wrap`, and `align-items: stretch` ensuring all cards stretch to equal height in each row. Each card uses a column flex direction with `margin-top: auto` on buttons for baseline alignment, plus smooth hover lift (`translateY(-5px)`) and depth shadow transitions.
+3. **Task 3 (Page Layout with Grid Areas)**: Structured with CSS Grid areas (`"header header"`, `"sidebar main"`, `"footer footer"`). Dedicated sidebars (`.page-sidebar`) provide in-page anchor navigation to all key sections, collapsing to a single-column layout on viewports 850px and below.
+4. **Task 4 (Image Gallery via Grid)**: Implemented CSS Grid photo galleries (`.photo-gallery`) with equal-width columns (`repeat(3, minmax(0, 1fr))`), uniform row heights, consistent gaps, image zoom on hover, and smooth expanding caption overlays with full touch/accessibility support.
+5. **Consistency & Accessibility**: Consistent typography, warm color palette, skip links (`.skip-link`), descriptive alt texts, and responsive breakpoints at 1100px, 850px, 620px, and 380px.
+
+### Ziyadinkhan's Implementation (Astana and About Us)
 1. Navigation: `.nav-menu` and its list use Flexbox, with `space-between`, `align-items: center`, `gap`, and wrapping on narrow screens.
 2. Cards: three image/title/text/link-button cards on each assigned page. `.feature-cards` stretches the cards to equal row heights. Cards and their content use column Flexbox; `margin-top: auto` aligns buttons. Cards lift on hover or keyboard focus. On small screens they stack naturally.
 3. Page layout: the body defines `header`, `sidebar`, `main`, and `footer` Grid areas. Header/footer span both columns. Sidebars contain working section links. At 850px and below, sections stack in one column.
@@ -20,14 +28,14 @@ This update implements Assignment 2 on **Astana and About Us only**. Other membe
 
 ## Verification
 
-Chromium checks at 1440, 1024, 768, 390, and 320 pixels: no horizontal overflow; all images decode; all section targets exist; desktop cards have equal heights; mobile cards remain visible; gallery contains nine images; hover/focus captions work; skip links focus main content. Other members' pages do not load the new stylesheet.
-
-Screenshots and a PDF report for this contribution are provided in the local `output` directory. The submission ZIP includes the full website so navigation to teammates' pages works.
+Chromium checks at 1440, 1024, 768, 390, and 320 pixels: no horizontal overflow; all images decode; all section targets exist; desktop cards have equal heights; mobile cards remain visible; galleries contain equal-width columns and rows; hover/focus captions work; skip links focus main content.
 
 ## Deployment and submission
 
 Existing website: https://ramazanutegen.github.io/assignment1web/
 
+- Home: https://ramazanutegen.github.io/assignment1web/index.html
+- Aktau: https://ramazanutegen.github.io/assignment1web/aktau.html
 - Astana: https://ramazanutegen.github.io/assignment1web/astana.html
 - About Us: https://ramazanutegen.github.io/assignment1web/about.html
 

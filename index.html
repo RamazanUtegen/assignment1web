@@ -4,13 +4,16 @@
     <!-- Page credit: Ramazan Utegen. Team: Ramazan Utegen, Ziyadinkhan and Rizamukahmanjan, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Kazakhstan</title>
+    <meta name="description" content="Explore Kazakhstan: your travel guide to Aktau, Astana, Almaty, and Shymkent with scenic sights, galleries, and itineraries.">
+    <title>Explore Kazakhstan | KZ Travel</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/assignment2.css">
     <script src="js/forms.js" defer></script>
 </head>
-<body>
+<body class="assignment-two">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header id="main-header">
-        <nav class="nav-menu">
+        <nav class="nav-menu" aria-label="Main navigation">
             <div class="logo">KZ Travel</div>
             <ul>
                 <li><a href="index.html" class="active" aria-current="page">Home</a></li>
@@ -23,95 +26,163 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero fade-in">
-    <img src="images/KZ.jpg" alt="Kazakhstan Landscape" class="hero-bg-img">
-    
-    <div class="hero-content">
-        <h1>Discover the Heart of Eurasia</h1>
-        <p>Your ultimate guide to the breathtaking nature, modern cities, and rich culture of Kazakhstan.</p>
-        <a href="#destinations" class="btn">Explore Destinations</a>
-    </div>
-         </section>
+    <aside class="page-sidebar" aria-labelledby="sidebar-title">
+        <p class="eyebrow">Welcome to Kazakhstan</p>
+        <h2 id="sidebar-title">KZ Travel Guide</h2>
+        <nav aria-label="On this page">
+            <a href="#overview">01 / What you will find</a>
+            <a href="#destinations">02 / Featured cities</a>
+            <a href="#gallery">03 / Scenic gallery</a>
+            <a href="#facts">04 / Quick facts</a>
+            <a href="#community">05 / Community signup</a>
+        </nav>
+        <div class="sidebar-note">
+            <h3>Explore Kazakhstan</h3>
+            <p>Four unique destinations across the heart of Eurasia.</p>
+            <a href="about.html#team">Meet our student team &rarr;</a>
+        </div>
+    </aside>
 
-        <section class="about-site fade-in delay-1">
+    <main id="main-content" tabindex="-1">
+        <section class="hero fade-in">
+            <img src="images/KZ.jpg" alt="Kazakhstan Landscape" class="hero-bg-img">
+            <div class="hero-content">
+                <h1>Discover the Heart of Eurasia</h1>
+                <p>Your ultimate guide to the breathtaking nature, modern cities, and rich culture of Kazakhstan.</p>
+                <a href="#destinations" class="btn">Explore Destinations</a>
+            </div>
+        </section>
+
+        <section class="about-site fade-in delay-1" id="overview">
             <div class="container">
                 <h2>What You Will Find Here</h2>
                 <div class="about-grid">
-                    <div class="about-card">
+                    <article class="about-card">
                         <h3>Detailed City Guides</h3>
                         <ul>
                             <li>Top attractions and hidden gems</li>
                             <li>Best places to eat local food</li>
                             <li>Transportation and logistics</li>
                         </ul>
-                    </div>
-                    <div class="about-card">
-                        <h3>Travel Tips</h3>
+                    </article>
+                    <article class="about-card">
+                        <h3>Travel Tips &amp; Insights</h3>
                         <ul>
                             <li>Packing lists for different seasons</li>
                             <li>Cultural etiquette and language basics</li>
                             <li>Safety and emergency contacts</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section id="destinations" class="destinations fade-in delay-2">
             <div class="container">
+                <p class="eyebrow">Discover our top locations</p>
                 <h2>Available Destinations</h2>
                 <p class="subtitle">Currently featuring 4 amazing cities. More destinations are coming soon!</p>
                 
-                <div class="cards-wrapper">
-<div class="city-card">
-    <img src="images/Aktaumainpage.jpg" alt="Aktau Coastline" class="city-photo">
-    <div class="card-info">
-        <h3>Aktau</h3>
-        <p>The pearl of the Caspian Sea. Where the endless desert meets the deep blue waters.</p>
-        <a href="aktau.html" class="btn-outline">Read More</a>
-    </div>
-</div>
+                <div class="feature-cards cards-4">
+                    <article class="feature-card">
+                        <img src="images/Aktaumainpage.jpg" alt="Aktau Coastline along the Caspian Sea" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Mangystau Region</p>
+                            <h3>Aktau</h3>
+                            <p>The pearl of the Caspian Sea. Where endless desert meets deep blue waters and dramatic chalk canyons.</p>
+                            <a href="aktau.html" class="btn-outline">Explore Aktau</a>
+                        </div>
+                    </article>
 
-<div class="city-card">
-    <img src="images/Astanamainpage.jpg" alt="Astana Cityscape" class="city-photo">
-    <div class="card-info">
-        <h3>Astana</h3>
-        <p>The modern capital of futuristic architecture, freezing winters, and warm hospitality.</p>
-        <a href="astana.html" class="btn-outline">Read More</a>
-    </div>
-</div>
+                    <article class="feature-card">
+                        <img src="images/Astanamainpage.jpg" alt="Astana Cityscape and modern riverfront" width="1200" height="800" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Capital City</p>
+                            <h3>Astana</h3>
+                            <p>The modern capital of futuristic architecture, freezing winters, glowing boulevards, and warm hospitality.</p>
+                            <a href="astana.html" class="btn-outline">Explore Astana</a>
+                        </div>
+                    </article>
 
-<div class="city-card">
-    <img src="images/Mountain.jpg" alt="Mountains near Almaty" class="city-photo">
-    <div class="card-info">
-        <h3>Almaty</h3>
-        <p>A lively city surrounded by mountains, lakes, parks, and famous winter sports sites.</p>
-        <a href="almaty.html" class="btn-outline">Read More</a>
-    </div>
-</div>
+                    <article class="feature-card">
+                        <img src="images/Mountain.jpg" alt="Mountains near Almaty" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Southern Foothills</p>
+                            <h3>Almaty</h3>
+                            <p>A lively city surrounded by towering mountains, apple orchards, alpine lakes, and world-class winter sports.</p>
+                            <a href="almaty.html" class="btn-outline">Explore Almaty</a>
+                        </div>
+                    </article>
 
-<div class="city-card">
-    <img src="images/shymkent.jpg" alt="Shymkent city view" class="city-photo">
-    <div class="card-info">
-        <h3>Shymkent</h3>
-        <p>A warm southern city known for green parks, local food, and Silk Road history.</p>
-        <a href="shymkent.html" class="btn-outline">Read More</a>
-    </div>
-</div>
+                    <article class="feature-card">
+                        <img src="images/shymkent.jpg" alt="Shymkent city view and mosque" width="800" height="500" loading="lazy">
+                        <div class="feature-card-content">
+                            <p class="eyebrow">Silk Road City</p>
+                            <h3>Shymkent</h3>
+                            <p>A warm southern city known for lush green parks, delicious authentic cuisine, and rich Silk Road heritage.</p>
+                            <a href="shymkent.html" class="btn-outline">Explore Shymkent</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="quick-facts fade-in delay-3">
+        <section class="about-site" id="gallery" aria-labelledby="home-gallery-title">
+            <div class="container">
+                <p class="eyebrow">Kazakhstan Photo Highlights</p>
+                <h2 id="home-gallery-title">Scenic Horizons of Kazakhstan</h2>
+                <p>A visual tour through desert canyons, snowy mountains, and futuristic capitals. Select an image to view its city guide.</p>
+                <div class="photo-gallery">
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/Aktaumainpage.jpg" alt="Aktau Caspian Sea cliffs" loading="lazy" width="800" height="600">
+                            <figcaption>Aktau Coastline <span>Cliffs and Caspian azure waters</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="astana.html">
+                        <figure>
+                            <img src="images/assignment2/baiterek-night.jpg" alt="Baiterek monument glowing at night in Astana" loading="lazy" width="800" height="600">
+                            <figcaption>Astana Baiterek <span>Illuminated golden sphere at night</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="almaty.html">
+                        <figure>
+                            <img src="images/Mountain.jpg" alt="Tian Shan mountains near Almaty" loading="lazy" width="800" height="600">
+                            <figcaption>Almaty Peaks <span>Rugged ridges of the Tian Shan</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="shymkent.html">
+                        <figure>
+                            <img src="images/shymkent1.jpeg" alt="Green park entrance in Shymkent" loading="lazy" width="800" height="600">
+                            <figcaption>Shymkent Dendropark <span>Shaded botanical trails</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="aktau.html">
+                        <figure>
+                            <img src="images/bozjyra.jpg" alt="Bozjyra chalk towers rising in Mangystau" loading="lazy" width="800" height="600">
+                            <figcaption>Bozjyra Canyon <span>Dramatic white chalk towers</span></figcaption>
+                        </figure>
+                    </a>
+                    <a class="gallery-item" href="astana.html">
+                        <figure>
+                            <img src="images/assignment2/khan-shatyr.jpg" alt="Khan Shatyr tent architecture in Astana" loading="lazy" width="800" height="600">
+                            <figcaption>Khan Shatyr <span>Iconic modern tent structure</span></figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-facts fade-in delay-3" id="facts">
             <div class="container">
                 <h2>Kazakhstan Quick Facts</h2>
                 <table>
+                    <caption>Key facts and geographical highlights of Kazakhstan</caption>
                     <thead>
                         <tr>
-                            <th>Fact</th>
-                            <th>Detail</th>
-                            <th>Note</th>
+                            <th scope="col">Fact</th>
+                            <th scope="col">Detail</th>
+                            <th scope="col">Note</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -135,7 +206,7 @@
             </div>
         </section>
 
-        <section class="newsletter fade-in delay-4">
+        <section class="newsletter fade-in delay-4" id="community">
             <div class="container">
                 <h2>Join Our Travelers Community</h2>
                 <p>Try our community signup demo. No subscription is created and no information is sent.</p>
@@ -157,18 +228,21 @@
                 </form>
             </div>
         </section>
+
         <section class="about-site">
-            <div class="container">
-                <h2>About the Team Members</h2>
+            <div class="container guide-note">
+                <h2>Behind This Guide</h2>
                 <p>We are Ramazan Utegen, Ziyadinkhan, and Rizamukahmanjan from group SE-2501. We created KZ Travel to practise HTML and CSS while sharing useful information about Kazakhstan.</p>
-                <p>Ramazan created Home and Aktau. Ziyadinkhan created Astana and About Us. Rizamukahmanjan created Almaty and Shymkent. <a href="about.html">Meet the team and see our roles.</a></p>
+                <p>Ramazan created Home and Aktau. Ziyadinkhan created Astana and About Us. Rizamukahmanjan created Almaty and Shymkent.</p>
+                <a href="about.html" class="btn-outline">Meet Our Team</a>
+                <a href="aktau.html" class="btn-outline">Explore Aktau Next</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Kazakhstan Travel Guide.</p>
+            <p>&copy; 2026 Kazakhstan Travel Guide - Home Section.</p>
             <p>Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Rizamukahmanjan</strong> | Group: SE-2501</p>
         </div>
     </footer>
