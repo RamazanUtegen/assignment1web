@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Page credit: Rizamukahmanjan. Team: Ramazan Utegen, Ziyadinkhan and Rizamukahmanjan, SE-2501. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almaty Travel Guide</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/forms.js" defer></script>
 </head>
-<body>
+<body class="page-grid-layout">
     <header id="main-header">
-        <nav class="nav-menu">
+        <nav class="nav-menu" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
             <div class="logo">KZ Travel</div>
-            <ul>
+            <ul style="display: flex; gap: 15px; list-style: none;">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aktau.html">Aktau</a></li>
                 <li><a href="astana.html">Astana</a></li>
@@ -22,6 +21,20 @@
             </ul>
         </nav>
     </header>
+
+    <aside>
+        <h3>Quick Links</h3>
+        <ul style="line-height: 2;">
+            <li><a href="#highlights">Top Highlights</a></li>
+            <li><a href="#gallery">Photo Gallery</a></li>
+            <li><a href="#contact-form">Plan Excursion</a></li>
+        </ul>
+        <div class="guide-note" style="margin-top: 30px;">
+            <h3>About the Page Author</h3>
+            <p><strong>Rizamukahmanjan</strong> is a student in group SE-2501. He created the Almaty and Shymkent pages and added their city information, images, tables, and forms.</p>
+            <a href="about.html" class="btn-outline">Meet Our Team</a>
+        </div>
+    </aside>
 
     <main>
         <section class="hero fade-in">
@@ -57,26 +70,47 @@
             </div>
         </section>
 
-        <section class="destinations fade-in delay-2">
+        <section class="destinations fade-in delay-2" id="highlights">
             <div class="container">
                 <h2>Top Highlights in Detail</h2>
                 <p class="subtitle">Breathtaking locations you can explore during your trip.</p>
                 
-                <div class="cards-wrapper">
-                    <div class="city-card">
-                        <img src="images/almaty1.png" alt="Medeu and Shymbulak" class="city-photo">
-                        <div class="card-info">
-                            <h3>Medeu & Shymbulak</h3>
-                            <p>World-famous mountain sports complex located high above the city, offering stunning views and alpine trails.</p>
-                        </div>
+                <div class="flex-card-row">
+                    <div class="flex-card">
+                        <img src="images/almaty1.png" alt="Medeu and Shymbulak">
+                        <h3>Medeu & Shymbulak</h3>
+                        <p>World-famous mountain sports complex located high above the city.</p>
+                        <button>Book Tour</button>
                     </div>
-                    <div class="city-card">
-                        <img src="images/almaty2.webp" alt="Kok Tobe" class="city-photo">
-                        <div class="card-info">
-                            <h3>Kok Tobe Hill</h3>
-                            <p>A popular recreation area accessible via cable car from the city center, featuring attractions and observation decks.</p>
-                        </div>
+                    <div class="flex-card">
+                        <img src="images/almaty2.webp" alt="Kok Tobe">
+                        <h3>Kok Tobe Hill</h3>
+                        <p>A popular recreation area accessible via cable car from the city center.</p>
+                        <button>Book Tour</button>
                     </div>
+                    <div class="flex-card">
+                        <img src="images/charyn.jpg" alt="Charyn Canyon">
+                        <h3>Charyn Canyon</h3>
+                        <p>Explore the stunning natural rock formations resembling the Grand Canyon.</p>
+                        <button>Book Tour</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section fade-in delay-3" id="gallery">
+            <div class="container">
+                <h2>Photo Gallery</h2>
+                <div class="grid-gallery">
+                    <div class="gallery-item"><img src="images/assignment2/g1.jpg" alt="Img 1"><div class="gallery-caption">Beautiful Mountains</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g2.jpg" alt="Img 2"><div class="gallery-caption">City Center</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g3.jpg" alt="Img 3"><div class="gallery-caption">Local Food</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g4.jpg"alt="Img 4"><div class="gallery-caption">Park View</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g5.webp" alt="Img 5"><div class="gallery-caption">Night City</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g6.jpeg" alt="Img 6"><div class="gallery-caption">Historical Monument</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g7.jpg" alt="Img 7"><div class="gallery-caption">Alpine Lake</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g8.jpg" alt="Img 8"><div class="gallery-caption">Ski Resort</div></div>
+                    <div class="gallery-item"><img src="images/assignment2/g9.webp" alt="Img 9"><div class="gallery-caption">Local Market</div></div>
                 </div>
             </div>
         </section>
@@ -133,13 +167,6 @@
                     <p class="form-status" role="status" aria-live="polite"></p>
                     <noscript>This demo needs JavaScript to display a confirmation. No booking will be made.</noscript>
                 </form>
-            </div>
-        </section>
-        <section class="about-site">
-            <div class="container guide-note">
-                <h2>About the Page Author</h2>
-                <p>Rizamukahmanjan is a student in group SE-2501. He created the Almaty and Shymkent pages and added their city information, images, tables, and forms.</p>
-                <a href="about.html" class="btn-outline">Meet Our Team</a>
             </div>
         </section>
     </main>
