@@ -561,13 +561,14 @@ figcaption, caption {
         "header header"
         "sidebar main"
         "footer footer";
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 250px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
     gap: 20px;
     min-height: 100vh;
 }
 .page-grid-layout > header { grid-area: header; }
 .page-grid-layout > aside { grid-area: sidebar; padding: 20px; background: #eef2f3; border-radius: 8px; }
-.page-grid-layout > main { grid-area: main; padding: 20px; }
+.page-grid-layout > main { grid-area: main; min-width: 0; padding: 20px; }
 .page-grid-layout > footer { grid-area: footer; }
 
 .flex-card-row {
@@ -579,7 +580,8 @@ figcaption, caption {
 .flex-card {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -591,12 +593,13 @@ figcaption, caption {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .flex-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
-.flex-card button { margin-top: auto; padding: 10px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+.flex-card .card-action { display: block; margin-top: auto; padding: 10px; background: #333; color: #fff; border-radius: 4px; text-align: center; }
+.flex-card .card-action:hover { background: #315e77; text-decoration: none; }
 
 /* Task 4: Image Gallery Grid */
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 15px;
 }
 .gallery-item {
@@ -621,6 +624,34 @@ figcaption, caption {
     text-align: center;
     transition: bottom 0.3s ease;
 }
-.gallery-item:hover .gallery-caption {
+.gallery-item:hover .gallery-caption, .gallery-item:focus .gallery-caption {
     bottom: 0;
+}
+
+@media (max-width: 850px) {
+    .page-grid-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: "header" "sidebar" "main" "footer";
+        gap: 0;
+    }
+    .page-grid-layout > header { position: static; }
+    .page-grid-layout > aside { border-radius: 0; }
+    .page-grid-layout > main { padding: 0; }
+}
+
+@media (max-width: 700px) {
+    .page-grid-layout .nav-menu, .page-grid-layout .nav-menu ul { flex-wrap: wrap; justify-content: center; }
+    .page-grid-layout .nav-menu .logo { width: 100%; text-align: center; }
+    .page-grid-layout .flex-card-row { flex-direction: column; }
+    .page-grid-layout .flex-card { flex: none; }
+    .page-grid-layout .grid-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 380px) {
+    .page-grid-layout .grid-gallery { grid-template-columns: 1fr; }
+}
+
+@media (hover: none) {
+    .page-grid-layout .gallery-caption { bottom: 0; }
 }

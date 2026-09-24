@@ -1,4 +1,4 @@
-# Assignment 2 - Ziyadinkhan's contribution
+# Assignment 2 - Complete team website
 
 Team: KZ Travel. Group: SE-2501.
 
@@ -6,11 +6,11 @@ Team: KZ Travel. Group: SE-2501.
 | --- | --- |
 | Ramazan Utegen | Home and Aktau |
 | Ziyadinkhan | Astana and About Us |
-| Rizamukahmanjan | Almaty and Shymkent |
+| Ruzimuhammad | Almaty and Shymkent |
 
 ## Scope and implementation
 
-This update implements Assignment 2 on **Home (`index.html`) and Aktau (`aktau.html`) by Ramazan Utegen**, alongside **Astana (`astana.html`) and About Us (`about.html`) by Ziyadinkhan**. The shared Assignment 1 stylesheet is preserved; Assignment 2 pages load `css/assignment2.css`.
+Assignment 2 is implemented on all six pages: Home and Aktau by Ramazan Utegen, Astana and About Us by Ziyadinkhan, and Almaty and Shymkent by Ruzimuhammad. Home, Aktau, Astana, and About Us load `css/assignment2.css` on top of `css/style.css`; Almaty and Shymkent use Assignment 2 rules in `css/style.css`.
 
 ### Ramazan Utegen's Implementation (Home and Aktau)
 1. **Task 1 (Navigation Bar via Flexbox)**: `.nav-menu` uses Flexbox with `justify-content: space-between` and `align-items: center` to keep the brand logo on the left and navigation links on the right. Links are neatly spaced using `gap`, vertically centered, and wrap cleanly on narrow viewports.
@@ -26,9 +26,15 @@ This update implements Assignment 2 on **Home (`index.html`) and Aktau (`aktau.h
 4. Gallery: About Us contains nine distinct existing project images with three equal Grid columns, equal-height rows, gaps, and caption overlays. Captions expand on hover and keyboard focus and stay visible on touch devices. Each image links to its city guide. The gallery changes to two columns at 620px and one at 380px.
 5. Consistency: original palette and navigation retained. Three team profiles show destination photographs, not invented portraits. Skip links, image descriptions, focus outlines, and reduced-motion handling support accessibility.
 
+### Ruzimuhammad's Implementation (Almaty and Shymkent)
+1. Navigation: the logo and links use Flexbox with spacing and alignment.
+2. Cards: each page has three equal-height Flexbox cards with images, titles, descriptions, working links to its enquiry form, and hover effects.
+3. Page layout: named Grid areas place the header, sidebar, main content, and footer. At 850px and below, the sidebar and main content stack to prevent horizontal overflow.
+4. Gallery: each page has a nine-image Grid with equal-width columns, consistent gaps, and caption overlays. The galleries change to two columns and then one on narrow screens.
+
 ## Verification
 
-Chromium checks at 1440, 1024, 768, 390, and 320 pixels: no horizontal overflow; all images decode; all section targets exist; desktop cards have equal heights; mobile cards remain visible; galleries contain equal-width columns and rows; hover/focus captions work; skip links focus main content.
+Chromium checks at 1440, 1024, 768, 390, and 320 pixels on all six pages: no horizontal overflow; all images decode; all section targets exist; desktop cards have equal heights; mobile cards remain visible; galleries use CSS Grid. The nine-image About Us gallery has working hover and focus captions. The missing Almaty gallery image path and mobile overflow on Almaty and Shymkent were corrected.
 
 ## Deployment and submission
 
@@ -38,8 +44,10 @@ Existing website: https://ramazanutegen.github.io/assignment1web/
 - Aktau: https://ramazanutegen.github.io/assignment1web/aktau.html
 - Astana: https://ramazanutegen.github.io/assignment1web/astana.html
 - About Us: https://ramazanutegen.github.io/assignment1web/about.html
+- Almaty: https://ramazanutegen.github.io/assignment1web/almaty.html
+- Shymkent: https://ramazanutegen.github.io/assignment1web/shymkent.html
 
-Before team submission, combine this report with the other two members' Assignment 2 work and screenshots if a complete team report is required. All three members must submit a PDF report, project ZIP, and live URL before the LMS deadline, then defend the work at the practice lesson. The deadline is not specified in the assignment PDF.
+All three members must submit the PDF report, project ZIP, and live URL before the LMS deadline, then defend the work at the practice lesson. The deadline is not specified in the assignment PDF.
 
 ## Defense notes
 

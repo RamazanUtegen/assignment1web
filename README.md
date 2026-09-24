@@ -10,7 +10,7 @@ Group: SE-2501
 | --- | --- |
 | Ramazan Utegen | Home and Aktau |
 | Ziyadinkhan | Astana and About Us |
-| Rizamukahmanjan | Almaty and Shymkent |
+| Ruzimuhammad | Almaty and Shymkent |
 
 ## Live website
 
@@ -62,12 +62,13 @@ The team should also be ready to explain the HTML structure, CSS selectors, box 
 Assignment 2 is fully implemented across:
 - **Home and Aktau** by Ramazan Utegen
 - **Astana and About Us** by Ziyadinkhan
+- **Almaty and Shymkent** by Ruzimuhammad
 
 Features implemented across these pages:
 - **Task 1 (Navigation Bar via Flexbox)**: Centered items, logo on left, nav group on right, neat `gap` spacing, and mobile wrapping.
 - **Task 2 (Card Row via Flexbox)**: Equal-height cards using `display: flex`, `flex-wrap: wrap`, column card flow, bottom-aligned buttons with `margin-top: auto`, and hover lift / shadow animations.
 - **Task 3 (Page Layout with Grid Areas)**: Named CSS Grid areas (`header`, `sidebar`, `main`, `footer`) with functional sidebar section links and responsive mobile stacking at 850px.
 - **Task 4 (Image Gallery via Grid)**: CSS Grid galleries with equal-width columns (`repeat(3, minmax(0, 1fr))`), uniform row heights, consistent gaps, image zoom on hover, and smooth caption overlays.
-- **Shared Stylesheet**: Extended styles reside in `css/assignment2.css`, building upon the base styles in `css/style.css`.
+- **Stylesheets**: Home, Aktau, Astana, and About Us use `css/assignment2.css` on top of `css/style.css`; Almaty and Shymkent use the Assignment 2 rules in `css/style.css`.
 
 See [the implementation and defense notes](docs/assignment-2.md) for full details, task checklists, and image credits.
