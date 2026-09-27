@@ -8,141 +8,162 @@
     <title>Astana Travel Guide | KZ Travel</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/assignment2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/assignment3.css">
 </head>
-<body class="assignment-two">
+<body class="assignment-three">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header id="main-header">
-        <nav class="nav-menu" aria-label="Main navigation">
-            <div class="logo">KZ Travel</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aktau.html">Aktau</a></li>
-                <li><a href="astana.html" class="active" aria-current="page">Astana</a></li>
-                <li><a href="almaty.html">Almaty</a></li>
-                <li><a href="shymkent.html">Shymkent</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+            <div class="container-fluid px-3 px-lg-4">
+                <a class="navbar-brand fw-bold" href="index.html">KZ Travel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-navigation" aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="site-navigation">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aktau.html">Aktau</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="astana.html">Astana</a></li>
+                        <li class="nav-item"><a class="nav-link" href="almaty.html">Almaty</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shymkent.html">Shymkent</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <aside class="page-sidebar" aria-labelledby="sidebar-title">
-        <p class="eyebrow">Your city guide</p>
-        <h2 id="sidebar-title">Explore Astana</h2>
-        <nav aria-label="On this page">
-            <a href="#highlights">01 / City highlights</a>
-            <a href="#places">02 / Places to explore</a>
-            <a href="#itinerary">03 / A day of discovery</a>
-            <a href="#themes">04 / Choose your theme</a>
-        </nav>
-        <div class="sidebar-note">
-            <h3>Make it your day</h3>
-            <p>Mix a landmark, a little culture, and a riverside walk.</p>
-            <a href="about.html#gallery">Explore our photo journal &rarr;</a>
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <aside class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4" aria-labelledby="sidebar-title">
+                <p class="eyebrow mb-2">Your city guide</p>
+                <h2 id="sidebar-title" class="mb-3">Explore Astana</h2>
+                <nav class="d-flex flex-wrap flex-lg-column gap-2" aria-label="On this page">
+                    <a href="#highlights">01 / City highlights</a>
+                    <a href="#places">02 / Places to explore</a>
+                    <a href="#itinerary">03 / A day of discovery</a>
+                    <a href="#themes">04 / Choose your theme</a>
+                </nav>
+                <div class="sidebar-note mt-4 pt-3 d-none d-lg-block">
+                    <h3 class="mb-2">Make it your day</h3>
+                    <p class="mb-2">Mix a landmark, a little culture, and a riverside walk.</p>
+                    <a href="about.html#gallery">Explore our photo journal &rarr;</a>
+                </div>
+            </aside>
+            <main id="main-content" class="col-12 col-lg-9 col-xl-10" tabindex="-1">
+                <section class="hero fade-in">
+                    <img src="images/Astanamainpage.jpg" alt="Astana skyline and modern city architecture" class="hero-bg-img">
+                    <div class="hero-content container py-5">
+                        <h1 class="mb-3">Astana: A Capital of Contrasts</h1>
+                        <p class="mb-4">Modern landmarks, open boulevards, and quiet moments beside the Ishim River.</p>
+                        <a href="#highlights" class="btn btn-primary btn-lg">Explore the City</a>
+                    </div>
+                </section>
+                <section class="about-site py-5" id="highlights">
+                    <div class="container px-3 px-md-4">
+                        <h2 class="mb-3">Get to Know Astana</h2>
+                        <p class="mb-4">Kazakhstan's capital brings together striking architecture and wide public spaces. This guide introduces a few city landmarks and a sample route for exploring them.</p>
+                        <div class="row g-4">
+                            <div class="col-12 col-lg-6">
+                                <article class="about-card h-100 p-4">
+                                    <h3 class="mb-3">Architecture &amp; Landmarks</h3>
+                                    <ul class="mb-0">
+                                        <li><strong>Baiterek:</strong> A tower with a distinctive golden sphere.</li>
+                                        <li><strong>Khan Shatyr:</strong> A shopping and entertainment centre beneath a tent-shaped roof.</li>
+                                        <li><strong>Palace of Peace and Reconciliation:</strong> A pyramid-shaped landmark.</li>
+                                    </ul>
+                                </article>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <article class="about-card h-100 p-4">
+                                    <h3 class="mb-3">City Walks &amp; Culture</h3>
+                                    <ul class="mb-0">
+                                        <li>Notice the buildings and public spaces along Nurzhol Boulevard.</li>
+                                        <li>Explore Kazakhstan's heritage at the National Museum.</li>
+                                        <li>Take in the cityscape along the Ishim River embankment.</li>
+                                    </ul>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="destinations py-5" id="places">
+                    <div class="container px-3 px-md-4">
+                        <p class="eyebrow mb-2">Three ways to explore</p>
+                        <h2 class="mb-4">Find Your Astana</h2>
+                        <!-- Assignment 3 Task 2: this card group uses custom CSS media queries only. -->
+                        <div class="media-card-row">
+                            <article class="media-card">
+                                <img src="images/assignment2/baiterek-night.jpg" alt="Baiterek's golden sphere illuminated at night" width="1080" height="1080" loading="lazy">
+                                <div class="media-card-content">
+                                    <h3>Baiterek</h3>
+                                    <p>Look for the golden sphere above the boulevard, then return after dark for a different view of the landmark.</p>
+                                    <a href="#morning">Plan a landmark walk</a>
+                                </div>
+                            </article>
+                            <article class="media-card">
+                                <img src="images/assignment2/khan-shatyr.jpg" alt="Khan Shatyr's tent-shaped roof against a blue sky" width="960" height="640" loading="lazy">
+                                <div class="media-card-content">
+                                    <h3>Khan Shatyr</h3>
+                                    <p>Discover the tent-shaped shopping and entertainment centre, and make room for a break between city walks.</p>
+                                    <a href="#afternoon">Make time for a break</a>
+                                </div>
+                            </article>
+                            <article class="media-card">
+                                <img src="images/Astanamainpage.jpg" alt="Astana architecture beside a tree-lined stretch of water" width="1200" height="800" loading="lazy">
+                                <div class="media-card-content">
+                                    <h3>Waterside Views</h3>
+                                    <p>Slow down beside the water and notice how greenery, reflections, and modern buildings share the cityscape.</p>
+                                    <a href="#evening">Finish with a walk</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <section class="about-site py-5" id="itinerary">
+                    <div class="container px-3 px-md-4">
+                        <h2 class="mb-2">A Day of Discovery</h2>
+                        <p class="subtitle mb-4">A sample itinerary to adapt to your interests.</p>
+                        <ol class="itinerary mb-4">
+                            <li id="morning"><h3>Morning: Baiterek &amp; the Boulevard</h3><p>Start with the architecture around Baiterek and take a walk along Nurzhol Boulevard.</p></li>
+                            <li id="afternoon"><h3>Afternoon: Culture &amp; a Break</h3><p>Make time for the National Museum, or choose a shopping break at Khan Shatyr before the next part of your day.</p></li>
+                            <li id="evening"><h3>Evening: Riverside Views</h3><p>Finish with a walk along the Ishim River and a different perspective on the city.</p></li>
+                        </ol>
+                        <p class="mb-0">This is an illustrative route, not a booking or a timetable. Check opening hours and travel arrangements before visiting.</p>
+                    </div>
+                </section>
+                <section class="quick-facts py-5" id="themes">
+                    <div class="container px-3 px-md-4">
+                        <h2 class="mb-4">Choose Your Theme</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle mb-0">
+                                <caption>Ideas for exploring different sides of Astana</caption>
+                                <thead><tr><th scope="col">Interest</th><th scope="col">Place</th><th scope="col">What to Notice</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Architecture</td><td>Baiterek &amp; Nurzhol Boulevard</td><td>Shapes, scale, and the city skyline</td></tr>
+                                    <tr><td>Culture</td><td>National Museum</td><td>Exhibitions about Kazakhstan's heritage</td></tr>
+                                    <tr><td>Outdoor spaces</td><td>Ishim River embankment</td><td>Bridges and riverside views</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <section class="about-site py-5">
+                    <div class="container guide-note px-3 px-md-4">
+                        <h2 class="mb-3">Behind This Guide</h2>
+                        <p class="mb-4">Ziyadinkhan is a student in group SE-2501. His assigned pages are this Astana guide and About Us. He worked on the ordered itinerary, team information, and the shared design.</p>
+                        <div class="btn-group d-flex flex-column flex-sm-row justify-content-center" role="group" aria-label="Explore related pages">
+                            <a href="about.html" class="btn btn-primary">Meet Our Team</a>
+                            <a href="aktau.html" class="btn btn-outline-primary">Explore Aktau Next</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-    </aside>
-    <main id="main-content" tabindex="-1">
-        <section class="hero fade-in">
-            <img src="images/Astanamainpage.jpg" alt="Astana skyline and modern city architecture" class="hero-bg-img">
-            <div class="hero-content">
-                <h1>Astana: A Capital of Contrasts</h1>
-                <p>Modern landmarks, open boulevards, and quiet moments beside the Ishim River.</p>
-                <a href="#highlights" class="btn">Explore the City</a>
-            </div>
-        </section>
-        <section class="about-site" id="highlights">
-            <div class="container">
-                <h2>Get to Know Astana</h2>
-                <p>Kazakhstan's capital brings together striking architecture and wide public spaces. This guide introduces a few city landmarks and a sample route for exploring them.</p>
-                <div class="about-grid">
-                    <article class="about-card">
-                        <h3>Architecture &amp; Landmarks</h3>
-                        <ul>
-                            <li><strong>Baiterek:</strong> A tower with a distinctive golden sphere.</li>
-                            <li><strong>Khan Shatyr:</strong> A shopping and entertainment centre beneath a tent-shaped roof.</li>
-                            <li><strong>Palace of Peace and Reconciliation:</strong> A pyramid-shaped landmark.</li>
-                        </ul>
-                    </article>
-                    <article class="about-card">
-                        <h3>City Walks &amp; Culture</h3>
-                        <ul>
-                            <li>Notice the buildings and public spaces along Nurzhol Boulevard.</li>
-                            <li>Explore Kazakhstan's heritage at the National Museum.</li>
-                            <li>Take in the cityscape along the Ishim River embankment.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="destinations" id="places">
-            <div class="container">
-                <p class="eyebrow">Three ways to explore</p>
-                <h2>Find Your Astana</h2>
-                <div class="feature-cards">
-                    <article class="feature-card">
-                        <img src="images/assignment2/baiterek-night.jpg" alt="Baiterek's golden sphere illuminated at night" width="1080" height="1080" loading="lazy">
-                        <div class="feature-card-content">
-                            <h3>Baiterek</h3>
-                            <p>Look for the golden sphere above the boulevard, then return after dark for a different view of the landmark.</p>
-                            <a class="btn-outline" href="#morning">Plan a landmark walk</a>
-                        </div>
-                    </article>
-                    <article class="feature-card">
-                        <img src="images/assignment2/khan-shatyr.jpg" alt="Khan Shatyr's tent-shaped roof against a blue sky" width="960" height="640" loading="lazy">
-                        <div class="feature-card-content">
-                            <h3>Khan Shatyr</h3>
-                            <p>Discover the tent-shaped shopping and entertainment centre, and make room for a break between city walks.</p>
-                            <a class="btn-outline" href="#afternoon">Make time for a break</a>
-                        </div>
-                    </article>
-                    <article class="feature-card">
-                        <img src="images/Astanamainpage.jpg" alt="Astana architecture beside a tree-lined stretch of water" width="1200" height="800" loading="lazy">
-                        <div class="feature-card-content">
-                            <h3>Waterside Views</h3>
-                            <p>Slow down beside the water and notice how greenery, reflections, and modern buildings share the cityscape.</p>
-                            <a class="btn-outline" href="#evening">Finish with a walk</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="about-site" id="itinerary">
-            <div class="container">
-                <h2>A Day of Discovery</h2>
-                <p class="subtitle">A sample itinerary to adapt to your interests.</p>
-                <ol class="itinerary">
-                    <li id="morning"><h3>Morning: Baiterek &amp; the Boulevard</h3><p>Start with the architecture around Baiterek and take a walk along Nurzhol Boulevard.</p></li>
-                    <li id="afternoon"><h3>Afternoon: Culture &amp; a Break</h3><p>Make time for the National Museum, or choose a shopping break at Khan Shatyr before the next part of your day.</p></li>
-                    <li id="evening"><h3>Evening: Riverside Views</h3><p>Finish with a walk along the Ishim River and a different perspective on the city.</p></li>
-                </ol>
-                <p>This is an illustrative route, not a booking or a timetable. Check opening hours and travel arrangements before visiting.</p>
-            </div>
-        </section>
-        <section class="quick-facts" id="themes">
-            <div class="container">
-                <h2>Choose Your Theme</h2>
-                <table>
-                    <caption>Ideas for exploring different sides of Astana</caption>
-                    <thead><tr><th scope="col">Interest</th><th scope="col">Place</th><th scope="col">What to Notice</th></tr></thead>
-                    <tbody>
-                        <tr><td>Architecture</td><td>Baiterek &amp; Nurzhol Boulevard</td><td>Shapes, scale, and the city skyline</td></tr>
-                        <tr><td>Culture</td><td>National Museum</td><td>Exhibitions about Kazakhstan's heritage</td></tr>
-                        <tr><td>Outdoor spaces</td><td>Ishim River embankment</td><td>Bridges and riverside views</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        <section class="about-site">
-            <div class="container guide-note">
-                <h2>Behind This Guide</h2>
-                <p>Ziyadinkhan is a student in group SE-2501. His assigned pages are this Astana guide and About Us. He worked on the ordered itinerary, team information, and the shared design.</p>
-                <a href="about.html" class="btn-outline">Meet Our Team</a>
-                <a href="aktau.html" class="btn-outline">Explore Aktau Next</a>
-            </div>
-        </section>
-    </main>
-    <footer><div class="container">
-        <p>&copy; 2026 Kazakhstan Travel Guide - Astana Section.</p>
-        <p>Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad</strong> | Group: SE-2501</p>
-        <p class="photo-credits">Photos: <a href="https://commons.wikimedia.org/wiki/File:Baiterek_monument_at_night.jpg">Baiterek at night by Dauren Nabijan</a> and <a href="https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg">Khan Shatyr by Quarot</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p>
+    </div>
+    <footer class="py-4"><div class="container px-3 px-md-4 py-0">
+        <p class="mb-2">&copy; 2026 Kazakhstan Travel Guide - Astana Section.</p>
+        <p class="mb-2">Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad</strong> | Group: SE-2501</p>
+        <p class="photo-credits mb-0">Photos: <a href="https://commons.wikimedia.org/wiki/File:Baiterek_monument_at_night.jpg">Baiterek at night by Dauren Nabijan</a> and <a href="https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg">Khan Shatyr by Quarot</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p>
     </div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,143 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Page credit: Ziyadinkhan. Team: Ramazan Utegen, Ziyadinkhan and Ruzimuhammad, SE-2501. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet the SE-2501 student team behind the KZ Travel HTML and CSS project.">
-    <title>About Our Team | KZ Travel</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/assignment2.css">
-</head>
-<body class="assignment-two">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <header id="main-header">
-        <nav class="nav-menu" aria-label="Main navigation">
-            <div class="logo">KZ Travel</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aktau.html">Aktau</a></li>
-                <li><a href="astana.html">Astana</a></li>
-                <li><a href="almaty.html">Almaty</a></li>
-                <li><a href="shymkent.html">Shymkent</a></li>
-                <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <aside class="page-sidebar" aria-labelledby="sidebar-title">
-        <p class="eyebrow">The people behind the guide</p>
-        <h2 id="sidebar-title">Meet KZ Travel</h2>
-        <nav aria-label="On this page">
-            <a href="#team">01 / Our three members</a>
-            <a href="#purpose">02 / Our project</a>
-            <a href="#gallery">03 / Photo journal</a>
-            <a href="#explore">04 / Choose a city</a>
-        </nav>
-        <div class="sidebar-note">
-            <h3>Three perspectives</h3>
-            <p>One shared guide, four cities, and a curiosity about Kazakhstan.</p>
-            <a href="astana.html">Discover the capital &rarr;</a>
-        </div>
+ <head>
+  <!-- Page credit: Ziyadinkhan. Team: Ramazan Utegen, Ziyadinkhan and Ruzimuhammad, SE-2501. -->
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Meet the SE-2501 student team behind the KZ Travel HTML and CSS project." name="description"/>
+  <title>
+   About Our Team | KZ Travel
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/assignment2.css" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+  <link href="css/assignment3.css" rel="stylesheet"/>
+ </head>
+ <body class="assignment-three">
+  <a class="skip-link" href="#main-content">
+   Skip to content
+  </a>
+  <header id="main-header">
+   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid px-3 px-lg-4">
+     <a class="navbar-brand fw-bold" href="index.html">
+      KZ Travel
+     </a>
+     <button aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#site-navigation" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon">
+      </span>
+     </button>
+     <div class="collapse navbar-collapse" id="site-navigation">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+        <a class="nav-link" href="index.html">
+         Home
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="aktau.html">
+         Aktau
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="astana.html">
+         Astana
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="almaty.html">
+         Almaty
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="shymkent.html">
+         Shymkent
+        </a>
+       </li>
+       <li class="nav-item">
+        <a aria-current="page" class="nav-link active" href="about.html">
+         About Us
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <div class="container-fluid px-0">
+   <div class="row g-0">
+    <aside aria-labelledby="sidebar-title" class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4">
+     <p class="eyebrow mb-2">
+      The people behind the guide
+     </p>
+     <h2 class="mb-3" id="sidebar-title">
+      Meet KZ Travel
+     </h2>
+     <nav aria-label="On this page" class="d-flex flex-wrap flex-lg-column gap-2">
+      <a href="#team">
+       01 / Our three members
+      </a>
+      <a href="#purpose">
+       02 / Our project
+      </a>
+      <a href="#gallery">
+       03 / Photo journal
+      </a>
+      <a href="#explore">
+       04 / Choose a city
+      </a>
+      <a href="#contact">
+       05 / Contact the team
+      </a>
+     </nav>
+     <div class="sidebar-note mt-4 pt-3 d-none d-lg-block">
+      <h3 class="mb-2">
+       Three perspectives
+      </h3>
+      <p class="mb-2">
+       One shared guide, four cities, and a curiosity about Kazakhstan.
+      </p>
+      <a href="astana.html">
+       Discover the capital &rarr;
+      </a>
+     </div>
     </aside>
-    <main id="main-content" tabindex="-1">
-        <section class="about-intro">
-            <div class="container about-intro-grid">
-                <div>
-                    <p class="eyebrow">KZ Travel / SE-2501</p>
-                    <h1>Three Students. One Country to Explore.</h1>
-                    <p>We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML and CSS, our project brings together places we want you to discover.</p>
-                    <a href="#team" class="btn">Meet the Team</a>
-                </div>
-                <figure>
-                    <img src="images/KZ.jpg" alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle">
-                    <figcaption>Our shared theme: exploring Kazakhstan.</figcaption>
-                </figure>
-            </div>
-        </section>
-        <section class="about-site" id="team">
-            <div class="container">
-                <h2>About the Team Members</h2>
-                <div class="feature-cards">
-                    <article class="feature-card">
-                        <img src="images/rocktrail.jpg" alt="Aktau's coastal rock trail, a destination in Ramazan's guide" width="800" height="500" loading="lazy">
-                        <div class="feature-card-content">
-                        <p class="eyebrow">Home &amp; Aktau</p>
-                        <h3>Ramazan Utegen</h3>
-                        <p>Ramazan is a member of group SE-2501. His assigned pages introduce the website and explore Aktau and the Mangystau region.</p>
-                        <p>His initial contribution includes the homepage, Aktau guide, shared visual theme, destination cards, tables, and forms.</p>
-                        <a href="aktau.html" class="btn-outline">Visit the Aktau Guide</a>
-                        </div>
-                    </article>
-                    <article class="feature-card">
-                        <img src="images/Astanamainpage.jpg" alt="Astana cityscape, the destination in Ziyadinkhan's guide" width="1200" height="800" loading="lazy">
-                        <div class="feature-card-content">
-                        <p class="eyebrow">Astana &amp; About Us</p>
-                        <h3>Ziyadinkhan</h3>
-                        <p>Ziyadinkhan is a member of group SE-2501. His assigned pages introduce Astana and explain the people and purpose behind KZ Travel.</p>
-                        <p>His pages combine a city itinerary, team profiles, responsive layouts, and a photo journal of the places featured in our guide.</p>
-                        <a href="astana.html" class="btn-outline">Visit the Astana Guide</a>
-                        </div>
-                    </article>
-                    <article class="feature-card">
-                        <img src="images/almaty2.webp" alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" width="800" height="500" loading="lazy">
-                        <div class="feature-card-content">
-                        <p class="eyebrow">Almaty &amp; Shymkent</p>
-                        <h3>Ruzimuhammad</h3>
-                        <p>Ruzimuhammad is a student in group SE-2501. His assigned pages introduce Almaty and Shymkent.</p>
-                        <p>He added city information, attraction cards, travel tables, images, and enquiry forms that use the shared site design.</p>
-                        <a href="almaty.html" class="btn-outline">Visit the Almaty Guide</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="destinations" id="purpose">
-            <div class="container">
-                <h2>What This Project Practises</h2>
-                <div class="about-grid">
-                    <article class="about-card">
-                        <h3>Clear Content</h3>
-                        <ul><li>Headings and semantic page sections</li><li>Images with alternative text</li><li>Lists, tables, and labeled forms</li></ul>
-                    </article>
-                    <article class="about-card">
-                        <h3>A Consistent Design</h3>
-                        <ul><li>Shared styles and modern Flexbox and Grid layouts</li><li>A warm landscape-inspired color palette</li><li>Navigation and layouts for different screen sizes</li></ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="about-site" id="gallery" aria-labelledby="gallery-title">
-            <div class="container">
-                <p class="eyebrow">Our Kazakhstan photo journal</p>
-                <h2 id="gallery-title">Nine Views. Many Reasons to Go.</h2>
-                <p>From city skylines to open landscapes, explore the places behind our guide. Select a photo to visit its city page.</p>
-                <div class="photo-gallery">
-                    <a class="gallery-item" href="astana.html"><figure><img src="images/Astanamainpage.jpg" alt="Astana cityscape beside the water" loading="lazy" width="800" height="600"><figcaption>Astana <span>Architecture by the water</span></figcaption></figure></a>
-                    <a class="gallery-item" href="aktau.html"><figure><img src="images/Aktaumainpage.jpg" alt="Rock formation rising above the Mangystau steppe" loading="lazy" width="800" height="600"><figcaption>Mangystau <span>Wide-open horizons</span></figcaption></figure></a>
-                    <a class="gallery-item" href="almaty.html"><figure><img src="images/almaty2.webp" alt="Almaty tower above the city and hills" loading="lazy" width="800" height="600"><figcaption>Almaty <span>A city among the hills</span></figcaption></figure></a>
-                    <a class="gallery-item" href="aktau.html"><figure><img src="images/bozjyra.jpg" alt="Pale cliffs and rock towers at Bozjyra" loading="lazy" width="800" height="600"><figcaption>Bozjyra <span>Sculpted by the landscape</span></figcaption></figure></a>
-                    <a class="gallery-item" href="almaty.html"><figure><img src="images/almaty1.png" alt="Ice rink surrounded by snow-covered mountains" loading="lazy" width="800" height="600"><figcaption>Almaty region <span>Winter in the mountains</span></figcaption></figure></a>
-                    <a class="gallery-item" href="aktau.html"><figure><img src="images/rocktrail.jpg" alt="Walkway between coastal cliffs and the Caspian Sea" loading="lazy" width="800" height="600"><figcaption>Aktau <span>Follow the coastal trail</span></figcaption></figure></a>
-                    <a class="gallery-item" href="shymkent.html"><figure><img src="images/shymkent.jpg" alt="White mosque with domes and minarets in Shymkent" loading="lazy" width="800" height="600"><figcaption>Shymkent <span>Discover city landmarks</span></figcaption></figure></a>
-                    <a class="gallery-item" href="shymkent.html"><figure><img src="images/shymkent1.jpeg" alt="Green entrance to Shymkent's dendropark" loading="lazy" width="800" height="600"><figcaption>Dendropark <span>A greener side of the city</span></figcaption></figure></a>
-                    <a class="gallery-item" href="shymkent.html"><figure><img src="images/shymkent2.jpeg" alt="Historic-style gateway with camel sculptures" loading="lazy" width="800" height="600"><figcaption>Southern Kazakhstan <span>Stories along the way</span></figcaption></figure></a>
-                </div>
-            </div>
-        </section>
-        <section class="destinations" id="explore">
-            <div class="container guide-note">
-                <h2>Start Exploring</h2>
-                <p>Choose Aktau, Astana, Almaty, or Shymkent and start exploring Kazakhstan.</p>
-                <a href="aktau.html" class="btn-outline">Aktau Guide</a>
-                <a href="astana.html" class="btn-outline">Astana Guide</a>
-                <a href="almaty.html" class="btn-outline">Almaty Guide</a>
-                <a href="shymkent.html" class="btn-outline">Shymkent Guide</a>
-            </div>
-        </section>
+    <main class="col-12 col-lg-9 col-xl-10" id="main-content" tabindex="-1">
+     <section class="about-intro py-5">
+      <div class="container px-3 px-md-4">
+       <div class="row align-items-center g-4">
+       <div class="col-12 col-lg-7">
+        <p class="eyebrow">
+         KZ Travel / SE-2501
+        </p>
+        <h1 class="mb-3">
+         Three Students. One Country to Explore.
+        </h1>
+        <p class="mb-4">
+         We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML, CSS, and Bootstrap, our project brings together places we want you to discover.
+        </p>
+        <a class="btn btn-primary btn-lg" href="#team">
+         Meet the Team
+        </a>
+       </div>
+       <figure class="col-12 col-lg-5">
+        <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" src="images/KZ.jpg"/>
+        <figcaption>
+         Our shared theme: exploring Kazakhstan.
+        </figcaption>
+       </figure>
+       </div>
+      </div>
+     </section>
+     <section class="about-site py-5" id="team">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-4">
+        About the Team Members
+       </h2>
+       <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Aktau's coastal rock trail, a destination in Ramazan's guide" class="card-img-top team-card-image" height="500" loading="lazy" src="images/rocktrail.jpg" width="800"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow">
+            Home &amp; Aktau
+           </p>
+           <h3 class="card-title mb-3">
+            Ramazan Utegen
+           </h3>
+           <p class="card-text mb-3">
+            Ramazan is a member of group SE-2501. His assigned pages introduce the website and explore Aktau and the Mangystau region.
+           </p>
+           <p class="card-text mb-3">
+            His initial contribution includes the homepage, Aktau guide, shared visual theme, destination cards, tables, and forms.
+           </p>
+           <a class="btn btn-outline-primary btn-sm mt-auto" href="aktau.html">
+            Visit the Aktau Guide
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Astana cityscape, the destination in Ziyadinkhan's guide" class="card-img-top team-card-image" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow">
+            Astana &amp; About Us
+           </p>
+           <h3 class="card-title mb-3">
+            Ziyadinkhan
+           </h3>
+           <p class="card-text mb-3">
+            Ziyadinkhan is a member of group SE-2501. His assigned pages introduce Astana and explain the people and purpose behind KZ Travel.
+           </p>
+           <p class="card-text mb-3">
+            His pages combine a city itinerary, team profiles, responsive layouts, and a photo journal of the places featured in our guide.
+           </p>
+           <a class="btn btn-outline-primary btn-sm mt-auto" href="astana.html">
+            Visit the Astana Guide
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" class="card-img-top team-card-image" height="500" loading="lazy" src="images/almaty2.webp" width="800"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow">
+            Almaty &amp; Shymkent
+           </p>
+           <h3 class="card-title mb-3">
+            Ruzimuhammad
+           </h3>
+           <p class="card-text mb-3">
+            Ruzimuhammad is a student in group SE-2501. His assigned pages introduce Almaty and Shymkent.
+           </p>
+           <p class="card-text mb-3">
+            He added city information, attraction cards, travel tables, images, and enquiry forms that use the shared site design.
+           </p>
+           <a class="btn btn-outline-primary btn-sm mt-auto" href="almaty.html">
+            Visit the Almaty Guide
+           </a>
+          </div>
+         </article>
+        </div>
+       </div>
+      </div>
+     </section>
+     <section class="destinations py-5" id="purpose">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-4">
+        What This Project Practises
+       </h2>
+       <div class="row g-4">
+        <article class="project-panel col-12 col-lg-6 p-4">
+         <h3 class="mb-3">
+          Clear Content
+         </h3>
+         <ul class="mb-0">
+          <li>
+           Headings and semantic page sections
+          </li>
+          <li>
+           Images with alternative text
+          </li>
+          <li>
+           Lists, tables, and labeled forms
+          </li>
+         </ul>
+        </article>
+        <article class="project-panel col-12 col-lg-6 p-4">
+         <h3 class="mb-3">
+          A Consistent Design
+         </h3>
+         <ul class="mb-0">
+          <li>
+           Shared styles, Bootstrap components, and responsive layouts
+          </li>
+          <li>
+           A warm landscape-inspired color palette
+          </li>
+          <li>
+           Navigation and layouts for different screen sizes
+          </li>
+         </ul>
+        </article>
+       </div>
+      </div>
+     </section>
+     <section aria-labelledby="gallery-title" class="about-site py-5" id="gallery">
+      <div class="container px-3 px-md-4">
+       <p class="eyebrow">
+        Our Kazakhstan photo journal
+       </p>
+       <h2 class="mb-4" id="gallery-title">
+        Nine Views. Many Reasons to Go.
+       </h2>
+       <p>
+        From city skylines to open landscapes, explore the places behind our guide. Select a photo to visit its city page.
+       </p>
+       <div aria-label="Kazakhstan photo slideshow" class="carousel slide mt-4" data-bs-interval="false" id="kazakhstan-carousel">
+        <div class="carousel-indicators">
+         <button aria-current="true" aria-label="Photo 1 of 9" class="active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 2 of 9" data-bs-slide-to="1" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 3 of 9" data-bs-slide-to="2" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 4 of 9" data-bs-slide-to="3" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 5 of 9" data-bs-slide-to="4" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 6 of 9" data-bs-slide-to="5" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 7 of 9" data-bs-slide-to="6" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 8 of 9" data-bs-slide-to="7" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+         <button aria-label="Photo 9 of 9" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
+         </button>
+        </div>
+        <div class="carousel-inner">
+         <div class="carousel-item active">
+          <img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" src="images/Astanamainpage.jpg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Astana Architecture by the water
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Rock formation rising above the Mangystau steppe" class="d-block w-100 carousel-photo" loading="lazy" src="images/Aktaumainpage.jpg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Mangystau Wide-open horizons
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" loading="lazy" src="images/almaty2.webp"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Almaty A city among the hills
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" loading="lazy" src="images/bozjyra.jpg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Bozjyra Sculpted by the landscape
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" loading="lazy" src="images/almaty1.png"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Almaty region Winter in the mountains
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" loading="lazy" src="images/rocktrail.jpg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Aktau Follow the coastal trail
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent.jpg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Shymkent Discover city landmarks
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent1.jpeg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Dendropark A greener side of the city
+           </p>
+          </div>
+         </div>
+         <div class="carousel-item">
+          <img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent2.jpeg"/>
+          <div class="carousel-caption">
+           <p class="mb-0">
+            Southern Kazakhstan Stories along the way
+           </p>
+          </div>
+         </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#kazakhstan-carousel" type="button">
+         <span aria-hidden="true" class="carousel-control-prev-icon">
+         </span>
+         <span class="visually-hidden">
+          Previous photo
+         </span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#kazakhstan-carousel" type="button">
+         <span aria-hidden="true" class="carousel-control-next-icon">
+         </span>
+         <span class="visually-hidden">
+          Next photo
+         </span>
+        </button>
+       </div>
+       <h3 class="mt-5 mb-3">
+        Browse All Nine Photos
+       </h3>
+       <div class="photo-gallery mt-4">
+        <a class="gallery-item" href="astana.html">
+         <figure>
+          <img alt="Astana cityscape beside the water" height="600" loading="lazy" src="images/Astanamainpage.jpg" width="800"/>
+          <figcaption>
+           Astana
+           <span>
+            Architecture by the water
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="aktau.html">
+         <figure>
+          <img alt="Rock formation rising above the Mangystau steppe" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+          <figcaption>
+           Mangystau
+           <span>
+            Wide-open horizons
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="almaty.html">
+         <figure>
+          <img alt="Almaty tower above the city and hills" height="600" loading="lazy" src="images/almaty2.webp" width="800"/>
+          <figcaption>
+           Almaty
+           <span>
+            A city among the hills
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="aktau.html">
+         <figure>
+          <img alt="Pale cliffs and rock towers at Bozjyra" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
+          <figcaption>
+           Bozjyra
+           <span>
+            Sculpted by the landscape
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="almaty.html">
+         <figure>
+          <img alt="Ice rink surrounded by snow-covered mountains" height="600" loading="lazy" src="images/almaty1.png" width="800"/>
+          <figcaption>
+           Almaty region
+           <span>
+            Winter in the mountains
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="aktau.html">
+         <figure>
+          <img alt="Walkway between coastal cliffs and the Caspian Sea" height="600" loading="lazy" src="images/rocktrail.jpg" width="800"/>
+          <figcaption>
+           Aktau
+           <span>
+            Follow the coastal trail
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="shymkent.html">
+         <figure>
+          <img alt="White mosque with domes and minarets in Shymkent" height="600" loading="lazy" src="images/shymkent.jpg" width="800"/>
+          <figcaption>
+           Shymkent
+           <span>
+            Discover city landmarks
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="shymkent.html">
+         <figure>
+          <img alt="Green entrance to Shymkent's dendropark" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
+          <figcaption>
+           Dendropark
+           <span>
+            A greener side of the city
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+        <a class="gallery-item" href="shymkent.html">
+         <figure>
+          <img alt="Historic-style gateway with camel sculptures" height="600" loading="lazy" src="images/shymkent2.jpeg" width="800"/>
+          <figcaption>
+           Southern Kazakhstan
+           <span>
+            Stories along the way
+           </span>
+          </figcaption>
+         </figure>
+        </a>
+       </div>
+      </div>
+     </section>
+     <section class="destinations py-5" id="explore">
+      <div class="container guide-note px-3 px-md-4">
+       <h2 class="mb-4">
+        Start Exploring
+       </h2>
+       <p class="mb-3">
+        Choose Aktau, Astana, Almaty, or Shymkent and start exploring Kazakhstan.
+       </p>
+       <a class="btn btn-outline-primary m-1" href="aktau.html">
+        Aktau Guide
+       </a>
+       <a class="btn btn-outline-primary m-1" href="astana.html">
+        Astana Guide
+       </a>
+       <a class="btn btn-outline-primary m-1" href="almaty.html">
+        Almaty Guide
+       </a>
+       <a class="btn btn-outline-primary m-1" href="shymkent.html">
+        Shymkent Guide
+       </a>
+      </div>
+     </section>
+     <section class="about-site py-5" id="contact">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-3">
+        Contact the Team
+       </h2>
+       <p class="text-center mb-4">
+        Try this classroom demo form. It checks your entries in the browser; nothing is sent or saved.
+       </p>
+       <form class="contact-demo mx-auto p-4 rounded" data-demo-form="">
+        <div class="row g-3">
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="contact-name">
+           Name
+          </label>
+          <input class="form-control" id="contact-name" name="name" required="" type="text"/>
+         </div>
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="contact-email">
+           Email
+          </label>
+          <input class="form-control" id="contact-email" name="email" required="" type="email"/>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="contact-city">
+           City you are interested in
+          </label>
+          <div class="input-group">
+           <span class="input-group-text">
+            City
+           </span>
+           <select class="form-select" id="contact-city" name="city">
+            <option>
+             Astana
+            </option>
+            <option>
+             Aktau
+            </option>
+            <option>
+             Almaty
+            </option>
+            <option>
+             Shymkent
+            </option>
+           </select>
+          </div>
+         </div>
+         <fieldset class="col-12">
+          <legend class="fs-6 mb-2">
+           Your topic
+          </legend>
+          <div class="form-check form-check-inline">
+           <input checked="" class="form-check-input" id="topic-travel" name="topic" type="radio" value="travel"/>
+           <label class="form-check-label" for="topic-travel">
+            Travel ideas
+           </label>
+          </div>
+          <div class="form-check form-check-inline">
+           <input class="form-check-input" id="topic-team" name="topic" type="radio" value="team"/>
+           <label class="form-check-label" for="topic-team">
+            About the team
+           </label>
+          </div>
+         </fieldset>
+         <div class="col-12">
+          <label class="form-label" for="contact-message">
+           Message
+          </label>
+          <textarea class="form-control" id="contact-message" name="message" required="" rows="4"></textarea>
+         </div>
+         <div class="col-12">
+          <div class="form-check">
+           <input class="form-check-input" id="demo-notice" required="" type="checkbox"/>
+           <label class="form-check-label" for="demo-notice">
+            I understand this is a demo and will not send a message.
+           </label>
+          </div>
+         </div>
+         <div class="col-12">
+          <button class="btn btn-primary btn-lg" disabled="" type="submit">
+           Check My Message
+          </button>
+         </div>
+         <div class="col-12">
+          <p aria-live="polite" class="form-status mb-0" role="status"></p>
+         </div>
+        </div>
+       </form>
+      </div>
+     </section>
     </main>
-    <footer><div class="container">
-        <p>&copy; 2026 Kazakhstan Travel Guide - About Our Team.</p>
-        <p>Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad</strong> | Group: SE-2501</p>
-    </div></footer>
-</body>
+   </div>
+  </div>
+  <footer class="py-4">
+   <div class="container px-3 px-md-4 py-0">
+    <p class="mb-2">
+     &copy; 2026 Kazakhstan Travel Guide - About Our Team.
+    </p>
+    <p class="mb-0">
+     Developed by:
+     <strong>
+      Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad
+     </strong>
+     | Group: SE-2501
+    </p>
+   </div>
+  </footer>
+  <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script defer="" src="js/forms.js">
+  </script>
+ </body>
 </html>
