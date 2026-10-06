@@ -1,256 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Page credit: Ruzimuhammad. Team: Ramazan Utegen, Ziyadinkhan and Ruzimuhammad, SE-2501. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Almaty's majestic mountains, scenic ice rinks, and vibrant cultural landmarks.">
-    <title>Almaty Travel Guide | KZ Travel</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/assignment2.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/assignment3.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
-    <script src="js/forms.js" defer></script>
-</head>
-<body class="assignment-three">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <header id="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
-            <div class="container-fluid px-3 px-lg-4">
-                <a class="navbar-brand fw-bold" href="index.html">KZ Travel</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-navigation" aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="site-navigation">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="aktau.html">Aktau</a></li>
-                        <li class="nav-item"><a class="nav-link" href="astana.html">Astana</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="almaty.html">Almaty</a></li>
-                        <li class="nav-item"><a class="nav-link" href="shymkent.html">Shymkent</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container-fluid px-0">
-        <div class="row g-0">
-            <aside class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4" aria-labelledby="sidebar-title">
-                <p class="eyebrow mb-2">Your city guide</p>
-                <h2 id="sidebar-title" class="mb-3">Explore Almaty</h2>
-                <nav class="d-flex flex-wrap flex-lg-column gap-2" aria-label="On this page">
-                    <a href="#about">01 / About Region</a>
-                    <a href="#highlights">02 / City Highlights</a>
-                    <a href="#gallery">03 / Photo Gallery</a>
-                    <a href="#schedule">04 / Excursion Schedule</a>
-                    <a href="#contact-form">05 / Plan Excursion</a>
-                </nav>
-                <div class="sidebar-note mt-4 pt-3 d-none d-lg-block">
-                    <h3 class="mb-2">Make it your day</h3>
-                    <p class="mb-2">Mix mountain adventures and city culture.</p>
-                    <a href="#contact-form">Try our excursion demo &rarr;</a>
-                </div>
-            </aside>
-            <main id="main-content" class="col-12 col-lg-9 col-xl-10" tabindex="-1">
-                <section class="hero fade-in">
-                    <img src="images/Mountain.jpg" alt="Almaty Mountain View" class="hero-bg-img">
-                    <div class="hero-content container py-5">
-                        <h1 class="mb-3">Almaty: Southern Capital</h1>
-                        <p class="mb-4">Explore majestic mountains, scenic ice rinks, and vibrant cultural landmarks.</p>
-                        <a href="#highlights" class="btn btn-primary btn-lg">Explore the City</a>
-                    </div>
-                </section>
-                <section class="about-site py-5" id="about">
-                    <div class="container px-3 px-md-4">
-                        <h2 class="mb-3">About Almaty Region</h2>
-                        <p class="mb-4">Almaty is surrounded by the stunning Trans-Ili Alatau mountains. Here are the top locations you must visit:</p>
-                        <div class="row g-4">
-                            <div class="col-12 col-lg-6">
-                                <article class="about-card h-100 p-4">
-                                    <h3 class="mb-3">Must-See Natural Spots</h3>
-                                    <ul class="mb-0">
-                                        <li><strong>Big Almaty Lake:</strong> High-altitude turquoise alpine reservoir.</li>
-                                        <li><strong>Charyn Canyon:</strong> Dramatic rock formations resembling the Grand Canyon.</li>
-                                        <li><strong>Kolsai Lakes:</strong> A system of picturesque mountain lakes.</li>
-                                    </ul>
-                                </article>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <article class="about-card h-100 p-4">
-                                    <h3 class="mb-3">Cultural &amp; Historical Sites</h3>
-                                    <ul class="mb-0">
-                                        <li><strong>Medeu Skating Rink:</strong> The highest Olympic-sized ice rink in the world.</li>
-                                        <li><strong>Shymbulak Ski Resort:</strong> Premier ski resort in the Zailiysky Alatau.</li>
-                                        <li><strong>Kok Tobe Park:</strong> Scenic hilltop park with panoramic city views.</li>
-                                    </ul>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="destinations py-5" id="highlights">
-                    <div class="container px-3 px-md-4">
-                        <p class="eyebrow mb-2">Breathtaking locations</p>
-                        <h2 class="mb-4">Top Highlights in Detail</h2>
-                        <div class="media-card-row">
-                            <article class="media-card">
-                                <img src="images/almaty1.png" alt="Medeu and Shymbulak" width="1080" height="1080" loading="lazy">
-                                <div class="media-card-content">
-                                    <h3>Medeu &amp; Shymbulak</h3>
-                                    <p>World-famous mountain sports complex located high above the city.</p>
-                                    <a href="#contact-form">Book Tour</a>
-                                </div>
-                            </article>
-                            <article class="media-card">
-                                <img src="images/almaty2.webp" alt="Kok Tobe Hill" width="960" height="640" loading="lazy">
-                                <div class="media-card-content">
-                                    <h3>Kok Tobe Hill</h3>
-                                    <p>A popular recreation area accessible via cable car from the city center.</p>
-                                    <a href="#contact-form">Book Tour</a>
-                                </div>
-                            </article>
-                            <article class="media-card">
-                                <img src="images/assignment2/g1.jpg" alt="Charyn Canyon" width="1200" height="800" loading="lazy">
-                                <div class="media-card-content">
-                                    <h3>Charyn Canyon</h3>
-                                    <p>Explore the stunning natural rock formations resembling the Grand Canyon.</p>
-                                    <a href="#contact-form">Book Tour</a>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="gallery-section py-5 bg-light" id="gallery">
-                    <div class="container px-3 px-md-4">
-                        <h2 class="mb-4">Photo Gallery</h2>
-                        <div id="almatyCarousel" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/assignment2/g1.jpg" class="d-block w-100" alt="Beautiful Mountains" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Beautiful Mountains</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g2.jpg" class="d-block w-100" alt="City Center" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>City Center</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g3.jpg" class="d-block w-100" alt="Local Food" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Local Food</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g4.jpg" class="d-block w-100" alt="Park View" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Park View</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g5.webp" class="d-block w-100" alt="Night City" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Night City</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g6.jpeg" class="d-block w-100" alt="Historical Monument" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Historical Monument</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g7.jpg" class="d-block w-100" alt="Alpine Lake" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Alpine Lake</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g8.jpg" class="d-block w-100" alt="Ski Resort" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Ski Resort</h5></div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/assignment2/g9.webp" class="d-block w-100" alt="Local Market" style="height: 500px; object-fit: cover;">
-                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded"><h5>Local Market</h5></div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#almatyCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#almatyCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="quick-facts py-5" id="schedule">
-                    <div class="container px-3 px-md-4">
-                        <h2 class="mb-4">Recommended 3-Day Schedule</h2>
-                        <div class="table-responsive">
-                            <table class="table table-striped align-middle mb-0 border">
-                                <thead class="table-dark">
-                                    <tr><th scope="col">Day</th><th scope="col">Destination / Route</th><th scope="col">Activity Highlights</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Day 1</td><td>Almaty City &amp; Kok Tobe</td><td>Cable car ride, city museum, evening park walk</td></tr>
-                                    <tr><td>Day 2</td><td>Medeu &amp; Shymbulak</td><td>Mountain tourism, hiking, cableway trip</td></tr>
-                                    <tr><td>Day 3</td><td>Charyn Canyon &amp; Kolsai</td><td>Valley of Castles excursion, lakeside photography</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="newsletter py-5 bg-light" id="contact-form">
-                    <div class="container px-3 px-md-4">
-                        <h2 class="mb-3">Plan an Almaty Excursion</h2>
-                        <p class="mb-4 text-muted">Try our excursion enquiry demo. No booking is made and no information is sent.</p>
-                        <form class="sub-form p-4 bg-white border rounded shadow-sm" data-demo-form>
-                            <div class="row g-3 mb-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Your name</label>
-                                    <input type="text" name="name" class="form-control" autocomplete="name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Your email</label>
-                                    <input type="email" name="email" class="form-control" autocomplete="email" required>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <fieldset class="border p-3 rounded">
-                                    <legend class="float-none w-auto px-2 fs-6 fw-semibold">Select tour package</legend>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="package" id="pkg1" value="mountains" checked>
-                                        <label class="form-check-label" for="pkg1">Mountain Adventure</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="package" id="pkg2" value="city">
-                                        <label class="form-check-label" for="pkg2">City &amp; Culture</label>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Message</label>
-                                <textarea name="message" class="form-control" rows="4" placeholder="Additional notes or questions..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg" disabled>Try Enquiry</button>
-                            <p class="form-status mt-2 text-success fw-semibold" role="status" aria-live="polite"></p>
-                        </form>
-                    </div>
-                </section>
-
-                <section class="about-site py-5">
-                    <div class="container guide-note px-3 px-md-4">
-                        <h2 class="mb-3">Behind This Guide</h2>
-                        <p class="mb-4"><strong>Ruzimuhammad</strong> is a student in group SE-2501. His assigned pages are Almaty and Shymkent. He added city information, attraction cards, travel tables, image carousels, and enquiry forms that use the shared site design.</p>
-                        <div class="btn-group d-flex flex-column flex-sm-row justify-content-center" role="group" aria-label="Explore related pages">
-                            <a href="about.html" class="btn btn-primary">Meet Our Team</a>
-                            <a href="shymkent.html" class="btn btn-outline-primary">Explore Shymkent Next</a>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
+ <head>
+  <!-- Page credit: Ruzimuhammad. Team: Ramazan Utegen, Ziyadinkhan and Ruzimuhammad, SE-2501. -->
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Explore Almaty's majestic mountains, scenic ice rinks, and vibrant cultural landmarks." name="description"/>
+  <title>
+   Almaty Travel Guide | KZ Travel
+  </title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/assignment3.css" rel="stylesheet"/>
+  <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script defer="" src="js/site.js">
+  </script>
+  <script defer="" src="js/forms.js">
+  </script>
+ </head>
+ <body class="assignment-three">
+  <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
+   Skip to content
+  </a>
+  <header id="main-header">
+   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container-fluid px-3 px-lg-4">
+     <a class="navbar-brand fw-bold m-0" href="index.html">
+      KZ Travel
+     </a>
+     <button aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#site-navigation" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon">
+      </span>
+     </button>
+     <div class="collapse navbar-collapse" id="site-navigation">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+        <a class="nav-link" href="index.html">
+         Home
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="aktau.html">
+         Aktau
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="astana.html">
+         Astana
+        </a>
+       </li>
+       <li class="nav-item">
+        <a aria-current="page" class="nav-link active" href="almaty.html">
+         Almaty
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="shymkent.html">
+         Shymkent
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="about.html">
+         About Us
+        </a>
+       </li>
+      </ul>
+     </div>
     </div>
-    
-    <footer class="py-4 bg-dark text-white text-center mt-auto">
-        <div class="container px-3 px-md-4 py-0">
-            <p class="mb-2">&copy; 2026 Kazakhstan Travel Guide - Almaty Section.</p>
-            <p class="mb-0">Developed by: <strong>Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad</strong> | Group: SE-2501</p>
+   </nav>
+  </header>
+  <div class="container-fluid px-0">
+   <div class="row g-0">
+    <aside aria-labelledby="sidebar-title" class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4">
+     <p class="eyebrow mb-2">
+      Your city guide
+     </p>
+     <h2 class="mb-3" id="sidebar-title">
+      Explore Almaty
+     </h2>
+     <nav aria-label="On this page" class="d-flex flex-wrap flex-lg-column gap-2">
+      <a class="py-1" href="#about">
+       01 / About Region
+      </a>
+      <a class="py-1" href="#highlights">
+       02 / City Highlights
+      </a>
+      <a class="py-1" href="#gallery">
+       03 / Photo Gallery
+      </a>
+      <a class="py-1" href="#schedule">
+       04 / Excursion Schedule
+      </a>
+      <a class="py-1" href="#contact-form">
+       05 / Plan Excursion
+      </a>
+     </nav>
+     <div class="sidebar-note mt-4 pt-3 d-none d-lg-block">
+      <h3 class="mb-2">
+       Make it your day
+      </h3>
+      <p class="mb-2">
+       Mix mountain adventures and city culture.
+      </p>
+      <a href="#contact-form">
+       Try our excursion demo →
+      </a>
+     </div>
+    </aside>
+    <main class="col-12 col-lg-9 col-xl-10" id="main-content" tabindex="-1">
+     <section class="hero fade-in py-4 py-lg-5 d-flex align-items-center justify-content-center">
+      <img alt="Almaty Mountain View" class="hero-bg-img" src="images/Mountain.jpg"/>
+      <div class="hero-content container py-5 px-3 px-md-4">
+       <h1 class="mb-3">
+        Almaty: Southern Capital
+       </h1>
+       <p class="mb-4">
+        Explore majestic mountains, scenic ice rinks, and vibrant cultural landmarks.
+       </p>
+       <a class="btn btn-primary btn-lg" href="#highlights">
+        Explore the City
+       </a>
+      </div>
+     </section>
+     <section class="about-site py-5 py-4 py-lg-5" id="about">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-3">
+        About Almaty Region
+       </h2>
+       <p class="mb-4">
+        Almaty is surrounded by the stunning Trans-Ili Alatau mountains. Here are the top locations you must visit:
+       </p>
+       <div class="row g-4">
+        <div class="col-12 col-lg-6">
+         <article class="about-card h-100 p-4">
+          <h3 class="mb-3">
+           Must-See Natural Spots
+          </h3>
+          <ul class="mb-0">
+           <li>
+            <strong>
+             Big Almaty Lake:
+            </strong>
+            High-altitude turquoise alpine reservoir.
+           </li>
+           <li>
+            <strong>
+             Charyn Canyon:
+            </strong>
+            Dramatic rock formations resembling the Grand Canyon.
+           </li>
+           <li>
+            <strong>
+             Kolsai Lakes:
+            </strong>
+            A system of picturesque mountain lakes.
+           </li>
+          </ul>
+         </article>
         </div>
-    </footer>
-</body>
+        <div class="col-12 col-lg-6">
+         <article class="about-card h-100 p-4">
+          <h3 class="mb-3">
+           Cultural &amp; Historical Sites
+          </h3>
+          <ul class="mb-0">
+           <li>
+            <strong>
+             Medeu Skating Rink:
+            </strong>
+            The highest Olympic-sized ice rink in the world.
+           </li>
+           <li>
+            <strong>
+             Shymbulak Ski Resort:
+            </strong>
+            Premier ski resort in the Zailiysky Alatau.
+           </li>
+           <li>
+            <strong>
+             Kok Tobe Park:
+            </strong>
+            Scenic hilltop park with panoramic city views.
+           </li>
+          </ul>
+         </article>
+        </div>
+       </div>
+      </div>
+     </section>
+     <section class="destinations py-5 py-4 py-lg-5" id="highlights">
+      <div class="container px-3 px-md-4">
+       <p class="eyebrow mb-2">
+        Breathtaking locations
+       </p>
+       <h2 class="mb-4">
+        Top Highlights in Detail
+       </h2>
+       <div class="row g-4 card-group">
+        <div class="col-12 col-md-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Medeu and Shymbulak" class="card-img-top" height="1080" loading="lazy" src="images/almaty1.png" width="1080"/>
+          <div class="card-body d-flex flex-column p-4">
+           <h3 class="card-title mb-3">
+            Medeu &amp; Shymbulak
+           </h3>
+           <p class="card-text mb-4">
+            World-famous mountain sports complex located high above the city.
+           </p>
+           <a class="btn btn-outline-primary mt-auto" href="#contact-form">
+            Try Enquiry
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Kok Tobe Hill" class="card-img-top" height="640" loading="lazy" src="images/almaty2.webp" width="960"/>
+          <div class="card-body d-flex flex-column p-4">
+           <h3 class="card-title mb-3">
+            Kok Tobe Hill
+           </h3>
+           <p class="card-text mb-4">
+            A popular recreation area accessible via cable car from the city center.
+           </p>
+           <a class="btn btn-outline-primary mt-auto" href="#contact-form">
+            Try Enquiry
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+         <article class="card h-100">
+          <img alt="Mountain Valleys" class="card-img-top" height="800" loading="lazy" src="images/assignment2/g1.jpg" width="1200"/>
+          <div class="card-body d-flex flex-column p-4">
+           <h3 class="card-title mb-3">
+            Mountain Valleys
+           </h3>
+           <p class="card-text mb-4">
+            Discover green valleys and mountain scenery beyond the city.
+           </p>
+           <a class="btn btn-outline-primary mt-auto" href="#contact-form">
+            Try Enquiry
+           </a>
+          </div>
+         </article>
+        </div>
+       </div>
+      </div>
+     </section>
+     <section aria-labelledby="travel-tips-title" class="css-tips" id="travel-tips">
+      <!-- Assignment 3 Task 2: custom CSS only; no Bootstrap layout or spacing classes. -->
+      <h2 id="travel-tips-title">
+       Before You Explore
+      </h2>
+      <div class="css-tip-grid">
+       <article class="css-tip">
+        <h3>
+         City or mountains?
+        </h3>
+        <p>
+         Choose one main area for each day rather than rushing between distant attractions.
+        </p>
+       </article>
+       <article class="css-tip">
+        <h3>
+         Prepare for outdoor time
+        </h3>
+        <p>
+         Bring suitable footwear and check conditions before heading into the mountains.
+        </p>
+       </article>
+       <article class="css-tip">
+        <h3>
+         Leave room to explore
+        </h3>
+        <p>
+         Make time for a city walk and local food between your planned activities.
+        </p>
+       </article>
+      </div>
+     </section>
+     <section class="gallery-section py-5 bg-light py-4 py-lg-5" id="gallery">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-4">
+        Photo Gallery
+       </h2>
+       <div aria-label="Destination photo gallery" aria-roledescription="carousel" class="carousel slide shadow rounded overflow-hidden mx-auto" data-bs-interval="false" id="almatyCarousel" role="region" tabindex="0">
+        <div class="carousel-indicators mb-2">
+         <button aria-current="true" aria-label="Photo 1" class="active" data-bs-slide-to="0" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 2" data-bs-slide-to="1" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 3" data-bs-slide-to="2" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 4" data-bs-slide-to="3" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 5" data-bs-slide-to="4" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 6" data-bs-slide-to="5" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 7" data-bs-slide-to="6" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 8" data-bs-slide-to="7" data-bs-target="#almatyCarousel" type="button">
+         </button>
+         <button aria-label="Photo 9" data-bs-slide-to="8" data-bs-target="#almatyCarousel" type="button">
+         </button>
+        </div>
+        <div aria-live="polite" class="carousel-inner">
+         <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
+          <img alt="Mountain valley" class="d-block w-100 carousel-photo" src="images/assignment2/g1.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Mountain valley
+           </p>
+          </div>
+         </div>
+         <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="City Center" class="d-block w-100 carousel-photo" src="images/assignment2/g2.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            City Center
+           </p>
+          </div>
+         </div>
+         <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Local Food" class="d-block w-100 carousel-photo" src="images/assignment2/g3.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Local Food
+           </p>
+          </div>
+         </div>
+         <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Park View" class="d-block w-100 carousel-photo" src="images/assignment2/g4.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Park View
+           </p>
+          </div>
+         </div>
+         <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Night City" class="d-block w-100 carousel-photo" src="images/assignment2/g5.webp"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Night City
+           </p>
+          </div>
+         </div>
+         <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Historical Monument" class="d-block w-100 carousel-photo" src="images/assignment2/g6.jpeg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Historical Monument
+           </p>
+          </div>
+         </div>
+         <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Alpine Lake" class="d-block w-100 carousel-photo" src="images/assignment2/g7.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Alpine Lake
+           </p>
+          </div>
+         </div>
+         <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Ski Resort" class="d-block w-100 carousel-photo" src="images/assignment2/g8.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Ski Resort
+           </p>
+          </div>
+         </div>
+         <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Local Market" class="d-block w-100 carousel-photo" src="images/assignment2/g9.webp"/>
+          <div class="carousel-caption p-2 p-md-3">
+           <p class="fw-semibold mb-0">
+            Local Market
+           </p>
+          </div>
+         </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#almatyCarousel" type="button">
+         <span aria-hidden="true" class="carousel-control-prev-icon">
+         </span>
+         <span class="visually-hidden">
+          Previous
+         </span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#almatyCarousel" type="button">
+         <span aria-hidden="true" class="carousel-control-next-icon">
+         </span>
+         <span class="visually-hidden">
+          Next
+         </span>
+        </button>
+       </div>
+      </div>
+     </section>
+     <section class="quick-facts py-5 py-4 py-lg-5" id="schedule">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-4">
+        Recommended 3-Day Schedule
+       </h2>
+       <p class="mb-4">
+        A sample route to adapt to your interests. Check travel times, access, and opening hours before visiting.
+       </p>
+       <div class="table-responsive">
+        <table class="table table-striped align-middle mb-0 border">
+         <thead class="table-dark">
+          <tr>
+           <th class="p-2 p-md-3" scope="col">
+            Day
+           </th>
+           <th class="p-2 p-md-3" scope="col">
+            Destination / Route
+           </th>
+           <th class="p-2 p-md-3" scope="col">
+            Activity Highlights
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="p-2 p-md-3">
+            Day 1
+           </td>
+           <td class="p-2 p-md-3">
+            Almaty City &amp; Kok Tobe
+           </td>
+           <td class="p-2 p-md-3">
+            Cable car ride, city museum, evening park walk
+           </td>
+          </tr>
+          <tr>
+           <td class="p-2 p-md-3">
+            Day 2
+           </td>
+           <td class="p-2 p-md-3">
+            Medeu &amp; Shymbulak
+           </td>
+           <td class="p-2 p-md-3">
+            Mountain tourism, hiking, cableway trip
+           </td>
+          </tr>
+          <tr>
+           <td class="p-2 p-md-3">
+            Day 3
+           </td>
+           <td class="p-2 p-md-3">
+            Charyn Canyon &amp; Kolsai
+           </td>
+           <td class="p-2 p-md-3">
+            Valley of Castles excursion, lakeside photography
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </section>
+     <section class="newsletter py-5 bg-light py-4 py-lg-5" id="contact-form">
+      <div class="container px-3 px-md-4">
+       <h2 class="mb-3">
+        Plan an Almaty Excursion
+       </h2>
+       <p class="mb-4 text-muted">
+        Try our excursion enquiry demo. No booking is made and no information is sent.
+       </p>
+       <form class="sub-form p-4 bg-white border rounded shadow-sm mx-auto p-3 p-sm-4 text-dark" data-demo-form="">
+        <div class="row g-3 mb-3">
+         <div class="col-md-6">
+          <label class="form-label" for="almaty-name">
+           Your name
+          </label>
+          <input autocomplete="name" class="form-control" id="almaty-name" name="name" required="" type="text"/>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="almaty-email">
+           Your email
+          </label>
+          <input autocomplete="email" class="form-control" id="almaty-email" name="email" required="" type="email"/>
+         </div>
+        </div>
+        <div class="mb-3">
+         <fieldset class="border p-3 rounded">
+          <legend class="float-none w-auto px-2 fs-6 fw-semibold">
+           Select tour package
+          </legend>
+          <div class="form-check form-check-inline">
+           <input checked="" class="form-check-input" id="pkg1" name="package" type="radio" value="mountains"/>
+           <label class="form-check-label" for="pkg1">
+            Mountain Adventure
+           </label>
+          </div>
+          <div class="form-check form-check-inline">
+           <input class="form-check-input" id="pkg2" name="package" type="radio" value="city"/>
+           <label class="form-check-label" for="pkg2">
+            City &amp; Culture
+           </label>
+          </div>
+         </fieldset>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="almaty-message">
+          Message
+         </label>
+         <textarea class="form-control" id="almaty-message" name="message" placeholder="Additional notes or questions..." required="" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg" disabled="" type="submit">
+         Try Enquiry
+        </button>
+        <p aria-live="polite" class="form-status mt-2 fw-semibold p-3 rounded" role="status"></p>
+        <noscript>
+         This classroom demo needs JavaScript. Nothing is sent or saved.
+        </noscript>
+       </form>
+      </div>
+     </section>
+     <section class="about-site py-5 py-4 py-lg-5">
+      <div class="container guide-note px-3 px-md-4">
+       <h2 class="mb-3">
+        Behind This Guide
+       </h2>
+       <p class="mb-4">
+        <strong>
+         Ruzimuhammad
+        </strong>
+        is a student in group SE-2501. His assigned pages are Almaty and Shymkent. He added city information, attraction cards, travel tables, image carousels, and enquiry forms that use the shared site design.
+       </p>
+       <div aria-label="Explore related pages" class="btn-group d-flex flex-column flex-sm-row justify-content-center mx-auto" role="group">
+        <a class="btn btn-primary" href="about.html">
+         Meet Our Team
+        </a>
+        <a class="btn btn-outline-primary" href="shymkent.html">
+         Explore Shymkent Next
+        </a>
+       </div>
+      </div>
+     </section>
+    </main>
+   </div>
+  </div>
+  <footer class="py-4 text-center">
+   <div class="container px-3 px-md-4">
+    <p class="mb-2">
+     © 2026 Kazakhstan Travel Guide - Almaty Section.
+    </p>
+    <p class="mb-0">
+     Developed by:
+     <strong>
+      Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad
+     </strong>
+     | Group: SE-2501
+    </p>
+   </div>
+  </footer>
+ </body>
 </html>

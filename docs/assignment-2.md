@@ -1,3 +1,5 @@
+> Historical Assignment 2 snapshot. The midterm pages now use Bootstrap layouts and cards introduced in Assignment 3. The implementation and verification statements below describe that earlier version, not a fresh test of the current site.
+
 # Assignment 2 - Complete team website
 
 Team: KZ Travel. Group: SE-2501.

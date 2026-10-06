@@ -8,19 +8,24 @@
   <title>
    About Our Team | KZ Travel
   </title>
-  <link href="css/style.css" rel="stylesheet"/>
-  <link href="css/assignment2.css" rel="stylesheet"/>
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
   <link href="css/assignment3.css" rel="stylesheet"/>
+  <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script defer="" src="js/site.js">
+  </script>
+  <script defer="" src="js/forms.js">
+  </script>
  </head>
  <body class="assignment-three">
-  <a class="skip-link" href="#main-content">
+  <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
   <header id="main-header">
-   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark">
+   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark py-3">
     <div class="container-fluid px-3 px-lg-4">
-     <a class="navbar-brand fw-bold" href="index.html">
+     <a class="navbar-brand fw-bold m-0" href="index.html">
       KZ Travel
      </a>
      <button aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#site-navigation" data-bs-toggle="collapse" type="button">
@@ -74,19 +79,19 @@
       Meet KZ Travel
      </h2>
      <nav aria-label="On this page" class="d-flex flex-wrap flex-lg-column gap-2">
-      <a href="#team">
+      <a class="py-1" href="#team">
        01 / Our three members
       </a>
-      <a href="#purpose">
+      <a class="py-1" href="#purpose">
        02 / Our project
       </a>
-      <a href="#gallery">
+      <a class="py-1" href="#gallery">
        03 / Photo journal
       </a>
-      <a href="#explore">
+      <a class="py-1" href="#explore">
        04 / Choose a city
       </a>
-      <a href="#contact">
+      <a class="py-1" href="#contact">
        05 / Contact the team
       </a>
      </nav>
@@ -98,38 +103,38 @@
        One shared guide, four cities, and a curiosity about Kazakhstan.
       </p>
       <a href="astana.html">
-       Discover the capital &rarr;
+       Discover the capital →
       </a>
      </div>
     </aside>
     <main class="col-12 col-lg-9 col-xl-10" id="main-content" tabindex="-1">
-     <section class="about-intro py-5">
+     <section class="about-intro py-5 py-4 py-lg-5">
       <div class="container px-3 px-md-4">
        <div class="row align-items-center g-4">
-       <div class="col-12 col-lg-7">
-        <p class="eyebrow">
-         KZ Travel / SE-2501
-        </p>
-        <h1 class="mb-3">
-         Three Students. One Country to Explore.
-        </h1>
-        <p class="mb-4">
-         We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML, CSS, and Bootstrap, our project brings together places we want you to discover.
-        </p>
-        <a class="btn btn-primary btn-lg" href="#team">
-         Meet the Team
-        </a>
-       </div>
-       <figure class="col-12 col-lg-5">
-        <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" src="images/KZ.jpg"/>
-        <figcaption>
-         Our shared theme: exploring Kazakhstan.
-        </figcaption>
-       </figure>
+        <div class="col-12 col-lg-7">
+         <p class="eyebrow">
+          KZ Travel / SE-2501
+         </p>
+         <h1 class="mb-3">
+          Three Students. One Country to Explore.
+         </h1>
+         <p class="mb-4">
+          We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML, CSS, and Bootstrap, our project brings together places we want you to discover.
+         </p>
+         <a class="btn btn-primary btn-lg" href="#team">
+          Meet the Team
+         </a>
+        </div>
+        <figure class="col-12 col-lg-5 mb-0">
+         <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" src="images/KZ.jpg"/>
+         <figcaption class="pt-3">
+          Our shared theme: exploring Kazakhstan.
+         </figcaption>
+        </figure>
        </div>
       </div>
      </section>
-     <section class="about-site py-5" id="team">
+     <section class="about-site py-5 py-4 py-lg-5" id="team">
       <div class="container px-3 px-md-4">
        <h2 class="mb-4">
         About the Team Members
@@ -204,7 +209,7 @@
        </div>
       </div>
      </section>
-     <section class="destinations py-5" id="purpose">
+     <section class="destinations py-5 py-4 py-lg-5" id="purpose">
       <div class="container px-3 px-md-4">
        <h2 class="mb-4">
         What This Project Practises
@@ -245,7 +250,39 @@
        </div>
       </div>
      </section>
-     <section aria-labelledby="gallery-title" class="about-site py-5" id="gallery">
+     <section aria-labelledby="travel-tips-title" class="css-tips" id="travel-tips">
+      <!-- Assignment 3 Task 2: custom CSS only; no Bootstrap layout or spacing classes. -->
+      <h2 id="travel-tips-title">
+       Before You Explore
+      </h2>
+      <div class="css-tip-grid">
+       <article class="css-tip">
+        <h3>
+         Choose a city
+        </h3>
+        <p>
+         Start with the destination that matches your interests: city culture, coast, or mountains.
+        </p>
+       </article>
+       <article class="css-tip">
+        <h3>
+         Build a simple route
+        </h3>
+        <p>
+         Use the guide as a starting point and check details before travelling.
+        </p>
+       </article>
+       <article class="css-tip">
+        <h3>
+         Travel thoughtfully
+        </h3>
+        <p>
+         Respect local places, keep shared spaces clean, and give yourself time to explore.
+        </p>
+       </article>
+      </div>
+     </section>
+     <section aria-labelledby="gallery-title" class="about-site py-5 py-4 py-lg-5" id="gallery">
       <div class="container px-3 px-md-4">
        <p class="eyebrow">
         Our Kazakhstan photo journal
@@ -256,7 +293,7 @@
        <p>
         From city skylines to open landscapes, explore the places behind our guide. Select a photo to visit its city page.
        </p>
-       <div aria-label="Kazakhstan photo slideshow" class="carousel slide mt-4" data-bs-interval="false" id="kazakhstan-carousel">
+       <div aria-label="Destination photo gallery" aria-roledescription="carousel" class="carousel slide mt-4 mx-auto rounded overflow-hidden" data-bs-interval="false" id="kazakhstan-carousel" role="region" tabindex="0">
         <div class="carousel-indicators">
          <button aria-current="true" aria-label="Photo 1 of 9" class="active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
          </button>
@@ -277,74 +314,74 @@
          <button aria-label="Photo 9 of 9" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
          </button>
         </div>
-        <div class="carousel-inner">
-         <div class="carousel-item active">
+        <div aria-live="polite" class="carousel-inner">
+         <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
           <img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" src="images/Astanamainpage.jpg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Astana Architecture by the water
            </p>
           </div>
          </div>
-         <div class="carousel-item">
-          <img alt="Rock formation rising above the Mangystau steppe" class="d-block w-100 carousel-photo" loading="lazy" src="images/Aktaumainpage.jpg"/>
-          <div class="carousel-caption">
+         <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
+          <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" loading="lazy" src="images/Aktaumainpage.jpg"/>
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Mangystau Wide-open horizons
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" loading="lazy" src="images/almaty2.webp"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Almaty A city among the hills
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" loading="lazy" src="images/bozjyra.jpg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Bozjyra Sculpted by the landscape
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" loading="lazy" src="images/almaty1.png"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Almaty region Winter in the mountains
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" loading="lazy" src="images/rocktrail.jpg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Aktau Follow the coastal trail
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent.jpg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Shymkent Discover city landmarks
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent1.jpeg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Dendropark A greener side of the city
            </p>
           </div>
          </div>
-         <div class="carousel-item">
+         <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
           <img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" loading="lazy" src="images/shymkent2.jpeg"/>
-          <div class="carousel-caption">
+          <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Southern Kazakhstan Stories along the way
            </p>
@@ -369,110 +406,128 @@
        <h3 class="mt-5 mb-3">
         Browse All Nine Photos
        </h3>
-       <div class="photo-gallery mt-4">
-        <a class="gallery-item" href="astana.html">
-         <figure>
-          <img alt="Astana cityscape beside the water" height="600" loading="lazy" src="images/Astanamainpage.jpg" width="800"/>
-          <figcaption>
-           Astana
-           <span>
-            Architecture by the water
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="aktau.html">
-         <figure>
-          <img alt="Rock formation rising above the Mangystau steppe" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
-          <figcaption>
-           Mangystau
-           <span>
-            Wide-open horizons
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="almaty.html">
-         <figure>
-          <img alt="Almaty tower above the city and hills" height="600" loading="lazy" src="images/almaty2.webp" width="800"/>
-          <figcaption>
-           Almaty
-           <span>
-            A city among the hills
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="aktau.html">
-         <figure>
-          <img alt="Pale cliffs and rock towers at Bozjyra" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
-          <figcaption>
-           Bozjyra
-           <span>
-            Sculpted by the landscape
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="almaty.html">
-         <figure>
-          <img alt="Ice rink surrounded by snow-covered mountains" height="600" loading="lazy" src="images/almaty1.png" width="800"/>
-          <figcaption>
-           Almaty region
-           <span>
-            Winter in the mountains
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="aktau.html">
-         <figure>
-          <img alt="Walkway between coastal cliffs and the Caspian Sea" height="600" loading="lazy" src="images/rocktrail.jpg" width="800"/>
-          <figcaption>
-           Aktau
-           <span>
-            Follow the coastal trail
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="shymkent.html">
-         <figure>
-          <img alt="White mosque with domes and minarets in Shymkent" height="600" loading="lazy" src="images/shymkent.jpg" width="800"/>
-          <figcaption>
-           Shymkent
-           <span>
-            Discover city landmarks
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="shymkent.html">
-         <figure>
-          <img alt="Green entrance to Shymkent's dendropark" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
-          <figcaption>
-           Dendropark
-           <span>
-            A greener side of the city
-           </span>
-          </figcaption>
-         </figure>
-        </a>
-        <a class="gallery-item" href="shymkent.html">
-         <figure>
-          <img alt="Historic-style gateway with camel sculptures" height="600" loading="lazy" src="images/shymkent2.jpeg" width="800"/>
-          <figcaption>
-           Southern Kazakhstan
-           <span>
-            Stories along the way
-           </span>
-          </figcaption>
-         </figure>
-        </a>
+       <div class="photo-gallery row g-3 mt-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="astana.html">
+          <figure class="m-0">
+           <img alt="Astana cityscape beside the water" height="600" loading="lazy" src="images/Astanamainpage.jpg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Astana
+            <span>
+             Architecture by the water
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="aktau.html">
+          <figure class="m-0">
+           <img alt="Camel and plateau in the Mangystau steppe" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Mangystau
+            <span>
+             Wide-open horizons
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="almaty.html">
+          <figure class="m-0">
+           <img alt="Almaty tower above the city and hills" height="600" loading="lazy" src="images/almaty2.webp" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Almaty
+            <span>
+             A city among the hills
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="aktau.html">
+          <figure class="m-0">
+           <img alt="Pale cliffs and rock towers at Bozjyra" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Bozjyra
+            <span>
+             Sculpted by the landscape
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="almaty.html">
+          <figure class="m-0">
+           <img alt="Ice rink surrounded by snow-covered mountains" height="600" loading="lazy" src="images/almaty1.png" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Almaty region
+            <span>
+             Winter in the mountains
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="aktau.html">
+          <figure class="m-0">
+           <img alt="Walkway between coastal cliffs and the Caspian Sea" height="600" loading="lazy" src="images/rocktrail.jpg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Aktau
+            <span>
+             Follow the coastal trail
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="shymkent.html">
+          <figure class="m-0">
+           <img alt="White mosque with domes and minarets in Shymkent" height="600" loading="lazy" src="images/shymkent.jpg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Shymkent
+            <span>
+             Discover city landmarks
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="shymkent.html">
+          <figure class="m-0">
+           <img alt="Green entrance to Shymkent's dendropark" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Dendropark
+            <span>
+             A greener side of the city
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+         <a class="gallery-item d-block" href="shymkent.html">
+          <figure class="m-0">
+           <img alt="Historic-style gateway with camel sculptures" height="600" loading="lazy" src="images/shymkent2.jpeg" width="800"/>
+           <figcaption class="px-3 pt-5 pb-3">
+            Southern Kazakhstan
+            <span>
+             Stories along the way
+            </span>
+           </figcaption>
+          </figure>
+         </a>
+        </div>
        </div>
       </div>
      </section>
-     <section class="destinations py-5" id="explore">
+     <section class="destinations py-5 py-4 py-lg-5" id="explore">
       <div class="container guide-note px-3 px-md-4">
        <h2 class="mb-4">
         Start Exploring
@@ -494,7 +549,7 @@
        </a>
       </div>
      </section>
-     <section class="about-site py-5" id="contact">
+     <section class="about-site py-5 py-4 py-lg-5" id="contact">
       <div class="container px-3 px-md-4">
        <h2 class="mb-3">
         Contact the Team
@@ -502,19 +557,19 @@
        <p class="text-center mb-4">
         Try this classroom demo form. It checks your entries in the browser; nothing is sent or saved.
        </p>
-       <form class="contact-demo mx-auto p-4 rounded" data-demo-form="">
+       <form class="contact-demo mx-auto p-4 rounded p-3 p-sm-4 bg-white text-dark" data-demo-form="">
         <div class="row g-3">
          <div class="col-12 col-md-6">
           <label class="form-label" for="contact-name">
            Name
           </label>
-          <input class="form-control" id="contact-name" name="name" required="" type="text"/>
+          <input autocomplete="name" class="form-control" id="contact-name" name="name" required="" type="text"/>
          </div>
          <div class="col-12 col-md-6">
           <label class="form-label" for="contact-email">
            Email
           </label>
-          <input class="form-control" id="contact-email" name="email" required="" type="email"/>
+          <input autocomplete="email" class="form-control" id="contact-email" name="email" required="" type="email"/>
          </div>
          <div class="col-12">
           <label class="form-label" for="contact-city">
@@ -577,19 +632,22 @@
           </button>
          </div>
          <div class="col-12">
-          <p aria-live="polite" class="form-status mb-0" role="status"></p>
+          <p aria-live="polite" class="form-status mb-0 p-3 rounded" role="status"></p>
          </div>
         </div>
+        <noscript>
+         This classroom demo needs JavaScript. Nothing is sent or saved.
+        </noscript>
        </form>
       </div>
      </section>
     </main>
    </div>
   </div>
-  <footer class="py-4">
-   <div class="container px-3 px-md-4 py-0">
+  <footer class="py-4 text-center">
+   <div class="container px-3 px-md-4">
     <p class="mb-2">
-     &copy; 2026 Kazakhstan Travel Guide - About Our Team.
+     © 2026 Kazakhstan Travel Guide - About Our Team.
     </p>
     <p class="mb-0">
      Developed by:
@@ -600,9 +658,5 @@
     </p>
    </div>
   </footer>
-  <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script defer="" src="js/forms.js">
-  </script>
  </body>
 </html>
