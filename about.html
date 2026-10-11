@@ -11,12 +11,16 @@
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
   <link href="css/style.css" rel="stylesheet"/>
   <link href="css/assignment3.css" rel="stylesheet"/>
+  <link href="css/assignment4.css" rel="stylesheet"/>
   <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </script>
   <script defer="" src="js/site.js">
   </script>
   <script defer="" src="js/forms.js">
   </script>
+  <script defer="" src="js/preferences.js"></script>
+  <script defer="" src="js/clock.js"></script>
+  <script defer="" src="js/popup.js"></script>
  </head>
  <body class="assignment-three">
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
@@ -69,6 +73,19 @@
     </div>
    </nav>
   </header>
+  <section aria-label="Travel view settings" class="travel-tools py-3">
+   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <div>
+     <span class="travel-tools-label d-block">Time in Kazakhstan <span class="fw-normal">(UTC+5)</span></span>
+     <time class="travel-clock" data-live-clock="">Enable JavaScript to see the current time.</time>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">Change background</button>
+     <span aria-live="polite" class="small" role="status">Colour: <strong data-background-name="">Sand</strong></span>
+     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">Travel FAQ</a>
+    </div>
+   </div>
+  </section>
   <div class="container-fluid px-0">
    <div class="row g-0">
     <aside aria-labelledby="sidebar-title" class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4">
@@ -119,7 +136,7 @@
           Three Students. One Country to Explore.
          </h1>
          <p class="mb-4">
-          We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML, CSS, and Bootstrap, our project brings together places we want you to discover.
+          We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad: three students from SE-2501 sharing a guide to four cities in Kazakhstan. Built with HTML, CSS, Bootstrap, and JavaScript, our project brings together places we want you to discover.
          </p>
          <a class="btn btn-primary btn-lg" href="#team">
           Meet the Team
@@ -557,88 +574,98 @@
        <p class="text-center mb-4">
         Try this classroom demo form. It checks your entries in the browser; nothing is sent or saved.
        </p>
-       <form class="contact-demo mx-auto p-4 rounded p-3 p-sm-4 bg-white text-dark" data-demo-form="">
-        <div class="row g-3">
-         <div class="col-12 col-md-6">
-          <label class="form-label" for="contact-name">
-           Name
-          </label>
-          <input autocomplete="name" class="form-control" id="contact-name" name="name" required="" type="text"/>
-         </div>
-         <div class="col-12 col-md-6">
-          <label class="form-label" for="contact-email">
-           Email
-          </label>
-          <input autocomplete="email" class="form-control" id="contact-email" name="email" required="" type="email"/>
-         </div>
-         <div class="col-12">
-          <label class="form-label" for="contact-city">
-           City you are interested in
-          </label>
-          <div class="input-group">
-           <span class="input-group-text">
-            City
-           </span>
-           <select class="form-select" id="contact-city" name="city">
-            <option>
-             Astana
-            </option>
-            <option>
-             Aktau
-            </option>
-            <option>
-             Almaty
-            </option>
-            <option>
-             Shymkent
-            </option>
-           </select>
-          </div>
-         </div>
-         <fieldset class="col-12">
-          <legend class="fs-6 mb-2">
-           Your topic
-          </legend>
-          <div class="form-check form-check-inline">
-           <input checked="" class="form-check-input" id="topic-travel" name="topic" type="radio" value="travel"/>
-           <label class="form-check-label" for="topic-travel">
-            Travel ideas
-           </label>
-          </div>
-          <div class="form-check form-check-inline">
-           <input class="form-check-input" id="topic-team" name="topic" type="radio" value="team"/>
-           <label class="form-check-label" for="topic-team">
-            About the team
-           </label>
-          </div>
-         </fieldset>
-         <div class="col-12">
-          <label class="form-label" for="contact-message">
-           Message
-          </label>
-          <textarea class="form-control" id="contact-message" name="message" required="" rows="4"></textarea>
-         </div>
-         <div class="col-12">
-          <div class="form-check">
-           <input class="form-check-input" id="demo-notice" required="" type="checkbox"/>
-           <label class="form-check-label" for="demo-notice">
-            I understand this is a demo and will not send a message.
-           </label>
-          </div>
-         </div>
-         <div class="col-12">
-          <button class="btn btn-primary btn-lg" disabled="" type="submit">
-           Check My Message
-          </button>
-         </div>
-         <div class="col-12">
-          <p aria-live="polite" class="form-status mb-0 p-3 rounded" role="status"></p>
-         </div>
+       <div class="text-center">
+        <button class="btn btn-primary btn-lg px-4 py-3" data-popup-open="contact-popup" disabled="" type="button">Contact Us</button>
+        <noscript><p class="mt-3">Enable JavaScript to open this contact form.</p></noscript>
+       </div>
+       <dialog aria-labelledby="contact-popup-title" class="travel-popup" id="contact-popup">
+        <div class="popup-heading d-flex align-items-center justify-content-between gap-3 p-3 p-sm-4">
+         <h2 class="mb-0" id="contact-popup-title">Contact KZ Travel</h2>
+         <button aria-label="Close contact form" class="btn btn-outline-primary popup-close" data-popup-close="" type="button" autofocus="">&times;</button>
         </div>
-        <noscript>
-         This classroom demo needs JavaScript. Nothing is sent or saved.
-        </noscript>
-       </form>
+        <form class="contact-demo mx-auto p-4 rounded p-3 p-sm-4 bg-white text-dark" data-demo-form="">
+         <div class="row g-3">
+          <div class="col-12 col-md-6">
+           <label class="form-label" for="contact-name">
+            Name
+           </label>
+           <input autocomplete="name" class="form-control" id="contact-name" name="name" required="" type="text"/>
+          </div>
+          <div class="col-12 col-md-6">
+           <label class="form-label" for="contact-email">
+            Email
+           </label>
+           <input autocomplete="email" class="form-control" id="contact-email" name="email" required="" type="email"/>
+          </div>
+          <div class="col-12">
+           <label class="form-label" for="contact-city">
+            City you are interested in
+           </label>
+           <div class="input-group">
+            <span class="input-group-text">
+             City
+            </span>
+            <select class="form-select" id="contact-city" name="city">
+             <option>
+              Astana
+             </option>
+             <option>
+              Aktau
+             </option>
+             <option>
+              Almaty
+             </option>
+             <option>
+              Shymkent
+             </option>
+            </select>
+           </div>
+          </div>
+          <fieldset class="col-12">
+           <legend class="fs-6 mb-2">
+            Your topic
+           </legend>
+           <div class="form-check form-check-inline">
+            <input checked="" class="form-check-input" id="topic-travel" name="topic" type="radio" value="travel"/>
+            <label class="form-check-label" for="topic-travel">
+             Travel ideas
+            </label>
+           </div>
+           <div class="form-check form-check-inline">
+            <input class="form-check-input" id="topic-team" name="topic" type="radio" value="team"/>
+            <label class="form-check-label" for="topic-team">
+             About the team
+            </label>
+           </div>
+          </fieldset>
+          <div class="col-12">
+           <label class="form-label" for="contact-message">
+            Message
+           </label>
+           <textarea class="form-control" id="contact-message" name="message" required="" rows="4"></textarea>
+          </div>
+          <div class="col-12">
+           <div class="form-check">
+            <input class="form-check-input" id="demo-notice" required="" type="checkbox"/>
+            <label class="form-check-label" for="demo-notice">
+             I understand this is a demo and will not send a message.
+            </label>
+           </div>
+          </div>
+          <div class="col-12">
+           <button class="btn btn-primary btn-lg" disabled="" type="submit">
+            Check My Message
+           </button>
+          </div>
+          <div class="col-12">
+           <p aria-live="polite" class="form-status mb-0 p-3 rounded" role="status"></p>
+          </div>
+         </div>
+         <noscript>
+          This classroom demo needs JavaScript. Nothing is sent or saved.
+         </noscript>
+        </form>
+       </dialog>
       </div>
      </section>
     </main>
@@ -652,7 +679,7 @@
     <p class="mb-0">
      Developed by:
      <strong>
-      Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad
+      Ramazan Utegen, Ziyadinkhan Kudaibergenuly &amp; Ruzimuhammad
      </strong>
      | Group: SE-2501
     </p>

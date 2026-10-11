@@ -1,0 +1,31 @@
+/* Assignment 4 uses the existing KZ Travel colours and Bootstrap layouts. */
+body { transition: background-color .35s ease; }
+.travel-tools { border-bottom: 1px solid #d7c896; }
+.travel-tools-label { color: #315e77; font-weight: 700; }
+.travel-clock { font-variant-numeric: tabular-nums; }
+.travel-tools .btn { min-height: 44px; }
+.field-error { display: block; color: #a32222; font-size: .875rem; font-weight: 600; margin-top: .4rem; }
+.field-error:empty { display: none; }
+.form-status.form-status-error { background: #fff0ef; color: #8c2020; }
+.faq-list { max-width: 900px; margin-inline: auto; }
+.faq-item { background: #fff; border: 1px solid #d7c896; border-radius: .75rem; margin-bottom: .75rem; overflow: hidden; }
+.faq-item h3 { margin: 0; }
+.faq-question { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; padding: 1.25rem; border: 0; background: transparent; color: #315e77; text-align: left; font: inherit; font-weight: 700; }
+.faq-question::after { content: '+'; font-size: 1.5rem; line-height: 1; }
+.faq-question[aria-expanded="true"]::after { content: '\2212'; }
+.faq-question:hover { background: #f7f6ef; }
+.faq-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .3s ease, visibility .3s; }
+.faq-panel > div { min-height: 0; overflow: hidden; }
+.faq-panel p { margin: 0; padding: 0 1.25rem 1.25rem; }
+.faq-item.is-open .faq-panel { grid-template-rows: 1fr; visibility: visible; }
+.faq-question:focus-visible { outline-offset: -4px; }
+.travel-popup { width: min(680px, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); padding: 0; border: 0; border-radius: .75rem; background: #fff; color: #2b2b2b; box-shadow: 0 20px 60px rgb(0 0 0 / 30%); }
+.travel-popup::backdrop { background: rgb(24 47 58 / 72%); }
+.popup-heading { border-bottom: 1px solid #d7c896; }
+.popup-heading h2 { color: #315e77; font-size: 1.5rem; }
+.popup-close { min-width: 44px; min-height: 44px; font-size: 1.5rem; line-height: 1; }
+.travel-popup .contact-demo { box-shadow: none; }
+.popup-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+    body, .faq-panel { transition: none; }
+}

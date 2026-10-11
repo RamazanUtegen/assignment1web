@@ -12,12 +12,16 @@
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
   <link href="css/style.css" rel="stylesheet"/>
   <link href="css/assignment3.css" rel="stylesheet"/>
+  <link href="css/assignment4.css" rel="stylesheet"/>
   <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </script>
   <script defer="" src="js/site.js">
   </script>
   <script defer="" src="js/forms.js">
   </script>
+  <script defer="" src="js/preferences.js"></script>
+  <script defer="" src="js/clock.js"></script>
+  <script defer="" src="js/accordion.js"></script>
  </head>
  <body class="assignment-three">
   <a class="skip-link px-3 py-2 visually-hidden-focusable" href="#main-content">
@@ -70,6 +74,19 @@
     </div>
    </nav>
   </header>
+  <section aria-label="Travel view settings" class="travel-tools py-3">
+   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <div>
+     <span class="travel-tools-label d-block">Time in Kazakhstan <span class="fw-normal">(UTC+5)</span></span>
+     <time class="travel-clock" data-live-clock="">Enable JavaScript to see the current time.</time>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">Change background</button>
+     <span aria-live="polite" class="small" role="status">Colour: <strong data-background-name="">Sand</strong></span>
+     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">Travel FAQ</a>
+    </div>
+   </div>
+  </section>
   <div class="container-fluid px-0">
    <div class="row g-0">
     <aside aria-labelledby="sidebar-title" class="page-sidebar p-3 p-lg-4 col-12 col-lg-3 col-xl-2">
@@ -92,8 +109,11 @@
       <a class="py-2 py-1" href="#facts">
        04 / Quick facts
       </a>
+      <a class="py-2 py-1" href="#faq">
+       05 / Travel FAQ
+      </a>
       <a class="py-2 py-1" href="#community">
-       05 / Community signup
+       06 / Community signup
       </a>
      </nav>
      <div class="sidebar-note mt-4 pt-4 d-none d-lg-block">
@@ -575,6 +595,40 @@
        </div>
       </div>
      </section>
+     <section aria-labelledby="faq-title" class="about-site py-4 py-lg-5" id="faq">
+      <div class="container mx-auto px-3 px-md-4">
+       <p class="eyebrow mb-3">Plan your next discovery</p>
+       <h2 class="mb-3" id="faq-title">Travel Questions, Answered</h2>
+       <p class="mb-4">Select a question to read the answer. Select it again to close it.</p>
+       <div class="faq-list">
+        <article class="faq-item">
+         <h3><button aria-controls="faq-answer-1" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-1" type="button">Which cities can I explore?</button></h3>
+         <div aria-hidden="true" aria-labelledby="faq-question-1" class="faq-panel" id="faq-answer-1" inert="" role="region">
+          <div><p>Our guides cover Aktau, Astana, Almaty, and Shymkent. Choose a destination card on the homepage to explore its sights, photos, and sample itinerary.</p></div>
+         </div>
+        </article>
+        <article class="faq-item">
+         <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-2" type="button">How can I compare the destinations?</button></h3>
+         <div aria-hidden="true" aria-labelledby="faq-question-2" class="faq-panel" id="faq-answer-2" inert="" role="region">
+          <div><p>Use the homepage quick facts table, then open a city guide. Each guide includes attractions and a route idea to help you choose what interests you.</p></div>
+         </div>
+        </article>
+        <article class="faq-item">
+         <h3><button aria-controls="faq-answer-3" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-3" type="button">Can I book a trip through KZ Travel?</button></h3>
+         <div aria-hidden="true" aria-labelledby="faq-question-3" class="faq-panel" id="faq-answer-3" inert="" role="region">
+          <div><p>KZ Travel is a student travel guide. Our forms are demonstrations and do not make bookings, create accounts, or send your information.</p></div>
+         </div>
+        </article>
+        <article class="faq-item">
+         <h3><button aria-controls="faq-answer-4" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-4" type="button">How do I try the contact form?</button></h3>
+         <div aria-hidden="true" aria-labelledby="faq-question-4" class="faq-panel" id="faq-answer-4" inert="" role="region">
+          <div><p>Open About Us and select Contact Us. Fill in your name, email, and message, then check the form. Close the popup with its close button, Escape, or a click outside it.</p></div>
+         </div>
+        </article>
+       </div>
+       <noscript><p>Enable JavaScript to open these answers. You can also browse our city guides and About Us page.</p></noscript>
+      </div>
+     </section>
      <section class="newsletter fade-in delay-4 py-4 py-lg-5" id="community">
       <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
        <h2 class="mt-0 mb-4">
@@ -593,6 +647,17 @@
           Your email
           <input autocomplete="email" class="form-control mt-2 px-3 py-2" id="index-email" name="email" required="" type="email"/>
          </label>
+        </div>
+        <div class="row g-3 mb-3">
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="index-password">Password</label>
+          <input aria-describedby="password-help" autocomplete="new-password" class="form-control px-3 py-2" id="index-password" minlength="8" name="password" required="" type="password"/>
+          <p class="form-text mb-0" id="password-help">Use at least 8 characters. Use a sample password for this demo.</p>
+         </div>
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="index-confirm-password">Confirm password</label>
+          <input autocomplete="new-password" class="form-control px-3 py-2" data-confirm-for="index-password" id="index-confirm-password" name="confirmPassword" required="" type="password"/>
+         </div>
         </div>
         <fieldset class="border rounded p-3 mb-3">
          <legend class="float-none w-auto fs-6 px-2 mb-2">
@@ -631,7 +696,7 @@
         Behind This Guide
        </h2>
        <p class="mt-0 mb-3">
-        We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad from group SE-2501. We created KZ Travel to practise HTML and CSS while sharing useful information about Kazakhstan.
+        We are Ramazan Utegen, Ziyadinkhan, and Ruzimuhammad from group SE-2501. We created KZ Travel to practise HTML, CSS, Bootstrap, and JavaScript while sharing useful information about Kazakhstan.
        </p>
        <p class="mt-0 mb-3">
         Ramazan created Home and Aktau. Ziyadinkhan created Astana and About Us. Ruzimuhammad created Almaty and Shymkent.
@@ -657,7 +722,7 @@
     <p class="mb-2">
      Developed by:
      <strong>
-      Ramazan Utegen, Ziyadinkhan &amp; Ruzimuhammad
+      Ramazan Utegen, Ziyadinkhan Kudaibergenuly &amp; Ruzimuhammad
      </strong>
      | Group: SE-2501
     </p>
