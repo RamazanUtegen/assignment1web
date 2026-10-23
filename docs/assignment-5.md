@@ -21,7 +21,7 @@ Team: KZ Travel. Group: SE-2501. Members: Ramazan Utegen, Ziyadinkhan Kudaiberge
 | Event-triggered animations | `animate`, `is-pulsing`, progress transition, gallery and FAQ | Filter; save; advance a step |
 | Separation of concerns | HTML structure, external CSS, deferred external JS | Inspect page head and source files |
 | Theme, engagement, UX | Kazakhstan content, destination filtering, routes, saved cities | Browse all six pages at narrow widths |
-| Deployment | Deferred explicitly at the team's request | Commit/push/deploy only after approval |
+| Deployment | Approved, committed and pushed to main; GitHub Pages deployment succeeded | Verified live site, all six pages and 54 matching HTML/assets |
 
 ## Steps to reproduce
 
@@ -39,7 +39,9 @@ Team: KZ Travel. Group: SE-2501. Members: Ramazan Utegen, Ziyadinkhan Kudaiberge
 
 Review environment: Codex in-app Chromium on Windows, desktop 1280 x 720. Responsive layouts are checked in actual same-origin iframes at 360, 390 and 768 CSS-pixel frame widths (inner width excludes scrollbars). These are layout checks, not physical-device or Firefox tests.
 
-Screenshots: `docs/assignment-5/screenshots/`. The static check compares original image references with Git HEAD and validates all local links and resources. Historical Assignment 4 checks describe the older version.
+Screenshots: `docs/assignment-5/screenshots/`. The static check compares original image references with Assignment 4 commit `f1bfba5` and validates all local links and resources. Historical Assignment 4 checks describe the older version.
+
+After publication, the live site was checked in Chromium at 896 x 668. All six pages fitted the viewport; 54 published HTML/assets returned HTTP 200 and matched local file hashes. Live checks passed for search/category combinations, the empty state, saved places and persistence, planner validation and callbacks, Back preserving input, the two-day route, arrow-key navigation, themes and rating persistence, sound activation, the FAQ, gallery synchronisation, legacy form validation and the contact dialog with Escape/focus return. No browser console errors were observed. Full evidence: `docs/assignment-5/deployment.json`.
 
 ## Defence discussion
 
@@ -64,6 +66,8 @@ Suggested rehearsal split: Ramazan explains discovery/DOM; Ziyadinkhan explains 
 
 ## Publication and submission
 
-Existing deployment address: https://ramazanutegen.github.io/assignment1web/. These changes have not been committed, pushed or deployed, following the explicit request to review first. The report is a review draft until publication is complete.
+Published site: https://ramazanutegen.github.io/assignment1web/.
 
-After approval: review the diff, commit, push, wait for GitHub Pages, test the deployed version, update the report publication status, rebuild PDF/ZIP, and have every member submit both. No automatic publication or LMS submission is performed here.
+The team approved publication on 23 October 2026. Website source commit `80fff147d8546481087b88beaf03fe9432ded336` was pushed to main and deployed successfully by [GitHub Pages workflow 39908690390](https://github.com/RamazanUtegen/assignment1web/actions/runs/39908690390). Live verification followed deployment; the report and ZIP were updated with the confirmed URL and publication status. Subsequent documentation/report commits retain the same website source.
+
+Every team member must submit the final report and ZIP and attend the defence. LMS submission is not performed automatically.

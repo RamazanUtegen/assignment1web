@@ -1,4 +1,4 @@
-"""Build the Assignment 5 review report from real browser captures.
+"""Build the Assignment 5 report from browser captures and deployment evidence.
 
 python scripts/build-assignment5-report.py
 After verified publication only:
@@ -7,6 +7,7 @@ python scripts/build-assignment5-report.py --published-date YYYY-MM-DD
 from pathlib import Path
 from html import escape
 import argparse
+import json
 from PIL import Image as PILImage
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -15,10 +16,13 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle, PageBreak
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--published-date', help='Set only after verifying the updated deployed site.')
-args = parser.parse_args()
 ROOT = Path(__file__).resolve().parents[1]
+EVIDENCE = ROOT / 'docs/assignment-5/deployment.json'
+publication = json.loads(EVIDENCE.read_text(encoding='utf-8')) if EVIDENCE.exists() else {}
+parser = argparse.ArgumentParser()
+parser.add_argument('--published-date', default=publication.get('verifiedDate'), help='Set only after verifying the updated deployed site.')
+parser.add_argument('--published-commit', default=publication.get('sourceCommit'))
+args = parser.parse_args()
 SHOTS = ROOT / 'docs/assignment-5/screenshots'
 OUTPUT = ROOT / 'output/pdf/KZ-Travel-Assignment-5-Report.pdf'
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -67,12 +71,14 @@ def task(number,title,requirement,items,shot,code):
 add('KZ TRAVEL / SE-2501 / 23 OCTOBER 2026','Kicker5')
 add('Go a little further.<br/>Assignment 5','Title5')
 add('Advanced JavaScript and DOM Manipulation','HeadingKZ')
-screenshot('index-desktop.png','KZ Travel: a redesigned Kazakhstan guide using the original project photographs.',235)
+screenshot('live-home.png' if args.published_date and (SHOTS / 'live-home.png').exists() else 'index-desktop.png','KZ Travel: the published Kazakhstan guide using the original project photographs.' if args.published_date else 'KZ Travel: a redesigned Kazakhstan guide using the original project photographs.',235)
 add('<b>Objective.</b> Continue the six-page travel project with an engaging interface that demonstrates JavaScript fundamentals, DOM manipulation, events, callbacks, data structures, sound and animations.')
 team = [[p('<b>Team</b>'),p('KZ Travel')],[p('<b>Members</b>'),p('Ramazan Utegen<br/>Ziyadinkhan Kudaibergenuly<br/>Ruzimuhammad')],[p('<b>Group</b>'),p('SE-2501')]]
 table=Table(team,colWidths=[90,W-90]);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,-1),colors.HexColor('#f5f5f0')),('LEFTPADDING',(0,0),(-1,-1),12),('RIGHTPADDING',(0,0),(-1,-1),12),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),4)]));story.extend([table,Spacer(1,12)])
 add('<b>Publication:</b> '+('Updated deployment verified '+escape(args.published_date)+'.' if args.published_date else 'Review draft. The Assignment 5 changes are local; commit, push and deployment are deferred at the team\'s explicit request.'),'Small5')
-add(f'<b>Existing deployment address:</b> <link href="{URL}" color="#174add">{URL}</link>','Small5')
+add(f'<b>Deployed website:</b> <link href="{URL}" color="#174add">{URL}</link>','Small5')
+if args.published_commit:
+    add('<b>Verified website source:</b> '+escape(args.published_commit[:12])+'; GitHub Pages build and deployment completed successfully.','Small5')
 
 task('01','Select, update and rate.','Part 1.1: DOM selection, dynamic text, class-based styling and the chosen rating-star option for attribute manipulation.',[
     'Select the rating group and its five stars with querySelector/querySelectorAll.',
@@ -130,6 +136,8 @@ screenshot('legacy-form.png','A valid sample form displays confirmation without 
 
 heading('10','Verification, reflection and publication.')
 add('<b>Review environment:</b> in-app Chromium on Windows, 1280 x 720 desktop viewport; same-origin responsive frames at 360, 390 and 768 CSS px. Frame inner widths exclude scrollbars. These checks do not claim physical-device or Firefox coverage.')
+if args.published_date:
+    add('<b>Published-site recheck:</b> Chromium at 896 x 668. All 54 checked HTML/assets returned HTTP 200 and matched the project. All six pages fitted the viewport; live interaction checks passed and no console errors were observed.','Small5')
 checks = [
     ['Check','Observed result'],
     ['Six desktop pages','No horizontal overflow or broken loaded images'],
@@ -144,9 +152,11 @@ table=Table([[p(escape(cell),'Small5') for cell in row] for row in checks],colWi
 table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),LIME),('VALIGN',(0,0),(-1,-1),'TOP'),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#dce0de')),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),3)]));story.extend([table,Spacer(1,14)])
 add('<b>Challenges and solutions.</b> Existing features survived by retaining their scripts and changing the shared presentation layer. Theme variables resolve day/night consistency with the older background control. Hiding fieldsets preserves input on Back. textContent safely displays names; local dependency files allow offline use. Sound starts only after interaction and its audio nodes are cleaned up.')
 add('<b>Reflection and defence.</b> Each member should trace an event from its listener to its callback, data processing, DOM update and CSS effect. Practise explaining this, getRoute, switch, filter/map/forEach, the explicit for loop, aria-pressed, hidden, localStorage and reduced-motion handling. Rehearsal notes are included in English and Russian.')
-add('<b>Part 2 - updated website deployment.</b> '+('The team records the updated website as verified on '+escape(args.published_date)+'.' if args.published_date else 'Pending approval. No commit, push or updated deployment was performed. The existing public address still serves the previously published version. This review report must be refreshed after deployment.'))
+add('<b>Part 2 - updated website deployment.</b> '+('The redesign was committed and pushed to main. GitHub Pages deployed source '+escape((args.published_commit or '')[:12])+'. The published site was verified on '+escape(args.published_date)+': all six pages and their local assets were checked, and live browser tests covered discovery, saved places, themes, ratings, keyboard navigation, the planner, galleries, FAQ and the contact dialog.' if args.published_date else 'Pending approval. No commit, push or updated deployment was performed. The existing public address still serves the previously published version. This review report must be refreshed after deployment.'))
 add(f'<link href="{URL}" color="#174add">{URL}</link>')
-add('<b>Before submission:</b> approve the preview; commit/push; verify GitHub Pages; rebuild the report and ZIP. Every team member submits both files and attends the practice-lesson defence. LMS deadline supplied by the team: 29 October 2026, 14:00; follow the LMS time zone.','Small5')
+if publication.get('workflowUrl'):
+    add('<b>Deployment evidence:</b> <link href="'+escape(publication['workflowUrl'])+'" color="#174add">successful GitHub Pages workflow</link>; detailed live checks and asset hashes are in docs/assignment-5/deployment.json.','Small5')
+add(('<b>Submission package:</b> the approved site is published; the PDF and ZIP are updated. ' if args.published_date else '<b>Before submission:</b> approve the preview; commit/push; verify GitHub Pages; rebuild the report and ZIP. ')+'Every team member submits both files and attends the practice-lesson defence. LMS deadline supplied by the team: 29 October 2026, 14:00; follow the LMS time zone.','Small5')
 
 def footer(canvas, doc):
     canvas.setStrokeColor(colors.HexColor('#dce0de'));canvas.line(44,36,A4[0]-44,36)

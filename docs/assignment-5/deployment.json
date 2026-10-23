@@ -1,0 +1,434 @@
+{
+  "url": "https://ramazanutegen.github.io/assignment1web/",
+  "verifiedDate": "2026-10-23",
+  "verifiedAtUTC": "2026-10-23T06:02:06.102395+00:00",
+  "clientTimezone": "Asia/Tashkent",
+  "sourceCommit": "80fff147d8546481087b88beaf03fe9432ded336",
+  "workflowUrl": "https://github.com/RamazanUtegen/assignment1web/actions/runs/39908690390",
+  "workflowConclusion": "success",
+  "http": {
+    "url": "https://ramazanutegen.github.io/assignment1web/",
+    "sourceCommit": "80fff147d8546481087b88beaf03fe9432ded336",
+    "checkedAtUTC": "2026-10-23T05:59:49.954830+00:00",
+    "fileCount": 54,
+    "files": [
+      {
+        "path": "about.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d199a927c080834eb481c40e393d5d795b89e0155d5978ede255d835faeb4a44"
+      },
+      {
+        "path": "aktau.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "7bc369ef01139f96e8ef2272eb69b3f84f1f41714c3d40a4898779b14dd7b123"
+      },
+      {
+        "path": "almaty.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "4be92bbe4cf268ab2425cf8ce8574c2e84be6fcda4a3f59e3eeffcd11395cfe3"
+      },
+      {
+        "path": "astana.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "2b951c2308cb846dc822457ed2bd1c280b0e2a1808a380b0fe7a491a0d90bee8"
+      },
+      {
+        "path": "css/assignment3.css",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "79582b0c3d3f092f68da4fab22e8c090bbd0904b87b643f3e787e5c6b8e268b9"
+      },
+      {
+        "path": "css/assignment4.css",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d377e2f324b94377d06884603837b773dd456592aba55749a9b7777afafb06ec"
+      },
+      {
+        "path": "css/editorial.css",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "6b232eab7481f0c88366b8460cd68dded3cd423da21dc1b0c06bf53f4d0cb6dc"
+      },
+      {
+        "path": "css/style.css",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "bf74d65a8c04d3cd1e6f6693bbfbab95e69c464f818288b97336d5694b7dae7c"
+      },
+      {
+        "path": "fonts/barlow-condensed-latin.woff2",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "3787a5a419171630e6890cfa47c4da067474d005cd0ff8dc11ec090fdc3ee2b8"
+      },
+      {
+        "path": "fonts/dm-sans-latin.woff2",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543"
+      },
+      {
+        "path": "images/Aktaumainpage.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "2248a603d2d9722c7c7a7aec89ec57424283fe91ed43962974bd6fc645f5d524"
+      },
+      {
+        "path": "images/Astanamainpage.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "51614f4980eed34b2c4341ec23f61ddddca5d527d4bf1a129290814efe3268f3"
+      },
+      {
+        "path": "images/KZ.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "ad58c860ff2f43a2a98e74af057887523179de70e7512f5fcf3496a56fadd504"
+      },
+      {
+        "path": "images/Mountain.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d95a9cf3870c34a036ca236d70dab1b85d6051a41cded104d96ae50c0c7fda3a"
+      },
+      {
+        "path": "images/almaty1.png",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "645e218c8aade35227ae770669254d3215a81ac495e2516edf6c35bb1189d144"
+      },
+      {
+        "path": "images/almaty2.webp",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "2d1bfebb99d69be51a7000496882a8a5ba3f97b0608bd7d018d37df065efa261"
+      },
+      {
+        "path": "images/assignment2/baiterek-night.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "4202cb20f51e08b0f926e506f12087d6c2d81afd350804fda582ce255a17ae94"
+      },
+      {
+        "path": "images/assignment2/g1.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "84fbe1b04781d67d3601f4ff2804526c6932d089f09cdb438add3edc5df27b7e"
+      },
+      {
+        "path": "images/assignment2/g2.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d57438b7c53e357253a813aa10193249ca50fd99b5e56f86291f4d5da6570b3c"
+      },
+      {
+        "path": "images/assignment2/g3.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d8e71d3e9e085cf5ceda13e2c37c76710324c756bf803ad4e27a9ea522603786"
+      },
+      {
+        "path": "images/assignment2/g4.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "ddb2bb89f8277bd84d3d1551a2e174c52b6a5882c3f3b1915acaf47fac34c8f4"
+      },
+      {
+        "path": "images/assignment2/g5.webp",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "649855914452bb472a27a86e090a7749ad00fc4d079e3726fe172b6822fc753b"
+      },
+      {
+        "path": "images/assignment2/g6.jpeg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "b5a8761a4044cc51703fb9e0014470fd3bf28e920a3340134c392b779b608534"
+      },
+      {
+        "path": "images/assignment2/g7.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "043defebbd8e0a0260e696df8be930d8fd274ffd13d8ea05edb2c73fcacb67ad"
+      },
+      {
+        "path": "images/assignment2/g8.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "b643b14da132f3ed35e87175cca1b2b6e0056c19ec7929bf3b52227fddc8b031"
+      },
+      {
+        "path": "images/assignment2/g9.webp",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "745e98d756d7fde546c5e16dc89897dd07a581eecefc08293b70fa66374c1051"
+      },
+      {
+        "path": "images/assignment2/khan-shatyr.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "31ce2b91715f661ee8e5374bcc86be97b4f18dd0d9d301f0450df17f2ba3f9b6"
+      },
+      {
+        "path": "images/assignment2/s1.png",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d68e8626b4fb5095b31082a43d66db8d8e0c51be824fdb55c4a4bce0172d6a2e"
+      },
+      {
+        "path": "images/assignment2/s11.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "cd60cd8a920afd2bed3afce145d3b5720d24537d1137b300b558dc73b450f663"
+      },
+      {
+        "path": "images/assignment2/s12.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "54e177ef8c01b5b13e4ccfc225264b2760b3d8b17b7e2a86f54142e0bec534e7"
+      },
+      {
+        "path": "images/assignment2/s2.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "3e1499e71a512e44592280810663d3fcd9ef6f229d526f5cd87c1caf91f59eb4"
+      },
+      {
+        "path": "images/assignment2/s3.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "7c3158a4efe0eadbba5dddbdcbb354651936678f9ae8ae9c3767d68782cd2fde"
+      },
+      {
+        "path": "images/assignment2/s4.jpeg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "74cf50ba0e9b12ecdc0d9229164f1516d0dba8142c69dd951b86e3a0498a0b79"
+      },
+      {
+        "path": "images/assignment2/s5.jpeg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "2ed68439a060520cd168d8993b0f0dd811c2e3c8c636bed3fd5e4ea8d1619668"
+      },
+      {
+        "path": "images/assignment2/s6.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "b3822ab77485b12187f92b521fdcfbac89f85d37e0531c7bcf54a09731f141e1"
+      },
+      {
+        "path": "images/assignment2/s7.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "6d3fe7cc3e5faf60c5b608d1dc8d990ffc6ac75a8eeafae1b1cf9e34ea0d739f"
+      },
+      {
+        "path": "images/assignment2/s8.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "c80958afba6bbbf2b31ab838d935223701db08c2217f3cb08caec018678a827b"
+      },
+      {
+        "path": "images/assignment2/s9.webp",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "c717aa98f22734ef091d9d45ac52eb813b4b877b359673d93d96d61ba9824d31"
+      },
+      {
+        "path": "images/bozjyra.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "4a4cf64fedb05409ffbe37dc2515a25813731a9492769e679dbd333c005ff5fc"
+      },
+      {
+        "path": "images/rocktrail.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "49a0258cbfbba95afca9bb5e3df7ad12493b5fb3fa723ab8879542c516745e02"
+      },
+      {
+        "path": "images/shymkent.jpg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "55673ad13f2271a1bc6cfeb3ea4ba1d7088c320ba384ad770a92e3caa64add1c"
+      },
+      {
+        "path": "images/shymkent1.jpeg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "181fa97827b263b4fd667d00a3e9717f6402328a7d033ff639f0fb2c1e62414e"
+      },
+      {
+        "path": "images/shymkent2.jpeg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "1d9652f1fe3b85c781a9c54a219db2af71d99e3c8d3cb6e4ffb71a4cb16d9cc4"
+      },
+      {
+        "path": "index.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d8df20c67ab0aba86920ba56fa4737328c1a537f83b3c7c0f8cf7cf3fb219758"
+      },
+      {
+        "path": "js/accordion.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "ecdccfcae2979f364371506bbee20a3da5c720747716a437a226171c3c1d1925"
+      },
+      {
+        "path": "js/clock.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "2778c21a65d64c426c45816ba4bf6d5b43b3ab47adeba66d929966d86d1ad77c"
+      },
+      {
+        "path": "js/experience.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "334101cf48d2579d03bcbc855e8d505b34def4a447634095ce94c6e768809eb8"
+      },
+      {
+        "path": "js/forms.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "33ed8a493d2a5ce2136a03f8453f55cca325912307f8c69a67aac86221ab740c"
+      },
+      {
+        "path": "js/popup.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "a0c756427ab4bd6a993578d98028887d9c6836c36099e3427a06924eb5f5821b"
+      },
+      {
+        "path": "js/preferences.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "f3337db0e7b2f6229519f292956b25682b51dcc9af2edf7e524f9cf7e108ffb0"
+      },
+      {
+        "path": "js/site.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "b988741af6800cd42548233c5a89660d35fa8a61127d41df4e9d7b97ce101f81"
+      },
+      {
+        "path": "shymkent.html",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "7960621cf2e07ea13f38e93e1c02e0d03dd8d031948de5af20730d6cc0e7ffa9"
+      },
+      {
+        "path": "vendor/bootstrap.bundle.min.js",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "e4fd49181388c48ec5040bd3fe66f57c29c8e67fcd8502b3354b96ec7ab47cc7"
+      },
+      {
+        "path": "vendor/bootstrap.min.css",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "d85327d99c7a3ee1f9b5d0500d1370acea3ad2db39c163c2f51f232baedbdede"
+      }
+    ]
+  },
+  "browser": {
+    "viewport": {
+      "width": 896,
+      "height": 668
+    },
+    "checks": [
+      {
+        "feature": "Search, category filters, empty state, saved cities",
+        "passed": true
+      },
+      {
+        "feature": "Planner validation, callback, Back state and two-day route",
+        "passed": true
+      },
+      {
+        "feature": "Keyboard navigation, night theme and sound activation",
+        "passed": true
+      },
+      {
+        "feature": "Theme, saved-city and rating persistence after reload",
+        "passed": true
+      },
+      {
+        "feature": "FAQ accordion and legacy form validation",
+        "passed": true
+      },
+      {
+        "feature": "Gallery thumbnail and active-slide synchronisation",
+        "passed": true
+      },
+      {
+        "feature": "Contact dialog, Escape and focus return",
+        "passed": true
+      }
+    ],
+    "pages": [
+      {
+        "page": "index",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:15 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "Explore Kazakhstan | KZ Travel"
+      },
+      {
+        "page": "aktau",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:16 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "Aktau Travel Guide | KZ Travel"
+      },
+      {
+        "page": "astana",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:16 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "Astana Travel Guide | KZ Travel"
+      },
+      {
+        "page": "almaty",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:16 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "Almaty Travel Guide | KZ Travel"
+      },
+      {
+        "page": "shymkent",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:17 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "Shymkent Travel Guide | KZ Travel"
+      },
+      {
+        "page": "about",
+        "brokenImages": [],
+        "clock": "October 23, 2026 at 11:01:18 AM",
+        "headingCount": 1,
+        "overflow": false,
+        "themeControl": true,
+        "title": "About Our Team | KZ Travel"
+      }
+    ],
+    "consoleErrors": []
+  }
+}

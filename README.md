@@ -46,13 +46,13 @@ Forms are classroom demonstrations: no messages, bookings, accounts or subscript
 - ZIP: `output/KZ-Travel-Assignment-5.zip`.
 - New presentation: `css/editorial.css`; new behaviour: `js/experience.js`.
 
-**Publication is pending team approval.** No commit or push was made for this preview. [The existing deployment](https://ramazanutegen.github.io/assignment1web/) serves the previous version until these changes are published. The review report records this explicitly; rebuild it after deployment verification.
+**Published and verified on 23 October 2026.** [Open KZ Travel](https://ramazanutegen.github.io/assignment1web/). Website source commit: `80fff147d8546481087b88beaf03fe9432ded336`. The GitHub Pages workflow completed successfully; all 54 checked HTML/assets matched the checkout. All six pages and the main interactions were checked in the live browser, with no console errors. [Deployment evidence](docs/assignment-5/deployment.json) records the workflow, hashes and browser results. The PDF and ZIP have been rebuilt after publication.
 
 Every member submits the report and ZIP individually and defends the work. Deadline supplied from the LMS: **29 October 2026, 14:00**; follow its displayed time zone.
 
 ## Verification and attribution
 
-`python scripts/verify-assignment5.py` checks links, assets, IDs, semantics, credits and original image preservation (Beautiful Soup is needed for this developer check only). Browser scenarios are in the task notes. Report generation uses ReportLab and Pillow.
+`python scripts/verify-assignment5.py` checks links, assets, IDs, semantics, credits and original image preservation against Assignment 4 commit `f1bfba5` (Beautiful Soup is needed for this developer check only). `python scripts/verify-deployment.py --commit <sha>` checks published HTML/assets against the checkout. Browser scenarios are in the task notes. Report generation uses ReportLab and Pillow; `python scripts/build-assignment5-report.py` reads the saved deployment evidence and creates the final published report. Run `python scripts/package-assignment5.py` afterwards to rebuild the ZIP.
 
 Bootstrap retains its upstream licence header. DM Sans and Barlow Condensed use the SIL Open Font License; licences are in `fonts/`. Lonely Planet informed composition only; KZ Travel retains its own content and imagery.
 
