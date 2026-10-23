@@ -8,145 +8,506 @@
   <title>
    Explore Kazakhstan | KZ Travel
   </title>
-  <!-- Assignment 3: official Bootstrap 5.3.8; CDN access requires an internet connection. -->
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-  <link href="css/style.css" rel="stylesheet"/>
-  <link href="css/assignment3.css" rel="stylesheet"/>
-  <link href="css/assignment4.css" rel="stylesheet"/>
-  <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  <!-- Assignment 3: Bootstrap 5.3.8 is included locally for offline use. -->
+  <link href="vendor/bootstrap.min.css?v=5" rel="stylesheet"/>
+  <link href="css/style.css?v=5" rel="stylesheet"/>
+  <link href="css/assignment3.css?v=5" rel="stylesheet"/>
+  <link href="css/assignment4.css?v=5" rel="stylesheet"/>
+  <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js">
+  <script defer="" src="js/site.js?v=5">
   </script>
-  <script defer="" src="js/forms.js">
+  <script defer="" src="js/forms.js?v=5">
   </script>
-  <script defer="" src="js/preferences.js"></script>
-  <script defer="" src="js/clock.js"></script>
-  <script defer="" src="js/accordion.js"></script>
+  <script defer="" src="js/preferences.js?v=5">
+  </script>
+  <script defer="" src="js/clock.js?v=5">
+  </script>
+  <script defer="" src="js/accordion.js?v=5">
+  </script>
+  <link href="css/editorial.css?v=6" rel="stylesheet"/>
+  <script defer="" src="js/experience.js?v=5">
+  </script>
  </head>
- <body class="assignment-three">
+ <body class="assignment-three editorial page-index">
   <a class="skip-link px-3 py-2 visually-hidden-focusable" href="#main-content">
    Skip to content
   </a>
   <header id="main-header">
-   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark py-3" data-bs-theme="dark">
-    <div class="container-fluid px-3 px-lg-4">
-     <a class="navbar-brand fw-bold m-0" href="index.html">
-      KZ Travel
+   <nav aria-label="Main navigation" class="navbar navbar-expand-lg">
+    <div class="container-fluid header-inner">
+     <a aria-label="KZ Travel home" class="navbar-brand" href="index.html">
+      <span aria-hidden="true" class="brand-mark">
+       <svg fill="none" viewbox="0 0 40 40">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2">
+        </circle>
+        <path d="m8 27 9-15 6 9 3-5 7 11H8Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+        </path>
+        <path d="M17 12v-5m-3 2h6" stroke="currentColor" stroke-width="2">
+        </path>
+       </svg>
+      </span>
+      <span>
+       KZ
+       <span class="brand-light">
+        travel
+       </span>
+       <span class="brand-dot">
+        .
+       </span>
+      </span>
      </a>
-     <button aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler px-2 py-1" data-bs-target="#main-navigation" data-bs-toggle="collapse" type="button">
+     <button aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#main-navigation" data-bs-toggle="collapse" type="button">
       <span class="navbar-toggler-icon">
       </span>
      </button>
      <div class="collapse navbar-collapse" id="main-navigation">
-      <ul class="navbar-nav ms-auto mb-0 gap-lg-3">
+      <ul class="navbar-nav">
        <li class="nav-item">
-        <a aria-current="page" class="active nav-link px-2 py-2" href="index.html">
-         Home
+        <a aria-current="page" class="nav-link active" href="index.html">
+         Explore
         </a>
        </li>
        <li class="nav-item">
-        <a class="nav-link px-2 py-2" href="aktau.html">
+        <a class="nav-link" href="aktau.html">
          Aktau
         </a>
        </li>
        <li class="nav-item">
-        <a class="nav-link px-2 py-2" href="astana.html">
+        <a class="nav-link" href="astana.html">
          Astana
         </a>
        </li>
        <li class="nav-item">
-        <a class="nav-link px-2 py-2" href="almaty.html">
+        <a class="nav-link" href="almaty.html">
          Almaty
         </a>
        </li>
        <li class="nav-item">
-        <a class="nav-link px-2 py-2" href="shymkent.html">
+        <a class="nav-link" href="shymkent.html">
          Shymkent
         </a>
        </li>
        <li class="nav-item">
-        <a class="nav-link px-2 py-2" href="about.html">
-         About Us
+        <a class="nav-link" href="about.html">
+         Our story
         </a>
        </li>
       </ul>
+      <div class="nav-actions">
+       <button aria-label="Switch to night theme" aria-pressed="false" class="icon-button" data-theme-toggle="" title="Switch day / night theme">
+        ☾
+       </button>
+       <button aria-label="Enable sound effects" aria-pressed="false" class="icon-button sound-button" data-sound-toggle="" title="Sound effects">
+        ♪
+        <span aria-hidden="true" class="sound-off">
+         /
+        </span>
+       </button>
+       <a class="btn btn-primary plan-link" href="index.html#trip-planner">
+        Plan a trip
+        <span aria-hidden="true">
+         ↗
+        </span>
+       </a>
+      </div>
      </div>
     </div>
    </nav>
   </header>
-  <section aria-label="Travel view settings" class="travel-tools py-3">
-   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
-    <div>
-     <span class="travel-tools-label d-block">Time in Kazakhstan <span class="fw-normal">(UTC+5)</span></span>
-     <time class="travel-clock" data-live-clock="">Enable JavaScript to see the current time.</time>
-    </div>
-    <div class="d-flex flex-wrap align-items-center gap-2">
-     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">Change background</button>
-     <span aria-live="polite" class="small" role="status">Colour: <strong data-background-name="">Sand</strong></span>
-     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">Travel FAQ</a>
-    </div>
-   </div>
-  </section>
   <div class="container-fluid px-0">
    <div class="row g-0">
-    <aside aria-labelledby="sidebar-title" class="page-sidebar p-3 p-lg-4 col-12 col-lg-3 col-xl-2">
-     <p class="eyebrow mt-0 mb-3">
-      Welcome to Kazakhstan
-     </p>
-     <h2 class="mt-0 mb-3" id="sidebar-title">
-      KZ Travel Guide
-     </h2>
-     <nav aria-label="On this page" class="d-flex flex-wrap flex-lg-column gap-2">
-      <a class="py-2 py-1" href="#overview">
-       01 / What you will find
-      </a>
-      <a class="py-2 py-1" href="#destinations">
-       02 / Featured cities
-      </a>
-      <a class="py-2 py-1" href="#gallery">
-       03 / Scenic gallery
-      </a>
-      <a class="py-2 py-1" href="#facts">
-       04 / Quick facts
-      </a>
-      <a class="py-2 py-1" href="#faq">
-       05 / Travel FAQ
-      </a>
-      <a class="py-2 py-1" href="#community">
-       06 / Community signup
-      </a>
-     </nav>
-     <div class="sidebar-note mt-4 pt-4 d-none d-lg-block">
-      <h3 class="mt-0 mb-3">
-       Explore Kazakhstan
-      </h3>
-      <p class="mt-0 mb-3">
-       Four unique destinations across the heart of Eurasia.
-      </p>
-      <a href="about.html#team">
-       Meet our student team →
-      </a>
-     </div>
-    </aside>
-    <main class="col-12 col-lg-9 col-xl-10" id="main-content" tabindex="-1">
-     <section class="hero fade-in py-4 py-lg-5 d-flex align-items-center justify-content-center">
-      <img alt="Kazakhstan Landscape" class="hero-bg-img" src="images/KZ.jpg"/>
-      <div class="hero-content p-3 p-md-4">
-       <h1 class="mt-0 mb-4">
-        Discover the Heart of Eurasia
-       </h1>
-       <p class="mt-0 mb-3">
-        Your ultimate guide to the breathtaking nature, modern cities, and rich culture of Kazakhstan.
+    <main class="w-100" id="main-content" tabindex="-1">
+     <section class="hero editorial-hero">
+      <img alt="Kazakhstan Landscape" class="hero-bg-img" decoding="async" src="images/KZ.jpg"/>
+      <div class="hero-content">
+       <p class="hero-kicker">
+        THE WORLD IS CLOSER THAN YOU THINK
        </p>
-       <a class="btn btn-primary btn-lg px-4 py-3" href="#destinations">
-        Explore Destinations
+       <h1>
+        KAZAKHSTAN.
+        <br/>
+        BEYOND THE
+        <br/>
+        EXPECTED.
+       </h1>
+       <div class="hero-bottom">
+        <div>
+         <p>
+          From the Caspian coast to the Tian Shan peaks. Find a place that stays with you.
+         </p>
+         <a class="btn hero-cta" href="#destinations">
+          Find your somewhere
+          <span aria-hidden="true">
+           ↗
+          </span>
+         </a>
+        </div>
+        <span class="hero-caption">
+         01 / The landscapes of Kazakhstan
+        </span>
+       </div>
+      </div>
+      <div aria-hidden="true" class="hero-coordinate">
+       CENTRAL ASIA
+       <br/>
+       <strong>
+        48°N / 68°E
+       </strong>
+      </div>
+     </section>
+     <div class="page-subnav">
+      <span class="subnav-label">
+       THE FIELD GUIDE
+      </span>
+      <nav aria-label="On this page" class="section-links">
+       <a class="py-2 py-1" href="#overview">
+        01 / What you will find
        </a>
+       <a class="py-2 py-1" href="#destinations">
+        02 / Featured cities
+       </a>
+       <a class="py-2 py-1" href="#gallery">
+        03 / Scenic gallery
+       </a>
+       <a class="py-2 py-1" href="#facts">
+        04 / Quick facts
+       </a>
+       <a class="py-2 py-1" href="#faq">
+        05 / Travel FAQ
+       </a>
+       <a class="py-2 py-1" href="#community">
+        06 / Community signup
+       </a>
+      </nav>
+     </div>
+     <section class="destinations fade-in delay-2 py-4 py-lg-5" id="destinations">
+      <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
+       <p class="eyebrow mt-0 mb-3">
+        FOUR CITIES. ENDLESS POSSIBILITIES.
+       </p>
+       <h2 class="mt-0 mb-4">
+        Where will curiosity take you?
+       </h2>
+       <p class="subtitle mt-0 mb-3">
+        Find your kind of Kazakhstan. Start with somewhere that speaks to you.
+       </p>
+       <!-- Task 8: Bootstrap cards; the row and column wrappers provide responsive wrapping. -->
+       <div class="discovery-controls">
+        <div aria-label="Filter destinations" class="filter-tabs" role="group">
+         <button aria-pressed="true" class="filter-tab is-active" data-filter="all">
+          All places
+         </button>
+         <button aria-pressed="false" class="filter-tab" data-filter="nature">
+          Into nature
+         </button>
+         <button aria-pressed="false" class="filter-tab" data-filter="city">
+          City breaks
+         </button>
+         <button aria-pressed="false" class="filter-tab" data-filter="culture">
+          Culture &amp; food
+         </button>
+         <button aria-pressed="false" class="filter-tab" data-filter="saved">
+          Saved
+          <span data-saved-count="">
+           0
+          </span>
+         </button>
+        </div>
+        <label class="destination-search">
+         <span class="visually-hidden">
+          Search destinations
+         </span>
+         <span aria-hidden="true">
+          ⌕
+         </span>
+         <input data-destination-search="" placeholder="Find a place…" type="search"/>
+        </label>
+       </div>
+       <p aria-live="polite" class="results-count" data-results-count="" role="status">
+        4 places to discover
+       </p>
+       <div class="card-group row g-4 mt-0">
+        <div class="col-12 col-sm-6 col-lg-3 destination-column">
+         <article class="card feature-card h-100" data-destination="aktau">
+          <button aria-label="Save Aktau" aria-pressed="false" class="save-place" data-save="aktau" type="button">
+           <span aria-hidden="true">
+            ♡
+           </span>
+          </button>
+          <img alt="Camel and plateau in the Mangystau steppe" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow mt-0 mb-3 card-text">
+            Mangystau Region
+           </p>
+           <h3 class="mt-0 mb-2 card-title">
+            Aktau
+           </h3>
+           <p class="mt-0 mb-3 card-text">
+            The pearl of the Caspian Sea. Where endless desert meets deep blue waters and dramatic chalk canyons.
+           </p>
+           <a class="destination-link mt-auto" href="aktau.html">
+            Explore Aktau
+            <span aria-hidden="true">
+             ↗
+            </span>
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 destination-column">
+         <article class="card feature-card h-100" data-destination="astana">
+          <button aria-label="Save Astana" aria-pressed="false" class="save-place" data-save="astana" type="button">
+           <span aria-hidden="true">
+            ♡
+           </span>
+          </button>
+          <img alt="Astana Cityscape and modern riverfront" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow mt-0 mb-3 card-text">
+            Capital City
+           </p>
+           <h3 class="mt-0 mb-2 card-title">
+            Astana
+           </h3>
+           <p class="mt-0 mb-3 card-text">
+            The modern capital of futuristic architecture, freezing winters, glowing boulevards, and warm hospitality.
+           </p>
+           <a class="destination-link mt-auto" href="astana.html">
+            Explore Astana
+            <span aria-hidden="true">
+             ↗
+            </span>
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 destination-column">
+         <article class="card feature-card h-100" data-destination="almaty">
+          <button aria-label="Save Almaty" aria-pressed="false" class="save-place" data-save="almaty" type="button">
+           <span aria-hidden="true">
+            ♡
+           </span>
+          </button>
+          <img alt="Mountains near Almaty" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/Mountain.jpg" width="800"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow mt-0 mb-3 card-text">
+            Southern Foothills
+           </p>
+           <h3 class="mt-0 mb-2 card-title">
+            Almaty
+           </h3>
+           <p class="mt-0 mb-3 card-text">
+            A lively city surrounded by towering mountains, apple orchards, alpine lakes, and world-class winter sports.
+           </p>
+           <a class="destination-link mt-auto" href="almaty.html">
+            Explore Almaty
+            <span aria-hidden="true">
+             ↗
+            </span>
+           </a>
+          </div>
+         </article>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 destination-column">
+         <article class="card feature-card h-100" data-destination="shymkent">
+          <button aria-label="Save Shymkent" aria-pressed="false" class="save-place" data-save="shymkent" type="button">
+           <span aria-hidden="true">
+            ♡
+           </span>
+          </button>
+          <img alt="Shymkent city view and mosque" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/shymkent.jpg" width="800"/>
+          <div class="card-body d-flex flex-column p-4">
+           <p class="eyebrow mt-0 mb-3 card-text">
+            Silk Road City
+           </p>
+           <h3 class="mt-0 mb-2 card-title">
+            Shymkent
+           </h3>
+           <p class="mt-0 mb-3 card-text">
+            A warm southern city known for lush green parks, delicious authentic cuisine, and rich Silk Road heritage.
+           </p>
+           <a class="destination-link mt-auto" href="shymkent.html">
+            Explore Shymkent
+            <span aria-hidden="true">
+             ↗
+            </span>
+           </a>
+          </div>
+         </article>
+        </div>
+       </div>
+       <div class="no-results" data-no-results="" hidden="">
+        <h3>
+         A new direction?
+        </h3>
+        <p>
+         No places match yet. Try another search or save a destination using its heart button.
+        </p>
+        <button class="btn btn-outline-primary" data-clear-filters="" type="button">
+         Show all places
+        </button>
+       </div>
+      </div>
+     </section>
+     <section aria-labelledby="planner-title" class="trip-planner" id="trip-planner">
+      <div class="container planner-layout">
+       <div class="planner-intro">
+        <p class="eyebrow">
+         LESS SCROLLING. MORE EXPLORING.
+        </p>
+        <h2 id="planner-title">
+         Your next chapter
+         <br/>
+         starts here.
+        </h2>
+        <p>
+         A coast-to-canyon escape? A few days in the mountains? Build a little inspiration into your itinerary.
+        </p>
+        <div aria-hidden="true" class="planner-art">
+         <span>
+          GO
+         </span>
+         <span>
+          EXPLORE ↗
+         </span>
+        </div>
+        <p class="planner-footnote">
+         A route idea, made for you. No booking required.
+        </p>
+       </div>
+       <form class="planner-form" data-trip-planner="" novalidate="">
+        <div class="step-header">
+         <span data-step-label="">
+          01 / YOUR DESTINATION
+         </span>
+         <span>
+          THE TRIP BUILDER
+         </span>
+        </div>
+        <div aria-hidden="true" class="planner-progress">
+         <span data-step-progress="">
+         </span>
+        </div>
+        <fieldset data-planner-step="0">
+         <legend>
+          First, where to?
+         </legend>
+         <p>
+          Pick the place you would love to get to know.
+         </p>
+         <div class="planner-choices">
+          <label>
+           <input name="destination" required="" type="radio" value="aktau"/>
+           <span>
+            Aktau
+            <small>
+             Sea &amp; canyons
+            </small>
+           </span>
+          </label>
+          <label>
+           <input name="destination" type="radio" value="astana"/>
+           <span>
+            Astana
+            <small>
+             Architecture &amp; city life
+            </small>
+           </span>
+          </label>
+          <label>
+           <input name="destination" type="radio" value="almaty"/>
+           <span>
+            Almaty
+            <small>
+             Mountains &amp; fresh air
+            </small>
+           </span>
+          </label>
+          <label>
+           <input name="destination" type="radio" value="shymkent"/>
+           <span>
+            Shymkent
+            <small>
+             Culture &amp; southern flavours
+            </small>
+           </span>
+          </label>
+         </div>
+        </fieldset>
+        <fieldset data-planner-step="1" hidden="">
+         <legend>
+          Make it your kind of trip.
+         </legend>
+         <p>
+          A few details help us shape your route.
+         </p>
+         <label class="form-label" for="trip-name">
+          What should we call you?
+         </label>
+         <input autocomplete="given-name" class="form-control" id="trip-name" maxlength="60" name="traveler" placeholder="Your first name" required=""/>
+         <label class="form-label mt-4" for="trip-days">
+          How long are you staying?
+         </label>
+         <select class="form-select" id="trip-days" name="days">
+          <option value="1">
+           1 day · A taste of the city
+          </option>
+          <option value="2">
+           2 days · A little more discovery
+          </option>
+          <option selected="" value="3">
+           3 days · Time to wander
+          </option>
+         </select>
+        </fieldset>
+        <fieldset data-planner-step="2" hidden="">
+         <legend>
+          One last look.
+         </legend>
+         <p>
+          Your adventure is taking shape. Go back any time to change the details.
+         </p>
+         <div class="trip-review" data-trip-review="">
+         </div>
+        </fieldset>
+        <div data-trip-result="" hidden="" tabindex="-1">
+         <p class="eyebrow">
+          LET THE ADVENTURE BEGIN
+         </p>
+         <h3 data-trip-greeting="">
+         </h3>
+         <p data-trip-description="">
+         </p>
+         <ol class="trip-stops" data-trip-stops="">
+         </ol>
+         <a class="btn btn-primary" data-trip-guide="" href="aktau.html">
+          Open your city guide ↗
+         </a>
+         <p class="small mt-3">
+          An inspiration route. Check opening times, weather, transport and local conditions before travelling.
+         </p>
+        </div>
+        <p aria-live="polite" class="planner-error" data-planner-error="" role="status">
+        </p>
+        <div class="planner-buttons">
+         <button class="text-button" data-planner-back="" hidden="" type="button">
+          ← Back
+         </button>
+         <button class="text-button" data-planner-reset="" type="button">
+          Start over
+         </button>
+         <button class="btn btn-primary ms-auto" data-planner-next="" type="button">
+          Next step ↗
+         </button>
+        </div>
+       </form>
       </div>
      </section>
      <section class="about-site fade-in delay-1 py-4 py-lg-5" id="overview">
       <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
        <h2 class="mt-0 mb-4">
-        What You Will Find Here
+        Big landscapes. Local stories.
        </h2>
        <!-- Task 3: Bootstrap two-column layout, 6 + 6 = 12. -->
        <div class="row g-4">
@@ -184,98 +545,6 @@
             Simple tips for planning your visit
            </li>
           </ul>
-         </article>
-        </div>
-       </div>
-      </div>
-     </section>
-     <section class="destinations fade-in delay-2 py-4 py-lg-5" id="destinations">
-      <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
-       <p class="eyebrow mt-0 mb-3">
-        Discover our top locations
-       </p>
-       <h2 class="mt-0 mb-4">
-        Available Destinations
-       </h2>
-       <p class="subtitle mt-0 mb-3">
-        Currently featuring 4 amazing cities. More destinations are coming soon!
-       </p>
-       <!-- Task 8: Bootstrap cards; the row and column wrappers provide responsive wrapping. -->
-       <div class="card-group row g-4 mt-0">
-        <div class="col-12 col-md-6 col-lg-6">
-         <article class="card feature-card h-100">
-          <img alt="Camel and plateau in the Mangystau steppe" class="card-img-top" height="500" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
-          <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Mangystau Region
-           </p>
-           <h3 class="mt-0 mb-2 card-title">
-            Aktau
-           </h3>
-           <p class="mt-0 mb-3 card-text">
-            The pearl of the Caspian Sea. Where endless desert meets deep blue waters and dramatic chalk canyons.
-           </p>
-           <a class="btn btn-outline-primary btn-sm px-3 py-2 mt-auto" href="aktau.html">
-            Explore Aktau
-           </a>
-          </div>
-         </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6">
-         <article class="card feature-card h-100">
-          <img alt="Astana Cityscape and modern riverfront" class="card-img-top" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/>
-          <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Capital City
-           </p>
-           <h3 class="mt-0 mb-2 card-title">
-            Astana
-           </h3>
-           <p class="mt-0 mb-3 card-text">
-            The modern capital of futuristic architecture, freezing winters, glowing boulevards, and warm hospitality.
-           </p>
-           <a class="btn btn-outline-primary btn-sm px-3 py-2 mt-auto" href="astana.html">
-            Explore Astana
-           </a>
-          </div>
-         </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6">
-         <article class="card feature-card h-100">
-          <img alt="Mountains near Almaty" class="card-img-top" height="500" loading="lazy" src="images/Mountain.jpg" width="800"/>
-          <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Southern Foothills
-           </p>
-           <h3 class="mt-0 mb-2 card-title">
-            Almaty
-           </h3>
-           <p class="mt-0 mb-3 card-text">
-            A lively city surrounded by towering mountains, apple orchards, alpine lakes, and world-class winter sports.
-           </p>
-           <a class="btn btn-outline-primary btn-sm px-3 py-2 mt-auto" href="almaty.html">
-            Explore Almaty
-           </a>
-          </div>
-         </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6">
-         <article class="card feature-card h-100">
-          <img alt="Shymkent city view and mosque" class="card-img-top" height="500" loading="lazy" src="images/shymkent.jpg" width="800"/>
-          <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Silk Road City
-           </p>
-           <h3 class="mt-0 mb-2 card-title">
-            Shymkent
-           </h3>
-           <p class="mt-0 mb-3 card-text">
-            A warm southern city known for lush green parks, delicious authentic cuisine, and rich Silk Road heritage.
-           </p>
-           <a class="btn btn-outline-primary btn-sm px-3 py-2 mt-auto" href="shymkent.html">
-            Explore Shymkent
-           </a>
-          </div>
          </article>
         </div>
        </div>
@@ -330,7 +599,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="aktau.html">
            <figure class="m-0">
-            <img alt="Camel and plateau in the Mangystau steppe" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+            <img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Mangystau Landscape
              <span>
@@ -343,7 +612,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="astana.html">
            <figure class="m-0">
-            <img alt="Baiterek monument glowing at night in Astana" height="600" loading="lazy" src="images/assignment2/baiterek-night.jpg" width="800"/>
+            <img alt="Baiterek monument glowing at night in Astana" decoding="async" height="600" loading="lazy" src="images/assignment2/baiterek-night.jpg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Astana Baiterek
              <span>
@@ -356,7 +625,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="almaty.html">
            <figure class="m-0">
-            <img alt="Tian Shan mountains near Almaty" height="600" loading="lazy" src="images/Mountain.jpg" width="800"/>
+            <img alt="Tian Shan mountains near Almaty" decoding="async" height="600" loading="lazy" src="images/Mountain.jpg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Almaty Peaks
              <span>
@@ -369,7 +638,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="shymkent.html">
            <figure class="m-0">
-            <img alt="Green park entrance in Shymkent" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
+            <img alt="Green park entrance in Shymkent" decoding="async" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Shymkent Dendropark
              <span>
@@ -382,7 +651,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="aktau.html">
            <figure class="m-0">
-            <img alt="Bozjyra chalk towers rising in Mangystau" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
+            <img alt="Bozjyra chalk towers rising in Mangystau" decoding="async" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Bozjyra Canyon
              <span>
@@ -395,7 +664,7 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="astana.html">
            <figure class="m-0">
-            <img alt="Khan Shatyr tent architecture in Astana" height="600" loading="lazy" src="images/assignment2/khan-shatyr.jpg" width="800"/>
+            <img alt="Khan Shatyr tent architecture in Astana" decoding="async" height="600" loading="lazy" src="images/assignment2/khan-shatyr.jpg" width="800"/>
             <figcaption class="px-3 pt-5 pb-3">
              Khan Shatyr
              <span>
@@ -439,7 +708,7 @@
           </div>
           <div aria-live="polite" class="carousel-inner">
            <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-            <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" height="600" src="images/Aktaumainpage.jpg" width="1200"/>
+            <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Aktaumainpage.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Mangystau landscape
@@ -447,7 +716,7 @@
             </div>
            </div>
            <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" height="600" src="images/rocktrail.jpg" width="1200"/>
+            <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/rocktrail.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Rock Trail, Aktau
@@ -455,7 +724,7 @@
             </div>
            </div>
            <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" height="600" src="images/bozjyra.jpg" width="1200"/>
+            <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/bozjyra.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Bozjyra, Mangystau
@@ -463,7 +732,7 @@
             </div>
            </div>
            <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" height="600" src="images/Astanamainpage.jpg" width="1200"/>
+            <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Astanamainpage.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Astana cityscape
@@ -471,7 +740,7 @@
             </div>
            </div>
            <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" height="600" src="images/assignment2/baiterek-night.jpg" width="1200"/>
+            <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/assignment2/baiterek-night.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Baiterek, Astana
@@ -479,7 +748,7 @@
             </div>
            </div>
            <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" height="600" src="images/assignment2/khan-shatyr.jpg" width="1200"/>
+            <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/assignment2/khan-shatyr.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Khan Shatyr, Astana
@@ -487,7 +756,7 @@
             </div>
            </div>
            <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" height="600" src="images/Mountain.jpg" width="1200"/>
+            <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Mountain.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Mountains near Almaty
@@ -495,7 +764,7 @@
             </div>
            </div>
            <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" height="600" src="images/shymkent.jpg" width="1200"/>
+            <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/shymkent.jpg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Shymkent cityscape
@@ -503,7 +772,7 @@
             </div>
            </div>
            <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" height="600" src="images/shymkent1.jpeg" width="1200"/>
+            <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/shymkent1.jpeg" width="1200"/>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
               Shymkent park
@@ -524,6 +793,35 @@
            <span class="visually-hidden">
             Next slide
            </span>
+          </button>
+         </div>
+         <div class="gallery-thumbnails" data-gallery-for="kazakhstan-carousel">
+          <button aria-label="View photo 1: Camel and plateau in the Mangystau steppe" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/>
+          </button>
+          <button aria-label="View photo 2: Rock Trail along the Caspian Sea" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/rocktrail.jpg"/>
+          </button>
+          <button aria-label="View photo 3: White chalk cliffs of Bozjyra" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/bozjyra.jpg"/>
+          </button>
+          <button aria-label="View photo 4: Modern skyline of Astana" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/Astanamainpage.jpg"/>
+          </button>
+          <button aria-label="View photo 5: Baiterek illuminated at night" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/assignment2/baiterek-night.jpg"/>
+          </button>
+          <button aria-label="View photo 6: Khan Shatyr tent structure" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/assignment2/khan-shatyr.jpg"/>
+          </button>
+          <button aria-label="View photo 7: Mountain landscape near Almaty" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/Mountain.jpg"/>
+          </button>
+          <button aria-label="View photo 8: City view of Shymkent" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/shymkent.jpg"/>
+          </button>
+          <button aria-label="View photo 9: Green park entrance in Shymkent" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
+           <img alt="" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/>
           </button>
          </div>
         </div>
@@ -597,36 +895,78 @@
      </section>
      <section aria-labelledby="faq-title" class="about-site py-4 py-lg-5" id="faq">
       <div class="container mx-auto px-3 px-md-4">
-       <p class="eyebrow mb-3">Plan your next discovery</p>
-       <h2 class="mb-3" id="faq-title">Travel Questions, Answered</h2>
-       <p class="mb-4">Select a question to read the answer. Select it again to close it.</p>
+       <p class="eyebrow mb-3">
+        Plan your next discovery
+       </p>
+       <h2 class="mb-3" id="faq-title">
+        Travel Questions, Answered
+       </h2>
+       <p class="mb-4">
+        Select a question to read the answer. Select it again to close it.
+       </p>
        <div class="faq-list">
         <article class="faq-item">
-         <h3><button aria-controls="faq-answer-1" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-1" type="button">Which cities can I explore?</button></h3>
+         <h3>
+          <button aria-controls="faq-answer-1" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-1" type="button">
+           Which cities can I explore?
+          </button>
+         </h3>
          <div aria-hidden="true" aria-labelledby="faq-question-1" class="faq-panel" id="faq-answer-1" inert="" role="region">
-          <div><p>Our guides cover Aktau, Astana, Almaty, and Shymkent. Choose a destination card on the homepage to explore its sights, photos, and sample itinerary.</p></div>
+          <div>
+           <p>
+            Our guides cover Aktau, Astana, Almaty, and Shymkent. Choose a destination card on the homepage to explore its sights, photos, and sample itinerary.
+           </p>
+          </div>
          </div>
         </article>
         <article class="faq-item">
-         <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-2" type="button">How can I compare the destinations?</button></h3>
+         <h3>
+          <button aria-controls="faq-answer-2" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-2" type="button">
+           How can I compare the destinations?
+          </button>
+         </h3>
          <div aria-hidden="true" aria-labelledby="faq-question-2" class="faq-panel" id="faq-answer-2" inert="" role="region">
-          <div><p>Use the homepage quick facts table, then open a city guide. Each guide includes attractions and a route idea to help you choose what interests you.</p></div>
+          <div>
+           <p>
+            Use the homepage quick facts table, then open a city guide. Each guide includes attractions and a route idea to help you choose what interests you.
+           </p>
+          </div>
          </div>
         </article>
         <article class="faq-item">
-         <h3><button aria-controls="faq-answer-3" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-3" type="button">Can I book a trip through KZ Travel?</button></h3>
+         <h3>
+          <button aria-controls="faq-answer-3" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-3" type="button">
+           Can I book a trip through KZ Travel?
+          </button>
+         </h3>
          <div aria-hidden="true" aria-labelledby="faq-question-3" class="faq-panel" id="faq-answer-3" inert="" role="region">
-          <div><p>KZ Travel is a student travel guide. Our forms are demonstrations and do not make bookings, create accounts, or send your information.</p></div>
+          <div>
+           <p>
+            KZ Travel is a student travel guide. Our forms are demonstrations and do not make bookings, create accounts, or send your information.
+           </p>
+          </div>
          </div>
         </article>
         <article class="faq-item">
-         <h3><button aria-controls="faq-answer-4" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-4" type="button">How do I try the contact form?</button></h3>
+         <h3>
+          <button aria-controls="faq-answer-4" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-4" type="button">
+           How do I try the contact form?
+          </button>
+         </h3>
          <div aria-hidden="true" aria-labelledby="faq-question-4" class="faq-panel" id="faq-answer-4" inert="" role="region">
-          <div><p>Open About Us and select Contact Us. Fill in your name, email, and message, then check the form. Close the popup with its close button, Escape, or a click outside it.</p></div>
+          <div>
+           <p>
+            Open About Us and select Contact Us. Fill in your name, email, and message, then check the form. Close the popup with its close button, Escape, or a click outside it.
+           </p>
+          </div>
          </div>
         </article>
        </div>
-       <noscript><p>Enable JavaScript to open these answers. You can also browse our city guides and About Us page.</p></noscript>
+       <noscript>
+        <p>
+         Enable JavaScript to open these answers. You can also browse our city guides and About Us page.
+        </p>
+       </noscript>
       </div>
      </section>
      <section class="newsletter fade-in delay-4 py-4 py-lg-5" id="community">
@@ -650,12 +990,18 @@
         </div>
         <div class="row g-3 mb-3">
          <div class="col-12 col-md-6">
-          <label class="form-label" for="index-password">Password</label>
+          <label class="form-label" for="index-password">
+           Password
+          </label>
           <input aria-describedby="password-help" autocomplete="new-password" class="form-control px-3 py-2" id="index-password" minlength="8" name="password" required="" type="password"/>
-          <p class="form-text mb-0" id="password-help">Use at least 8 characters. Use a sample password for this demo.</p>
+          <p class="form-text mb-0" id="password-help">
+           Use at least 8 characters. Use a sample password for this demo.
+          </p>
          </div>
          <div class="col-12 col-md-6">
-          <label class="form-label" for="index-confirm-password">Confirm password</label>
+          <label class="form-label" for="index-confirm-password">
+           Confirm password
+          </label>
           <input autocomplete="new-password" class="form-control px-3 py-2" data-confirm-for="index-password" id="index-confirm-password" name="confirmPassword" required="" type="password"/>
          </div>
         </div>
@@ -683,7 +1029,8 @@
         <button class="btn btn-primary px-4 py-2" disabled="" type="submit">
          Try Signup
         </button>
-        <p aria-live="polite" class="form-status mt-3 mb-0 p-3 rounded" role="status"></p>
+        <p aria-live="polite" class="form-status mt-3 mb-0 p-3 rounded" role="status">
+        </p>
         <noscript>
          This demo needs JavaScript to display a confirmation. No subscription will be created.
         </noscript>
@@ -711,10 +1058,97 @@
        </div>
       </div>
      </section>
+     <section aria-labelledby="rating-title" class="rating-section">
+      <div class="container">
+       <div>
+        <p class="eyebrow">
+         YOUR PERSPECTIVE MATTERS
+        </p>
+        <h2 id="rating-title">
+         How was your virtual escape?
+        </h2>
+        <p>
+         A little feedback for your next big adventure.
+        </p>
+       </div>
+       <div class="rating-control" data-rating="index">
+        <div aria-label="Rate this guide" class="rating-stars" role="group">
+         <button aria-label="Rate 1 out of 5" aria-pressed="false" data-star="1" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 2 out of 5" aria-pressed="false" data-star="2" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 3 out of 5" aria-pressed="false" data-star="3" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 4 out of 5" aria-pressed="false" data-star="4" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 5 out of 5" aria-pressed="false" data-star="5" type="button">
+          ★
+         </button>
+        </div>
+        <p aria-live="polite" data-rating-message="" role="status">
+         Choose your rating
+        </p>
+       </div>
+      </div>
+     </section>
     </main>
    </div>
   </div>
+  <section aria-label="Travel view settings" class="travel-tools">
+   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <div>
+     <span class="travel-tools-label d-block">
+      LOCAL TIME / KAZAKHSTAN (UTC+5)
+     </span>
+     <time class="travel-clock" data-live-clock="">
+      Enable JavaScript to see the current time.
+     </time>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">
+      Change background
+     </button>
+     <span aria-live="polite" class="small" role="status">
+      Colour:
+      <strong data-background-name="">
+       Sand
+      </strong>
+     </span>
+     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">
+      Travel FAQ
+     </a>
+    </div>
+   </div>
+  </section>
   <footer class="py-4 text-center">
+   <div class="footer-brand">
+    <span aria-hidden="true" class="brand-mark">
+     <svg fill="none" viewbox="0 0 40 40">
+      <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2">
+      </circle>
+      <path d="m8 27 9-15 6 9 3-5 7 11H8Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+      </path>
+      <path d="M17 12v-5m-3 2h6" stroke="currentColor" stroke-width="2">
+      </path>
+     </svg>
+    </span>
+    <span>
+     KZ
+     <span class="brand-light">
+      travel
+     </span>
+     <span class="brand-dot">
+      .
+     </span>
+    </span>
+    <span>
+     Go a little further.
+    </span>
+   </div>
    <div class="container px-3 px-md-4">
     <p class="mb-2">
      © 2026 Kazakhstan Travel Guide - Home Section.
@@ -727,6 +1161,9 @@
      | Group: SE-2501
     </p>
    </div>
+   <a class="back-to-top" href="#main-header">
+    Back to top ↑
+   </a>
   </footer>
  </body>
 </html>

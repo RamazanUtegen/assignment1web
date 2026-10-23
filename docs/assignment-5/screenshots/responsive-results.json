@@ -1,0 +1,92 @@
+[
+  {
+    "page": "index",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 2"
+  },
+  {
+    "page": "aktau",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "astana",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 0"
+  },
+  {
+    "page": "almaty",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "shymkent",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "about",
+    "width": "360",
+    "result": "Viewport: 345 px\nDocument: 345 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "index",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 2"
+  },
+  {
+    "page": "aktau",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "astana",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 0"
+  },
+  {
+    "page": "almaty",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "shymkent",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "about",
+    "width": "390",
+    "result": "Viewport: 375 px\nDocument: 375 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "index",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 2"
+  },
+  {
+    "page": "aktau",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "astana",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 0"
+  },
+  {
+    "page": "almaty",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "shymkent",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  },
+  {
+    "page": "about",
+    "width": "768",
+    "result": "Viewport: 753 px\nDocument: 753 px\nOverflow: false\nMain heading: 1\nForms: 1"
+  }
+]

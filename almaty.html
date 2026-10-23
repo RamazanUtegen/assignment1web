@@ -8,38 +8,61 @@
   <title>
    Almaty Travel Guide | KZ Travel
   </title>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-  <link href="css/style.css" rel="stylesheet"/>
-  <link href="css/assignment3.css" rel="stylesheet"/>
-  <link href="css/assignment4.css" rel="stylesheet"/>
-  <script crossorigin="anonymous" defer="" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  <link href="vendor/bootstrap.min.css?v=5" rel="stylesheet"/>
+  <link href="css/style.css?v=5" rel="stylesheet"/>
+  <link href="css/assignment3.css?v=5" rel="stylesheet"/>
+  <link href="css/assignment4.css?v=5" rel="stylesheet"/>
+  <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js">
+  <script defer="" src="js/site.js?v=5">
   </script>
-  <script defer="" src="js/forms.js">
+  <script defer="" src="js/forms.js?v=5">
   </script>
-  <script defer="" src="js/preferences.js"></script>
-  <script defer="" src="js/clock.js"></script>
+  <script defer="" src="js/preferences.js?v=5">
+  </script>
+  <script defer="" src="js/clock.js?v=5">
+  </script>
+  <link href="css/editorial.css?v=6" rel="stylesheet"/>
+  <script defer="" src="js/experience.js?v=5">
+  </script>
  </head>
- <body class="assignment-three">
+ <body class="assignment-three editorial page-almaty">
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
   <header id="main-header">
-   <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-dark py-3">
-    <div class="container-fluid px-3 px-lg-4">
-     <a class="navbar-brand fw-bold m-0" href="index.html">
-      KZ Travel
+   <nav aria-label="Main navigation" class="navbar navbar-expand-lg">
+    <div class="container-fluid header-inner">
+     <a aria-label="KZ Travel home" class="navbar-brand" href="index.html">
+      <span aria-hidden="true" class="brand-mark">
+       <svg fill="none" viewbox="0 0 40 40">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2">
+        </circle>
+        <path d="m8 27 9-15 6 9 3-5 7 11H8Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+        </path>
+        <path d="M17 12v-5m-3 2h6" stroke="currentColor" stroke-width="2">
+        </path>
+       </svg>
+      </span>
+      <span>
+       KZ
+       <span class="brand-light">
+        travel
+       </span>
+       <span class="brand-dot">
+        .
+       </span>
+      </span>
      </a>
-     <button aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#site-navigation" data-bs-toggle="collapse" type="button">
+     <button aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#main-navigation" data-bs-toggle="collapse" type="button">
       <span class="navbar-toggler-icon">
       </span>
      </button>
-     <div class="collapse navbar-collapse" id="site-navigation">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+     <div class="collapse navbar-collapse" id="main-navigation">
+      <ul class="navbar-nav">
        <li class="nav-item">
         <a class="nav-link" href="index.html">
-         Home
+         Explore
         </a>
        </li>
        <li class="nav-item">
@@ -64,80 +87,92 @@
        </li>
        <li class="nav-item">
         <a class="nav-link" href="about.html">
-         About Us
+         Our story
         </a>
        </li>
       </ul>
+      <div class="nav-actions">
+       <button aria-label="Switch to night theme" aria-pressed="false" class="icon-button" data-theme-toggle="" title="Switch day / night theme">
+        ☾
+       </button>
+       <button aria-label="Enable sound effects" aria-pressed="false" class="icon-button sound-button" data-sound-toggle="" title="Sound effects">
+        ♪
+        <span aria-hidden="true" class="sound-off">
+         /
+        </span>
+       </button>
+       <a class="btn btn-primary plan-link" href="index.html#trip-planner">
+        Plan a trip
+        <span aria-hidden="true">
+         ↗
+        </span>
+       </a>
+      </div>
      </div>
     </div>
    </nav>
   </header>
-  <section aria-label="Travel view settings" class="travel-tools py-3">
-   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
-    <div>
-     <span class="travel-tools-label d-block">Time in Kazakhstan <span class="fw-normal">(UTC+5)</span></span>
-     <time class="travel-clock" data-live-clock="">Enable JavaScript to see the current time.</time>
-    </div>
-    <div class="d-flex flex-wrap align-items-center gap-2">
-     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">Change background</button>
-     <span aria-live="polite" class="small" role="status">Colour: <strong data-background-name="">Sand</strong></span>
-     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">Travel FAQ</a>
-    </div>
-   </div>
-  </section>
   <div class="container-fluid px-0">
    <div class="row g-0">
-    <aside aria-labelledby="sidebar-title" class="page-sidebar col-12 col-lg-3 col-xl-2 p-3 p-lg-4">
-     <p class="eyebrow mb-2">
-      Your city guide
-     </p>
-     <h2 class="mb-3" id="sidebar-title">
-      Explore Almaty
-     </h2>
-     <nav aria-label="On this page" class="d-flex flex-wrap flex-lg-column gap-2">
-      <a class="py-1" href="#about">
-       01 / About Region
-      </a>
-      <a class="py-1" href="#highlights">
-       02 / City Highlights
-      </a>
-      <a class="py-1" href="#gallery">
-       03 / Photo Gallery
-      </a>
-      <a class="py-1" href="#schedule">
-       04 / Excursion Schedule
-      </a>
-      <a class="py-1" href="#contact-form">
-       05 / Plan Excursion
-      </a>
-     </nav>
-     <div class="sidebar-note mt-4 pt-3 d-none d-lg-block">
-      <h3 class="mb-2">
-       Make it your day
-      </h3>
-      <p class="mb-2">
-       Mix mountain adventures and city culture.
-      </p>
-      <a href="#contact-form">
-       Try our excursion demo →
-      </a>
-     </div>
-    </aside>
-    <main class="col-12 col-lg-9 col-xl-10" id="main-content" tabindex="-1">
-     <section class="hero fade-in py-4 py-lg-5 d-flex align-items-center justify-content-center">
-      <img alt="Almaty Mountain View" class="hero-bg-img" src="images/Mountain.jpg"/>
-      <div class="hero-content container py-5 px-3 px-md-4">
-       <h1 class="mb-3">
-        Almaty: Southern Capital
-       </h1>
-       <p class="mb-4">
-        Explore majestic mountains, scenic ice rinks, and vibrant cultural landmarks.
+    <main class="w-100" id="main-content" tabindex="-1">
+     <section class="hero editorial-hero">
+      <img alt="Almaty Mountain View" class="hero-bg-img" decoding="async" src="images/Mountain.jpg"/>
+      <div class="hero-content">
+       <p class="hero-kicker">
+        CITY ENERGY. MOUNTAIN SOUL.
        </p>
-       <a class="btn btn-primary btn-lg" href="#highlights">
-        Explore the City
-       </a>
+       <h1>
+        ALMATY.
+        <br/>
+        TAKE THE HIGH ROAD.
+       </h1>
+       <div class="hero-bottom">
+        <div>
+         <p>
+          Morning in the city. Afternoon above the clouds. Meet the gateway to the Tian Shan.
+         </p>
+         <a class="btn hero-cta" href="#highlights">
+          Head for the mountains
+          <span aria-hidden="true">
+           ↗
+          </span>
+         </a>
+        </div>
+        <span class="hero-caption">
+         04 / The mountains around Almaty
+        </span>
+       </div>
+      </div>
+      <div aria-hidden="true" class="hero-coordinate">
+       CENTRAL ASIA
+       <br/>
+       <strong>
+        48°N / 68°E
+       </strong>
       </div>
      </section>
+     <div class="page-subnav">
+      <span class="subnav-label">
+       THE FIELD GUIDE
+      </span>
+      <nav aria-label="On this page" class="section-links">
+       <a class="py-1" href="#about">
+        01 / About Region
+       </a>
+       <a class="py-1" href="#highlights">
+        02 / City Highlights
+       </a>
+       <a class="py-1" href="#gallery">
+        03 / Photo Gallery
+       </a>
+       <a class="py-1" href="#schedule">
+        04 / Excursion Schedule
+       </a>
+       <a class="py-1" href="#contact-form">
+        05 / Plan Excursion
+       </a>
+      </nav>
+     </div>
      <section class="about-site py-5 py-4 py-lg-5" id="about">
       <div class="container px-3 px-md-4">
        <h2 class="mb-3">
@@ -215,7 +250,7 @@
        <div class="row g-4 card-group">
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Medeu and Shymbulak" class="card-img-top" height="1080" loading="lazy" src="images/almaty1.png" width="1080"/>
+          <img alt="Medeu and Shymbulak" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/almaty1.png" width="1080"/>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Medeu &amp; Shymbulak
@@ -231,7 +266,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Kok Tobe Hill" class="card-img-top" height="640" loading="lazy" src="images/almaty2.webp" width="960"/>
+          <img alt="Kok Tobe Hill" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/almaty2.webp" width="960"/>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Kok Tobe Hill
@@ -247,7 +282,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Mountain Valleys" class="card-img-top" height="800" loading="lazy" src="images/assignment2/g1.jpg" width="1200"/>
+          <img alt="Mountain Valleys" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/assignment2/g1.jpg" width="1200"/>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Mountain Valleys
@@ -324,7 +359,7 @@
         </div>
         <div aria-live="polite" class="carousel-inner">
          <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-          <img alt="Mountain valley" class="d-block w-100 carousel-photo" src="images/assignment2/g1.jpg"/>
+          <img alt="Mountain valley" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g1.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Mountain valley
@@ -332,7 +367,7 @@
           </div>
          </div>
          <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="City Center" class="d-block w-100 carousel-photo" src="images/assignment2/g2.jpg"/>
+          <img alt="City Center" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g2.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             City Center
@@ -340,7 +375,7 @@
           </div>
          </div>
          <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Local Food" class="d-block w-100 carousel-photo" src="images/assignment2/g3.jpg"/>
+          <img alt="Local Food" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g3.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Local Food
@@ -348,7 +383,7 @@
           </div>
          </div>
          <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Park View" class="d-block w-100 carousel-photo" src="images/assignment2/g4.jpg"/>
+          <img alt="Park View" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g4.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Park View
@@ -356,7 +391,7 @@
           </div>
          </div>
          <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Night City" class="d-block w-100 carousel-photo" src="images/assignment2/g5.webp"/>
+          <img alt="Night City" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g5.webp"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Night City
@@ -364,7 +399,7 @@
           </div>
          </div>
          <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Historical Monument" class="d-block w-100 carousel-photo" src="images/assignment2/g6.jpeg"/>
+          <img alt="Historical Monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g6.jpeg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Historical Monument
@@ -372,7 +407,7 @@
           </div>
          </div>
          <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Alpine Lake" class="d-block w-100 carousel-photo" src="images/assignment2/g7.jpg"/>
+          <img alt="Alpine Lake" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g7.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Alpine Lake
@@ -380,7 +415,7 @@
           </div>
          </div>
          <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Ski Resort" class="d-block w-100 carousel-photo" src="images/assignment2/g8.jpg"/>
+          <img alt="Ski Resort" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g8.jpg"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Ski Resort
@@ -388,7 +423,7 @@
           </div>
          </div>
          <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Local Market" class="d-block w-100 carousel-photo" src="images/assignment2/g9.webp"/>
+          <img alt="Local Market" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g9.webp"/>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Local Market
@@ -409,6 +444,35 @@
          <span class="visually-hidden">
           Next
          </span>
+        </button>
+       </div>
+       <div class="gallery-thumbnails" data-gallery-for="almatyCarousel">
+        <button aria-label="View photo 1: Mountain valley" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g1.jpg"/>
+        </button>
+        <button aria-label="View photo 2: City Center" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g2.jpg"/>
+        </button>
+        <button aria-label="View photo 3: Local Food" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g3.jpg"/>
+        </button>
+        <button aria-label="View photo 4: Park View" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g4.jpg"/>
+        </button>
+        <button aria-label="View photo 5: Night City" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g5.webp"/>
+        </button>
+        <button aria-label="View photo 6: Historical Monument" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g6.jpeg"/>
+        </button>
+        <button aria-label="View photo 7: Alpine Lake" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g7.jpg"/>
+        </button>
+        <button aria-label="View photo 8: Ski Resort" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g8.jpg"/>
+        </button>
+        <button aria-label="View photo 9: Local Market" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#almatyCarousel" type="button">
+         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g9.webp"/>
         </button>
        </div>
       </div>
@@ -526,7 +590,8 @@
         <button class="btn btn-primary btn-lg" disabled="" type="submit">
          Try Enquiry
         </button>
-        <p aria-live="polite" class="form-status mt-2 fw-semibold p-3 rounded" role="status"></p>
+        <p aria-live="polite" class="form-status mt-2 fw-semibold p-3 rounded" role="status">
+        </p>
         <noscript>
          This classroom demo needs JavaScript. Nothing is sent or saved.
         </noscript>
@@ -554,10 +619,97 @@
        </div>
       </div>
      </section>
+     <section aria-labelledby="rating-title" class="rating-section">
+      <div class="container">
+       <div>
+        <p class="eyebrow">
+         YOUR PERSPECTIVE MATTERS
+        </p>
+        <h2 id="rating-title">
+         How was your virtual escape?
+        </h2>
+        <p>
+         A little feedback for your next big adventure.
+        </p>
+       </div>
+       <div class="rating-control" data-rating="almaty">
+        <div aria-label="Rate this guide" class="rating-stars" role="group">
+         <button aria-label="Rate 1 out of 5" aria-pressed="false" data-star="1" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 2 out of 5" aria-pressed="false" data-star="2" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 3 out of 5" aria-pressed="false" data-star="3" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 4 out of 5" aria-pressed="false" data-star="4" type="button">
+          ★
+         </button>
+         <button aria-label="Rate 5 out of 5" aria-pressed="false" data-star="5" type="button">
+          ★
+         </button>
+        </div>
+        <p aria-live="polite" data-rating-message="" role="status">
+         Choose your rating
+        </p>
+       </div>
+      </div>
+     </section>
     </main>
    </div>
   </div>
+  <section aria-label="Travel view settings" class="travel-tools">
+   <div class="container-fluid px-3 px-lg-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <div>
+     <span class="travel-tools-label d-block">
+      LOCAL TIME / KAZAKHSTAN (UTC+5)
+     </span>
+     <time class="travel-clock" data-live-clock="">
+      Enable JavaScript to see the current time.
+     </time>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+     <button class="btn btn-outline-primary px-3 py-2" data-background-button="" disabled="" type="button">
+      Change background
+     </button>
+     <span aria-live="polite" class="small" role="status">
+      Colour:
+      <strong data-background-name="">
+       Sand
+      </strong>
+     </span>
+     <a class="btn btn-outline-primary px-3 py-2" href="index.html#faq">
+      Travel FAQ
+     </a>
+    </div>
+   </div>
+  </section>
   <footer class="py-4 text-center">
+   <div class="footer-brand">
+    <span aria-hidden="true" class="brand-mark">
+     <svg fill="none" viewbox="0 0 40 40">
+      <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2">
+      </circle>
+      <path d="m8 27 9-15 6 9 3-5 7 11H8Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+      </path>
+      <path d="M17 12v-5m-3 2h6" stroke="currentColor" stroke-width="2">
+      </path>
+     </svg>
+    </span>
+    <span>
+     KZ
+     <span class="brand-light">
+      travel
+     </span>
+     <span class="brand-dot">
+      .
+     </span>
+    </span>
+    <span>
+     Go a little further.
+    </span>
+   </div>
    <div class="container px-3 px-md-4">
     <p class="mb-2">
      © 2026 Kazakhstan Travel Guide - Almaty Section.
@@ -570,6 +722,9 @@
      | Group: SE-2501
     </p>
    </div>
+   <a class="back-to-top" href="#main-header">
+    Back to top ↑
+   </a>
   </footer>
  </body>
 </html>

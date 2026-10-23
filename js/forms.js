@@ -3,6 +3,7 @@
 document.querySelectorAll('[data-demo-form]').forEach(function (form) {
     const fields = Array.from(form.querySelectorAll('input, textarea, select'));
     const status = form.querySelector('.form-status');
+    status.textContent = '';
     let submitted = false;
 
     // Custom messages replace browser bubbles after our handler is ready.

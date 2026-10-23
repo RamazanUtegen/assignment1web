@@ -1,74 +1,59 @@
-# KZ Travel - Assignment 4
+# KZ Travel - Assignment 5
 
-A six-page Kazakhstan tourist guide developed for Assignments 1-3 and the midterm, now extended with Assignment 4 JavaScript features. It introduces Aktau, Astana, Almaty, and Shymkent through destination cards, photo galleries, sample routes, and classroom enquiry forms.
+A six-page Kazakhstan guide continuing Assignments 1-4. The new editorial design is inspired by Lonely Planet's large photographs and travel storytelling. All original photographs, city guides, forms, tables, FAQs and carousels are retained.
 
-**Group:** SE-2501
+**Team:** KZ Travel · **Group:** SE-2501
 
-## Team and pages
-
-| Team member | Pages |
+| Member | Existing page ownership |
 | --- | --- |
-| Ramazan Utegen | Home (`index.html`) and Aktau |
+| Ramazan Utegen | Home and Aktau |
 | Ziyadinkhan Kudaibergenuly | Astana and About Us |
 | Ruzimuhammad | Almaty and Shymkent |
 
-## Live website
-
-[Open KZ Travel](https://ramazanutegen.github.io/assignment1web/)
-
-## Implementation
-
-- Semantic HTML includes headings, lists, tables, images with descriptions, forms, and team credits in every footer.
-- Bootstrap 5.3.8 provides the main page layouts: containers, rows, responsive columns, spacing utilities, navigation, cards, buttons, button groups, tables, and forms.
-- Each page includes two-column (`col-lg-6`) and three-column (`col-lg-4`) sections. The sidebar and main content also use Bootstrap columns.
-- `css/style.css` contains shared branding, component appearance, focus styles, and image treatment. It is loaded after Bootstrap.
-- `css/assignment3.css` contains responsive typography and the Assignment 3 Task 2 exception: an independent CSS-only card exercise that changes from one column on mobile to two at 768px and three at 992px.
-- Five nine-image Bootstrap carousels have indicators, previous/next controls, and keyboard support. Slides change manually rather than automatically.
-- `js/site.js` initializes manual Bootstrap carousels so keyboard navigation works before the first click.
-- `js/forms.js` validates required fields, email format, a minimum eight-character signup password, and password confirmation. Errors appear beside fields and the first invalid field receives focus. All existing enquiry forms use the same validation.
-- `js/accordion.js` opens and closes the four homepage FAQ answers with an animated transition and accessible expanded states.
-- `js/popup.js` opens the About Us contact form in a modal dialog. Close it with its close button, an outside click, or Escape. Keyboard focus stays inside while open and returns to Contact Us after closing.
-- `js/preferences.js` cycles the page background through Sand, Sky, and Steppe from a control on every page.
-- `js/clock.js` displays the date and time in `Asia/Almaty` (UTC+5), updating every second on all six pages.
-- `css/assignment4.css` styles these additions using the existing site theme and respects reduced-motion settings.
-- Bootstrap CSS and JavaScript load from jsDelivr and require an internet connection. Destination images are stored locally.
-
-Assignment 1 introduced custom HTML/CSS. Assignment 2 added Flexbox and named CSS Grid layouts. Assignment 3 replaces those main layouts with Bootstrap, while retaining the required CSS-only media-query exercise. `css/assignment2.css` and [Assignment 2 notes](docs/assignment-2.md) are historical references, not styles loaded by the final pages.
-
 ## Run locally
 
-From this folder:
+Open `index.html` directly, or run in this folder:
 
-```bash
-python3 -m http.server 8000
+```sh
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open [localhost:8000](http://localhost:8000/). No build step or backend is needed.
+Visit [localhost:8000](http://127.0.0.1:8000/). No build, backend, package installation or internet connection is required. Bootstrap 5.3.8 and fonts are included locally.
 
-## Forms
+## Assignment 5
 
-Forms are demonstrations. They display a confirmation in the browser and do not send or save entries, make bookings, or create subscriptions. Submission buttons remain disabled if the JavaScript handler cannot load.
+- Search and category filters combine to find destinations; `switch` controls categories.
+- Hearts save cities in the browser; Saved shows that collection.
+- A three-step planner validates choices, preserves inputs on Back, reviews details and builds a route without reload. Step changes receive a rendering callback.
+- Destination objects have a `getRoute()` method. Arrays, an explicit `for` loop, `map`, `filter` and `forEach` manage the UI.
+- Arrows, Home and End move focus through the main navigation; Tab behaves normally.
+- Day/night themes and per-page star ratings persist locally. Stars update styles, attributes and feedback.
+- The music note enables and previews a Web Audio chime; save, rate or complete a route to hear it again. Sound starts off on each page and never autoplays.
+- Event-triggered animations respect reduced-motion settings.
+- Nine-image galleries retain controls and keyboard navigation and add thumbnails.
 
-## Assignment 4 responsibilities
+## Retained functions
 
-| Team member | JavaScript responsibility |
-| --- | --- |
-| Ramazan Utegen | Task 1: form validation, including signup passwords |
-| Ziyadinkhan Kudaibergenuly | Task 2: FAQ accordion |
-| Ruzimuhammad | Tasks 3-5: contact popup, background colours, and live clock |
+All six pages retain navigation, content, credits, a live Kazakhstan clock (UTC+5) and the Sand/Sky/Steppe background button (now in the footer). Forms still validate required fields, emails and signup passwords. The homepage FAQ and About Us contact dialog retain keyboard/focus behaviour.
 
-These are the team's responsibility and study assignments. Each member must review, practise, and understand their component and their teammates' work before defending it.
+Forms are classroom demonstrations: no messages, bookings, accounts or subscriptions are created. Personal form data is not stored. Local storage holds only theme, saved city IDs and ratings.
 
-## Assignment 4 submission
+## Submission and documentation
 
-All three members submit the same report and project ZIP individually in the LMS. The report contains the team/group details, objective, steps for every task, screenshots, live website URL, verification, and reflection. All six footers name all three members.
+- [Task mapping and verification](docs/assignment-5.md).
+- [Russian defence walkthrough](docs/assignment-5-defense-ru.md).
+- PDF: `output/pdf/KZ-Travel-Assignment-5-Report.pdf`.
+- ZIP: `output/KZ-Travel-Assignment-5.zip`.
+- New presentation: `css/editorial.css`; new behaviour: `js/experience.js`.
 
-- Report: `output/pdf/KZ-Travel-Assignment-4-Report.pdf`
-- ZIP: `output/KZ-Travel-Assignment-4.zip`
-- [Task walkthrough and defence notes](docs/assignment-4.md)
+**Publication is pending team approval.** No commit or push was made for this preview. [The existing deployment](https://ramazanutegen.github.io/assignment1web/) serves the previous version until these changes are published. The review report records this explicitly; rebuild it after deployment verification.
 
-Check the Assignment 4 deadline in the LMS; the assignment PDF supplies no exact date. Each member must attend the practice-lesson defence (40% of the grade).
+Every member submits the report and ZIP individually and defends the work. Deadline supplied from the LMS: **29 October 2026, 14:00**; follow its displayed time zone.
 
-The integration check in `scripts/verify-assignment4.cjs` requires Playwright with Chromium and Firefox installed and a local server on port 8000. It exercises every page at 1440px and 390px widths. Playwright is only used for verification; the website needs no build tools or backend.
+## Verification and attribution
 
-The [midterm notes](docs/midterm.md) and [Assignment 2 notes](docs/assignment-2.md) remain available as historical study material.
+`python scripts/verify-assignment5.py` checks links, assets, IDs, semantics, credits and original image preservation (Beautiful Soup is needed for this developer check only). Browser scenarios are in the task notes. Report generation uses ReportLab and Pillow.
+
+Bootstrap retains its upstream licence header. DM Sans and Barlow Condensed use the SIL Open Font License; licences are in `fonts/`. Lonely Planet informed composition only; KZ Travel retains its own content and imagery.
+
+[Assignment 4](docs/assignment-4.md), [midterm](docs/midterm.md) and [Assignment 2](docs/assignment-2.md) notes remain as historical material. Earlier check scripts target the earlier design.
