@@ -54,6 +54,11 @@ body[data-theme=night] {
     --bs-secondary-color: #bdc9cf
 }
 
+body.editorial[data-theme=night] .field-error,
+body.editorial[data-theme=night] .planner-error {
+    color: #ffb4ab
+}
+
 body.editorial h1,
 body.editorial h2,
 body.editorial h3 {

@@ -1,0 +1,58 @@
+{
+  "checkedAtUTC": "2026-10-27T05:04:30.316Z",
+  "timezone": "Asia/Almaty",
+  "baseURL": "http://127.0.0.1:8765/",
+  "results": [
+    {
+      "browser": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": 6,
+      "result": "passed",
+      "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
+    },
+    {
+      "browser": "chromium",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pages": 6,
+      "result": "passed",
+      "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
+    },
+    {
+      "browser": "firefox",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "pages": 6,
+      "result": "passed",
+      "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
+    },
+    {
+      "browser": "firefox",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pages": 6,
+      "result": "passed",
+      "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
+    }
+  ],
+  "extra": {
+    "audio": {
+      "created": 2,
+      "connected": 0,
+      "maxConnected": 1,
+      "started": 2
+    },
+    "mutedDuringResume": "passed",
+    "disabledStorage": "passed",
+    "reducedMotion": "passed"
+  }
+}

@@ -57,9 +57,17 @@
     let audioContext;
     let activeSound;
     let soundEnabled = false;
+    let soundRequest = 0;
     const soundToggle = document.querySelector('[data-sound-toggle]');
+    function stopChime() {
+        if (!activeSound) return;
+        activeSound.stop();
+        activeSound.disconnect();
+        activeSound = null;
+    }
     async function playChime() {
         if (!soundEnabled) return;
+        const request = ++soundRequest;
         const AudioContextType = window.AudioContext || window.webkitAudioContext;
         if (!AudioContextType) {
             notify('Sound is unavailable in this browser.');
@@ -68,10 +76,9 @@
         try {
             audioContext ??= new AudioContextType();
             await audioContext.resume();
-            if (activeSound) {
-                activeSound.stop();
-                activeSound.disconnect();
-            }
+            // Resume can finish after muting or a newer discovery; discard stale requests.
+            if (!soundEnabled || request !== soundRequest) return;
+            stopChime();
             const oscillator = audioContext.createOscillator();
             const gain = audioContext.createGain();
             const now = audioContext.currentTime;
@@ -92,7 +99,7 @@
             oscillator.start(now);
             oscillator.stop(now + 0.24);
         } catch {
-            notify('Your browser could not play the sound.');
+            if (soundEnabled && request === soundRequest) notify('Your browser could not play the sound.');
         }
     }
     soundToggle?.addEventListener('click', () => {
@@ -101,11 +108,16 @@
         soundToggle.setAttribute('aria-label', soundEnabled ? 'Disable sound effects' : 'Enable sound effects');
         notify(soundEnabled ? 'Sound on. A little chime for your discoveries.' : 'Sound off.');
         if (soundEnabled) playChime();
+        else {
+            soundRequest += 1;
+            stopChime();
+        }
     });
 
     const themeToggle = document.querySelector('[data-theme-toggle]');
     function applyTheme(theme) {
         document.body.dataset.theme = theme;
+        document.body.dataset.bsTheme = theme === 'night' ? 'dark' : 'light';
         themeToggle?.setAttribute('aria-pressed', String(theme === 'night'));
         themeToggle?.setAttribute('aria-label', theme === 'night' ? 'Switch to day theme' : 'Switch to night theme');
         if (themeToggle) themeToggle.textContent = theme === 'night' ? '☀' : '☾';
@@ -245,6 +257,8 @@
         const back = planner.querySelector('[data-planner-back]');
         const next = planner.querySelector('[data-planner-next]');
         const error = planner.querySelector('[data-planner-error]');
+        const fields = Array.from(planner.querySelectorAll('input, select'));
+        const destinationFields = fields.filter(field => field.name === 'destination');
         const labels = ['01 / YOUR DESTINATION', '02 / YOUR TRAVEL STYLE', '03 / YOUR ADVENTURE'];
         let step = 0;
         let complete = false;
@@ -257,12 +271,51 @@
             element.textContent = text; // User input is never interpreted as HTML.
             container.append(element);
         }
+        function clearError() {
+            error.textContent = '';
+            fields.forEach(field => {
+                field.removeAttribute('aria-invalid');
+                field.classList.remove('is-invalid');
+            });
+        }
+        function validationIssue(current) {
+            if (current === 0 && !chosenDestination()) {
+                return { message: 'Choose a destination to start your journey.', fields: destinationFields };
+            }
+            if (current === 1) {
+                const name = planner.elements.traveler.value.trim();
+                if (!name || name.length > 60) {
+                    return { message: 'Enter your first name using 1 to 60 characters, not just spaces.', fields: [planner.elements.traveler] };
+                }
+                if (!['1', '2', '3'].includes(planner.elements.days.value)) {
+                    return { message: 'Choose a stay of 1, 2 or 3 days.', fields: [planner.elements.days] };
+                }
+            }
+            return null;
+        }
+        function showError(issue) {
+            clearError();
+            error.textContent = issue.message;
+            issue.fields.forEach(field => {
+                field.setAttribute('aria-invalid', 'true');
+                field.classList.add('is-invalid');
+            });
+            issue.fields[0].focus();
+        }
+        function focusStep() {
+            const current = steps[step];
+            const target = current.querySelector('input:checked') || current.querySelector('input, select') || current.querySelector('legend');
+            target.focus();
+        }
         function showStep(current) {
-            steps.forEach((element, index) => { element.hidden = index !== current; });
+            steps.forEach((element, index) => {
+                element.hidden = index !== current;
+                element.disabled = index !== current;
+            });
             result.hidden = true;
             next.hidden = false;
             back.hidden = current === 0;
-            error.textContent = '';
+            clearError();
             planner.querySelector('[data-step-label]').textContent = labels[current];
             planner.querySelector('[data-step-progress]').style.width = `${((current + 1) / steps.length) * 100}%`;
             next.textContent = current === 2 ? 'Build my route ↗' : 'Next step ↗';
@@ -277,21 +330,26 @@
         }
         // A higher-order function receives the display callback. Inputs stay in the DOM.
         function changeStep(direction, onStepChanged) {
-            if (direction > 0 && step === 0 && !chosenDestination()) {
-                error.textContent = 'Choose a destination to start your journey.';
-                planner.querySelector('[name=destination]').focus();
-                return;
-            }
-            if (direction > 0 && step === 1 && !planner.elements.traveler.value.trim()) {
-                error.textContent = 'Enter your first name before continuing.';
-                planner.elements.traveler.focus();
+            const issue = direction > 0 ? validationIssue(step) : null;
+            if (issue) {
+                showError(issue);
                 return;
             }
             step = Math.max(0, Math.min(2, step + direction));
             onStepChanged(step);
-            steps[step].querySelector('input,select')?.focus();
+            focusStep();
         }
         function buildRoute() {
+            // Recheck every required value before producing the final result.
+            for (let index = 0; index < 2; index += 1) {
+                const issue = validationIssue(index);
+                if (issue) {
+                    step = index;
+                    showStep(step);
+                    showError(issue);
+                    return;
+                }
+            }
             const place = chosenDestination();
             const days = Number(planner.elements.days.value);
             planner.querySelector('[data-trip-greeting]').textContent = `${planner.elements.traveler.value.trim()}, ${place.name} is calling.`;
@@ -302,33 +360,40 @@
             const route = place.getRoute(days);
             for (let index = 0; index < route.length; index += 1) addText(stops, 'li', `Day ${index + 1}: ${route[index]}`);
             planner.querySelector('[data-trip-guide]').setAttribute('href', place.id + '.html');
-            steps.forEach(element => { element.hidden = true; });
+            steps.forEach(element => {
+                element.hidden = true;
+                element.disabled = true;
+            });
             result.hidden = false;
             complete = true;
             next.hidden = true;
             back.hidden = true;
-            error.textContent = '';
+            clearError();
             planner.querySelector('[data-step-label]').textContent = 'YOUR ROUTE IS READY';
             animate(result);
             result.focus();
             playChime();
         }
-        next.addEventListener('click', () => {
-            if (step === 2) buildRoute(); else changeStep(1, showStep);
-        });
         back.addEventListener('click', () => changeStep(-1, showStep));
         planner.querySelector('[data-planner-reset]').addEventListener('click', () => {
             planner.reset();
             step = 0;
             complete = false;
+            planner.querySelector('[data-trip-review]').replaceChildren();
+            planner.querySelector('[data-trip-greeting]').textContent = '';
+            planner.querySelector('[data-trip-description]').textContent = '';
+            planner.querySelector('[data-trip-stops]').replaceChildren();
+            planner.querySelector('[data-trip-guide]').setAttribute('href', 'aktau.html');
             showStep(step);
-            planner.querySelector('[name=destination]').focus();
+            focusStep();
         });
         planner.addEventListener('submit', event => {
             event.preventDefault();
             if (complete) return;
             if (step === 2) buildRoute(); else changeStep(1, showStep);
         });
+        planner.addEventListener('input', clearError);
+        planner.addEventListener('change', clearError);
         showStep(step);
     }
 })();

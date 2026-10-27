@@ -373,7 +373,7 @@
          </span>
         </div>
         <p class="planner-footnote">
-         A route idea, made for you. No booking required.
+         A route idea, made for you. This local demo sends no personal details and creates no booking.
         </p>
        </div>
        <form class="planner-form" data-trip-planner="" novalidate="">
@@ -390,7 +390,7 @@
          </span>
         </div>
         <fieldset data-planner-step="0">
-         <legend>
+         <legend tabindex="-1">
           First, where to?
          </legend>
          <p>
@@ -398,7 +398,7 @@
          </p>
          <div class="planner-choices">
           <label>
-           <input name="destination" required="" type="radio" value="aktau"/>
+           <input aria-describedby="trip-planner-error" name="destination" required="" type="radio" value="aktau"/>
            <span>
             Aktau
             <small>
@@ -407,7 +407,7 @@
            </span>
           </label>
           <label>
-           <input name="destination" type="radio" value="astana"/>
+           <input aria-describedby="trip-planner-error" name="destination" type="radio" value="astana"/>
            <span>
             Astana
             <small>
@@ -416,7 +416,7 @@
            </span>
           </label>
           <label>
-           <input name="destination" type="radio" value="almaty"/>
+           <input aria-describedby="trip-planner-error" name="destination" type="radio" value="almaty"/>
            <span>
             Almaty
             <small>
@@ -425,7 +425,7 @@
            </span>
           </label>
           <label>
-           <input name="destination" type="radio" value="shymkent"/>
+           <input aria-describedby="trip-planner-error" name="destination" type="radio" value="shymkent"/>
            <span>
             Shymkent
             <small>
@@ -435,8 +435,8 @@
           </label>
          </div>
         </fieldset>
-        <fieldset data-planner-step="1" hidden="">
-         <legend>
+        <fieldset data-planner-step="1" disabled="" hidden="">
+         <legend tabindex="-1">
           Make it your kind of trip.
          </legend>
          <p>
@@ -445,11 +445,11 @@
          <label class="form-label" for="trip-name">
           What should we call you?
          </label>
-         <input autocomplete="given-name" class="form-control" id="trip-name" maxlength="60" name="traveler" placeholder="Your first name" required=""/>
+         <input aria-describedby="trip-planner-error" autocomplete="given-name" class="form-control" id="trip-name" maxlength="60" name="traveler" placeholder="Your first name" required=""/>
          <label class="form-label mt-4" for="trip-days">
           How long are you staying?
          </label>
-         <select class="form-select" id="trip-days" name="days">
+         <select aria-describedby="trip-planner-error" class="form-select" id="trip-days" name="days" required="">
           <option value="1">
            1 day · A taste of the city
           </option>
@@ -461,8 +461,8 @@
           </option>
          </select>
         </fieldset>
-        <fieldset data-planner-step="2" hidden="">
-         <legend>
+        <fieldset data-planner-step="2" disabled="" hidden="">
+         <legend tabindex="-1">
           One last look.
          </legend>
          <p>
@@ -488,7 +488,7 @@
           An inspiration route. Check opening times, weather, transport and local conditions before travelling.
          </p>
         </div>
-        <p aria-live="polite" class="planner-error" data-planner-error="" role="status">
+        <p aria-live="polite" class="planner-error" data-planner-error="" id="trip-planner-error" role="status">
         </p>
         <div class="planner-buttons">
          <button class="text-button" data-planner-back="" hidden="" type="button">
@@ -497,7 +497,7 @@
          <button class="text-button" data-planner-reset="" type="button">
           Start over
          </button>
-         <button class="btn btn-primary ms-auto" data-planner-next="" type="button">
+         <button class="btn btn-primary ms-auto" data-planner-next="" type="submit">
           Next step ↗
          </button>
         </div>

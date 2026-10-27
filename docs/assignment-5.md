@@ -71,3 +71,17 @@ Published site: https://ramazanutegen.github.io/assignment1web/.
 The team approved publication on 23 October 2026. Website source commit `80fff147d8546481087b88beaf03fe9432ded336` was pushed to main and deployed successfully by [GitHub Pages workflow 39908690390](https://github.com/RamazanUtegen/assignment1web/actions/runs/39908690390). Live verification followed deployment; the report and ZIP were updated with the confirmed URL and publication status. Subsequent documentation/report commits retain the same website source.
 
 Every team member must submit the final report and ZIP and attend the defence. LMS submission is not performed automatically.
+
+## Final audit and submission refresh - 27 October 2026
+
+The local checkout was first updated to the newer shared Assignment 5 implementation, preserving earlier study notes. The final audit then improved the existing work:
+
+- Planner: one submit handler supports both Next and Enter, invalid destination/name/duration values block progress, errors describe the relevant controls, focus follows the active step, and final output revalidates the inputs. Inactive fieldsets are disabled without rebuilding or losing their input values. Start over also clears the review, greeting and generated route.
+- Sound: stale asynchronous resume requests are cancelled. Turning sound off immediately stops and disconnects the active oscillator. New notes replace old ones, and ended audio nodes are cleaned up.
+- Night mode: custom theme and Bootstrap theme are synchronised. The mobile navigation icon, input prefixes and form controls use dark Bootstrap defaults. Night error text uses a readable light red.
+- All three members: the new [teammate preparation guide](assignment-5-teammate-guide.md) maps the full rubric, individual page pairs and rehearsal responsibilities, expected explanations, practice changes and individual submission steps.
+- Repeatability: `scripts/verify-assignment5.cjs` supplies Playwright browser scenarios and JSON evidence; code screenshots can be rebuilt using the source-view and capture scripts. The report generator finds suitable fonts on Linux, Windows and macOS.
+
+Current browser evidence: `docs/assignment-5/browser-verification.json`. The test runs Chromium and Firefox at 1440 x 1000 and 390 x 844. It covers all six pages in each browser/viewport combination, image loading, layout overflow, credits, the Asia/Almaty clock, themes and persistence, ratings, arrow-key navigation, thumbnails and gallery keys, combined category/search filters, saved-city persistence, accessible planner validation, keyboard Enter, safe user text, one/two/three-day routes, reset, legacy signup errors/success, FAQ and dialog focus. Separate checks cover native Web Audio nodes, no autoplay or overlap, mute during a delayed resume, immediate mute, blocked storage and reduced motion. These are automated software-browser checks, not physical-device or speaker-output certification.
+
+Every member submits the same PDF and project ZIP individually. LMS submission and the practice-lesson defence remain actions for each teammate. The exact deadline must be checked directly in the LMS.
