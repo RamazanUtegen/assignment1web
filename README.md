@@ -47,7 +47,7 @@ Forms are classroom demonstrations: no messages, bookings, accounts or subscript
 - ZIP: `output/KZ-Travel-Assignment-5.zip`.
 - New presentation: `css/editorial.css`; new behaviour: `js/experience.js`.
 
-**Live website:** [Open KZ Travel](https://ramazanutegen.github.io/assignment1web/). [Deployment evidence](docs/assignment-5/deployment.json) records the verified source commit, Pages workflow and asset hashes. The report and ZIP are rebuilt after verifying the current publication.
+**Published and verified on 27 October 2026.** [Open KZ Travel](https://ramazanutegen.github.io/assignment1web/). [Deployment evidence](docs/assignment-5/deployment.json) records the verified source commit, Pages workflow and asset hashes. The report and ZIP are rebuilt after verifying the current publication.
 
 Every member submits the same complete report and ZIP individually and defends the work. Check the exact deadline and time zone directly in the LMS; the assignment PDF does not specify a date.
 

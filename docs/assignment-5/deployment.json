@@ -1,40 +1,40 @@
 {
   "url": "https://ramazanutegen.github.io/assignment1web/",
-  "verifiedDate": "2026-10-23",
-  "verifiedAtUTC": "2026-10-23T06:02:06.102395+00:00",
-  "clientTimezone": "Asia/Tashkent",
-  "sourceCommit": "80fff147d8546481087b88beaf03fe9432ded336",
-  "workflowUrl": "https://github.com/RamazanUtegen/assignment1web/actions/runs/39908690390",
+  "verifiedDate": "2026-10-27",
+  "verifiedAtUTC": "2026-10-27T05:10:10.603997+00:00",
+  "clientTimezone": "Asia/Almaty",
+  "sourceCommit": "319cad969277291558fefc95493543a1ff67e2df",
+  "workflowUrl": "https://github.com/RamazanUtegen/assignment1web/actions/runs/40453621922",
   "workflowConclusion": "success",
   "http": {
     "url": "https://ramazanutegen.github.io/assignment1web/",
-    "sourceCommit": "80fff147d8546481087b88beaf03fe9432ded336",
-    "checkedAtUTC": "2026-10-23T05:59:49.954830+00:00",
-    "fileCount": 54,
+    "sourceCommit": "319cad969277291558fefc95493543a1ff67e2df",
+    "checkedAtUTC": "2026-10-27T05:09:56.253615+00:00",
+    "fileCount": 55,
     "files": [
       {
         "path": "about.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "d199a927c080834eb481c40e393d5d795b89e0155d5978ede255d835faeb4a44"
+        "sha256": "45ee51b0da3dd14e8094a67bd2c5d8f299457e1357269c50cbd00a2a47e399f9"
       },
       {
         "path": "aktau.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "7bc369ef01139f96e8ef2272eb69b3f84f1f41714c3d40a4898779b14dd7b123"
+        "sha256": "f3d7eaef982af9257fabea80b81175cdb71591c32c20260f3271faaff949b30a"
       },
       {
         "path": "almaty.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "4be92bbe4cf268ab2425cf8ce8574c2e84be6fcda4a3f59e3eeffcd11395cfe3"
+        "sha256": "25dcfb1d91daf4d8d2879ccdb5c95b297a5d42ae4df2e4468d02bec087eaac98"
       },
       {
         "path": "astana.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "2b951c2308cb846dc822457ed2bd1c280b0e2a1808a380b0fe7a491a0d90bee8"
+        "sha256": "e93043f32dc5a459427a40ef41d24dfa7efb4d2286a575b6f4e5f327e5f0724e"
       },
       {
         "path": "css/assignment3.css",
@@ -52,13 +52,19 @@
         "path": "css/editorial.css",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "6b232eab7481f0c88366b8460cd68dded3cd423da21dc1b0c06bf53f4d0cb6dc"
+        "sha256": "2a5ddd3066946b866b2a0cdca99395fe6724295bf164a55cebd6488198851d7a"
       },
       {
         "path": "css/style.css",
         "status": 200,
         "matchesCheckout": true,
         "sha256": "bf74d65a8c04d3cd1e6f6693bbfbab95e69c464f818288b97336d5694b7dae7c"
+      },
+      {
+        "path": "favicon.svg",
+        "status": 200,
+        "matchesCheckout": true,
+        "sha256": "dfa8fc98a4a6fd9ba9fe8ab0c51470b1156be4ab3f65b0b1454029e00c9434c7"
       },
       {
         "path": "fonts/barlow-condensed-latin.woff2",
@@ -274,7 +280,7 @@
         "path": "index.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "d8df20c67ab0aba86920ba56fa4737328c1a537f83b3c7c0f8cf7cf3fb219758"
+        "sha256": "f43d3f6af576df66ae92a4a9eb7113fdf1b370c9e0effd0ff79452b714165b10"
       },
       {
         "path": "js/accordion.js",
@@ -292,7 +298,7 @@
         "path": "js/experience.js",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "334101cf48d2579d03bcbc855e8d505b34def4a447634095ce94c6e768809eb8"
+        "sha256": "0e88e42802604f808e7f1604f88c91a4b0e016dd78a74fdab27d720830934839"
       },
       {
         "path": "js/forms.js",
@@ -322,7 +328,7 @@
         "path": "shymkent.html",
         "status": 200,
         "matchesCheckout": true,
-        "sha256": "7960621cf2e07ea13f38e93e1c02e0d03dd8d031948de5af20730d6cc0e7ffa9"
+        "sha256": "41e203b61c0937bce800ed43f7172224e06dfd04abfc4b3ecf24bf7ed6d10b5f"
       },
       {
         "path": "vendor/bootstrap.bundle.min.js",
@@ -338,97 +344,155 @@
       }
     ]
   },
-  "browser": {
-    "viewport": {
-      "width": 896,
-      "height": 668
-    },
-    "checks": [
+  "localBrowser": {
+    "checkedAtUTC": "2026-10-27T05:04:30.316Z",
+    "timezone": "Asia/Almaty",
+    "baseURL": "http://127.0.0.1:8765/",
+    "results": [
       {
-        "feature": "Search, category filters, empty state, saved cities",
-        "passed": true
+        "browser": "chromium",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "pages": 6,
+        "result": "passed",
+        "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
       },
       {
-        "feature": "Planner validation, callback, Back state and two-day route",
-        "passed": true
+        "browser": "chromium",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pages": 6,
+        "result": "passed",
+        "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
       },
       {
-        "feature": "Keyboard navigation, night theme and sound activation",
-        "passed": true
+        "browser": "firefox",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "pages": 6,
+        "result": "passed",
+        "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
       },
       {
-        "feature": "Theme, saved-city and rating persistence after reload",
-        "passed": true
-      },
-      {
-        "feature": "FAQ accordion and legacy form validation",
-        "passed": true
-      },
-      {
-        "feature": "Gallery thumbnail and active-slide synchronisation",
-        "passed": true
-      },
-      {
-        "feature": "Contact dialog, Escape and focus return",
-        "passed": true
+        "browser": "firefox",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pages": 6,
+        "result": "passed",
+        "scenarios": "Assets, layouts, clock/timezone, credits, day/night and persistence, ratings, menu keys, gallery sync, combined filters, saved persistence, planner validation/callbacks/Enter/reset/safe text, 1/2/3-day routes, legacy signup, FAQ, dialog focus."
       }
     ],
+    "extra": {
+      "audio": {
+        "created": 2,
+        "connected": 0,
+        "maxConnected": 1,
+        "started": 2
+      },
+      "mutedDuringResume": "passed",
+      "disabledStorage": "passed",
+      "reducedMotion": "passed"
+    }
+  },
+  "liveBrowser": {
+    "baseURL": "https://ramazanutegen.github.io/assignment1web/",
+    "sourceCommit": "319cad969277291558fefc95493543a1ff67e2df",
+    "workflowRun": "40453621922",
+    "workflowUrl": "https://github.com/RamazanUtegen/assignment1web/actions/runs/40453621922",
+    "checkedAt": "2026-10-27T05:10:07.532Z",
+    "browser": "Chromium",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "freshBrowserContext": true,
     "pages": [
       {
-        "page": "index",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:15 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "Explore Kazakhstan | KZ Travel"
+        "filename": "index.html",
+        "status": 200,
+        "title": "Explore Kazakhstan | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       },
       {
-        "page": "aktau",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:16 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "Aktau Travel Guide | KZ Travel"
+        "filename": "aktau.html",
+        "status": 200,
+        "title": "Aktau Travel Guide | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       },
       {
-        "page": "astana",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:16 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "Astana Travel Guide | KZ Travel"
+        "filename": "astana.html",
+        "status": 200,
+        "title": "Astana Travel Guide | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       },
       {
-        "page": "almaty",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:16 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "Almaty Travel Guide | KZ Travel"
+        "filename": "almaty.html",
+        "status": 200,
+        "title": "Almaty Travel Guide | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       },
       {
-        "page": "shymkent",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:17 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "Shymkent Travel Guide | KZ Travel"
+        "filename": "shymkent.html",
+        "status": 200,
+        "title": "Shymkent Travel Guide | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       },
       {
-        "page": "about",
-        "brokenImages": [],
-        "clock": "October 23, 2026 at 11:01:18 AM",
-        "headingCount": 1,
-        "overflow": false,
-        "themeControl": true,
-        "title": "About Our Team | KZ Travel"
+        "filename": "about.html",
+        "status": 200,
+        "title": "About Our Team | KZ Travel",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "icon": "https://ramazanutegen.github.io/assignment1web/favicon.svg",
+        "fits": true
       }
     ],
-    "consoleErrors": []
+    "checks": {
+      "explicitLocalFavicon": "passed",
+      "categorySearchEmptyReset": "passed",
+      "plannerValidationNextEnterTwoDayRouteReset": "passed",
+      "nightBootstrapThemePersistence": "passed",
+      "ratingFeedbackPersistence": "passed",
+      "contactDialogEscapeFocusReturn": "passed"
+    },
+    "pageErrors": [],
+    "consoleErrors": [],
+    "failedResponses": [],
+    "failedBrowserResponses": [],
+    "passed": true,
+    "screenshotsRetained": [
+      "docs/assignment-5/screenshots/live-home.png",
+      "docs/assignment-5/screenshots/live-contact.png"
+    ],
+    "screenshotNote": "Previous live screenshots retained: this source update adds a favicon and does not change visible page content."
   }
 }
