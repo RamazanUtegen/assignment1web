@@ -19,12 +19,17 @@ async function run(browserType, viewport) {
         if (response.status() >= 400) errors.push(response.status() + ': ' + response.url());
     });
     const capture = browserType.name() === 'chromium' && viewport.width === 1440;
-    async function prepareCapture() {
+    async function prepareCapture(selector) {
         // Network-idle and naturalWidth alone do not guarantee decoded photo pixels.
-        await page.locator('img').evaluateAll(images => Promise.all(images.map(image => {
+        const images = selector ? page.locator(selector).locator('img') : page.locator('img');
+        await images.evaluateAll((images, inSection) => Promise.all(images.filter(image => {
+            const rect = image.getBoundingClientRect();
+            return rect.width && rect.height && (inSection || rect.bottom > 0 && rect.top < innerHeight);
+        }).map(image => {
             image.loading = 'eager';
             return image.decode().catch(() => {});
-        })));
+        })), Boolean(selector));
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     }
     async function toggleTheme() {
         const button = page.locator('[data-theme-toggle]');
@@ -35,7 +40,7 @@ async function run(browserType, viewport) {
     }
     const screenshot = async (selector, name) => {
         if (!capture) return;
-        await prepareCapture();
+        await prepareCapture(selector);
         await page.locator(selector).screenshot({ path: path.join(shots, name + '.png'),
             animations: 'disabled',
             style: '#main-header { visibility: hidden !important; }' });

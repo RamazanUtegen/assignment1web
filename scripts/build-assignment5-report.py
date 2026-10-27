@@ -79,8 +79,8 @@ def task(number,title,requirement,items,shot,code):
     heading(number,title)
     add(requirement,'Small5')
     steps(items)
-    screenshot(shot,'Result in the local browser. Original captures are included in docs/assignment-5/screenshots/.',220)
-    screenshot('code-'+code+'.png','Source-code screenshot, rendered from the actual project file with original line numbers.',265)
+    screenshot(shot,'Result in the local browser. Original captures are included in docs/assignment-5/screenshots/.',180)
+    screenshot('code-'+code+'.png','Source-code screenshot, rendered from the actual project file with original line numbers.',330)
 
 add('KZ TRAVEL / SE-2501 / '+prepared.upper(),'Kicker5')
 add('Go a little further.<br/>Assignment 5','Title5')
@@ -179,7 +179,7 @@ table=Table([[p(escape(cell),'Small5') for cell in row] for row in checks],colWi
 table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),LIME),('VALIGN',(0,0),(-1,-1),'TOP'),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#dce0de')),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),3)]));story.extend([table,Spacer(1,14)])
 add('<b>Challenges and solutions.</b> Syncing the checkout first preserved newer team work. Hidden fieldsets keep input values; disabled inactive steps and explicit focus make the planner usable with a keyboard. textContent safely displays names. Custom and Bootstrap themes now stay in sync, including error colours. A request counter cancels audio that resumes after muting. Portable fonts let this report rebuild on Linux, Windows or macOS.')
 add('<b>Reflection and defence.</b> Each member should trace an event from its listener to its callback, data processing, DOM update and CSS effect. Practise explaining this, getRoute, switch, filter/map/forEach, the explicit for loop, aria-pressed, hidden, localStorage and reduced-motion handling. Rehearsal notes are included in English and Russian.')
-add('<b>Part 2 - updated website deployment.</b> '+('The redesign was committed and pushed to main. GitHub Pages deployed source '+escape((args.published_commit or '')[:12])+'. The published site was verified on '+escape(args.published_date)+': all six pages and their local assets were checked, and live browser tests covered discovery, saved places, themes, ratings, keyboard navigation, the planner, galleries, FAQ and the contact dialog.' if args.published_date else 'Pending approval. No commit, push or updated deployment was performed. The existing public address still serves the previously published version. This review report must be refreshed after deployment.'))
+add('<b>Part 2 - updated website deployment.</b> '+('The redesign was committed and pushed to main. GitHub Pages deployed source '+escape((args.published_commit or '')[:12])+'. The published site was verified on '+escape(args.published_date)+': all six pages and their local assets were checked, and live browser tests covered discovery, saved places, themes, ratings, keyboard navigation, the planner, galleries, FAQ and the contact dialog.' if args.published_date else 'Publication must be verified against the current website source before this report is submitted.'))
 add(f'<link href="{URL}" color="#174add">{URL}</link>')
 if publication.get('workflowUrl'):
     add('<b>Deployment evidence:</b> <link href="'+escape(publication['workflowUrl'])+'" color="#174add">successful GitHub Pages workflow</link>; detailed live checks and asset hashes are in docs/assignment-5/deployment.json.','Small5')

@@ -22,7 +22,7 @@ args = parser.parse_args()
 paths = {'index.html', 'aktau.html', 'astana.html', 'almaty.html', 'shymkent.html', 'about.html'}
 for page in list(paths):
     soup = BeautifulSoup((ROOT / page).read_text(encoding='utf-8'), 'html.parser')
-    for node in soup.select('img[src], script[src], link[rel="stylesheet"][href]'):
+    for node in soup.select('img[src], script[src], link[rel="stylesheet"][href], link[rel="icon"][href]'):
         url = urlsplit(node.get('src', node.get('href', '')))
         if not url.scheme and not url.netloc: paths.add(unquote(url.path))
 for font in re.findall(r'url\([\'"]?([^\)\'\"]+)', (ROOT / 'css/editorial.css').read_text(encoding='utf-8')):
