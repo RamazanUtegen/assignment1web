@@ -20,6 +20,8 @@ parser.add_argument('--commit', required=True)
 parser.add_argument('--output', default='tmp/pages-http-check.json')
 args = parser.parse_args()
 paths = {'index.html', 'aktau.html', 'astana.html', 'almaty.html', 'shymkent.html', 'about.html'}
+for fallback in ['vendor/jquery-4.0.0.min.js', 'vendor/jquery-LICENSE.txt', 'vendor/lazy-placeholder.svg']:
+    if (ROOT / fallback).is_file(): paths.add(fallback)
 for page in list(paths):
     soup = BeautifulSoup((ROOT / page).read_text(encoding='utf-8'), 'html.parser')
     for node in soup.select('img[src], script[src], link[rel="stylesheet"][href], link[rel="icon"][href]'):

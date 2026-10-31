@@ -46,11 +46,8 @@
     toast.setAttribute('role', 'status');
     toast.setAttribute('aria-live', 'polite');
     document.body.append(toast);
-    let toastTimer;
     function notify(message) {
-        toast.textContent = message;
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => { toast.textContent = ''; }, 2600);
+        document.dispatchEvent(new CustomEvent('kz:notify', { detail: { message } }));
     }
 
     // Web Audio synthesises a short chime: no downloads, autoplay or overlapping notes.
@@ -149,50 +146,11 @@
 
     const savedData = storage.read('saved', []);
     const saved = new Set(Array.isArray(savedData) ? savedData.filter(id => destinations.some(place => place.id === id)) : []);
-    const search = document.querySelector('[data-destination-search]');
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    let activeFilter = 'all';
-    function matchesCategory(place) {
-        switch (activeFilter) {
-            case 'nature': return place.category === 'nature';
-            case 'city': return place.category === 'city' || place.id === 'almaty';
-            case 'culture': return place.category === 'culture';
-            case 'saved': return saved.has(place.id);
-            default: return true;
-        }
-    }
-    function renderDestinations(withAnimation = true) {
-        const query = search?.value.trim().toLowerCase() || '';
-        // filter is a higher-order function; its callback combines two criteria.
-        const visible = destinations.filter(place => matchesCategory(place) &&
-            (place.name + ' ' + place.tags).toLowerCase().includes(query));
-        const ids = new Set(visible.map(place => place.id));
-        document.querySelectorAll('[data-destination]').forEach(card => {
-            const show = ids.has(card.dataset.destination);
-            card.closest('.destination-column').hidden = !show;
-            if (show && withAnimation) animate(card);
-        });
-        const count = document.querySelector('[data-results-count]');
-        if (count) count.textContent = `${visible.length} ${visible.length === 1 ? 'place' : 'places'} to discover`;
-        const empty = document.querySelector('[data-no-results]');
-        if (empty) empty.hidden = visible.length !== 0;
+    // Assignment 6 owns the search/filter UI through jQuery.
+    function renderDestinations() {
         document.querySelectorAll('[data-saved-count]').forEach(label => { label.textContent = saved.size; });
-        filterButtons.forEach(button => {
-            const active = button.dataset.filter === activeFilter;
-            button.classList.toggle('is-active', active);
-            button.setAttribute('aria-pressed', String(active));
-        });
+        document.dispatchEvent(new Event('kz:destinations-change'));
     }
-    filterButtons.forEach(button => button.addEventListener('click', () => {
-        activeFilter = button.dataset.filter;
-        renderDestinations();
-    }));
-    search?.addEventListener('input', () => renderDestinations());
-    document.querySelector('[data-clear-filters]')?.addEventListener('click', () => {
-        activeFilter = 'all';
-        if (search) search.value = '';
-        renderDestinations();
-    });
     document.querySelectorAll('[data-save]').forEach(button => {
         function updateButton() {
             const selected = saved.has(button.dataset.save);

@@ -17,17 +17,22 @@
   </script>
   <script defer="" src="js/site.js?v=5">
   </script>
-  <script defer="" src="js/forms.js?v=5">
+  <script defer="" src="js/forms.js?v=6">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=5">
+  <script defer="" src="js/experience.js?v=6">
   </script>
+  <link href="css/assignment6.css?v=6" rel="stylesheet"/>
+  <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
+  <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+  <script defer src="script.js?v=6"></script>
  </head>
  <body class="assignment-three editorial page-shymkent">
+  <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
@@ -251,7 +256,7 @@
        <div class="row g-4 card-group">
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Entrance to Shymkent dendropark" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/shymkent1.jpeg" width="1080"/>
+          <img alt="Entrance to Shymkent dendropark" class="card-img-top" decoding="async" height="1080" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent1.jpeg" width="1080"/><noscript><img alt="Entrance to Shymkent dendropark" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/shymkent1.jpeg" width="1080"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Shymkent Dendropark
@@ -267,7 +272,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Silk Road Landmarks" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/assignment2/s11.jpg" width="960"/>
+          <img alt="Silk Road Landmarks" class="card-img-top" decoding="async" height="640" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s11.jpg" width="960"/><noscript><img alt="Silk Road Landmarks" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/assignment2/s11.jpg" width="960"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Ancient Silk Road Heritage
@@ -283,7 +288,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="City Panorama" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/assignment2/s12.jpg" width="1200"/>
+          <img alt="City Panorama" class="card-img-top" decoding="async" height="800" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s12.jpg" width="1200"/><noscript><img alt="City Panorama" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/assignment2/s12.jpg" width="1200"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             City Panorama
@@ -360,7 +365,7 @@
         </div>
         <div aria-live="polite" class="carousel-inner">
          <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-          <img alt="City park panorama" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s1.png"/>
+          <img alt="City park panorama" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s1.png"/><noscript><img alt="City park panorama" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s1.png"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             City park panorama
@@ -368,7 +373,7 @@
           </div>
          </div>
          <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="City square" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s2.jpg"/>
+          <img alt="City square" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s2.jpg"/><noscript><img alt="City square" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s2.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             City square
@@ -376,7 +381,7 @@
           </div>
          </div>
          <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Tulip monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s3.jpg"/>
+          <img alt="Tulip monument" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s3.jpg"/><noscript><img alt="Tulip monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s3.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Tulip monument
@@ -384,7 +389,7 @@
           </div>
          </div>
          <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Mosque architecture" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s4.jpeg"/>
+          <img alt="Mosque architecture" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s4.jpeg"/><noscript><img alt="Mosque architecture" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s4.jpeg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Mosque architecture
@@ -392,7 +397,7 @@
           </div>
          </div>
          <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Flower-lined park" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s5.jpeg"/>
+          <img alt="Flower-lined park" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s5.jpeg"/><noscript><img alt="Flower-lined park" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s5.jpeg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Flower-lined park
@@ -400,7 +405,7 @@
           </div>
          </div>
          <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="City monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s6.jpg"/>
+          <img alt="City monument" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s6.jpg"/><noscript><img alt="City monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s6.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             City monument
@@ -408,7 +413,7 @@
           </div>
          </div>
          <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Modern cityscape" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s7.jpg"/>
+          <img alt="Modern cityscape" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s7.jpg"/><noscript><img alt="Modern cityscape" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s7.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Modern cityscape
@@ -416,7 +421,7 @@
           </div>
          </div>
          <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Urban panorama" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s8.jpg"/>
+          <img alt="Urban panorama" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s8.jpg"/><noscript><img alt="Urban panorama" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s8.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Urban panorama
@@ -424,7 +429,7 @@
           </div>
          </div>
          <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Tree-lined walkway" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s9.webp"/>
+          <img alt="Tree-lined walkway" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s9.webp"/><noscript><img alt="Tree-lined walkway" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/s9.webp"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Tree-lined walkway
@@ -449,31 +454,31 @@
        </div>
        <div class="gallery-thumbnails" data-gallery-for="shymkentCarousel">
         <button aria-label="View photo 1: City park panorama" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s1.png"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s1.png"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s1.png"/></noscript>
         </button>
         <button aria-label="View photo 2: City square" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s2.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s2.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s2.jpg"/></noscript>
         </button>
         <button aria-label="View photo 3: Tulip monument" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s3.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s3.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s3.jpg"/></noscript>
         </button>
         <button aria-label="View photo 4: Mosque architecture" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s4.jpeg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s4.jpeg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s4.jpeg"/></noscript>
         </button>
         <button aria-label="View photo 5: Flower-lined park" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s5.jpeg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s5.jpeg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s5.jpeg"/></noscript>
         </button>
         <button aria-label="View photo 6: City monument" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s6.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s6.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s6.jpg"/></noscript>
         </button>
         <button aria-label="View photo 7: Modern cityscape" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s7.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s7.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s7.jpg"/></noscript>
         </button>
         <button aria-label="View photo 8: Urban panorama" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s8.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s8.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s8.jpg"/></noscript>
         </button>
         <button aria-label="View photo 9: Tree-lined walkway" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#shymkentCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/s9.webp"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/s9.webp"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/s9.webp"/></noscript>
         </button>
        </div>
       </div>
@@ -656,7 +661,11 @@
         </p>
        </div>
       </div>
-     </section>
+     <div class="container"><div class="share-guide">
+       <div><strong>Good places are better shared.</strong><p id="guide-share-text">Shymkent | KZ Travel - https://ramazanutegen.github.io/assignment1web/shymkent.html</p></div>
+       <div class="copy-control"><button type="button" class="btn btn-outline-primary" data-copy="guide-share-text" aria-describedby="guide-copy-tooltip">Copy guide link ↗</button><span id="guide-copy-tooltip" class="copy-tooltip" role="tooltip" hidden>Copied to clipboard!</span></div>
+      </div></div>
+</section>
     </main>
    </div>
   </div>

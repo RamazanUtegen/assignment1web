@@ -1,0 +1,124 @@
+{
+  "checkedAtUTC": "2026-10-31T14:47:52.739Z",
+  "baseURL": "http://127.0.0.1:8765/",
+  "results": [
+    {
+      "browser": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "passed",
+      "pageErrors": [],
+      "jqueryReadyMessages": 7,
+      "scenarios": [
+        "all six pages",
+        "live search and category/saved combination",
+        "keyboard autocomplete",
+        "literal/HTML search safety",
+        "FAQ highlight and state restore",
+        "night theme",
+        "counters",
+        "validated submit and duplicate guard",
+        "toast fade",
+        "actual clipboard copy and reset",
+        "planner",
+        "lazy network requests and carousel",
+        "scroll 100%",
+        "mobile width",
+        "dialog Escape"
+      ]
+    },
+    {
+      "browser": "chromium",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "passed",
+      "pageErrors": [],
+      "jqueryReadyMessages": 7,
+      "scenarios": [
+        "all six pages",
+        "live search and category/saved combination",
+        "keyboard autocomplete",
+        "literal/HTML search safety",
+        "FAQ highlight and state restore",
+        "night theme",
+        "counters",
+        "validated submit and duplicate guard",
+        "toast fade",
+        "actual clipboard copy and reset",
+        "planner",
+        "lazy network requests and carousel",
+        "scroll 100%",
+        "mobile width",
+        "dialog Escape"
+      ]
+    },
+    {
+      "browser": "msedge",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "passed",
+      "pageErrors": [],
+      "jqueryReadyMessages": 7,
+      "scenarios": [
+        "all six pages",
+        "live search and category/saved combination",
+        "keyboard autocomplete",
+        "literal/HTML search safety",
+        "FAQ highlight and state restore",
+        "night theme",
+        "counters",
+        "validated submit and duplicate guard",
+        "toast fade",
+        "actual clipboard copy and reset",
+        "planner",
+        "lazy network requests and carousel",
+        "scroll 100%",
+        "mobile width",
+        "dialog Escape"
+      ]
+    },
+    {
+      "browser": "msedge",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "passed",
+      "pageErrors": [],
+      "jqueryReadyMessages": 7,
+      "scenarios": [
+        "all six pages",
+        "live search and category/saved combination",
+        "keyboard autocomplete",
+        "literal/HTML search safety",
+        "FAQ highlight and state restore",
+        "night theme",
+        "counters",
+        "validated submit and duplicate guard",
+        "toast fade",
+        "actual clipboard copy and reset",
+        "planner",
+        "lazy network requests and carousel",
+        "scroll 100%",
+        "mobile width",
+        "dialog Escape"
+      ]
+    },
+    {
+      "browser": "chromium",
+      "status": "passed",
+      "scenarios": [
+        "CDN blocked: local fallback",
+        "reduced motion: final counters",
+        "clipboard permission failure: honest feedback"
+      ],
+      "pageErrors": []
+    }
+  ]
+}

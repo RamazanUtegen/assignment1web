@@ -17,17 +17,22 @@
   </script>
   <script defer="" src="js/site.js?v=5">
   </script>
-  <script defer="" src="js/forms.js?v=5">
+  <script defer="" src="js/forms.js?v=6">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=5">
+  <script defer="" src="js/experience.js?v=6">
   </script>
+  <link href="css/assignment6.css?v=6" rel="stylesheet"/>
+  <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
+  <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+  <script defer src="script.js?v=6"></script>
  </head>
  <body class="assignment-three editorial page-astana">
+  <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
@@ -239,7 +244,7 @@
        <div class="row g-4 card-group">
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Baiterek's golden sphere illuminated at night" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/assignment2/baiterek-night.jpg" width="1080"/>
+          <img alt="Baiterek's golden sphere illuminated at night" class="card-img-top" decoding="async" height="1080" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/baiterek-night.jpg" width="1080"/><noscript><img alt="Baiterek's golden sphere illuminated at night" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/assignment2/baiterek-night.jpg" width="1080"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Baiterek
@@ -255,7 +260,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Khan Shatyr's tent-shaped roof against a blue sky" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/assignment2/khan-shatyr.jpg" width="960"/>
+          <img alt="Khan Shatyr's tent-shaped roof against a blue sky" class="card-img-top" decoding="async" height="640" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/khan-shatyr.jpg" width="960"/><noscript><img alt="Khan Shatyr's tent-shaped roof against a blue sky" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/assignment2/khan-shatyr.jpg" width="960"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Khan Shatyr
@@ -271,7 +276,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Astana architecture beside a tree-lined stretch of water" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/>
+          <img alt="Astana architecture beside a tree-lined stretch of water" class="card-img-top" decoding="async" height="800" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Astanamainpage.jpg" width="1200"/><noscript><img alt="Astana architecture beside a tree-lined stretch of water" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Waterside Views
@@ -478,7 +483,11 @@
         </p>
        </div>
       </div>
-     </section>
+     <div class="container"><div class="share-guide">
+       <div><strong>Good places are better shared.</strong><p id="guide-share-text">Astana | KZ Travel - https://ramazanutegen.github.io/assignment1web/astana.html</p></div>
+       <div class="copy-control"><button type="button" class="btn btn-outline-primary" data-copy="guide-share-text" aria-describedby="guide-copy-tooltip">Copy guide link ↗</button><span id="guide-copy-tooltip" class="copy-tooltip" role="tooltip" hidden>Copied to clipboard!</span></div>
+      </div></div>
+</section>
     </main>
    </div>
   </div>

@@ -17,17 +17,22 @@
   </script>
   <script defer="" src="js/site.js?v=5">
   </script>
-  <script defer="" src="js/forms.js?v=5">
+  <script defer="" src="js/forms.js?v=6">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=5">
+  <script defer="" src="js/experience.js?v=6">
   </script>
+  <link href="css/assignment6.css?v=6" rel="stylesheet"/>
+  <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
+  <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+  <script defer src="script.js?v=6"></script>
  </head>
  <body class="assignment-three editorial page-almaty">
+  <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
@@ -251,7 +256,7 @@
        <div class="row g-4 card-group">
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Medeu and Shymbulak" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/almaty1.png" width="1080"/>
+          <img alt="Medeu and Shymbulak" class="card-img-top" decoding="async" height="1080" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty1.png" width="1080"/><noscript><img alt="Medeu and Shymbulak" class="card-img-top" decoding="async" height="1080" loading="lazy" src="images/almaty1.png" width="1080"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Medeu &amp; Shymbulak
@@ -267,7 +272,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Kok Tobe Hill" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/almaty2.webp" width="960"/>
+          <img alt="Kok Tobe Hill" class="card-img-top" decoding="async" height="640" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty2.webp" width="960"/><noscript><img alt="Kok Tobe Hill" class="card-img-top" decoding="async" height="640" loading="lazy" src="images/almaty2.webp" width="960"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Kok Tobe Hill
@@ -283,7 +288,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Mountain Valleys" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/assignment2/g1.jpg" width="1200"/>
+          <img alt="Mountain Valleys" class="card-img-top" decoding="async" height="800" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g1.jpg" width="1200"/><noscript><img alt="Mountain Valleys" class="card-img-top" decoding="async" height="800" loading="lazy" src="images/assignment2/g1.jpg" width="1200"/></noscript>
           <div class="card-body d-flex flex-column p-4">
            <h3 class="card-title mb-3">
             Mountain Valleys
@@ -360,7 +365,7 @@
         </div>
         <div aria-live="polite" class="carousel-inner">
          <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-          <img alt="Mountain valley" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g1.jpg"/>
+          <img alt="Mountain valley" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g1.jpg"/><noscript><img alt="Mountain valley" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g1.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Mountain valley
@@ -368,7 +373,7 @@
           </div>
          </div>
          <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="City Center" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g2.jpg"/>
+          <img alt="City Center" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g2.jpg"/><noscript><img alt="City Center" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g2.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             City Center
@@ -376,7 +381,7 @@
           </div>
          </div>
          <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Local Food" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g3.jpg"/>
+          <img alt="Local Food" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g3.jpg"/><noscript><img alt="Local Food" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g3.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Local Food
@@ -384,7 +389,7 @@
           </div>
          </div>
          <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Park View" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g4.jpg"/>
+          <img alt="Park View" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g4.jpg"/><noscript><img alt="Park View" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g4.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Park View
@@ -392,7 +397,7 @@
           </div>
          </div>
          <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Night City" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g5.webp"/>
+          <img alt="Night City" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g5.webp"/><noscript><img alt="Night City" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g5.webp"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Night City
@@ -400,7 +405,7 @@
           </div>
          </div>
          <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Historical Monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g6.jpeg"/>
+          <img alt="Historical Monument" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g6.jpeg"/><noscript><img alt="Historical Monument" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g6.jpeg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Historical Monument
@@ -408,7 +413,7 @@
           </div>
          </div>
          <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Alpine Lake" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g7.jpg"/>
+          <img alt="Alpine Lake" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g7.jpg"/><noscript><img alt="Alpine Lake" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g7.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Alpine Lake
@@ -416,7 +421,7 @@
           </div>
          </div>
          <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Ski Resort" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g8.jpg"/>
+          <img alt="Ski Resort" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g8.jpg"/><noscript><img alt="Ski Resort" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g8.jpg"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Ski Resort
@@ -424,7 +429,7 @@
           </div>
          </div>
          <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Local Market" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g9.webp"/>
+          <img alt="Local Market" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g9.webp"/><noscript><img alt="Local Market" class="d-block w-100 carousel-photo" decoding="async" src="images/assignment2/g9.webp"/></noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="fw-semibold mb-0">
             Local Market
@@ -449,31 +454,31 @@
        </div>
        <div class="gallery-thumbnails" data-gallery-for="almatyCarousel">
         <button aria-label="View photo 1: Mountain valley" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g1.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g1.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g1.jpg"/></noscript>
         </button>
         <button aria-label="View photo 2: City Center" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g2.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g2.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g2.jpg"/></noscript>
         </button>
         <button aria-label="View photo 3: Local Food" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g3.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g3.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g3.jpg"/></noscript>
         </button>
         <button aria-label="View photo 4: Park View" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g4.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g4.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g4.jpg"/></noscript>
         </button>
         <button aria-label="View photo 5: Night City" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g5.webp"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g5.webp"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g5.webp"/></noscript>
         </button>
         <button aria-label="View photo 6: Historical Monument" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g6.jpeg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g6.jpeg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g6.jpeg"/></noscript>
         </button>
         <button aria-label="View photo 7: Alpine Lake" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g7.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g7.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g7.jpg"/></noscript>
         </button>
         <button aria-label="View photo 8: Ski Resort" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g8.jpg"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g8.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g8.jpg"/></noscript>
         </button>
         <button aria-label="View photo 9: Local Market" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#almatyCarousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="images/assignment2/g9.webp"/>
+         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/assignment2/g9.webp"/><noscript><img alt="" decoding="async" loading="lazy" src="images/assignment2/g9.webp"/></noscript>
         </button>
        </div>
       </div>
@@ -656,7 +661,11 @@
         </p>
        </div>
       </div>
-     </section>
+     <div class="container"><div class="share-guide">
+       <div><strong>Good places are better shared.</strong><p id="guide-share-text">Almaty | KZ Travel - https://ramazanutegen.github.io/assignment1web/almaty.html</p></div>
+       <div class="copy-control"><button type="button" class="btn btn-outline-primary" data-copy="guide-share-text" aria-describedby="guide-copy-tooltip">Copy guide link ↗</button><span id="guide-copy-tooltip" class="copy-tooltip" role="tooltip" hidden>Copied to clipboard!</span></div>
+      </div></div>
+</section>
     </main>
    </div>
   </div>

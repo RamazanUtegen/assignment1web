@@ -54,6 +54,7 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        if (form.getAttribute('aria-busy') === 'true') return;
         submitted = true;
         const invalid = fields.filter(function (field) { return !validate(field); });
         status.classList.toggle('form-status-error', invalid.length > 0);
@@ -62,13 +63,19 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
             invalid[0].focus();
             return;
         }
-        status.textContent = 'Thank you, ' + form.elements.namedItem('name').value.trim() +
-            '! Your form passed validation. This is a demo; no account, booking, subscription or message was created.';
-        // Passwords are only compared in memory and are cleared after success.
-        fields.filter(function (field) { return field.type === 'password'; }).forEach(function (field) {
-            field.value = '';
+        const complete = function () {
+            status.textContent = 'Thank you, ' + form.elements.namedItem('name').value.trim() +
+                '! Your form passed validation. This is a demo; no account, booking, subscription or message was created.';
+            fields.filter(function (field) { return field.type === 'password'; }).forEach(function (field) {
+                field.value = '';
+            });
+            submitted = false;
+        };
+        // jQuery adds asynchronous feedback after successful validation.
+        const loading = new CustomEvent('kz:form-loading', {
+            bubbles: true, cancelable: true, detail: { complete: complete }
         });
-        submitted = false;
+        if (form.dispatchEvent(loading)) complete();
     });
 
     function updateFeedback(event) {
