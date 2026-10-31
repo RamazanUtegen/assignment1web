@@ -35,7 +35,7 @@ styles = getSampleStyleSheet()
 for name, size, leading, colour, font in [
     ('Body6', 9.4, 13.4, INK, 'Report'), ('Small6', 8, 11, GREY, 'Report'),
     ('Caption6', 7.3, 10, GREY, 'Report'), ('Kicker6', 8, 12, BLUE, 'ReportBold'),
-    ('Heading6', 23, 27, INK, 'ReportBold'), ('Title6', 38, 41, INK, 'ReportBold')]:
+    ('Section6', 23, 27, INK, 'ReportBold'), ('Title6', 38, 41, INK, 'ReportBold')]:
     styles.add(ParagraphStyle(name=name, fontName=font, fontSize=size, leading=leading, textColor=colour, spaceAfter=8))
 W = A4[0] - 80
 story = []
@@ -48,7 +48,7 @@ def shot(name, caption, max_height=220):
     picture.hAlign = 'CENTER'
     story.extend([picture, Spacer(1,4), p(caption,'Caption6')])
 def page(kicker, heading):
-    story.append(PageBreak()); add(kicker,'Kicker6'); add(heading,'Heading6')
+    story.append(PageBreak()); add(kicker,'Kicker6'); add(heading,'Section6')
 def steps(items):
     for i, item in enumerate(items, 1): add(f'<b>{i}.</b> {item}')
 def task(number, title, items, result, caption, code_height=290, result_height=225):
@@ -59,7 +59,7 @@ def task(number, title, items, result, caption, code_height=290, result_height=2
 
 add('KZ TRAVEL / SE-2501 / 31 OCTOBER 2026','Kicker6')
 add('Find your<br/>next somewhere.','Title6')
-add('Assignment 6: jQuery','Heading6')
+add('Assignment 6: jQuery','Section6')
 shot('live-home', 'Published KZ Travel homepage, captured after the Assignment 6 deployment.', 235)
 team = [['Team', 'KZ Travel'], ['Members', 'Ramazan Utegen<br/>Ziyadinkhan Kudaibergenuly<br/>Ruzimuhammad'], ['Group', 'SE-2501']]
 table = Table([[p('<b>'+a+'</b>'),p(b)] for a,b in team], colWidths=[85,W-85])
@@ -104,7 +104,7 @@ task(2, 'Offer the next useful word.', [
  'Build a listbox of city names from the same matching set, using .text() to create safe labels. Show it only for a non-empty query.',
  'Use Arrow Down/Up and aria-activedescendant to select an option. Enter or a click applies the suggestion and filters the cards.',
  'Close the dropdown on Escape or blur. Test keyboard selection, empty results and clearing the input.'
-], 'task-2-autocomplete', 'Typing a shows matching suggestions with the first keyboard option selected.', 300, 205)
+], 'task-2-autocomplete', 'Typing a shows matching suggestions with the first keyboard option selected.', 330, 205)
 task(3, 'Make every match visible.', [
  'Add a FAQ search that checks questions and full answers, including collapsed text. Reveal matching answers and report the matching-question count.',
  'Escape regex metacharacters and traverse text nodes. Replace every case-insensitive match with a mark element; user input is never interpreted as HTML.',
@@ -159,7 +159,7 @@ for item in [
  'Blocked CDN with working local jQuery fallback.'
 ]: add('- '+item)
 add('<b>Evidence files.</b> docs/assignment-6/browser-verification.json and live-browser-verification.json contain repeatable scenario results. Source and webpage screenshots accompany this report in the ZIP. The test script is scripts/verify-assignment6.cjs.','Small6')
-shot('mobile-home', 'Mobile homepage, Chromium at 390 x 844.', 205)
+shot('mobile-home', 'Mobile homepage, Chromium at 390 x 844.', 135)
 
 page('KZ TRAVEL / REFLECTION AND DEFENCE', 'What we learned.')
 add('<b>Integrating an existing project.</b> Search and notifications already had JavaScript handlers. Adding competing handlers would cause inconsistent results. We gave jQuery ownership of the discovery display and connected saved-place changes through events. One shared toast now handles confirmation messages.')

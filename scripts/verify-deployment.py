@@ -38,7 +38,7 @@ def check(path):
             status = response.status
             actual = response.read()
         expected = (ROOT / path).read_bytes()
-        if Path(path).suffix in {'.html', '.css', '.js'}:
+        if Path(path).suffix in {'.html', '.css', '.js', '.svg', '.txt', '.json', '.xml'}:
             actual = actual.replace(b'\r\n', b'\n')
             expected = expected.replace(b'\r\n', b'\n')
         matches = actual == expected

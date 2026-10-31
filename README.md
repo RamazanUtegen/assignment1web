@@ -33,6 +33,8 @@ Visit [localhost:8000](http://127.0.0.1:8000/). No build, backend or package ins
 
 [Published website](https://ramazanutegen.github.io/assignment1web/) · [Task mapping](docs/assignment-6.md) · [Russian defence guide](docs/assignment-6-defense-ru.md).
 
+**Assignment 6 published and verified on 31 October 2026.** [Deployment evidence](docs/assignment-6/deployment.json) records website source commit `7c49e3e437efffaeb09b2275005b7d43de051b8f`, the successful Pages workflow and 60 matching published HTML/assets. [Live browser checks](docs/assignment-6/live-browser-verification.json) passed in Chromium and Microsoft Edge at desktop/mobile sizes with no JavaScript exceptions or HTTP errors.
+
 Submission files: `output/pdf/KZ-Travel-Assignment-6-Report.pdf` and `output/KZ-Travel-Assignment-6.zip`. Every member submits both individually. The exact deadline must be checked in the LMS.
 
 Repeatable browser checks: start a server on port 8765, then run `node scripts/verify-assignment6.cjs` with Playwright and Chromium/Edge installed. [Browser evidence](docs/assignment-6/browser-verification.json) covers all six pages at desktop/mobile sizes, clipboard contents, CDN failure, reduced motion, duplicate submissions and image deferral. `scripts/build-assignment6-report.py` and `scripts/package-assignment6.py` rebuild the deliverables from verified evidence. jQuery uses MIT; see `vendor/jquery-LICENSE.txt`.
@@ -55,7 +57,7 @@ All six pages retain navigation, content, credits, a live Kazakhstan clock (UTC+
 
 Forms are classroom demonstrations: no messages, bookings, accounts or subscriptions are created. Personal form data is not stored. Local storage holds only theme, saved city IDs and ratings.
 
-## Submission and documentation
+## Assignment 5 archive: submission and documentation
 
 - [Task mapping and verification](docs/assignment-5.md).
 - [Russian defence walkthrough](docs/assignment-5-defense-ru.md).

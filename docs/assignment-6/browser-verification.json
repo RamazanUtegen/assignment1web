@@ -1,5 +1,5 @@
 {
-  "checkedAtUTC": "2026-10-31T14:47:52.739Z",
+  "checkedAtUTC": "2026-10-31T14:53:47.421Z",
   "baseURL": "http://127.0.0.1:8765/",
   "results": [
     {
@@ -120,15 +120,5 @@
       ],
       "pageErrors": []
     }
-  ],
-  "additionalCheck": {
-    "checkedAtUTC": "2026-10-31T14:50:30.616Z",
-    "status": "passed",
-    "scenarios": [
-      "first ArrowUp chooses last suggestion",
-      "up/down wrap at both ends",
-      "Enter applies last suggestion",
-      "mouse selection"
-    ]
-  }
+  ]
 }
