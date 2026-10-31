@@ -121,7 +121,7 @@
             $suggestions.on('click', '[role=option]', function () { chooseSuggestion($(this)); });
             $search.on('blur', closeSuggestions);
             $search.on('keydown', function (event) {
-                if (event.key === 'Escape') { closeSuggestions(); return; }
+                if (event.key === 'Escape') { event.preventDefault(); closeSuggestions(); return; }
                 if (event.key === 'Enter' && activeSuggestion >= 0) {
                     event.preventDefault();
                     chooseSuggestion($suggestions.children().eq(activeSuggestion));
