@@ -55,6 +55,12 @@ async function run(browserType, viewport, channel) {
         assert.equal(await page.locator('[role=option]').innerText(), 'Almaty');
         await shot('task-1-search', '#destinations');
         await search.fill('a');
+        await search.press('ArrowUp');
+        assert.equal(await search.getAttribute('aria-activedescendant'), 'destination-option-3');
+        await search.press('Escape');
+        await search.press('ArrowDown');
+        assert.equal(await search.getAttribute('aria-activedescendant'), 'destination-option-0');
+        await search.press('Escape');
         await search.press('ArrowDown');
         assert.equal(await search.getAttribute('aria-activedescendant'), 'destination-option-0');
         await shot('task-2-autocomplete', '#destinations');

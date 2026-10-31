@@ -132,7 +132,8 @@
                 const $options = $suggestions.children();
                 if (!$options.length) return;
                 event.preventDefault();
-                activeSuggestion = (activeSuggestion + (event.key === 'ArrowDown' ? 1 : -1) + $options.length) % $options.length;
+                activeSuggestion = activeSuggestion < 0 ? (event.key === 'ArrowDown' ? 0 : $options.length - 1) :
+                    (activeSuggestion + (event.key === 'ArrowDown' ? 1 : -1) + $options.length) % $options.length;
                 $options.attr('aria-selected', 'false').eq(activeSuggestion).attr('aria-selected', 'true');
                 $search.attr('aria-activedescendant', $options.eq(activeSuggestion).attr('id'));
             });

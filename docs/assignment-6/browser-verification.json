@@ -120,5 +120,15 @@
       ],
       "pageErrors": []
     }
-  ]
+  ],
+  "additionalCheck": {
+    "checkedAtUTC": "2026-10-31T14:50:30.616Z",
+    "status": "passed",
+    "scenarios": [
+      "first ArrowUp chooses last suggestion",
+      "up/down wrap at both ends",
+      "Enter applies last suggestion",
+      "mouse selection"
+    ]
+  }
 }
