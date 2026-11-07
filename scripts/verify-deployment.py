@@ -22,11 +22,13 @@ args = parser.parse_args()
 paths = {'index.html', 'aktau.html', 'astana.html', 'almaty.html', 'shymkent.html', 'about.html'}
 for fallback in ['vendor/jquery-4.0.0.min.js', 'vendor/jquery-LICENSE.txt', 'vendor/lazy-placeholder.svg']:
     if (ROOT / fallback).is_file(): paths.add(fallback)
-for page in list(paths):
+for page in sorted(path for path in paths if Path(path).suffix == '.html'):
     soup = BeautifulSoup((ROOT / page).read_text(encoding='utf-8'), 'html.parser')
-    for node in soup.select('img[src], script[src], link[rel="stylesheet"][href], link[rel="icon"][href]'):
-        url = urlsplit(node.get('src', node.get('href', '')))
-        if not url.scheme and not url.netloc: paths.add(unquote(url.path))
+    for node in soup.select('img[src], img[data-src], script[src], link[rel="stylesheet"][href], link[rel="icon"][href]'):
+        for attribute in ['src', 'href', 'data-src']:
+            if not node.has_attr(attribute): continue
+            url = urlsplit(node[attribute])
+            if not url.scheme and not url.netloc: paths.add(unquote(url.path))
 for font in re.findall(r'url\([\'"]?([^\)\'\"]+)', (ROOT / 'css/editorial.css').read_text(encoding='utf-8')):
     path = unquote(urlsplit(urljoin(BASE + 'css/editorial.css', font)).path)
     paths.add(path.removeprefix('/assignment1web/'))

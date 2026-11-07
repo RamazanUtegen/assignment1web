@@ -6,7 +6,8 @@ const path = require('node:path');
 const baseURL = process.env.KZ_TRAVEL_BASE_URL || 'http://127.0.0.1:8765/';
 const live = process.env.KZ_TRAVEL_LIVE === '1';
 const root = path.resolve(__dirname, '..');
-const shots = path.join(root, 'docs/assignment-6/screenshots');
+const evidenceDirectory = path.resolve(root, process.env.KZ_TRAVEL_EVIDENCE || 'docs/assignment-6');
+const shots = path.join(evidenceDirectory, 'screenshots');
 const results = [];
 
 async function run(browserType, viewport, channel) {
@@ -221,7 +222,7 @@ async function fallbackChecks() {
         for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) await run(chromium, viewport, channel);
     }
     await fallbackChecks();
-    const output = path.join(root, 'docs/assignment-6', live ? 'live-browser-verification.json' : 'browser-verification.json');
+    const output = path.join(evidenceDirectory, live ? 'live-browser-verification.json' : 'browser-verification.json');
     await fs.writeFile(output, JSON.stringify({ checkedAtUTC: new Date().toISOString(), baseURL, results }, null, 2));
     console.log('PASS all Assignment 6 browser scenarios');
 })().catch(error => { console.error(error); process.exitCode = 1; });

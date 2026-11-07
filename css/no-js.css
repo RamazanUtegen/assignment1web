@@ -1,0 +1,10 @@
+/* Progressive fallback: keep the guide readable without JavaScript. */
+img[data-src], .reading-progress, .discovery-controls, [data-results-count],
+.guide-stats, .trip-planner, .faq-search, [data-faq-results], .rating-section,
+.copy-control, .weather-controls, [data-weather-status], .nav-actions button,
+[data-save], .gallery-thumbnails, .carousel-control-prev, .carousel-control-next,
+.carousel-indicators, .navbar-toggler, .travel-tools, [data-demo-form], [data-popup-open] { display: none !important; }
+.navbar-collapse.collapse { display: block; }
+.faq-panel { grid-template-rows: 1fr; visibility: visible; }
+.carousel-item { display: block; float: none; margin: 0 0 20px; }
+.gallery-caption { display: none; }

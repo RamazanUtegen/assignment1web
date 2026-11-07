@@ -43,6 +43,7 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
     }
 
     function validate(field) {
+        if (field.disabled) return true;
         const error = document.getElementById(field.id + '-error');
         if (!error) return true;
         const message = validationMessage(field);
@@ -63,8 +64,9 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
             invalid[0].focus();
             return;
         }
+        const submittedName = form.elements.namedItem('name').value.trim();
         const complete = function () {
-            status.textContent = 'Thank you, ' + form.elements.namedItem('name').value.trim() +
+            status.textContent = 'Thank you, ' + submittedName +
                 '! Your form passed validation. This is a demo; no account, booking, subscription or message was created.';
             fields.filter(function (field) { return field.type === 'password'; }).forEach(function (field) {
                 field.value = '';

@@ -117,7 +117,7 @@
                 $search.trigger('focus');
                 closeSuggestions();
             }
-            $suggestions.on('mousedown', event => event.preventDefault());
+            $suggestions.on('pointerdown', event => event.preventDefault());
             $suggestions.on('click', '[role=option]', function () { chooseSuggestion($(this)); });
             $search.on('blur', closeSuggestions);
             $search.on('keydown', function (event) {
@@ -169,13 +169,18 @@
                 const $form = $(this);
                 if ($form.attr('aria-busy') === 'true') return;
                 const $button = $form.find('button[type=submit]');
+                // Freeze the validated values until the simulated request completes.
+                const $editable = $form.find('input:enabled, textarea:enabled, select:enabled');
                 const original = $button.contents().detach();
                 $form.attr('aria-busy', 'true');
+                $editable.prop('disabled', true);
                 $form.find('.form-status').text('Please wait… Checking your demo form.');
                 $button.prop('disabled', true).empty()
                     .append($('<span>', { class: 'submit-spinner', 'aria-hidden': 'true' }))
                     .append(document.createTextNode('Please wait…'));
+                $form.find('.form-status').attr('tabindex', '-1')[0].focus({ preventScroll: true });
                 setTimeout(() => {
+                    $editable.prop('disabled', false);
                     $button.empty().append(original).prop('disabled', false);
                     $form.attr('aria-busy', 'false');
                     event.originalEvent.detail.complete();
@@ -256,6 +261,8 @@
                 if (!viewportFrame) viewportFrame = requestAnimationFrame(updateViewport);
             }
             $(window).on('scroll resize load', scheduleViewport);
+            // Dialog content is invisible during the initial viewport pass.
+            $(document).on('kz:popup-open', scheduleViewport);
             // Load the next slide before Bootstrap's transition begins.
             $('.carousel').on('slide.bs.carousel', function (event) {
                 $(event.relatedTarget).find('img[data-src]').each(function () { loadImage(this); });

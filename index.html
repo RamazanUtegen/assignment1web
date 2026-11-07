@@ -16,23 +16,26 @@
   <link href="css/assignment4.css?v=5" rel="stylesheet"/>
   <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js?v=5">
+  <script defer="" src="js/site.js?v=7">
   </script>
-  <script defer="" src="js/forms.js?v=6">
+  <script defer="" src="js/forms.js?v=7">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
-  <script defer="" src="js/accordion.js?v=5">
+  <script defer="" src="js/accordion.js?v=7">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=6">
+  <script defer="" src="js/experience.js?v=7">
   </script>
   <link href="css/assignment6.css?v=6" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
-  <script defer src="script.js?v=6"></script>
+  <script defer src="script.js?v=7"></script>
+  <script defer src="js/weather.js?v=7"></script>
+  <link href="css/endterm.css?v=7" rel="stylesheet"/>
+  <noscript><link href="css/no-js.css?v=7" rel="stylesheet"/></noscript>
  </head>
  <body class="assignment-three editorial page-index">
   <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
@@ -125,7 +128,7 @@
    <div class="row g-0">
     <main class="w-100" id="main-content" tabindex="-1">
      <section class="hero editorial-hero">
-      <img alt="Kazakhstan Landscape" class="hero-bg-img" decoding="async" src="images/KZ.jpg"/>
+      <img alt="Kazakhstan Landscape" class="hero-bg-img" decoding="async" src="images/KZ.jpg" fetchpriority="high"/>
       <div class="hero-content">
        <p class="hero-kicker">
         THE WORLD IS CLOSER THAN YOU THINK
@@ -167,24 +170,25 @@
        THE FIELD GUIDE
       </span>
       <nav aria-label="On this page" class="section-links">
-       <a class="py-2 py-1" href="#overview">
+       <a class="py-1" href="#overview">
         01 / What you will find
        </a>
-       <a class="py-2 py-1" href="#destinations">
+       <a class="py-1" href="#destinations">
         02 / Featured cities
        </a>
-       <a class="py-2 py-1" href="#gallery">
+       <a class="py-1" href="#gallery">
         03 / Scenic gallery
        </a>
-       <a class="py-2 py-1" href="#facts">
+       <a class="py-1" href="#facts">
         04 / Quick facts
        </a>
-       <a class="py-2 py-1" href="#faq">
+       <a class="py-1" href="#faq">
         05 / Travel FAQ
        </a>
-       <a class="py-2 py-1" href="#community">
+       <a class="py-1" href="#community">
         06 / Community signup
        </a>
+       <a class="py-1" href="#weather">Weather outlook ↗</a>
       </nav>
      </div>
      <section class="destinations fade-in delay-2 py-4 py-lg-5" id="destinations">
@@ -362,6 +366,51 @@
        <div><strong data-counter="6" aria-hidden="true">6</strong><p><span class="visually-hidden">6 </span>pages to explore</p></div>
        <div><strong data-counter="9" aria-hidden="true">9</strong><p><span class="visually-hidden">9 </span>photos in our home gallery</p></div>
       </div></section>
+     <section class="weather-section" id="weather" data-weather data-default-city="almaty" aria-labelledby="weather-title">
+      <div class="container px-3 px-md-4">
+       <div class="weather-heading">
+        <div>
+         <p class="eyebrow">BEFORE YOU GO</p>
+         <h2 id="weather-title">Pack for the possibilities.</h2>
+         <p class="weather-intro">A coast-side stroll or a mountain morning? Check the next three days before you head out.</p>
+        </div>
+        <div class="weather-controls">
+         <label for="weather-city">Your destination
+          <select id="weather-city" data-weather-city disabled>
+           <option value="aktau">Aktau</option>
+           <option value="astana">Astana</option>
+           <option value="almaty" selected>Almaty</option>
+           <option value="shymkent">Shymkent</option>
+          </select>
+         </label>
+         <button class="btn btn-outline-primary" type="button" data-weather-refresh disabled>Refresh forecast ↻</button>
+        </div>
+       </div>
+       <p class="weather-status" data-weather-status role="status" aria-live="polite">Your forecast will load here.</p>
+       <div class="weather-result" data-weather-result aria-busy="false" hidden>
+        <div class="weather-current">
+         <div class="weather-current-top"><p class="eyebrow">CURRENT CONDITIONS</p><span class="weather-current-icon" data-weather-icon aria-hidden="true"></span></div>
+         <h3 data-weather-name></h3>
+         <p class="weather-temperature" data-weather-temperature></p>
+         <p class="weather-condition" data-weather-condition></p>
+         <div class="weather-details"><span data-weather-feels></span><span data-weather-wind></span></div>
+         <time data-weather-time></time>
+        </div>
+        <ul class="weather-days" data-weather-days aria-label="Three-day forecast"></ul>
+       </div>
+       <p class="weather-credit">Weather data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+        <span>Local time (UTC+5). City forecasts; mountain and desert conditions can differ.</span>
+       </p>
+       <noscript><p>Enable JavaScript and connect to the internet to see the forecast.</p></noscript>
+       <template>
+        <li class="weather-day"><time></time><span class="weather-day-icon" data-day-icon aria-hidden="true"></span>
+         <p class="weather-day-condition" data-day-condition></p>
+         <div class="weather-range"><strong><span class="visually-hidden">High </span><b data-day-high></b></strong><span><span class="visually-hidden">Low </span><b data-day-low></b></span></div>
+         <p class="weather-rain" data-day-rain></p>
+        </li>
+       </template>
+      </div>
+     </section>
      <section aria-labelledby="planner-title" class="trip-planner" id="trip-planner">
       <div class="container planner-layout">
        <div class="planner-intro">
@@ -927,7 +976,7 @@
            Which cities can I explore?
           </button>
          </h3>
-         <div aria-hidden="true" aria-labelledby="faq-question-1" class="faq-panel" id="faq-answer-1" inert="" role="region">
+         <div aria-labelledby="faq-question-1" class="faq-panel" id="faq-answer-1" role="region">
           <div>
            <p>
             Our guides cover Aktau, Astana, Almaty, and Shymkent. Choose a destination card on the homepage to explore its sights, photos, and sample itinerary.
@@ -941,7 +990,7 @@
            How can I compare the destinations?
           </button>
          </h3>
-         <div aria-hidden="true" aria-labelledby="faq-question-2" class="faq-panel" id="faq-answer-2" inert="" role="region">
+         <div aria-labelledby="faq-question-2" class="faq-panel" id="faq-answer-2" role="region">
           <div>
            <p>
             Use the homepage quick facts table, then open a city guide. Each guide includes attractions and a route idea to help you choose what interests you.
@@ -955,7 +1004,7 @@
            Can I book a trip through KZ Travel?
           </button>
          </h3>
-         <div aria-hidden="true" aria-labelledby="faq-question-3" class="faq-panel" id="faq-answer-3" inert="" role="region">
+         <div aria-labelledby="faq-question-3" class="faq-panel" id="faq-answer-3" role="region">
           <div>
            <p>
             KZ Travel is a student travel guide. Our forms are demonstrations and do not make bookings, create accounts, or send your information.
@@ -969,7 +1018,7 @@
            How do I try the contact form?
           </button>
          </h3>
-         <div aria-hidden="true" aria-labelledby="faq-question-4" class="faq-panel" id="faq-answer-4" inert="" role="region">
+         <div aria-labelledby="faq-question-4" class="faq-panel" id="faq-answer-4" role="region">
           <div>
            <p>
             Open About Us and select Contact Us. Fill in your name, email, and message, then check the form. Close the popup with its close button, Escape, or a click outside it.

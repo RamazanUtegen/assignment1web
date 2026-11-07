@@ -6,6 +6,7 @@ document.querySelectorAll('[data-popup-open]').forEach(function (button) {
     button.addEventListener('click', function () {
         popup.showModal();
         document.body.classList.add('popup-open');
+        document.dispatchEvent(new Event('kz:popup-open'));
     });
     popup.querySelector('[data-popup-close]').addEventListener('click', function () {
         popup.close();
@@ -24,10 +25,14 @@ document.querySelectorAll('[data-popup-open]').forEach(function (button) {
     });
     popup.addEventListener('keydown', function (event) {
         if (event.key !== 'Tab') return;
-        const controls = popup.querySelectorAll('button:not(:disabled), input:not(:disabled), select, textarea');
+        const controls = popup.querySelectorAll('button:enabled, input:enabled, select:enabled, textarea:enabled, a[href]');
         const first = controls[0];
         const last = controls[controls.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
+        if (!Array.from(controls).includes(document.activeElement)) {
+            // A processing status can hold focus while every form field is disabled.
+            event.preventDefault();
+            (event.shiftKey ? last : first).focus();
+        } else if (event.shiftKey && document.activeElement === first) {
             event.preventDefault();
             last.focus();
         } else if (!event.shiftKey && document.activeElement === last) {

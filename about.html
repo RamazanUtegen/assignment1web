@@ -15,23 +15,25 @@
   <link href="css/assignment4.css?v=5" rel="stylesheet"/>
   <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js?v=5">
+  <script defer="" src="js/site.js?v=7">
   </script>
-  <script defer="" src="js/forms.js?v=6">
+  <script defer="" src="js/forms.js?v=7">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
-  <script defer="" src="js/popup.js?v=5">
+  <script defer="" src="js/popup.js?v=7">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=6">
+  <script defer="" src="js/experience.js?v=7">
   </script>
   <link href="css/assignment6.css?v=6" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
-  <script defer src="script.js?v=6"></script>
+  <script defer src="script.js?v=7"></script>
+  <link href="css/endterm.css?v=7" rel="stylesheet"/>
+  <noscript><link href="css/no-js.css?v=7" rel="stylesheet"/></noscript>
  </head>
  <body class="assignment-three editorial page-about">
   <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
@@ -123,7 +125,7 @@
   <div class="container-fluid px-0">
    <div class="row g-0">
     <main class="w-100" id="main-content" tabindex="-1">
-     <section class="about-intro py-5 py-4 py-lg-5">
+     <section class="about-intro py-4 py-lg-5">
       <div class="container px-3 px-md-4">
        <div class="row align-items-center g-4">
         <div class="col-12 col-lg-7">
@@ -141,7 +143,7 @@
          </a>
         </div>
         <figure class="col-12 col-lg-5 mb-0">
-         <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/KZ.jpg"/><noscript><img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg"/></noscript>
+         <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg" fetchpriority="high"/><noscript><img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg"/></noscript>
          <figcaption class="pt-3">
           Our shared theme: exploring Kazakhstan.
          </figcaption>
@@ -171,7 +173,7 @@
        </a>
       </nav>
      </div>
-     <section class="about-site py-5 py-4 py-lg-5" id="team">
+     <section class="about-site py-4 py-lg-5" id="team">
       <div class="container px-3 px-md-4">
        <h2 class="mb-4">
         About the Team Members
@@ -246,7 +248,7 @@
        </div>
       </div>
      </section>
-     <section class="destinations py-5 py-4 py-lg-5" id="purpose">
+     <section class="destinations py-4 py-lg-5" id="purpose">
       <div class="container px-3 px-md-4">
        <h2 class="mb-4">
         What This Project Practises
@@ -319,7 +321,7 @@
        </article>
       </div>
      </section>
-     <section aria-labelledby="gallery-title" class="about-site py-5 py-4 py-lg-5" id="gallery">
+     <section aria-labelledby="gallery-title" class="about-site py-4 py-lg-5" id="gallery">
       <div class="container px-3 px-md-4">
        <p class="eyebrow">
         Our Kazakhstan photo journal
@@ -593,7 +595,7 @@
        </div>
       </div>
      </section>
-     <section class="destinations py-5 py-4 py-lg-5" id="explore">
+     <section class="destinations py-4 py-lg-5" id="explore">
       <div class="container guide-note px-3 px-md-4">
        <h2 class="mb-4">
         Start Exploring
@@ -615,7 +617,7 @@
        </a>
       </div>
      </section>
-     <section class="about-site py-5 py-4 py-lg-5" id="contact">
+     <section class="about-site py-4 py-lg-5" id="contact">
       <div class="container px-3 px-md-4">
        <h2 class="mb-3">
         Contact the Team

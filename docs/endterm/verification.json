@@ -1,0 +1,73 @@
+{
+  "checkedAtUTC": "2026-11-07T09:41:50.945Z",
+  "baseURL": "http://127.0.0.1:8765/",
+  "results": [
+    {
+      "status": "passed",
+      "scenarios": [
+        "lazy API request",
+        "three-day JSON forecast",
+        "Kazakhstan time in another timezone",
+        "fresh cache after reload",
+        "refresh bypass",
+        "HTTP failure with saved data",
+        "HTTP failure without cache",
+        "null data rejected",
+        "retry recovery",
+        "day/night layout"
+      ],
+      "pageErrors": []
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "out-of-order requests cannot replace the selected city",
+        "timeout abort restores controls and shows retry"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "offline without data",
+        "expired cache ignored",
+        "corrupt cache ignored",
+        "blocked localStorage does not break forecast"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "touch autocomplete",
+        "mobile menu Escape and focus",
+        "weather defaults on five pages",
+        "phone width on six pages",
+        "validated fields locked while busy",
+        "duplicate submission guard",
+        "dialog focus trap while busy",
+        "fields restored on completion",
+        "dialog Escape restores focus"
+      ],
+      "pageErrors": []
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "no-JavaScript guide remains readable",
+        "no duplicate placeholders",
+        "static FAQ answers visible and accessible",
+        "navigation visible on phone",
+        "inactive enhancements hidden"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "real Open-Meteo GET, HTTP 200",
+        "real forecast rendered without a key"
+      ],
+      "httpStatuses": [
+        200
+      ]
+    }
+  ]
+}
