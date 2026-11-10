@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T19:13:57.846033+00:00",
+  "title": "Design System: KZ Travel",
+  "extensions": {
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "160ms",
+        "purpose": "Color feedback for direct interaction."
+      },
+      {
+        "name": "event-entry",
+        "value": "240ms ease-out",
+        "purpose": "Short pointer-triggered entry; disabled while typing, on keyboard actions and for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone",
+        "value": "399px"
+      },
+      {
+        "name": "mobile",
+        "value": "767.98px"
+      },
+      {
+        "name": "tablet",
+        "value": "991.98px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1199px"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "toast",
+        "value": "0 8px 32px #102c231f",
+        "purpose": "Temporary feedback only."
+      }
+    ]
+  },
+  "narrative": {
+    "northStar": "Calm Kazakhstan travel discovery",
+    "overview": "Real landscapes, cool white surfaces, Caspian teal actions and comfortable reading.",
+    "keyCharacteristics": [
+      "Light",
+      "Readable",
+      "Photographic",
+      "Responsive"
+    ],
+    "dos": [
+      "Preserve offline operation and existing interaction hooks.",
+      "Use both day and night semantic tokens."
+    ],
+    "donts": [
+      "Do not invent travel-service claims.",
+      "Do not restore decorative section numbers."
+    ]
+  }
+}

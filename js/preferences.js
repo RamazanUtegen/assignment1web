@@ -1,8 +1,8 @@
 // Assignment 4, Task 4. Team study responsibility: Ruzimuhammad.
 const backgroundColors = [
-    { name: 'Sand', color: '#ffffff', night: '#131c20' },
-    { name: 'Sky', color: '#edf4fa', night: '#15252f' },
-    { name: 'Steppe', color: '#eff4e8', night: '#1c2923' }
+    { name: 'Sand', color: '#ffffff', night: '#112722' },
+    { name: 'Sky', color: '#edf5f8', night: '#142c32' },
+    { name: 'Steppe', color: '#eef5ed', night: '#203329' }
 ];
 let backgroundIndex = 0;
 function applyBackground() {

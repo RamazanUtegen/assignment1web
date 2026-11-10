@@ -25,6 +25,10 @@ for page in list(paths):
     for node in soup.select('img[src], script[src], link[rel="stylesheet"][href], link[rel="icon"][href]'):
         url = urlsplit(node.get('src', node.get('href', '')))
         if not url.scheme and not url.netloc: paths.add(unquote(url.path))
+    for node in soup.select('img[srcset]'):
+        for candidate in node['srcset'].split(','):
+            url = urlsplit(candidate.strip().split()[0])
+            if not url.scheme and not url.netloc: paths.add(unquote(url.path))
 for font in re.findall(r'url\([\'"]?([^\)\'\"]+)', (ROOT / 'css/editorial.css').read_text(encoding='utf-8')):
     path = unquote(urlsplit(urljoin(BASE + 'css/editorial.css', font)).path)
     paths.add(path.removeprefix('/assignment1web/'))

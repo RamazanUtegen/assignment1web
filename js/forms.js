@@ -14,7 +14,10 @@ document.querySelectorAll('[data-demo-form]').forEach(function (form) {
         const error = document.createElement('span');
         error.id = field.id + '-error';
         error.className = 'field-error';
-        field.insertAdjacentElement('afterend', error);
+        // Keep a checkbox and its label together in their shared flex row.
+        const errorAnchor = field.type === 'checkbox' || field.type === 'radio'
+            ? field.closest('.form-check') || field : field;
+        errorAnchor.insertAdjacentElement('afterend', error);
         const description = field.getAttribute('aria-describedby') || '';
         field.setAttribute('aria-describedby', (description + ' ' + error.id).trim());
     });

@@ -3,6 +3,36 @@
 (() => {
     'use strict';
 
+    const iconPaths = {
+        moon: 'M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z',
+        sun: 'M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4',
+        soundOn: 'M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14',
+        soundOff: 'M11 5 6 9H3v6h3l5 4V5Zm5 3 5 8',
+        heart: 'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z',
+        star: 'm12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.2-5.7-3-5.7 3 1.1-6.2-4.5-4.4 6.3-.9L12 3Z',
+        search: 'M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm-2 5 6 6',
+        arrow: 'M4 12h16m-6-6 6 6-6 6'
+    };
+    function icon(name) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        svg.setAttribute('class', 'ui-icon' + (name === 'star' ? ' icon-star' : ''));
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '1.8');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.setAttribute('focusable', 'false');
+        path.setAttribute('d', iconPaths[name]);
+        svg.append(path);
+        return svg;
+    }
+    document.querySelectorAll('.destination-search > span[aria-hidden]').forEach(span => span.replaceChildren(icon('search')));
+    document.querySelectorAll('.plan-link > span[aria-hidden], .hero-cta > span[aria-hidden], .destination-link > span[aria-hidden]')
+        .forEach(span => span.replaceChildren(icon('arrow')));
+
     const storage = {
         read(key, fallback) {
             try { return JSON.parse(localStorage.getItem('kz-' + key)) ?? fallback; }
@@ -33,9 +63,11 @@
         getRoute(days) { return this.stops.slice(0, days); }
     }));
 
-    function animate(element) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function animate(element, enabled = true) {
         if (!element) return;
         element.classList.remove('ui-enter');
+        if (!enabled || reducedMotion.matches) return;
         // Restart the event-triggered CSS animation after the DOM update.
         void element.offsetWidth;
         element.classList.add('ui-enter');
@@ -59,6 +91,7 @@
     let soundEnabled = false;
     let soundRequest = 0;
     const soundToggle = document.querySelector('[data-sound-toggle]');
+    soundToggle?.replaceChildren(icon('soundOff'));
     function stopChime() {
         if (!activeSound) return;
         activeSound.stop();
@@ -106,6 +139,7 @@
         soundEnabled = !soundEnabled;
         soundToggle.setAttribute('aria-pressed', String(soundEnabled));
         soundToggle.setAttribute('aria-label', soundEnabled ? 'Disable sound effects' : 'Enable sound effects');
+        soundToggle.replaceChildren(icon(soundEnabled ? 'soundOn' : 'soundOff'));
         notify(soundEnabled ? 'Sound on. A little chime for your discoveries.' : 'Sound off.');
         if (soundEnabled) playChime();
         else {
@@ -120,7 +154,7 @@
         document.body.dataset.bsTheme = theme === 'night' ? 'dark' : 'light';
         themeToggle?.setAttribute('aria-pressed', String(theme === 'night'));
         themeToggle?.setAttribute('aria-label', theme === 'night' ? 'Switch to day theme' : 'Switch to night theme');
-        if (themeToggle) themeToggle.textContent = theme === 'night' ? '☀' : '☾';
+        themeToggle?.replaceChildren(icon(theme === 'night' ? 'sun' : 'moon'));
         document.dispatchEvent(new Event('kz-theme-change'));
     }
     applyTheme(storage.read('theme', 'day') === 'night' ? 'night' : 'day');
@@ -170,12 +204,25 @@
         document.querySelectorAll('[data-destination]').forEach(card => {
             const show = ids.has(card.dataset.destination);
             card.closest('.destination-column').hidden = !show;
-            if (show && withAnimation) animate(card);
+            if (show) animate(card, withAnimation);
+            else card.classList.remove('ui-enter');
         });
         const count = document.querySelector('[data-results-count]');
         if (count) count.textContent = `${visible.length} ${visible.length === 1 ? 'place' : 'places'} to discover`;
         const empty = document.querySelector('[data-no-results]');
-        if (empty) empty.hidden = visible.length !== 0;
+        if (empty) {
+            empty.hidden = visible.length !== 0;
+            if (!visible.length) {
+                const nothingSaved = activeFilter === 'saved' && saved.size === 0;
+                const savedSearch = activeFilter === 'saved' && saved.size > 0;
+                empty.querySelector('h3').textContent = nothingSaved ? 'No saved places yet.' :
+                    savedSearch ? 'No saved places match.' : 'No places found.';
+                empty.querySelector('p').textContent = nothingSaved ?
+                    'Use the heart button on a destination to save it here. Browse all places to choose your first.' :
+                    savedSearch ? 'Clear your search to see your saved places, or browse all destinations.' :
+                        'Try another city name, or show all places to explore the four destinations.';
+            }
+        }
         document.querySelectorAll('[data-saved-count]').forEach(label => { label.textContent = saved.size; });
         filterButtons.forEach(button => {
             const active = button.dataset.filter === activeFilter;
@@ -183,33 +230,43 @@
             button.setAttribute('aria-pressed', String(active));
         });
     }
-    filterButtons.forEach(button => button.addEventListener('click', () => {
+    filterButtons.forEach(button => button.addEventListener('click', event => {
         activeFilter = button.dataset.filter;
-        renderDestinations();
+        renderDestinations(event.detail > 0);
     }));
-    search?.addEventListener('input', () => renderDestinations());
+    search?.addEventListener('input', () => renderDestinations(false));
     document.querySelector('[data-clear-filters]')?.addEventListener('click', () => {
         activeFilter = 'all';
         if (search) search.value = '';
-        renderDestinations();
+        renderDestinations(false);
+        search?.focus();
     });
     document.querySelectorAll('[data-save]').forEach(button => {
         function updateButton() {
             const selected = saved.has(button.dataset.save);
             button.setAttribute('aria-pressed', String(selected));
             button.setAttribute('aria-label', `${selected ? 'Unsave' : 'Save'} ${button.dataset.save[0].toUpperCase() + button.dataset.save.slice(1)}`);
-            button.querySelector('span').textContent = selected ? '♥' : '♡';
+            const heart = icon('heart');
+            heart.setAttribute('fill', selected ? 'currentColor' : 'none');
+            button.querySelector('span').replaceChildren(heart);
         }
         updateButton();
-        button.addEventListener('click', () => {
+        button.addEventListener('click', event => {
             const id = button.dataset.save;
             if (saved.has(id)) saved.delete(id); else saved.add(id);
             storage.write('saved', [...saved]);
             updateButton();
             button.classList.remove('is-pulsing');
-            void button.offsetWidth;
-            button.classList.add('is-pulsing');
+            if (event.detail > 0 && !reducedMotion.matches) {
+                void button.offsetWidth;
+                button.classList.add('is-pulsing');
+            }
             renderDestinations(false);
+            if (activeFilter === 'saved' && !saved.has(id)) {
+                const target = document.querySelector('.destination-column:not([hidden]) [data-save]') ||
+                    document.querySelector('[data-filter="saved"]');
+                target?.focus();
+            }
             notify(saved.has(id) ? 'Saved for a little later.' : 'Removed from your saved places.');
             playChime();
         });
@@ -229,6 +286,7 @@
 
     document.querySelectorAll('[data-rating]').forEach(rating => {
         const stars = rating.querySelectorAll('[data-star]');
+        stars.forEach(star => star.replaceChildren(icon('star')));
         const message = rating.querySelector('[data-rating-message]');
         const key = 'rating-' + rating.dataset.rating;
         let selected = Number(storage.read(key, 0));
@@ -240,11 +298,11 @@
             });
             message.textContent = selected ? `Your rating: ${selected}/5. Thanks for exploring with us!` : 'Choose your rating';
         }
-        stars.forEach(star => star.addEventListener('click', () => {
+        stars.forEach(star => star.addEventListener('click', event => {
             selected = Number(star.dataset.star);
             storage.write(key, selected);
             renderRating();
-            animate(message);
+            animate(message, event.detail > 0);
             playChime();
         }));
         renderRating();
@@ -259,7 +317,7 @@
         const error = planner.querySelector('[data-planner-error]');
         const fields = Array.from(planner.querySelectorAll('input, select'));
         const destinationFields = fields.filter(field => field.name === 'destination');
-        const labels = ['01 / YOUR DESTINATION', '02 / YOUR TRAVEL STYLE', '03 / YOUR ADVENTURE'];
+        const labels = ['Your destination', 'Your travel style', 'Your adventure'];
         let step = 0;
         let complete = false;
 
@@ -318,7 +376,7 @@
             clearError();
             planner.querySelector('[data-step-label]').textContent = labels[current];
             planner.querySelector('[data-step-progress]').style.width = `${((current + 1) / steps.length) * 100}%`;
-            next.textContent = current === 2 ? 'Build my route ↗' : 'Next step ↗';
+            next.textContent = current === 2 ? 'Build my route' : 'Next step';
             if (current === 2) {
                 const review = planner.querySelector('[data-trip-review]');
                 review.replaceChildren();
@@ -326,7 +384,6 @@
                 addText(review, 'p', 'Traveller: ' + planner.elements.traveler.value.trim());
                 addText(review, 'p', 'Duration: ' + planner.elements.days.value + ' day(s)');
             }
-            animate(steps[current]);
         }
         // A higher-order function receives the display callback. Inputs stay in the DOM.
         function changeStep(direction, onStepChanged) {
@@ -369,8 +426,7 @@
             next.hidden = true;
             back.hidden = true;
             clearError();
-            planner.querySelector('[data-step-label]').textContent = 'YOUR ROUTE IS READY';
-            animate(result);
+            planner.querySelector('[data-step-label]').textContent = 'Your route is ready';
             result.focus();
             playChime();
         }

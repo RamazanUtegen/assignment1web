@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const baseURL = process.env.KZ_TRAVEL_BASE_URL || 'http://127.0.0.1:8765/';
-const output = path.resolve('docs/assignment-5');
+const output = path.resolve(process.env.KZ_TRAVEL_OUTPUT_DIR || 'docs/assignment-5');
 const shots = path.join(output, 'screenshots');
 const filenames = ['index.html', 'aktau.html', 'astana.html', 'almaty.html', 'shymkent.html', 'about.html'];
 
