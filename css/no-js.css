@@ -4,6 +4,7 @@ img[data-src], .reading-progress, .discovery-controls, [data-results-count],
 .copy-control, .weather-controls, [data-weather-status], .nav-actions button,
 [data-save], .gallery-thumbnails, .carousel-control-prev, .carousel-control-next,
 .carousel-indicators, .navbar-toggler, .travel-tools, [data-demo-form], [data-popup-open] { display: none !important; }
+[data-auth-form] { display: none !important; }
 .navbar-collapse.collapse { display: block; }
 .faq-panel { grid-template-rows: 1fr; visibility: visible; }
 .carousel-item { display: block; float: none; margin: 0 0 20px; }

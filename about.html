@@ -17,7 +17,9 @@
   </script>
   <script defer="" src="js/site.js?v=7">
   </script>
-  <script defer="" src="js/forms.js?v=7">
+  <script defer="" src="js/validation.js?v=8">
+  </script>
+  <script defer="" src="js/forms.js?v=8">
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
@@ -26,22 +28,32 @@
   <script defer="" src="js/popup.js?v=7">
   </script>
   <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=7">
+  <script defer="" src="js/experience.js?v=8">
   </script>
   <link href="css/assignment6.css?v=6" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
-  <script defer src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
-  <script defer src="script.js?v=7"></script>
+  <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
+  </script>
+  <script defer="" src="script.js?v=8">
+  </script>
   <link href="css/endterm.css?v=7" rel="stylesheet"/>
-  <noscript><link href="css/no-js.css?v=7" rel="stylesheet"/></noscript>
+  <noscript>
+   <link href="css/no-js.css?v=8" rel="stylesheet"/>
+  </noscript>
+  <script defer="" src="js/auth.js?v=8">
+  </script>
+  <link href="css/final.css?v=8" rel="stylesheet"/>
  </head>
  <body class="assignment-three editorial page-about">
-  <div class="reading-progress" data-scroll-progress role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+  <div aria-label="Page reading progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="reading-progress" data-scroll-progress="" role="progressbar">
+   <span>
+   </span>
+  </div>
   <a class="skip-link visually-hidden-focusable px-3 py-2" href="#main-content">
    Skip to content
   </a>
   <header id="main-header">
-   <nav aria-label="Main navigation" class="navbar navbar-expand-lg">
+   <nav aria-label="Main navigation" class="navbar navbar-expand-xl">
     <div class="container-fluid header-inner">
      <a aria-label="KZ Travel home" class="navbar-brand" href="index.html">
       <span aria-hidden="true" class="brand-mark">
@@ -117,6 +129,9 @@
          ↗
         </span>
        </a>
+       <a class="account-nav" data-account-link="" href="login.html">
+        Log in
+       </a>
       </div>
      </div>
     </div>
@@ -143,7 +158,10 @@
          </a>
         </div>
         <figure class="col-12 col-lg-5 mb-0">
-         <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg" fetchpriority="high"/><noscript><img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg"/></noscript>
+         <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" fetchpriority="high" src="images/KZ.jpg"/>
+         <noscript>
+          <img alt="Kazakhstan landscape, the subject of our team travel website" class="feature-circle" decoding="async" src="images/KZ.jpg"/>
+         </noscript>
          <figcaption class="pt-3">
           Our shared theme: exploring Kazakhstan.
          </figcaption>
@@ -181,7 +199,10 @@
        <div class="row g-4">
         <div class="col-12 col-sm-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Aktau's coastal rock trail, a destination in Ramazan's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/rocktrail.jpg" width="800"/><noscript><img alt="Aktau's coastal rock trail, a destination in Ramazan's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="images/rocktrail.jpg" width="800"/></noscript>
+          <img alt="Aktau's coastal rock trail, a destination in Ramazan's guide" class="card-img-top team-card-image" data-src="images/rocktrail.jpg" decoding="async" height="500" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+          <noscript>
+           <img alt="Aktau's coastal rock trail, a destination in Ramazan's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="images/rocktrail.jpg" width="800"/>
+          </noscript>
           <div class="card-body d-flex flex-column p-4">
            <p class="eyebrow">
             Home &amp; Aktau
@@ -203,7 +224,10 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Astana cityscape, the destination in Ziyadinkhan's guide" class="card-img-top team-card-image" decoding="async" height="800" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Astanamainpage.jpg" width="1200"/><noscript><img alt="Astana cityscape, the destination in Ziyadinkhan's guide" class="card-img-top team-card-image" decoding="async" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/></noscript>
+          <img alt="Astana cityscape, the destination in Ziyadinkhan's guide" class="card-img-top team-card-image" data-src="images/Astanamainpage.jpg" decoding="async" height="800" loading="lazy" src="vendor/lazy-placeholder.svg" width="1200"/>
+          <noscript>
+           <img alt="Astana cityscape, the destination in Ziyadinkhan's guide" class="card-img-top team-card-image" decoding="async" height="800" loading="lazy" src="images/Astanamainpage.jpg" width="1200"/>
+          </noscript>
           <div class="card-body d-flex flex-column p-4">
            <p class="eyebrow">
             Astana &amp; About Us
@@ -225,7 +249,10 @@
         </div>
         <div class="col-12 col-sm-6 col-lg-4">
          <article class="card h-100">
-          <img alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty2.webp" width="800"/><noscript><img alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="images/almaty2.webp" width="800"/></noscript>
+          <img alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" class="card-img-top team-card-image" data-src="images/almaty2.webp" decoding="async" height="500" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+          <noscript>
+           <img alt="Almaty skyline and tower, a destination in Ruzimuhammad's guide" class="card-img-top team-card-image" decoding="async" height="500" loading="lazy" src="images/almaty2.webp" width="800"/>
+          </noscript>
           <div class="card-body d-flex flex-column p-4">
            <p class="eyebrow">
             Almaty &amp; Shymkent
@@ -355,7 +382,10 @@
         </div>
         <div aria-live="polite" class="carousel-inner">
          <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-          <img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" decoding="async" src="vendor/lazy-placeholder.svg" data-src="images/Astanamainpage.jpg"/><noscript><img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" decoding="async" src="images/Astanamainpage.jpg"/></noscript>
+          <img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" data-src="images/Astanamainpage.jpg" decoding="async" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Astana cityscape beside the water" class="d-block w-100 carousel-photo" decoding="async" src="images/Astanamainpage.jpg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Astana Architecture by the water
@@ -363,7 +393,10 @@
           </div>
          </div>
          <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Aktaumainpage.jpg"/><noscript><img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/></noscript>
+          <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" data-src="images/Aktaumainpage.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Mangystau Wide-open horizons
@@ -371,7 +404,10 @@
           </div>
          </div>
          <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty2.webp"/><noscript><img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/almaty2.webp"/></noscript>
+          <img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" data-src="images/almaty2.webp" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Almaty tower above the city and hills" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/almaty2.webp"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Almaty A city among the hills
@@ -379,7 +415,10 @@
           </div>
          </div>
          <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/bozjyra.jpg"/><noscript><img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/bozjyra.jpg"/></noscript>
+          <img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" data-src="images/bozjyra.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Pale cliffs and rock towers at Bozjyra" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/bozjyra.jpg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Bozjyra Sculpted by the landscape
@@ -387,7 +426,10 @@
           </div>
          </div>
          <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty1.png"/><noscript><img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/almaty1.png"/></noscript>
+          <img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" data-src="images/almaty1.png" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Ice rink surrounded by snow-covered mountains" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/almaty1.png"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Almaty region Winter in the mountains
@@ -395,7 +437,10 @@
           </div>
          </div>
          <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/rocktrail.jpg"/><noscript><img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/rocktrail.jpg"/></noscript>
+          <img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" data-src="images/rocktrail.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Walkway between coastal cliffs and the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/rocktrail.jpg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Aktau Follow the coastal trail
@@ -403,7 +448,10 @@
           </div>
          </div>
          <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent.jpg"/><noscript><img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent.jpg"/></noscript>
+          <img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" data-src="images/shymkent.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="White mosque with domes and minarets in Shymkent" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent.jpg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Shymkent Discover city landmarks
@@ -411,7 +459,10 @@
           </div>
          </div>
          <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent1.jpeg"/><noscript><img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/></noscript>
+          <img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" data-src="images/shymkent1.jpeg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Green entrance to Shymkent's dendropark" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Dendropark A greener side of the city
@@ -419,7 +470,10 @@
           </div>
          </div>
          <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-          <img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent2.jpeg"/><noscript><img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent2.jpeg"/></noscript>
+          <img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" data-src="images/shymkent2.jpeg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+          <noscript>
+           <img alt="Historic-style gateway with camel sculptures" class="d-block w-100 carousel-photo" decoding="async" loading="lazy" src="images/shymkent2.jpeg"/>
+          </noscript>
           <div class="carousel-caption p-2 p-md-3">
            <p class="mb-0">
             Southern Kazakhstan Stories along the way
@@ -444,31 +498,58 @@
        </div>
        <div class="gallery-thumbnails" data-gallery-for="kazakhstan-carousel">
         <button aria-label="View photo 1: Astana cityscape beside the water" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Astanamainpage.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/Astanamainpage.jpg"/></noscript>
+         <img alt="" data-src="images/Astanamainpage.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/Astanamainpage.jpg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 2: Camel and plateau in the Mangystau steppe" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Aktaumainpage.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/></noscript>
+         <img alt="" data-src="images/Aktaumainpage.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 3: Almaty tower above the city and hills" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty2.webp"/><noscript><img alt="" decoding="async" loading="lazy" src="images/almaty2.webp"/></noscript>
+         <img alt="" data-src="images/almaty2.webp" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/almaty2.webp"/>
+         </noscript>
         </button>
         <button aria-label="View photo 4: Pale cliffs and rock towers at Bozjyra" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/bozjyra.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/bozjyra.jpg"/></noscript>
+         <img alt="" data-src="images/bozjyra.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/bozjyra.jpg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 5: Ice rink surrounded by snow-covered mountains" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty1.png"/><noscript><img alt="" decoding="async" loading="lazy" src="images/almaty1.png"/></noscript>
+         <img alt="" data-src="images/almaty1.png" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/almaty1.png"/>
+         </noscript>
         </button>
         <button aria-label="View photo 6: Walkway between coastal cliffs and the Caspian Sea" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/rocktrail.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/rocktrail.jpg"/></noscript>
+         <img alt="" data-src="images/rocktrail.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/rocktrail.jpg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 7: White mosque with domes and minarets in Shymkent" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent.jpg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/shymkent.jpg"/></noscript>
+         <img alt="" data-src="images/shymkent.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/shymkent.jpg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 8: Green entrance to Shymkent's dendropark" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent1.jpeg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/></noscript>
+         <img alt="" data-src="images/shymkent1.jpeg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/>
+         </noscript>
         </button>
         <button aria-label="View photo 9: Historic-style gateway with camel sculptures" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
-         <img alt="" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent2.jpeg"/><noscript><img alt="" decoding="async" loading="lazy" src="images/shymkent2.jpeg"/></noscript>
+         <img alt="" data-src="images/shymkent2.jpeg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
+         <noscript>
+          <img alt="" decoding="async" loading="lazy" src="images/shymkent2.jpeg"/>
+         </noscript>
         </button>
        </div>
        <h3 class="mt-5 mb-3">
@@ -478,7 +559,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="astana.html">
           <figure class="m-0">
-           <img alt="Astana cityscape beside the water" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Astanamainpage.jpg" width="800"/><noscript><img alt="Astana cityscape beside the water" decoding="async" height="600" loading="lazy" src="images/Astanamainpage.jpg" width="800"/></noscript>
+           <img alt="Astana cityscape beside the water" data-src="images/Astanamainpage.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Astana cityscape beside the water" decoding="async" height="600" loading="lazy" src="images/Astanamainpage.jpg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Astana
             <span>
@@ -491,7 +575,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="aktau.html">
           <figure class="m-0">
-           <img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/Aktaumainpage.jpg" width="800"/><noscript><img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/></noscript>
+           <img alt="Camel and plateau in the Mangystau steppe" data-src="images/Aktaumainpage.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Mangystau
             <span>
@@ -504,7 +591,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="almaty.html">
           <figure class="m-0">
-           <img alt="Almaty tower above the city and hills" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty2.webp" width="800"/><noscript><img alt="Almaty tower above the city and hills" decoding="async" height="600" loading="lazy" src="images/almaty2.webp" width="800"/></noscript>
+           <img alt="Almaty tower above the city and hills" data-src="images/almaty2.webp" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Almaty tower above the city and hills" decoding="async" height="600" loading="lazy" src="images/almaty2.webp" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Almaty
             <span>
@@ -517,7 +607,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="aktau.html">
           <figure class="m-0">
-           <img alt="Pale cliffs and rock towers at Bozjyra" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/bozjyra.jpg" width="800"/><noscript><img alt="Pale cliffs and rock towers at Bozjyra" decoding="async" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/></noscript>
+           <img alt="Pale cliffs and rock towers at Bozjyra" data-src="images/bozjyra.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Pale cliffs and rock towers at Bozjyra" decoding="async" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Bozjyra
             <span>
@@ -530,7 +623,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="almaty.html">
           <figure class="m-0">
-           <img alt="Ice rink surrounded by snow-covered mountains" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/almaty1.png" width="800"/><noscript><img alt="Ice rink surrounded by snow-covered mountains" decoding="async" height="600" loading="lazy" src="images/almaty1.png" width="800"/></noscript>
+           <img alt="Ice rink surrounded by snow-covered mountains" data-src="images/almaty1.png" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Ice rink surrounded by snow-covered mountains" decoding="async" height="600" loading="lazy" src="images/almaty1.png" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Almaty region
             <span>
@@ -543,7 +639,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="aktau.html">
           <figure class="m-0">
-           <img alt="Walkway between coastal cliffs and the Caspian Sea" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/rocktrail.jpg" width="800"/><noscript><img alt="Walkway between coastal cliffs and the Caspian Sea" decoding="async" height="600" loading="lazy" src="images/rocktrail.jpg" width="800"/></noscript>
+           <img alt="Walkway between coastal cliffs and the Caspian Sea" data-src="images/rocktrail.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Walkway between coastal cliffs and the Caspian Sea" decoding="async" height="600" loading="lazy" src="images/rocktrail.jpg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Aktau
             <span>
@@ -556,7 +655,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="shymkent.html">
           <figure class="m-0">
-           <img alt="White mosque with domes and minarets in Shymkent" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent.jpg" width="800"/><noscript><img alt="White mosque with domes and minarets in Shymkent" decoding="async" height="600" loading="lazy" src="images/shymkent.jpg" width="800"/></noscript>
+           <img alt="White mosque with domes and minarets in Shymkent" data-src="images/shymkent.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="White mosque with domes and minarets in Shymkent" decoding="async" height="600" loading="lazy" src="images/shymkent.jpg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Shymkent
             <span>
@@ -569,7 +671,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="shymkent.html">
           <figure class="m-0">
-           <img alt="Green entrance to Shymkent's dendropark" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent1.jpeg" width="800"/><noscript><img alt="Green entrance to Shymkent's dendropark" decoding="async" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/></noscript>
+           <img alt="Green entrance to Shymkent's dendropark" data-src="images/shymkent1.jpeg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Green entrance to Shymkent's dendropark" decoding="async" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Dendropark
             <span>
@@ -582,7 +687,10 @@
         <div class="col-12 col-sm-6 col-lg-4">
          <a class="gallery-item d-block" href="shymkent.html">
           <figure class="m-0">
-           <img alt="Historic-style gateway with camel sculptures" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" data-src="images/shymkent2.jpeg" width="800"/><noscript><img alt="Historic-style gateway with camel sculptures" decoding="async" height="600" loading="lazy" src="images/shymkent2.jpeg" width="800"/></noscript>
+           <img alt="Historic-style gateway with camel sculptures" data-src="images/shymkent2.jpeg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+           <noscript>
+            <img alt="Historic-style gateway with camel sculptures" decoding="async" height="600" loading="lazy" src="images/shymkent2.jpeg" width="800"/>
+           </noscript>
            <figcaption class="px-3 pt-5 pb-3">
             Southern Kazakhstan
             <span>
@@ -644,19 +752,28 @@
           ×
          </button>
         </div>
-        <form class="contact-demo mx-auto p-4 rounded p-3 p-sm-4 bg-white text-dark" data-demo-form="">
+        <form class="contact-demo mx-auto p-4 rounded p-3 p-sm-4 bg-white text-dark" data-demo-form="" novalidate="">
+         <div class="mb-3 mt-3">
+          <label class="form-label" for="contact-phone">
+           Phone number
+          </label>
+          <input aria-describedby="contact-phone-help" aria-required="true" autocomplete="tel" class="form-control" data-rules="required phone" id="contact-phone" name="phone" placeholder="+7 777 123 45 67" type="tel"/>
+          <p class="form-text mb-0" id="contact-phone-help">
+           10–15 digits; +, spaces, brackets and hyphens are accepted.
+          </p>
+         </div>
          <div class="row g-3">
           <div class="col-12 col-md-6">
            <label class="form-label" for="contact-name">
             Name
            </label>
-           <input autocomplete="name" class="form-control" id="contact-name" name="name" required="" type="text"/>
+           <input aria-required="true" autocomplete="name" class="form-control" data-rules="required name" id="contact-name" name="name" type="text"/>
           </div>
           <div class="col-12 col-md-6">
            <label class="form-label" for="contact-email">
             Email
            </label>
-           <input autocomplete="email" class="form-control" id="contact-email" name="email" required="" type="email"/>
+           <input aria-required="true" autocapitalize="none" autocomplete="email" class="form-control" data-rules="required email" id="contact-email" inputmode="email" name="email" type="text"/>
           </div>
           <div class="col-12">
            <label class="form-label" for="contact-city">
@@ -703,11 +820,11 @@
            <label class="form-label" for="contact-message">
             Message
            </label>
-           <textarea class="form-control" id="contact-message" name="message" required="" rows="4"></textarea>
+           <textarea aria-required="true" class="form-control" data-rules="required message" id="contact-message" name="message" rows="4"></textarea>
           </div>
           <div class="col-12">
            <div class="form-check">
-            <input class="form-check-input" id="demo-notice" required="" type="checkbox"/>
+            <input aria-required="true" class="form-check-input" data-rules="required" id="demo-notice" type="checkbox"/>
             <label class="form-check-label" for="demo-notice">
              I understand this is a demo and will not send a message.
             </label>
@@ -766,11 +883,27 @@
         </p>
        </div>
       </div>
-     <div class="container"><div class="share-guide">
-       <div><strong>Good places are better shared.</strong><p id="guide-share-text">About | KZ Travel - https://ramazanutegen.github.io/assignment1web/about.html</p></div>
-       <div class="copy-control"><button type="button" class="btn btn-outline-primary" data-copy="guide-share-text" aria-describedby="guide-copy-tooltip">Copy guide link ↗</button><span id="guide-copy-tooltip" class="copy-tooltip" role="tooltip" hidden>Copied to clipboard!</span></div>
-      </div></div>
-</section>
+      <div class="container">
+       <div class="share-guide">
+        <div>
+         <strong>
+          Good places are better shared.
+         </strong>
+         <p id="guide-share-text">
+          About | KZ Travel - https://ramazanutegen.github.io/assignment1web/about.html
+         </p>
+        </div>
+        <div class="copy-control">
+         <button aria-describedby="guide-copy-tooltip" class="btn btn-outline-primary" data-copy="guide-share-text" type="button">
+          Copy guide link ↗
+         </button>
+         <span class="copy-tooltip" hidden="" id="guide-copy-tooltip" role="tooltip">
+          Copied to clipboard!
+         </span>
+        </div>
+       </div>
+      </div>
+     </section>
     </main>
    </div>
   </div>

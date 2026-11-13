@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--commit', required=True)
 parser.add_argument('--output', default='tmp/pages-http-check.json')
 args = parser.parse_args()
-paths = {'index.html', 'aktau.html', 'astana.html', 'almaty.html', 'shymkent.html', 'about.html'}
+paths = {page.name for page in ROOT.glob('*.html')}
 for fallback in ['vendor/jquery-4.0.0.min.js', 'vendor/jquery-LICENSE.txt', 'vendor/lazy-placeholder.svg']:
     if (ROOT / fallback).is_file(): paths.add(fallback)
 for page in sorted(path for path in paths if Path(path).suffix == '.html'):
