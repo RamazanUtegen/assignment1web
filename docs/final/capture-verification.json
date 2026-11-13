@@ -1,0 +1,52 @@
+{
+  "checkedAtUTC": "2026-11-13T05:33:34.844Z",
+  "baseURL": "http://127.0.0.1:8765/",
+  "fixtureWeather": "Only deterministic layout scenarios use fixture weather. weather-real screenshots use the real API.",
+  "results": [
+    {
+      "browser": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "status": "passed",
+      "pageErrors": [],
+      "scenarios": [
+        "registration and hashed local persistence",
+        "empty/invalid email, password, phone and confirmation",
+        "password visibility",
+        "duplicate email",
+        "wrong credentials",
+        "login redirect and profile",
+        "persistent session",
+        "cross-page light/dark",
+        "saved city in profile",
+        "search/filter/autocomplete/highlight",
+        "FAQ literal query",
+        "route builder and actual clipboard",
+        "carousel lazy loading",
+        "ratings",
+        "nine connected responsive pages",
+        "custom validation on all enquiries",
+        "busy form lock and duplicate-submit guard",
+        "logout and cross-tab profile guard"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "CDN fallback",
+        "storage-denied signup restores controls",
+        "no plaintext password on failure",
+        "no-JavaScript readable navigation and FAQ",
+        "account no-JavaScript explanation"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "real Open-Meteo forecast, three days, light/dark renders"
+      ]
+    }
+  ]
+}

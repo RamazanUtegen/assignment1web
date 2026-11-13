@@ -21,6 +21,11 @@ async function ready(page, name) {
     await page.locator('[data-jquery-ready=true]').waitFor();
     await page.locator('[data-auth-ready=true]').waitFor();
     await page.evaluate(()=>document.fonts.ready);
+    await page.evaluate(()=>scrollTo(0,0));
+    await page.locator('img').evaluateAll(images=>Promise.all(images.filter(image=>{
+        const bounds=image.getBoundingClientRect();
+        return !image.hasAttribute('data-src') && bounds.top<innerHeight && bounds.bottom>0;
+    }).map(image=>image.decode().catch(()=>{}))));
 }
 async function fillSignup(page, overrides={}) {
     const values={name:'Demo Traveller',email,phone:'+7 777 123 45 67',password,confirmPassword:password,...overrides};

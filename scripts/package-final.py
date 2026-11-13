@@ -12,7 +12,7 @@ files={ROOT/'README.md',ROOT/'script.js',ROOT/'favicon.svg',ROOT/'.nojekyll'}
 files.update(ROOT.glob('*.html'))
 for folder in ['css','js','fonts','images','vendor']:
     files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix.lower() in {'.html','.js','.css','.svg','.jpg','.jpeg','.png','.webp','.gif','.avif','.woff','.woff2','.ttf','.txt'})
-files.update(p for p in (ROOT/'docs/final').rglob('*') if p.is_file() and p.suffix in {'.md','.json','.png'})
+files.update(p for p in (ROOT/'docs/final').rglob('*') if p.is_file() and p.suffix in {'.md','.json','.png'} and p.name!='submission-checksums.json')
 files.update([ROOT/'scripts/verify-final.py',ROOT/'scripts/verify-final.cjs',ROOT/'scripts/package-final.py'])
 OUT.mkdir(parents=True,exist_ok=True)
 with ZipFile(ZIP,'w',ZIP_DEFLATED,compresslevel=6) as archive:
