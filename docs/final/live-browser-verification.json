@@ -1,5 +1,5 @@
 {
-  "checkedAtUTC": "2026-11-13T05:38:15.074Z",
+  "checkedAtUTC": "2026-11-18T07:30:31.316Z",
   "baseURL": "https://ramazanutegen.github.io/assignment1web/",
   "fixtureWeather": "Only deterministic layout scenarios use fixture weather. weather-real screenshots use the real API.",
   "results": [
@@ -11,138 +11,95 @@
       },
       "status": "passed",
       "pageErrors": [],
+      "layoutChecks": [
+        {
+          "page": "index.html",
+          "theme": "day"
+        },
+        {
+          "page": "aktau.html",
+          "theme": "day"
+        },
+        {
+          "page": "astana.html",
+          "theme": "day"
+        },
+        {
+          "page": "almaty.html",
+          "theme": "day"
+        },
+        {
+          "page": "shymkent.html",
+          "theme": "day"
+        },
+        {
+          "page": "about.html",
+          "theme": "day"
+        },
+        {
+          "page": "signup.html",
+          "theme": "day"
+        },
+        {
+          "page": "login.html",
+          "theme": "day"
+        },
+        {
+          "page": "profile.html",
+          "theme": "day"
+        },
+        {
+          "page": "index.html",
+          "theme": "night"
+        },
+        {
+          "page": "aktau.html",
+          "theme": "night"
+        },
+        {
+          "page": "astana.html",
+          "theme": "night"
+        },
+        {
+          "page": "almaty.html",
+          "theme": "night"
+        },
+        {
+          "page": "shymkent.html",
+          "theme": "night"
+        },
+        {
+          "page": "about.html",
+          "theme": "night"
+        },
+        {
+          "page": "signup.html",
+          "theme": "night"
+        },
+        {
+          "page": "login.html",
+          "theme": "night"
+        },
+        {
+          "page": "profile.html",
+          "theme": "night"
+        }
+      ],
       "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
+        "Almaty search, keyboard autocomplete, filters and saved state after reload",
+        "registration and salted local verifier",
+        "empty or invalid email, password, phone and confirmation",
         "password visibility",
         "duplicate email",
         "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
-        "custom validation on all enquiries",
-        "busy form lock and duplicate-submit guard",
-        "logout and cross-tab profile guard"
-      ]
-    },
-    {
-      "browser": "chromium",
-      "viewport": {
-        "width": 1024,
-        "height": 900
-      },
-      "status": "passed",
-      "pageErrors": [],
-      "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
-        "password visibility",
-        "duplicate email",
-        "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
-        "custom validation on all enquiries",
-        "busy form lock and duplicate-submit guard",
-        "logout and cross-tab profile guard"
-      ]
-    },
-    {
-      "browser": "chromium",
-      "viewport": {
-        "width": 390,
-        "height": 844
-      },
-      "status": "passed",
-      "pageErrors": [],
-      "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
-        "password visibility",
-        "duplicate email",
-        "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
-        "custom validation on all enquiries",
-        "busy form lock and duplicate-submit guard",
-        "logout and cross-tab profile guard"
-      ]
-    },
-    {
-      "browser": "msedge",
-      "viewport": {
-        "width": 1440,
-        "height": 1000
-      },
-      "status": "passed",
-      "pageErrors": [],
-      "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
-        "password visibility",
-        "duplicate email",
-        "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
-        "custom validation on all enquiries",
-        "busy form lock and duplicate-submit guard",
-        "logout and cross-tab profile guard"
-      ]
-    },
-    {
-      "browser": "msedge",
-      "viewport": {
-        "width": 1024,
-        "height": 900
-      },
-      "status": "passed",
-      "pageErrors": [],
-      "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
-        "password visibility",
-        "duplicate email",
-        "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
+        "profile redirect and saved Almaty after reload",
+        "two-day route, field errors and clipboard",
+        "current Almaty weather and three-day fixture outlook",
+        "FAQ city suggestions, keyboard selection and literal query",
+        "deferred WebP carousel photos and compact gallery thumbnails",
+        "ratings, optional sound, live clock, counters and reading progress",
+        "background colour selection across themes, navigation and reload",
+        "nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow",
         "custom validation on all enquiries",
         "busy form lock and duplicate-submit guard",
         "logout and cross-tab profile guard"
@@ -156,22 +113,95 @@
       },
       "status": "passed",
       "pageErrors": [],
+      "layoutChecks": [
+        {
+          "page": "index.html",
+          "theme": "day"
+        },
+        {
+          "page": "aktau.html",
+          "theme": "day"
+        },
+        {
+          "page": "astana.html",
+          "theme": "day"
+        },
+        {
+          "page": "almaty.html",
+          "theme": "day"
+        },
+        {
+          "page": "shymkent.html",
+          "theme": "day"
+        },
+        {
+          "page": "about.html",
+          "theme": "day"
+        },
+        {
+          "page": "signup.html",
+          "theme": "day"
+        },
+        {
+          "page": "login.html",
+          "theme": "day"
+        },
+        {
+          "page": "profile.html",
+          "theme": "day"
+        },
+        {
+          "page": "index.html",
+          "theme": "night"
+        },
+        {
+          "page": "aktau.html",
+          "theme": "night"
+        },
+        {
+          "page": "astana.html",
+          "theme": "night"
+        },
+        {
+          "page": "almaty.html",
+          "theme": "night"
+        },
+        {
+          "page": "shymkent.html",
+          "theme": "night"
+        },
+        {
+          "page": "about.html",
+          "theme": "night"
+        },
+        {
+          "page": "signup.html",
+          "theme": "night"
+        },
+        {
+          "page": "login.html",
+          "theme": "night"
+        },
+        {
+          "page": "profile.html",
+          "theme": "night"
+        }
+      ],
       "scenarios": [
-        "registration and hashed local persistence",
-        "empty/invalid email, password, phone and confirmation",
+        "Almaty search, keyboard autocomplete, filters and saved state after reload",
+        "registration and salted local verifier",
+        "empty or invalid email, password, phone and confirmation",
         "password visibility",
         "duplicate email",
         "wrong credentials",
-        "login redirect and profile",
-        "persistent session",
-        "cross-page light/dark",
-        "saved city in profile",
-        "search/filter/autocomplete/highlight",
-        "FAQ literal query",
-        "route builder and actual clipboard",
-        "carousel lazy loading",
-        "ratings",
-        "nine connected responsive pages",
+        "profile redirect and saved Almaty after reload",
+        "two-day route, field errors and clipboard",
+        "current Almaty weather and three-day fixture outlook",
+        "FAQ city suggestions, keyboard selection and literal query",
+        "deferred WebP carousel photos and compact gallery thumbnails",
+        "ratings, optional sound, live clock, counters and reading progress",
+        "background colour selection across themes, navigation and reload",
+        "nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow",
         "custom validation on all enquiries",
         "busy form lock and duplicate-submit guard",
         "logout and cross-tab profile guard"
@@ -185,6 +215,14 @@
         "no plaintext password on failure",
         "no-JavaScript readable navigation and FAQ",
         "account no-JavaScript explanation"
+      ]
+    },
+    {
+      "status": "passed",
+      "scenarios": [
+        "weather HTTP failure and successful retry",
+        "fresh forecast survives reload",
+        "failed refresh falls back to a dated cached forecast"
       ]
     },
     {

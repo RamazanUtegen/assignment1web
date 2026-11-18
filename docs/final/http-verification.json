@@ -1,32 +1,32 @@
 {
   "url": "https://ramazanutegen.github.io/assignment1web/",
-  "sourceCommit": "ddce3fb5ed584d5b90a537b8c0d2cbe3edbc5a3f",
-  "checkedAtUTC": "2026-11-13T05:35:03.409125+00:00",
-  "fileCount": 69,
+  "sourceCommit": "f02266714493edea2b7a170ec0031d4e5be05b1b",
+  "checkedAtUTC": "2026-11-18T07:29:42.122325+00:00",
+  "fileCount": 202,
   "files": [
     {
       "path": "about.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "88fbe615f8dc163e7205fd31e4f503c3309dba688e50f86f5737288d00cfc947"
+      "sha256": "28d3b94799627b5d5499f2da72be195c94afc6634f08aa31694c497ed6ebe8a0"
     },
     {
       "path": "aktau.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "edd13b3f007727edab987781d8651253912deadeba67f4d66dca2f92410537dd"
+      "sha256": "bb767bfb3a5a426fe886335d23777ee195e980d201b529890b0a2e202a356fc5"
     },
     {
       "path": "almaty.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "0e811b9d5098c5f1c1f32052d286e651af3d07b30c92c3add9fd8dd27030367f"
+      "sha256": "c415c43056e69a829f265b92fcadc8c1658a78c94961af339ad23450b147ad5f"
     },
     {
       "path": "astana.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "888b9e28adc51504ae0633f743b0540493f72716d9978411e36f3d0459cbe77f"
+      "sha256": "6ba9f408c31efa24561a78b8bb7cbd2b7bb9b3467fec6ae34cd108820a848cb1"
     },
     {
       "path": "css/assignment3.css",
@@ -44,31 +44,31 @@
       "path": "css/assignment6.css",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "2841c9e890c34107488f7eab45990f4c071f7a9f7cd840ba5d34aea0e4b688bb"
+      "sha256": "f704095ff815e7ca622cff6b01dd62e44c583e3dad09da265078785bb8201396"
     },
     {
       "path": "css/editorial.css",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "2a5ddd3066946b866b2a0cdca99395fe6724295bf164a55cebd6488198851d7a"
+      "sha256": "4b26b8b4558d58473280771e7b45b7f18522705b2a373620c7b1cc10e01c719f"
     },
     {
       "path": "css/endterm.css",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "3b98b055b130c658aae31c426ae3dfb7fdf70ca91c48ef3bb8551012bc473c5e"
+      "sha256": "efbd9bdec07526fdc2208a73036dc5c35162c7323c2fa7f050b37d0884bc136c"
     },
     {
       "path": "css/final.css",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "5c0f4156b307add4c97338c7ec9693e759dcbec1531471cec9983ca00f1e96a4"
+      "sha256": "116e7b037b695881a797512ea7c9903c746e8bd54c67d98238660a0b2de85301"
     },
     {
       "path": "css/no-js.css",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "eb2d471e2d49557d2dbf4580469f2f62f0ddcd2e69eb4dc83669f69a28753348"
+      "sha256": "764e03ad1cc8c72ccc844609e9a07d526faabaad4fb3e2449f1292e3fc2d634b"
     },
     {
       "path": "css/style.css",
@@ -80,13 +80,7 @@
       "path": "favicon.svg",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "dfa8fc98a4a6fd9ba9fe8ab0c51470b1156be4ab3f65b0b1454029e00c9434c7"
-    },
-    {
-      "path": "fonts/barlow-condensed-latin.woff2",
-      "status": 200,
-      "matchesCheckout": true,
-      "sha256": "3787a5a419171630e6890cfa47c4da067474d005cd0ff8dc11ec090fdc3ee2b8"
+      "sha256": "e8a277d7e2fb4e2655e310e6585caff39e8d8cc16b85847691c9c88d9f6b5a3a"
     },
     {
       "path": "fonts/dm-sans-latin.woff2",
@@ -269,6 +263,810 @@
       "sha256": "4a4cf64fedb05409ffbe37dc2515a25813731a9492769e679dbd333c005ff5fc"
     },
     {
+      "path": "images/responsive/aktau-1440.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "bfa7e47797b7bc1441fc2987e79a5886f1f26833aa39f6986fee104c132e3ab5"
+    },
+    {
+      "path": "images/responsive/aktau-1920.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "6105948f1d55b871c1f3fa9696555e49ef1c3a356e5906709d6302460d094dad"
+    },
+    {
+      "path": "images/responsive/aktau-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "2952112636986e7a5e8bd8e467227e6f6f46edcc867380324989b6d50144de66"
+    },
+    {
+      "path": "images/responsive/aktau-768.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "2986514a6cc851bb92aa93f5206ac38d2e13a86a07abca3648fa0ce987aa5ae3"
+    },
+    {
+      "path": "images/responsive/aktau-864.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9011c8e60c99ba92b8d4c8948b6d662e41b2dae32990589d776747b5525a288c"
+    },
+    {
+      "path": "images/responsive/aktau-coast-520.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "94bb2d3501c3345e33bf0c6e4a15068ee76e1488fb5724143dd214c7406616f7"
+    },
+    {
+      "path": "images/responsive/aktau-coast-900.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1a4b8ad6c4efe985d86603d6156a93ccdc9f92e8aa3f591b8f5286842d9e8c8c"
+    },
+    {
+      "path": "images/responsive/aktau-coast-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0ad87ee4d6138d4fbf16dae064fc26592552a695d1c845a7c70372b1c3ae8cc0"
+    },
+    {
+      "path": "images/responsive/aktau-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "76d5eecb2652b1f7ac4c485bf9ef0232e9ef6c79159cf30158d2f5d83f7db6cf"
+    },
+    {
+      "path": "images/responsive/almaty-1440.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "20765c7fcac825bc027846e8bf573b5b237eb6dbaf0f1e5e5ff9a2f120987de4"
+    },
+    {
+      "path": "images/responsive/almaty-1800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0b7bd78cd5e0822bcdac2f523dd1417b7211327c212be1e6a24b5fb084bac49b"
+    },
+    {
+      "path": "images/responsive/almaty-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "dc92b65c285c2b8bdbacf6788b1cde9db18a80587649501c2d283f37a4ad2bd7"
+    },
+    {
+      "path": "images/responsive/almaty-768.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0c23a33a4cbb6f5e18333d49a2cf184a8ea8e7367405682a68391ed1fad7d79c"
+    },
+    {
+      "path": "images/responsive/almaty-864.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "5ea5fd75e974e0109edcd7933a315a1c33e04435c204f9d5c0fb1914cd9b5d94"
+    },
+    {
+      "path": "images/responsive/almaty-city-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1ca3bd9d156d33488e7aa7622f9f3c915a8cef2e568bc9ce26c64e27f1044c0a"
+    },
+    {
+      "path": "images/responsive/almaty-city-600.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "93902d00717cd49e4c3d41a520fb2a46c3c3d4eff0af1178b45ccf6bea1fe17c"
+    },
+    {
+      "path": "images/responsive/almaty-city-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9a27d8a7131097afa319dc74782b660bad686369a691e1f19a9777cf0df4c844"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-1-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "2e56c60205da0b70a1e9dda68316aeda1af1d70264993992bdc6b149f0672805"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-1-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9e5704f95e34545f5b1c11a49880cf0f77b622073cc46f855a90fb08bf980f70"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-1-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f3db09d0d074dd950c8089727565e04dbf208d58b6158f6db8a32014021b3670"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-2-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4b84745bc035aeb43714164fbae01523db7e2c5b783e022a69e3c3f8ea4da7c4"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-2-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "afe54af9704b42088c2353ecc5092d646c6c921760c83fe41ade9d55578ecd73"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-2-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9c5ba64cc0f4ebf7df8c3e4370d444cabfea8a3040381fa8e40e301a8e3d6e0e"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-2-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "69076005bbac473fc60320ceb5c007b57d76042040696be26b1d21b37f1dc2dc"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-3-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "90d48926f9ac48cd425e7bfe867cc2227d8c8cc77fc6c55b7f4cd5b326a701bf"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-3-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "567da650afd4bae4aa8d5ab20c1cbb95485c713d1392c940c3480427fbf3e834"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-3-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0454af43a710699773cf1b88588055fb69fc9a40b2a44fcab7025a79afdfa38b"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-3-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f72f058ab2d0d5ab04249ee3fe2e446b7f6a7ea9f4d27cf693654defc159eadf"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-4-1024.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "bc48d22cb2457d9ef32f33fa2b3032933cf111a52436b0ce5a01570727cc3391"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-4-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8174cdce2f2f268d8d01751c97fc9c37120ab583c8fc90ec13096f18cbc16fa6"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-4-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0289abb590e8a71cfb72d0171db4dd4b0f247d358f1d70b9c743efc98111db2b"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-4-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "7f910781fa33f0100530ac208797fd8d08bd7c601f44c7b70b7b907d921e568c"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-5-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "5e7271de05ff1e6a4badcb7e32a59bd3b8f70438a1b78b626b91e32383a06bc2"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-5-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "23e924e8a21aef4979928d91fefa9faca05921e3dc9525ba75f0e5ddf4950d5c"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-5-960.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "3be712c3208312efaaec43122f18ac9ce7ed83a56f29dc5779176df482f0d039"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-5-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9562c73a1e68615cd612b2c8e63b7440e4ec6addeb5b0ba52c3012f6a98171f6"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-6-1120.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "72c1a65b41c838169f3de36fe8db2c365ac64326eb1ae36e1335246f057b7b65"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-6-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8503baaedb29ae9f056e5595a476f2aa8881232634a3ee90218dd25c56b63f4e"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-6-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "b0cfe61b703695c979472ecd9971cbc2d115a3b098f745fa38594280852c4518"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-6-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "93226370763556df2d6b19cc0ff4bb4281c42ad17ceae9d1deeb5e91cd4e3cba"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-7-1193.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4f6422d2417342ef96af4ac98dda1409da4200ab4812ded7f0a789d0afcd87c6"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-7-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "c167ac668e594eb3cf33fff1ccaff9295bcdd20d8a58a9f44936200d6a0a01b6"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-7-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "6e8c9812828515555bcf8b85d18c78c6e56ee421374f4308a36d4e7c3197b1eb"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-7-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9ae439be76af4b79b91dca8a3e47aa671f19d32edb80b0d21bd18ff8e802e54f"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-8-1080.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "20adc670bc90d5ea77b374ee533964e05eed3ac7f9d9060d66d4cae30c2485fd"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-8-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "45620cce85f7f1448e51fa160282e2ba7ae1ec0370a8160bd37cd695d82ab8d8"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-8-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "42cd09ccd8618726562888720bbb68060e3007cf64d3f31ff7db1f81fe723a88"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-8-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "63514a748e9b9175f3ae1e3a7dd8dbc4ae6418586548b8ba62742b0291e12fe5"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-9-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "740fc6ddddbe54a425d9871f3b8b3a11cc794b13df63ac780c42d5ae1abf4962"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-9-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "abea270e0776614b0fc6aedc7532ebb097a99e30e8f6e04bb94b649006ba305f"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-9-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1b0228a942f2465d2590b6d340931c33494877862f37b0f3fc0746ca0653f374"
+    },
+    {
+      "path": "images/responsive/almaty-gallery-9-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1225021d9879f6ef5879ce07343029f613eac91fdaf52a976c1e8c3d8889cb25"
+    },
+    {
+      "path": "images/responsive/almaty-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "e9b09203b9d3f5a5dae51d6dd285d6862b4fd8969938ea7970d5092557606820"
+    },
+    {
+      "path": "images/responsive/astana-1440.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "273476b7010e41c5a219734dcaa14231c3b042097350e750df93ed6d8d590144"
+    },
+    {
+      "path": "images/responsive/astana-1920.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "7d4c98ed3fcc44748799a55086ee20db76ecb77b9fce81e2901faa02bca5e3b2"
+    },
+    {
+      "path": "images/responsive/astana-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4d12a5c70f1661a3f78e24754edadb3184f3be1a7bcc0975e0853ade87c6301b"
+    },
+    {
+      "path": "images/responsive/astana-768.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "06d218db9e328ad83a14c74e7bbd0c23a5d66500fb49142fe006f4dafc2a3b90"
+    },
+    {
+      "path": "images/responsive/astana-864.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "a523cabf16f1266e0e3c561a3bf60b7d57fc197fea777e86a8e3a321f14d980a"
+    },
+    {
+      "path": "images/responsive/astana-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "7e7c7faa4e5cb5e52476dcbf6233536a58077839bc9c7764fe531da7d5170b7b"
+    },
+    {
+      "path": "images/responsive/baiterek-night-1080.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "5f7239c1be93b2bf267074d4d4817e1d9b8104ede8067091815f2a145fc2e1ea"
+    },
+    {
+      "path": "images/responsive/baiterek-night-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "a4c3ee77da4e85b4f282dce414fabf4d6c9e43048a6a9f04af8511571a2ee21d"
+    },
+    {
+      "path": "images/responsive/baiterek-night-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "2b665fb565344b4640285ddc1df6bd55fc3f74f1f3e377891dcdd938a7979379"
+    },
+    {
+      "path": "images/responsive/baiterek-night-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "78d69ca12ea63eb7c4ff663423e46f908397e731be940249093a68a0d55c7968"
+    },
+    {
+      "path": "images/responsive/bozjyra-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "87d5972e284df54be33cd7e3e6adddfc947484dda4b131c963ab590e3ad98642"
+    },
+    {
+      "path": "images/responsive/bozjyra-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4494eb9f0b9c8a9fd1d940071aab929b299f8ed4cd3fee8eaeee332c5eb80679"
+    },
+    {
+      "path": "images/responsive/bozjyra-880.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4cb18f5bf343d4583c52159825eeb47ff3ac173896cf5ee009c039ccd8854122"
+    },
+    {
+      "path": "images/responsive/bozjyra-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "b947c6c2f21644342506d3e0d65c053f3fd1acfbc6f3977c51ba27d15427fb8e"
+    },
+    {
+      "path": "images/responsive/kazakhstan-1440.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8353af1ad6fa87c27ca90aaa2ca965aeca7cac48498e00108a7e395401bbd023"
+    },
+    {
+      "path": "images/responsive/kazakhstan-1920.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "64fc96806ef3c60f8eb8778f1c3013b8fd6ac5f57c7f25a29baf29d0389598d5"
+    },
+    {
+      "path": "images/responsive/kazakhstan-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8abcb8dd4108462dfbc4c436a0d6665aa477b0b4c4dc21a13337f2b261666088"
+    },
+    {
+      "path": "images/responsive/kazakhstan-960.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "92fda16376729e9e1cc2faf6f4e3422b41e340f68e8fa2f19513c78ca57dc6ec"
+    },
+    {
+      "path": "images/responsive/kazakhstan-portrait-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "ef3fd15e464dd128b40427abcca052f6da8b465612d6c7e643a79aaa6e497cfe"
+    },
+    {
+      "path": "images/responsive/kazakhstan-portrait-832.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "c615a9cc14d43f53f012260f4af6b6498f3f7b01da490cbcdefeead4689493a0"
+    },
+    {
+      "path": "images/responsive/kazakhstan-portrait-960.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "712871e878af0923341ee279363d412286280dfd23c38d8aabdcc1e0e58d42d3"
+    },
+    {
+      "path": "images/responsive/khan-shatyr-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1a8b35ad2223bcc707045310ad1793e054e2bc736adec00ff9a39d5c5f4a3f4e"
+    },
+    {
+      "path": "images/responsive/khan-shatyr-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "43b51766f4f47127c6254ee187186b7fa7d02b0549085f66676a1c9eae7f138a"
+    },
+    {
+      "path": "images/responsive/khan-shatyr-960.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "324886e14e72b5bac171165362d29663ca1e4836226fa6975c2644764adfa86a"
+    },
+    {
+      "path": "images/responsive/khan-shatyr-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "62d827452d3c766053b58d668a1f1b0c42f0c3952ad66d4133b83e4e5cb38efe"
+    },
+    {
+      "path": "images/responsive/mountain-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "d360aed6af4f9826b11b5eaa8828c16317843c36f5d79dd117035071ede8c2d7"
+    },
+    {
+      "path": "images/responsive/mountain-718.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1838d48fdc365b9013c6ab2c56f5bd44784c8d061286d9ae7c4054e95724f983"
+    },
+    {
+      "path": "images/responsive/mountain-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "6cbd3411ce92689a36b2fe696463f33b3fc4694d54371967d184cd73e9dc2c72"
+    },
+    {
+      "path": "images/responsive/shymkent-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0aeb787ab2069df9eedd0948ca4375e99c1c64b605ecfc14a8c89d658aae9d79"
+    },
+    {
+      "path": "images/responsive/shymkent-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "4f7059cde7b4c5b38aea06e2e7da959f8181d23bf069cb391e56c58f411efc2e"
+    },
+    {
+      "path": "images/responsive/shymkent-640.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0ff85e2fcbf0c6db92c6116755174925902d2540c7a62364647ff9d7514e27f8"
+    },
+    {
+      "path": "images/responsive/shymkent-864.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "976b00d0f92f7006209a3afaa00af4370a4181a65983383a284bcb1f4884c36b"
+    },
+    {
+      "path": "images/responsive/shymkent-city-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "119a93b3ff506ac4892f0f5006346ceb513d45aa779b8fc834733ffc78e11133"
+    },
+    {
+      "path": "images/responsive/shymkent-city-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "07205feeedf1b20a7509a4c3e191245872bd5722ef89c2377599c7bea3a5bb2e"
+    },
+    {
+      "path": "images/responsive/shymkent-city-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "278b00982227d90ce07353a99063c7560f0b8c0280099843eb25dac636205771"
+    },
+    {
+      "path": "images/responsive/shymkent-city-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "735bd6a3ad1f22d6b04fc9f51e1c8d0efe85d562f2ffffef0dbfccf4a3ed925a"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-1-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "3b63fc5bad75599ea453c545b11e898f3f0ffa714b0918f17028b134ec9c1453"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-1-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "2bb8a5e17dfa26b70770a0e3b72009b638da7c2c9d857da17335c55157fe3da8"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-1-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "57628e9d418217272e4b1a6bfe1bc4c6a7cfb32338828c8f5cbc0183288db5b6"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-1-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "3b7e39c4c723171d67f9fc567a65776905e4881c926fa17fef8c3979812a63f1"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-11-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "47277b84d88622c563277b7a27c0756633cef50da8ae2a7b5174a1f08fbc32b7"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-11-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "713828ec53a55c6f1e10e805125ca49fbfc532f43b4366d16930d7845f639e1c"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-12-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "e7bb848f63188e0f391e120e8578b196c10a99c60c92b15a7043dac3167af947"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-12-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "d08a0ecf32735c56f327ac62564fad1dc843c4a6535bf182d6fc44e71db2054d"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-2-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "0c5673c78e0e5090384e85f635b4450f976ab23fb3a82b1f3df72cf684102d98"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-2-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "948988f784335f8ba5f9d6e5a3a3bb937564770e986a244478912af269abd1cf"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-2-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9b7426cd4822bd2a57104e339cd395544f2815a1c1a646533834c1aee26be184"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-2-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f05e14b3919b30bd434dc43205fda13413167b6aaf695f4021d08068ffd87c63"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-3-1200.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8b9ad1483aec37544ed3972aacb8f833cd311106f4431d00a42eb7b6d2334a56"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-3-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "ec180c1e4be1f1f8f9c16a640234d2f8b23909834823f62341298470f737b4a7"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-3-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "57932423f7de01e0be8fd303ea6a2fb11950401dd42807e4b43a14a4e284fb61"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-3-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "d66c86cb6d8e6ae426ca34a5cdf5b2bff7c8ad2c0c8b1f76622bb47d367f43b1"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-4-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "c416646d88bac05a02e575b7f7f6a6ab09d53e4829a6f000cf92027fa365bff6"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-4-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "78bd6538ecbd1e01dc1bd1f7bfb2e96ea43bae11e558fb73802b8fddc377f806"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-4-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "61041e660af9a4fe0db75fa996edf5bdb110b3bd73b505bd883da00b8cd9004d"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-4-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "21f885dc63e74ed5716eef5a4e0c59a0cee86cddaaa6f7777f61b20b354601c7"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-5-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "99b172ac60be7c3d38ca98cc11cae1812026bc0d18de890e2584b61acd7062da"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-5-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1d5532f47351a5ae3fa4eed70ee4f3a9653d6d7bc35aaac84aafdc184e67704b"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-5-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "6fd8ab7e3a904d639cd0fee623cac32cea811484593db4589d6dfa36f8a8758d"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-5-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "474801ea70ddf684ddee79c9e9760b30f2a12060afae7ee2515c5a4ec8985b13"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-6-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9c8abb583a4492953c517d7f55b2da81116316c60b4e588fff5d6c3a5fedde66"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-6-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "c7671681e893863ce4b7c481315ad8124229edbb126f90f164f4341e39974df2"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-6-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "66052657ef6c3a656aaae60bd4607ea594357d24ba582169b7692b3e0d45b772"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-6-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8fdaeaca0fde618bea47836af34c0a29388d3cddc6e2c1881f30ce87d639cf25"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-7-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "493eef6614fe7d2e64457d319da5dba760360ed19f36b64845308e9994fe64bf"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-7-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "1f3ab35122772670c9215d141a98fed186a019867a2ad703cba623cde162ed87"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-7-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "32aa044726ff17b94d967a7b5b4aa86b1c55d8b3a91c51c37b1a00f326c82d32"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-7-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f589856e0923ffc532a8202f4e1a0a7ac0d0e8d48911d6624ba7553ccc08ed02"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-8-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "6678a2e958551b43bcbf3c9afd000231af5845c0bf6424f789843953b9dbd5c2"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-8-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "bcc67abf18b43ac5d2087defc50cb8089b6f7856c07ffb18ae4fd2225503b464"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-8-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "5766aaf65601df52c9cb04f16579db903564c1101b34c593480de7dacc8c3088"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-8-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "d3aa8d84bd9da3bc1996ed62cc9c0670143f305ee938494921cfe592448e0b86"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-9-1280.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "fe3e1b21242d2e49a977256228c613d78901f1111cc3994fb02f8ce5efbe4d3b"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-9-480.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "8eda30cdeece0b1591d1e8e4d6e6f879f6a15c36cad7ee247716d6eefe4aba78"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-9-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "ba9f33cd69c76ef5cf269d2342b7a22cff3a85e719bf19d608f88598969370cd"
+    },
+    {
+      "path": "images/responsive/shymkent-gallery-9-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "cc43d91e0307a16749f90e197655ef56ffd566f0d67874ad102804d29d25788b"
+    },
+    {
+      "path": "images/responsive/shymkent-park-1000.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f4f089af7c68eccd43af14b9a7c5a1dc2e37eb127b87f7844a3e65b20a88b29d"
+    },
+    {
+      "path": "images/responsive/shymkent-park-520.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "9da00b4e1a24766b47ea138e53c880608aa48a5d1d35edcd06067092a33b5dad"
+    },
+    {
+      "path": "images/responsive/shymkent-park-800.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "b88a827746384521966a4524264108cc44344a735d36e9374f7141bd8e08a3f8"
+    },
+    {
+      "path": "images/responsive/shymkent-park-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "f43ee34b8eff7503574cdf5fdca0735b080b05143b038a057d10bf00411ba4b6"
+    },
+    {
+      "path": "images/responsive/shymkent-thumb.webp",
+      "status": 200,
+      "matchesCheckout": true,
+      "sha256": "40d8eced87be552a9e8c1e6375ee2dd5c0f6fd08a353b52f42d5b554f3e97d9d"
+    },
+    {
       "path": "images/rocktrail.jpg",
       "status": 200,
       "matchesCheckout": true,
@@ -296,7 +1094,7 @@
       "path": "index.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "a5cdbae8dda5dfb4afd163f8d45b26404cce7d52f3f8de88825264c279648203"
+      "sha256": "6712e53ae68ed4ce04cdab34f2470a45f3ea99c3d5844cd6031852dd70a96f1c"
     },
     {
       "path": "js/accordion.js",
@@ -308,19 +1106,19 @@
       "path": "js/auth.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "cd16abfab4b375a2559173efd586728121221d0a0833c43fe12d1ea838690ccf"
+      "sha256": "ec949b952d65cd197a12a0abd4756fe7a0004037adc9d43760819b0af90bb96c"
     },
     {
       "path": "js/clock.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "2778c21a65d64c426c45816ba4bf6d5b43b3ab47adeba66d929966d86d1ad77c"
+      "sha256": "9e16b316c25319ae0ef8a79b5db938f397a74debaaec381d0025090af670a910"
     },
     {
       "path": "js/experience.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "f4fff485b033a0e489576aecb4bb4de1ca7b1e94b2a20bf38ddfcc33418be350"
+      "sha256": "20989ffef81ddb11845acf200283acfb10cd97db92c8f339fdac8c1b7582a5c6"
     },
     {
       "path": "js/forms.js",
@@ -338,13 +1136,13 @@
       "path": "js/preferences.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "f3337db0e7b2f6229519f292956b25682b51dcc9af2edf7e524f9cf7e108ffb0"
+      "sha256": "758c68a6e35ddd425f670672b54d9d2897516abaf2211817e338cf42ca1d43ee"
     },
     {
       "path": "js/site.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "ccb26caeedc8a9af376143519ec2e08ae5e7843a01c994bc06c06711aedcb132"
+      "sha256": "b5a5996a967ae37ceeb854137c386f763ca234f224b06e41d0928a590821dfd9"
     },
     {
       "path": "js/validation.js",
@@ -356,37 +1154,37 @@
       "path": "js/weather.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "492b5bedecfc172693c589105151b8bf8c63a73b1363219c7845c47ffa62876d"
+      "sha256": "cd3520bddc2cef64042fdeae909dd3c9a212df75fc49709232432cec484d08bc"
     },
     {
       "path": "login.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "41f60b0e4237268d94228120f59868c3b484958572610966ad691e638ed6ee5b"
+      "sha256": "0b3c42fa53a6769e1f1eeb910cf9d340c9b538da140803eeb3cd53a7ae33cff3"
     },
     {
       "path": "profile.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "078cbe7b2d34e67b4beef5e42e3680efe7ec2c3717ce08c6a7862b52a656811f"
+      "sha256": "1712868e0d2ad6a63de1038c051e8a1449d049509e59bee035534c798629d323"
     },
     {
       "path": "script.js",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "54d8657b10cc01d94725453e98dfceb28c45a966fe051264b48dabddc1215686"
+      "sha256": "39dc880817e8da0cf1d95006dce5e699106252df0e1f62988a5efa795e716a91"
     },
     {
       "path": "shymkent.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "5d772913b54446a3a1feb6a15476747d85579efaebdea1edcc11da12bb59dabd"
+      "sha256": "9c8c16fa6d786893916bd3e71687220607da3c6afd34034da16a584de77da04f"
     },
     {
       "path": "signup.html",
       "status": 200,
       "matchesCheckout": true,
-      "sha256": "90211ca39c58034a28af6092c91c3f53fb3a96d8f88afb7a34ae384f2e200a71"
+      "sha256": "7af925d7eacdc071abef4b9b8e4f7ad309b924426b722689f25da33c14f00018"
     },
     {
       "path": "vendor/bootstrap.bundle.min.js",
