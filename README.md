@@ -27,7 +27,7 @@ Then open [localhost:8765](http://127.0.0.1:8765/). No build, backend or package
 - Destination search combines with category and Saved filters; keyboard/touch autocomplete and safe match highlighting.
 - FAQ search suggests city names, checks questions and answers, highlights matches and restores accordion state on clear.
 - A three-step route planner validates input, keeps choices on Back and generates a copyable itinerary.
-- Day/night theme, saved places and per-page ratings persist in the browser. Optional sound starts only after a click.
+- Day/night theme, the Sand, Sky or Steppe background, saved places and per-page ratings persist in the browser. Optional sound starts only after a click.
 - Gallery controls, keyboard navigation, thumbnails and viewport lazy loading preserve the original photographs.
 - Scroll progress, animated counters, fading notifications and copy buttons with success/error feedback.
 - Demo forms validate before showing a spinner; lock validated fields during processing and prevent duplicate submits. No data is sent.
@@ -51,6 +51,7 @@ The cleanup fixes editing after form validation, focus in a busy contact dialog 
 | `script.js` | jQuery search, suggestions, highlights, loading feedback, toast, clipboard and lazy images |
 | `js/weather.js` | Weather requests, response validation, cache and weather UI |
 | `js/experience.js` | Route planner, saved cities, theme, ratings and Web Audio |
+| `js/preferences.js` | Background colour chooser and its saved selection |
 | `js/auth.js` | Local account persistence, PBKDF2 password verifier, login, profile and logout |
 | `js/validation.js` | Shared required, email, phone, password, confirmation and message rules |
 | `js/forms.js`, `js/popup.js`, `js/site.js` | Validation, dialog focus and navigation |
@@ -70,7 +71,7 @@ The submission files are in `output/final/`: `KZTravel_SE2501_FinalProject.zip`,
 
 ## Data and attribution
 
-Enquiry forms and route plans send no messages and create no bookings. Account forms intentionally store sample contact details and salted password verifiers locally for the final authentication simulation. LocalStorage also holds the local session, theme, saved city IDs, ratings and weather cache. This is not server authentication; use sample details and a sample password. Weather requests contain only a selected guide city's coordinates and forecast options, with no geolocation or form data.
+Enquiry forms and route plans send no messages and create no bookings. Account forms intentionally store sample contact details and salted password verifiers locally for the final authentication simulation. LocalStorage also holds the local session, theme, background colour, saved city IDs, ratings and weather cache. This is not server authentication; use sample details and a sample password. Weather requests contain only a selected guide city's coordinates and forecast options, with no geolocation or form data.
 
 Weather: [Open-Meteo](https://open-meteo.com/), [API documentation](https://open-meteo.com/en/docs), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This student project uses the non-commercial endpoint without an API key. Bootstrap and jQuery retain their upstream licences (`vendor/jquery-LICENSE.txt`). Fonts use the SIL Open Font License in `fonts/`. Original project photographs remain unchanged.
 

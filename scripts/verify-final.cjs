@@ -273,6 +273,21 @@ async function run(channel,viewport) {
         await sound.click(); assert.equal(await sound.getAttribute('aria-pressed'),'false');
         if(await menu.isVisible()) await menu.click();
 
+        const background=page.getByRole('combobox',{name:'Background colour',exact:true});
+        assert.deepEqual(await background.locator('option').allTextContents(),['Sand','Sky','Steppe']);
+        await background.selectOption('steppe');
+        await page.waitForFunction(()=>getComputedStyle(document.body).backgroundColor==='rgb(239, 244, 232)');
+        await ready(page,'aktau.html');
+        assert.equal(await background.inputValue(),'steppe');
+        await theme(page);
+        await page.waitForFunction(()=>getComputedStyle(document.body).backgroundColor==='rgb(28, 41, 35)');
+        await page.reload();
+        assert.equal(await background.inputValue(),'steppe');
+        await background.selectOption('sky');
+        await page.waitForFunction(()=>getComputedStyle(document.body).backgroundColor==='rgb(21, 37, 47)');
+        await background.selectOption('sand');
+        await theme(page);
+
         for(const mode of ['day','night']) {
           if(mode==='night') await theme(page);
           for(const filename of pages) {
@@ -342,7 +357,7 @@ async function run(channel,viewport) {
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         assert.deepEqual(errors,[]);
         results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
-            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
+            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','background colour selection across themes, navigation and reload','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
         console.log('PASS',channel||'chromium',viewport.width);
     } catch(error) {
         console.error('STATE',channel||'chromium',viewport.width,page.url(),await page.evaluate(()=>({session:localStorage.getItem('kz-session-v1'),jquery:document.body.dataset.jqueryReady,authScripts:[...document.scripts].filter(s=>s.src.includes('auth.js')).length})).catch(()=>null),errors);

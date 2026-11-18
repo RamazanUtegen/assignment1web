@@ -531,5 +531,35 @@
     "galleryTitleMinContrast": 15.35,
     "galleryDescriptionMinContrast": 9.59,
     "carouselTitleMinContrast": 15.35
+  },
+  "teamCreditsAndBackground": {
+    "checkedAtUTC": "2026-11-18T06:48:59.105Z",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "themes": [
+      "day",
+      "night"
+    ],
+    "availableColours": [
+      "Sand",
+      "Sky",
+      "Steppe"
+    ],
+    "teamTextSizesPx": [
+      18
+    ],
+    "teamNameWeights": [
+      700
+    ],
+    "teamTextMinContrast": 13.73,
+    "horizontalOverflow": 0,
+    "accessibilityViolations": 0,
+    "keyboardSelection": true,
+    "navigationAndReload": true,
+    "storageDeniedAppliesForCurrentPage": true
   }
 }

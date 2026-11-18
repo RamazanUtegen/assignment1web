@@ -39,9 +39,10 @@ async function run(browserType, viewport) {
             const footer = await page.locator('footer').innerText();
             for (const name of ['Ramazan Utegen', 'Ziyadinkhan Kudaibergenuly', 'Ruzimuhammad', 'SE-2501']) assert.ok(footer.includes(name));
             const original = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-            for (const color of ['Sky', 'Steppe', 'Sand']) {
-                await page.getByRole('button', { name: 'Change background' }).click();
-                assert.equal(await page.locator('[data-background-name]').innerText(), color);
+            const background = page.getByRole('combobox', { name: 'Background colour', exact: true });
+            for (const value of ['steppe', 'sky', 'sand']) {
+                await background.selectOption(value);
+                assert.equal(await background.inputValue(), value);
             }
             await page.waitForTimeout(400);
             assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), original);
@@ -107,10 +108,11 @@ async function run(browserType, viewport) {
                         await triggers.first().click();
                         await page.waitForTimeout(350);
                         await page.locator('#faq').screenshot({ style: '#main-header { visibility: hidden !important; }', path: path.join(screenshots, 'task-2-faq-open.png') });
-                        await page.getByRole('button', { name: 'Change background' }).click();
+                        await background.selectOption('sky');
                         await page.waitForTimeout(400);
                         await page.locator('.travel-tools').screenshot({ style: '#main-header { visibility: hidden !important; }', path: path.join(screenshots, 'task-4-background-sky.png') });
                         await page.locator('.travel-tools').screenshot({ style: '#main-header { visibility: hidden !important; }', path: path.join(screenshots, 'task-5-live-clock.png') });
+                        await background.selectOption('sand');
                     }
                 }
             }

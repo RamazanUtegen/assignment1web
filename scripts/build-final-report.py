@@ -163,7 +163,7 @@ matrix = [
     for browser in sorted({item['browser'] for item in layout_runs})
 ]
 table([['Browser','Widths in px','Pages and themes'],*matrix],[100,195,W-295])
-add('The same theme toggle updates shared CSS variables and saves the selected mode. Tests switch to night on Profile and verify it remains on Login and other pages. Error messages, controls and panels remain readable in both modes. Account details use overflow wrapping so long values do not break columns.')
+add('The theme toggle saves day or night. The background chooser saves Sand, Sky or Steppe and applies the selected colour in either theme. Tests verify that these choices persist between pages. Error messages, controls and panels remain readable in both modes. Account details use overflow wrapping so long values do not break columns.')
 add('Reduced-motion preference removes unnecessary transitions and counter movement. Skip links, field labels, inline error descriptions, menu Escape, dialog focus management and accessible status messages support keyboard use. Without JavaScript, city content, navigation, photographs and FAQ answers remain available; account pages explain that JavaScript is needed.')
 
 heading('UI EFFECTS AND ORGANIZATION','Keep feedback useful and code readable')

@@ -30,7 +30,7 @@ for name, soup in soups.items():
         if not target.exists(): errors.append(f'{name}: missing {raw}')
         if url.fragment and target.suffix == '.html' and target.name in soups:
             if not soups[target.name].find(id=url.fragment): errors.append(f'{name}: missing anchor {raw}')
-    for selector in ['[data-theme-toggle]', '[data-sound-toggle]', '[data-live-clock]', '[data-background-button]', '[data-rating]']:
+    for selector in ['[data-theme-toggle]', '[data-sound-toggle]', '[data-live-clock]', 'select[data-background-select]', '[data-rating]']:
         if not soup.select_one(selector): errors.append(f'{name}: missing {selector}')
     for text in ['Ramazan Utegen', 'Ziyadinkhan Kudaibergenuly', 'Ruzimuhammad', 'SE-2501']:
         if text not in soup.footer.get_text(' ', strip=True): errors.append(f'{name}: missing team credit {text}')

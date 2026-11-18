@@ -1286,7 +1286,7 @@ body[data-theme=night] .rating-stars button.is-selected {
 .editorial .travel-tools {
     border-top: 1px solid var(--line);
     border-bottom: 0;
-    background: var(--wash);
+    background: var(--paper);
     padding-block: clamp(24px, 4vw, 40px) !important;
     font-size: 1rem
 }
@@ -1320,6 +1320,21 @@ body[data-theme=night] .rating-stars button.is-selected {
     padding: 10px 18px !important;
     font-size: .9375rem;
     min-height: 44px
+}
+
+.background-picker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-weight: 650;
+}
+
+.editorial .background-picker .form-select {
+    width: auto;
+    min-width: 7rem;
+    font-size: 1rem;
+    border-radius: 6px;
 }
 
 .editorial footer {
@@ -1374,8 +1389,10 @@ body[data-theme=night] .rating-stars button.is-selected {
 }
 
 .editorial .guide-note p {
-    color: var(--muted);
-    font-size: 13px
+    max-width: 68ch;
+    color: var(--ink);
+    font-size: 1.125rem;
+    line-height: 1.6;
 }
 
 .editorial .guide-note .btn-group {

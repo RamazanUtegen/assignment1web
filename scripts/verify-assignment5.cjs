@@ -71,9 +71,10 @@ async function run(browserType, viewport) {
             assert.equal(await page.locator('body').getAttribute('data-bs-theme'), 'dark');
             await page.reload({ waitUntil: 'networkidle' });
             assert.equal(await page.locator('body').getAttribute('data-theme'), 'night');
-            for (const label of ['Sky', 'Steppe', 'Sand']) {
-                await page.locator('[data-background-button]').click();
-                assert.equal(await page.locator('[data-background-name]').innerText(), label);
+            const background = page.getByRole('combobox', { name: 'Background colour', exact: true });
+            for (const value of ['steppe', 'sky', 'sand']) {
+                await background.selectOption(value);
+                assert.equal(await background.inputValue(), value);
             }
             await toggleTheme();
             assert.equal(await page.locator('body').getAttribute('data-theme'), 'day');
