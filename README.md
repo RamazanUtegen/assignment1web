@@ -28,7 +28,7 @@ Then open [localhost:8765](http://127.0.0.1:8765/). No build, backend or package
 - FAQ search suggests city names, checks questions and answers, highlights matches and restores accordion state on clear.
 - A three-step route planner validates input, keeps choices on Back and generates a copyable itinerary.
 - Day/night theme, the Sand, Sky or Steppe background, saved places and per-page ratings persist in the browser. Optional sound starts only after a click.
-- Gallery controls, keyboard navigation, thumbnails and viewport lazy loading preserve the original photographs.
+- Gallery controls and keyboard navigation use compressed WebP previews and photos sized for the screen. Below-the-fold photos load near the viewport, and each carousel slide loads when selected.
 - Scroll progress, animated counters, fading notifications and copy buttons with success/error feedback.
 - Demo forms validate before showing a spinner; lock validated fields during processing and prevent duplicate submits. No data is sent.
 - Current weather and a three-day outlook for all four cities, on Home and each city guide.

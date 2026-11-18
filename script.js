@@ -286,11 +286,17 @@
                 return bounds.top < window.innerHeight + margin && bounds.bottom > -margin;
             }
             function loadImage(image) {
+                const source = image.dataset.src;
+                if (!source) return;
                 const $image = $(image);
-                if (!$image.attr('data-src')) return;
                 $image.one('load', function () { $(this).attr('data-lazy-state', 'loaded'); scheduleViewport(); });
                 $image.one('error', function () { $(this).attr('data-lazy-state', 'error'); });
-                $image.attr('data-lazy-state', 'loading').attr('src', $image.attr('data-src')).removeAttr('data-src');
+                $image.attr({ 'data-lazy-state': 'loading', loading: 'eager' });
+                if (image.dataset.srcset) {
+                    image.sizes = image.dataset.sizes;
+                    image.srcset = image.dataset.srcset;
+                }
+                $image.attr('src', source).removeAttr('data-src data-srcset data-sizes');
             }
             function updateViewport() {
                 viewportFrame = 0;

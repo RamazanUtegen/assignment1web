@@ -29,8 +29,8 @@ for page in sorted(path for path in paths if Path(path).suffix == '.html'):
             if not node.has_attr(attribute): continue
             url = urlsplit(node[attribute])
             if not url.scheme and not url.netloc: paths.add(unquote(url.path))
-    for node in soup.select('img[srcset], source[srcset]'):
-        for candidate in node['srcset'].split(','):
+    for node in soup.select('img[srcset], source[srcset], img[data-srcset]'):
+        for candidate in node.get('data-srcset', node.get('srcset')).split(','):
             url = urlsplit(candidate.split()[0])
             if not url.scheme and not url.netloc: paths.add(unquote(url.path))
 for stylesheet in [path for path in paths if path.endswith('.css')]:

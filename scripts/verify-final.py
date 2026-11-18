@@ -36,9 +36,12 @@ for name, soup in pages.items():
             if url.fragment and target.name in pages and not pages[target.name].find(id=url.fragment): errors.append(f'{name}: missing fragment {node[attr]}')
     for image in soup.select('img'):
         if not image.has_attr('alt'): errors.append(name+': image without alt')
-    for node in soup.select('img[srcset], source[srcset]'):
+    for node in soup.select('img[srcset], source[srcset], img[data-srcset]'):
+        deferred = node.has_attr('data-srcset')
+        if deferred and not node.has_attr('data-src'):
+            errors.append(f'{name}: deferred responsive image missing data-src')
         widths = set()
-        for candidate in node['srcset'].split(','):
+        for candidate in node['data-srcset' if deferred else 'srcset'].split(','):
             fields = candidate.split()
             if len(fields) != 2 or not re.fullmatch(r'[1-9]\d*w', fields[1]) or fields[1] in widths:
                 errors.append(f'{name}: invalid source candidate {candidate.strip()}')
@@ -49,7 +52,7 @@ for name, soup in pages.items():
             if not target.is_file(): errors.append(f'{name}: missing responsive image {source}')
             else: assets.add(str(target.relative_to(ROOT)))
         if len(widths) < 2: errors.append(f'{name}: expected multiple responsive image widths')
-        if not node.get('sizes'): errors.append(f'{name}: responsive image missing sizes')
+        if not node.get('data-sizes' if deferred else 'sizes'): errors.append(f'{name}: responsive image missing sizes')
     for selector in ['[data-account-link]','[data-theme-toggle]']:
         if not soup.select_one(selector): errors.append(name+': missing '+selector)
     for member in ['Ramazan Utegen','Ziyadinkhan Kudaibergenuly','Ruzimuhammad','SE-2501']:

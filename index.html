@@ -35,7 +35,7 @@
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
   </script>
-  <script defer="" src="script.js?v=11">
+  <script defer="" src="script.js?v=13">
   </script>
   <script defer="" src="js/weather.js?v=10">
   </script>
@@ -138,7 +138,7 @@
     <main class="w-100" id="main-content" tabindex="-1">
      <section class="hero editorial-hero home-hero" aria-labelledby="home-title">
       <picture>
-       <source media="(max-width: 639px)" srcset="images/responsive/kazakhstan-portrait-480.webp 480w, images/responsive/kazakhstan-portrait-960.webp 960w" sizes="100vw"/>
+       <source media="(max-width: 639px)" srcset="images/responsive/kazakhstan-portrait-480.webp 480w, images/responsive/kazakhstan-portrait-832.webp 832w, images/responsive/kazakhstan-portrait-960.webp 960w" sizes="100vw"/>
        <img alt="A river winding between forested mountains in Kazakhstan" class="hero-bg-img" decoding="async" fetchpriority="high" height="3070" src="images/KZ.jpg" srcset="images/responsive/kazakhstan-960.webp 960w, images/responsive/kazakhstan-1440.webp 1440w, images/responsive/kazakhstan-1920.webp 1920w" sizes="100vw" width="5464"/>
       </picture>
       <div class="hero-content">
@@ -189,7 +189,10 @@
        <div class="destination-grid">
         <div class="destination-column">
          <article class="card feature-card h-100" data-categories="nature" data-destination="aktau" data-search-text="aktau sea coast desert canyons mangystau caspian">
-          <img alt="Caspian cliff path beside the sea" class="card-img-top destination-photo" decoding="async" height="600" loading="lazy" src="images/responsive/aktau-coast-520.webp" srcset="images/responsive/aktau-coast-520.webp 520w, images/responsive/aktau-coast-900.webp 900w" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" width="900"/>
+          <img alt="Caspian cliff path beside the sea" class="card-img-top destination-photo" data-sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" data-src="images/responsive/aktau-coast-520.webp" data-srcset="images/responsive/aktau-coast-520.webp 520w, images/responsive/aktau-coast-900.webp 900w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="900"/>
+          <noscript>
+           <img alt="Caspian cliff path beside the sea" class="card-img-top destination-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" src="images/responsive/aktau-coast-520.webp" srcset="images/responsive/aktau-coast-520.webp 520w, images/responsive/aktau-coast-900.webp 900w" width="900"/>
+          </noscript>
           <div class="card-body">
            <h3 class="card-title">Aktau</h3>
            <p class="card-text">Walk the Caspian cliff path and take a day trip to Bozjyra’s chalk formations.</p>
@@ -203,7 +206,10 @@
         </div>
         <div class="destination-column">
          <article class="card feature-card h-100" data-categories="city" data-destination="astana" data-search-text="astana capital architecture city river">
-          <img alt="Astana skyline across the Ishim River" class="card-img-top destination-photo" decoding="async" height="4000" loading="lazy" src="images/responsive/astana-768.webp" srcset="images/responsive/astana-768.webp 768w, images/responsive/astana-1440.webp 1440w" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" width="6000"/>
+          <img alt="Astana skyline across the Ishim River" class="card-img-top destination-photo" data-sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" data-src="images/responsive/astana-768.webp" data-srcset="images/responsive/astana-480.webp 480w, images/responsive/astana-768.webp 768w, images/responsive/astana-864.webp 864w, images/responsive/astana-1440.webp 1440w" decoding="async" height="4000" loading="lazy" src="vendor/lazy-placeholder.svg" width="6000"/>
+          <noscript>
+           <img alt="Astana skyline across the Ishim River" class="card-img-top destination-photo" decoding="async" height="4000" loading="lazy" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" src="images/responsive/astana-768.webp" srcset="images/responsive/astana-480.webp 480w, images/responsive/astana-768.webp 768w, images/responsive/astana-864.webp 864w, images/responsive/astana-1440.webp 1440w" width="6000"/>
+          </noscript>
           <div class="card-body">
            <h3 class="card-title">Astana</h3>
            <p class="card-text">See the capital from Baiterek Tower, then follow the Ishim River past the modern skyline.</p>
@@ -217,7 +223,10 @@
         </div>
         <div class="destination-column">
          <article class="card feature-card h-100" data-categories="nature city" data-destination="almaty" data-search-text="almaty mountains lakes hiking city">
-          <img alt="Cables above Almaty and Kok Tobe hill with the Tian Shan in the distance" class="card-img-top destination-photo" decoding="async" height="1008" loading="lazy" src="images/responsive/almaty-768.webp" srcset="images/responsive/almaty-768.webp 768w, images/responsive/almaty-1440.webp 1440w" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" width="1800"/>
+          <img alt="Cables above Almaty and Kok Tobe hill with the Tian Shan in the distance" class="card-img-top destination-photo" data-sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" data-src="images/responsive/almaty-768.webp" data-srcset="images/responsive/almaty-480.webp 480w, images/responsive/almaty-768.webp 768w, images/responsive/almaty-864.webp 864w, images/responsive/almaty-1440.webp 1440w" decoding="async" height="1008" loading="lazy" src="vendor/lazy-placeholder.svg" width="1800"/>
+          <noscript>
+           <img alt="Cables above Almaty and Kok Tobe hill with the Tian Shan in the distance" class="card-img-top destination-photo" decoding="async" height="1008" loading="lazy" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" src="images/responsive/almaty-768.webp" srcset="images/responsive/almaty-480.webp 480w, images/responsive/almaty-768.webp 768w, images/responsive/almaty-864.webp 864w, images/responsive/almaty-1440.webp 1440w" width="1800"/>
+          </noscript>
           <div class="card-body">
            <h3 class="card-title">Almaty</h3>
            <p class="card-text">Explore the city’s tree-lined streets, then head to Medeu and Shymbulak in the Tian Shan.</p>
@@ -231,7 +240,10 @@
         </div>
         <div class="destination-column">
          <article class="card feature-card h-100" data-categories="culture" data-destination="shymkent" data-search-text="shymkent food silk road parks bazaar history culture">
-          <img alt="Tree-lined entrance to Shymkent dendropark" class="card-img-top destination-photo" decoding="async" height="803" loading="lazy" src="images/responsive/shymkent-park-520.webp" srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-1000.webp 1000w" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" width="1200"/>
+          <img alt="Tree-lined entrance to Shymkent dendropark" class="card-img-top destination-photo" data-sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" data-src="images/responsive/shymkent-park-520.webp" data-srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" decoding="async" height="803" loading="lazy" src="vendor/lazy-placeholder.svg" width="1200"/>
+          <noscript>
+           <img alt="Tree-lined entrance to Shymkent dendropark" class="card-img-top destination-photo" decoding="async" height="803" loading="lazy" sizes="(min-width: 1280px) 560px, (min-width: 640px) 45vw, calc(100vw - 40px)" src="images/responsive/shymkent-park-520.webp" srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" width="1200"/>
+          </noscript>
           <div class="card-body">
            <h3 class="card-title">Shymkent</h3>
            <p class="card-text">Walk through the dendropark, browse a local bazaar and try southern Kazakh cooking.</p>
@@ -259,7 +271,10 @@
         <h2 id="planner-title">Build a route</h2>
         <p>Choose a city and get a one-, two- or three-day itinerary you can copy.</p>
         <figure class="planner-photo">
-         <img alt="Chalk ridges rising from Bozjyra Canyon in Mangystau" decoding="async" height="3457" loading="lazy" src="images/responsive/bozjyra-480.webp" srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w" sizes="(min-width: 1200px) 480px, 40vw" width="5184"/>
+         <img alt="Chalk ridges rising from Bozjyra Canyon in Mangystau" data-sizes="(min-width: 1200px) 480px, 40vw" data-src="images/responsive/bozjyra-480.webp" data-srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" decoding="async" height="3457" loading="lazy" src="vendor/lazy-placeholder.svg" width="5184"/>
+         <noscript>
+          <img alt="Chalk ridges rising from Bozjyra Canyon in Mangystau" decoding="async" height="3457" loading="lazy" sizes="(min-width: 1200px) 480px, 40vw" src="images/responsive/bozjyra-480.webp" srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" width="5184"/>
+         </noscript>
          <figcaption>Bozjyra Canyon, Mangystau</figcaption>
         </figure>
        </div>
@@ -657,9 +672,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="aktau.html">
            <figure class="m-0">
-            <img alt="Camel and plateau in the Mangystau steppe" data-src="images/Aktaumainpage.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Camel and plateau in the Mangystau steppe" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/aktau-480.webp" data-srcset="images/responsive/aktau-480.webp 480w, images/responsive/aktau-768.webp 768w, images/responsive/aktau-864.webp 864w, images/responsive/aktau-1440.webp 1440w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" src="images/Aktaumainpage.jpg" width="800"/>
+             <img alt="Camel and plateau in the Mangystau steppe" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/Aktaumainpage.jpg" srcset="images/responsive/aktau-480.webp 480w, images/responsive/aktau-768.webp 768w, images/responsive/aktau-864.webp 864w, images/responsive/aktau-1440.webp 1440w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Mangystau Landscape
@@ -673,9 +688,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="astana.html">
            <figure class="m-0">
-            <img alt="Baiterek monument glowing at night in Astana" data-src="images/assignment2/baiterek-night.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Baiterek monument glowing at night in Astana" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/baiterek-night-480.webp" data-srcset="images/responsive/baiterek-night-480.webp 480w, images/responsive/baiterek-night-800.webp 800w, images/responsive/baiterek-night-1080.webp 1080w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Baiterek monument glowing at night in Astana" decoding="async" height="600" loading="lazy" src="images/assignment2/baiterek-night.jpg" width="800"/>
+             <img alt="Baiterek monument glowing at night in Astana" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/assignment2/baiterek-night.jpg" srcset="images/responsive/baiterek-night-480.webp 480w, images/responsive/baiterek-night-800.webp 800w, images/responsive/baiterek-night-1080.webp 1080w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Astana Baiterek
@@ -689,9 +704,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="almaty.html">
            <figure class="m-0">
-            <img alt="Tian Shan mountains near Almaty" data-src="images/Mountain.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Tian Shan mountains near Almaty" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/mountain-480.webp" data-srcset="images/responsive/mountain-480.webp 480w, images/responsive/mountain-718.webp 718w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Tian Shan mountains near Almaty" decoding="async" height="600" loading="lazy" src="images/Mountain.jpg" width="800"/>
+             <img alt="Tian Shan mountains near Almaty" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/Mountain.jpg" srcset="images/responsive/mountain-480.webp 480w, images/responsive/mountain-718.webp 718w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Almaty Peaks
@@ -705,9 +720,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="shymkent.html">
            <figure class="m-0">
-            <img alt="Green park entrance in Shymkent" data-src="images/shymkent1.jpeg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Green park entrance in Shymkent" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/shymkent-park-520.webp" data-srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Green park entrance in Shymkent" decoding="async" height="600" loading="lazy" src="images/shymkent1.jpeg" width="800"/>
+             <img alt="Green park entrance in Shymkent" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/shymkent1.jpeg" srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Shymkent Dendropark
@@ -721,9 +736,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="aktau.html">
            <figure class="m-0">
-            <img alt="Bozjyra chalk towers rising in Mangystau" data-src="images/bozjyra.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Bozjyra chalk towers rising in Mangystau" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/bozjyra-480.webp" data-srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Bozjyra chalk towers rising in Mangystau" decoding="async" height="600" loading="lazy" src="images/bozjyra.jpg" width="800"/>
+             <img alt="Bozjyra chalk towers rising in Mangystau" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/bozjyra.jpg" srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Bozjyra Canyon
@@ -737,9 +752,9 @@
          <div class="col-12 col-sm-6 col-lg-4">
           <a class="gallery-item d-block" href="astana.html">
            <figure class="m-0">
-            <img alt="Khan Shatyr tent architecture in Astana" data-src="images/assignment2/khan-shatyr.jpg" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
+            <img alt="Khan Shatyr tent architecture in Astana" data-sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" data-src="images/responsive/khan-shatyr-480.webp" data-srcset="images/responsive/khan-shatyr-480.webp 480w, images/responsive/khan-shatyr-800.webp 800w, images/responsive/khan-shatyr-960.webp 960w" decoding="async" height="600" loading="lazy" src="vendor/lazy-placeholder.svg" width="800"/>
             <noscript>
-             <img alt="Khan Shatyr tent architecture in Astana" decoding="async" height="600" loading="lazy" src="images/assignment2/khan-shatyr.jpg" width="800"/>
+             <img alt="Khan Shatyr tent architecture in Astana" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 390px, (min-width: 768px) 46vw, (min-width: 576px) 48vw, calc(100vw - 40px)" src="images/assignment2/khan-shatyr.jpg" srcset="images/responsive/khan-shatyr-480.webp 480w, images/responsive/khan-shatyr-800.webp 800w, images/responsive/khan-shatyr-960.webp 960w" width="800"/>
             </noscript>
             <figcaption class="px-3 pt-5 pb-3">
              Khan Shatyr
@@ -764,9 +779,9 @@
          <div aria-label="Destination photo gallery" aria-labelledby="carousel-title" aria-roledescription="carousel" class="carousel slide mx-auto rounded overflow-hidden" data-bs-interval="false" id="kazakhstan-carousel" role="region" tabindex="0">
           <div aria-live="polite" class="carousel-inner">
            <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-            <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" data-src="images/Aktaumainpage.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/aktau-480.webp" data-srcset="images/responsive/aktau-480.webp 480w, images/responsive/aktau-768.webp 768w, images/responsive/aktau-864.webp 864w, images/responsive/aktau-1440.webp 1440w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Aktaumainpage.jpg" width="1200"/>
+             <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/Aktaumainpage.jpg" srcset="images/responsive/aktau-480.webp 480w, images/responsive/aktau-768.webp 768w, images/responsive/aktau-864.webp 864w, images/responsive/aktau-1440.webp 1440w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -775,9 +790,9 @@
             </div>
            </div>
            <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" data-src="images/rocktrail.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/aktau-coast-520.webp" data-srcset="images/responsive/aktau-coast-520.webp 520w, images/responsive/aktau-coast-900.webp 900w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/rocktrail.jpg" width="1200"/>
+             <img alt="Rock Trail along the Caspian Sea" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/rocktrail.jpg" srcset="images/responsive/aktau-coast-520.webp 520w, images/responsive/aktau-coast-900.webp 900w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -786,9 +801,9 @@
             </div>
            </div>
            <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" data-src="images/bozjyra.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/bozjyra-480.webp" data-srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/bozjyra.jpg" width="1200"/>
+             <img alt="White chalk cliffs of Bozjyra" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/bozjyra.jpg" srcset="images/responsive/bozjyra-480.webp 480w, images/responsive/bozjyra-880.webp 880w, images/responsive/bozjyra-1280.webp 1280w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -797,9 +812,9 @@
             </div>
            </div>
            <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" data-src="images/Astanamainpage.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/astana-480.webp" data-srcset="images/responsive/astana-480.webp 480w, images/responsive/astana-768.webp 768w, images/responsive/astana-864.webp 864w, images/responsive/astana-1440.webp 1440w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Astanamainpage.jpg" width="1200"/>
+             <img alt="Modern skyline of Astana" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/Astanamainpage.jpg" srcset="images/responsive/astana-480.webp 480w, images/responsive/astana-768.webp 768w, images/responsive/astana-864.webp 864w, images/responsive/astana-1440.webp 1440w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -808,9 +823,9 @@
             </div>
            </div>
            <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" data-src="images/assignment2/baiterek-night.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/baiterek-night-480.webp" data-srcset="images/responsive/baiterek-night-480.webp 480w, images/responsive/baiterek-night-800.webp 800w, images/responsive/baiterek-night-1080.webp 1080w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/assignment2/baiterek-night.jpg" width="1200"/>
+             <img alt="Baiterek illuminated at night" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/assignment2/baiterek-night.jpg" srcset="images/responsive/baiterek-night-480.webp 480w, images/responsive/baiterek-night-800.webp 800w, images/responsive/baiterek-night-1080.webp 1080w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -819,9 +834,9 @@
             </div>
            </div>
            <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" data-src="images/assignment2/khan-shatyr.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/khan-shatyr-480.webp" data-srcset="images/responsive/khan-shatyr-480.webp 480w, images/responsive/khan-shatyr-800.webp 800w, images/responsive/khan-shatyr-960.webp 960w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/assignment2/khan-shatyr.jpg" width="1200"/>
+             <img alt="Khan Shatyr tent structure" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/assignment2/khan-shatyr.jpg" srcset="images/responsive/khan-shatyr-480.webp 480w, images/responsive/khan-shatyr-800.webp 800w, images/responsive/khan-shatyr-960.webp 960w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -830,9 +845,9 @@
             </div>
            </div>
            <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" data-src="images/Mountain.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/mountain-480.webp" data-srcset="images/responsive/mountain-480.webp 480w, images/responsive/mountain-718.webp 718w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/Mountain.jpg" width="1200"/>
+             <img alt="Mountain landscape near Almaty" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/Mountain.jpg" srcset="images/responsive/mountain-480.webp 480w, images/responsive/mountain-718.webp 718w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -841,9 +856,9 @@
             </div>
            </div>
            <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" data-src="images/shymkent.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/shymkent-480.webp" data-srcset="images/responsive/shymkent-480.webp 480w, images/responsive/shymkent-640.webp 640w, images/responsive/shymkent-864.webp 864w, images/responsive/shymkent-1200.webp 1200w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/shymkent.jpg" width="1200"/>
+             <img alt="City view of Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/shymkent.jpg" srcset="images/responsive/shymkent-480.webp 480w, images/responsive/shymkent-640.webp 640w, images/responsive/shymkent-864.webp 864w, images/responsive/shymkent-1200.webp 1200w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -852,9 +867,9 @@
             </div>
            </div>
            <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-            <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" data-src="images/shymkent1.jpeg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
+            <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" data-sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" data-src="images/responsive/shymkent-park-520.webp" data-srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>
             <noscript>
-             <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" src="images/shymkent1.jpeg" width="1200"/>
+             <img alt="Green park entrance in Shymkent" class="d-block w-100 carousel-photo" decoding="async" height="600" loading="lazy" sizes="(min-width: 1200px) 1140px, calc(100vw - 40px)" src="images/shymkent1.jpeg" srcset="images/responsive/shymkent-park-520.webp 520w, images/responsive/shymkent-park-800.webp 800w, images/responsive/shymkent-park-1000.webp 1000w" width="1200"/>
             </noscript>
             <div class="carousel-caption p-2 p-md-3">
              <p class="fw-bold mb-0">
@@ -880,58 +895,31 @@
          </div>
          <div class="gallery-thumbnails" data-gallery-for="kazakhstan-carousel">
           <button aria-label="View photo 1: Camel and plateau in the Mangystau steppe" aria-pressed="true" class="gallery-thumb is-active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/Aktaumainpage.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/Aktaumainpage.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/aktau-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 2: Rock Trail along the Caspian Sea" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="1" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/rocktrail.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/rocktrail.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/aktau-coast-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 3: White chalk cliffs of Bozjyra" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="2" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/bozjyra.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/bozjyra.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/bozjyra-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 4: Modern skyline of Astana" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="3" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/Astanamainpage.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/Astanamainpage.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/astana-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 5: Baiterek illuminated at night" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="4" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/assignment2/baiterek-night.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/assignment2/baiterek-night.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/baiterek-night-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 6: Khan Shatyr tent structure" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="5" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/assignment2/khan-shatyr.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/assignment2/khan-shatyr.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/khan-shatyr-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 7: Mountain landscape near Almaty" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="6" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/Mountain.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/Mountain.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/mountain-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 8: City view of Shymkent" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="7" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/shymkent.jpg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/shymkent.jpg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/shymkent-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
           <button aria-label="View photo 9: Green park entrance in Shymkent" aria-pressed="false" class="gallery-thumb" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
-           <img alt="" data-src="images/shymkent1.jpeg" decoding="async" loading="lazy" src="vendor/lazy-placeholder.svg"/>
-           <noscript>
-            <img alt="" decoding="async" loading="lazy" src="images/shymkent1.jpeg"/>
-           </noscript>
+           <img alt="" data-src="images/responsive/shymkent-park-thumb.webp" decoding="async" height="128" loading="lazy" src="vendor/lazy-placeholder.svg" width="176"/>
           </button>
          </div>
         </div>

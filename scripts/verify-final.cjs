@@ -94,6 +94,7 @@ async function run(channel,viewport) {
     try {
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         await ready(page,'index.html');
+        assert.equal(await page.locator('.gallery-thumb img[data-src]').count(),9,'Gallery thumbnails stay deferred on page open');
         const search=page.locator('[data-destination-search]');
         await search.fill('a'); await search.press('ArrowDown'); await search.press('Enter');
         assert.equal(await search.inputValue(),'Aktau');
@@ -250,6 +251,10 @@ async function run(channel,viewport) {
         await shot('weather-fixture','#weather');
         await page.locator('#gallery').scrollIntoViewIfNeeded(); await page.locator('.carousel-control-next').click();
         await page.waitForFunction(()=>document.querySelector('.carousel-item.active img').getAttribute('data-lazy-state')==='loaded');
+        assert.match(await page.locator('.carousel-item.active img').evaluate(image=>image.currentSrc),/\/images\/responsive\/aktau-coast-\d+\.webp$/);
+        await page.locator('.gallery-thumbnails').scrollIntoViewIfNeeded();
+        await page.waitForFunction(()=>[...document.querySelectorAll('.gallery-thumb img')].every(image=>image.dataset.lazyState==='loaded'));
+        assert.ok(await page.locator('.gallery-thumb img').evaluateAll(images=>images.every(image=>image.currentSrc.endsWith('-thumb.webp'))));
         await page.locator('[data-star="4"]').click(); assert.match(await page.locator('[data-rating-message]').innerText(),/4\/5/);
         await page.locator('.guide-stats').scrollIntoViewIfNeeded();
         await page.waitForFunction(()=>[...document.querySelectorAll('[data-counter]')].every(node=>node.textContent===node.dataset.counter));
@@ -318,6 +323,8 @@ async function run(channel,viewport) {
                 if(filename==='index.html') {
                     const cards=page.locator('#destinations');
                     await cards.evaluate(node=>node.scrollIntoView());
+                    await page.waitForFunction(()=>[...document.querySelectorAll('#destinations img[data-src]')]
+                        .every(image=>image.getBoundingClientRect().top>=innerHeight));
                     await cards.locator('.destination-photo').evaluateAll(images=>Promise.all(images
                         .filter(image=>image.getBoundingClientRect().top<innerHeight)
                         .map(image=>image.decode())));
@@ -357,7 +364,7 @@ async function run(channel,viewport) {
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         assert.deepEqual(errors,[]);
         results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
-            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','background colour selection across themes, navigation and reload','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
+            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','deferred WebP carousel photos and compact gallery thumbnails','ratings, optional sound, live clock, counters and reading progress','background colour selection across themes, navigation and reload','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
         console.log('PASS',channel||'chromium',viewport.width);
     } catch(error) {
         console.error('STATE',channel||'chromium',viewport.width,page.url(),await page.evaluate(()=>({session:localStorage.getItem('kz-session-v1'),jquery:document.body.dataset.jqueryReady,authScripts:[...document.scripts].filter(s=>s.src.includes('auth.js')).length})).catch(()=>null),errors);
@@ -386,6 +393,9 @@ async function restricted() {
         const staticPage=await nojs.newPage();await staticPage.goto(baseURL);
         assert.equal(await staticPage.locator('#main-navigation').isVisible(),true);
         assert.equal(await staticPage.locator('.faq-panel').first().isVisible(),true);
+        const photo=staticPage.locator('[data-destination=aktau] img:not([data-src])');
+        await photo.evaluate(image=>image.decode());
+        assert.match(await photo.evaluate(image=>image.currentSrc),/\/images\/responsive\/aktau-coast-\d+\.webp$/);
         await staticPage.goto(new URL('signup.html',baseURL).href);
         assert.equal(await staticPage.locator('[data-auth-form]').isVisible(),false);
         assert.equal(await staticPage.locator('.auth-noscript').isVisible(),true);

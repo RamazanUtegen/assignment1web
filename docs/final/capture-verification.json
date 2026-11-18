@@ -418,7 +418,119 @@
     "images/responsive/shymkent-1200.webp": 1200,
     "images/responsive/shymkent-640.webp": 640,
     "images/responsive/shymkent-park-1000.webp": 1000,
-    "images/responsive/shymkent-park-520.webp": 520
+    "images/responsive/shymkent-park-520.webp": 520,
+    "images/responsive/aktau-480.webp": 480,
+    "images/responsive/aktau-864.webp": 864,
+    "images/responsive/aktau-coast-thumb.webp": 176,
+    "images/responsive/aktau-thumb.webp": 176,
+    "images/responsive/almaty-480.webp": 480,
+    "images/responsive/almaty-864.webp": 864,
+    "images/responsive/almaty-city-480.webp": 480,
+    "images/responsive/almaty-city-600.webp": 600,
+    "images/responsive/almaty-city-thumb.webp": 176,
+    "images/responsive/almaty-gallery-1-480.webp": 480,
+    "images/responsive/almaty-gallery-1-800.webp": 800,
+    "images/responsive/almaty-gallery-1-thumb.webp": 176,
+    "images/responsive/almaty-gallery-2-1200.webp": 1200,
+    "images/responsive/almaty-gallery-2-480.webp": 480,
+    "images/responsive/almaty-gallery-2-800.webp": 800,
+    "images/responsive/almaty-gallery-2-thumb.webp": 176,
+    "images/responsive/almaty-gallery-3-1200.webp": 1200,
+    "images/responsive/almaty-gallery-3-480.webp": 480,
+    "images/responsive/almaty-gallery-3-800.webp": 800,
+    "images/responsive/almaty-gallery-3-thumb.webp": 176,
+    "images/responsive/almaty-gallery-4-1024.webp": 1024,
+    "images/responsive/almaty-gallery-4-480.webp": 480,
+    "images/responsive/almaty-gallery-4-800.webp": 800,
+    "images/responsive/almaty-gallery-4-thumb.webp": 176,
+    "images/responsive/almaty-gallery-5-480.webp": 480,
+    "images/responsive/almaty-gallery-5-800.webp": 800,
+    "images/responsive/almaty-gallery-5-960.webp": 960,
+    "images/responsive/almaty-gallery-5-thumb.webp": 176,
+    "images/responsive/almaty-gallery-6-1120.webp": 1120,
+    "images/responsive/almaty-gallery-6-480.webp": 480,
+    "images/responsive/almaty-gallery-6-800.webp": 800,
+    "images/responsive/almaty-gallery-6-thumb.webp": 176,
+    "images/responsive/almaty-gallery-7-1193.webp": 1193,
+    "images/responsive/almaty-gallery-7-480.webp": 480,
+    "images/responsive/almaty-gallery-7-800.webp": 800,
+    "images/responsive/almaty-gallery-7-thumb.webp": 176,
+    "images/responsive/almaty-gallery-8-1080.webp": 1080,
+    "images/responsive/almaty-gallery-8-480.webp": 480,
+    "images/responsive/almaty-gallery-8-800.webp": 800,
+    "images/responsive/almaty-gallery-8-thumb.webp": 176,
+    "images/responsive/almaty-gallery-9-1200.webp": 1200,
+    "images/responsive/almaty-gallery-9-480.webp": 480,
+    "images/responsive/almaty-gallery-9-800.webp": 800,
+    "images/responsive/almaty-gallery-9-thumb.webp": 176,
+    "images/responsive/almaty-thumb.webp": 176,
+    "images/responsive/astana-480.webp": 480,
+    "images/responsive/astana-864.webp": 864,
+    "images/responsive/astana-thumb.webp": 176,
+    "images/responsive/baiterek-night-1080.webp": 1080,
+    "images/responsive/baiterek-night-480.webp": 480,
+    "images/responsive/baiterek-night-800.webp": 800,
+    "images/responsive/baiterek-night-thumb.webp": 176,
+    "images/responsive/bozjyra-1280.webp": 1280,
+    "images/responsive/bozjyra-thumb.webp": 176,
+    "images/responsive/kazakhstan-480.webp": 480,
+    "images/responsive/kazakhstan-portrait-832.webp": 832,
+    "images/responsive/khan-shatyr-480.webp": 480,
+    "images/responsive/khan-shatyr-800.webp": 800,
+    "images/responsive/khan-shatyr-960.webp": 960,
+    "images/responsive/khan-shatyr-thumb.webp": 176,
+    "images/responsive/mountain-480.webp": 480,
+    "images/responsive/mountain-718.webp": 718,
+    "images/responsive/mountain-thumb.webp": 176,
+    "images/responsive/shymkent-480.webp": 480,
+    "images/responsive/shymkent-864.webp": 864,
+    "images/responsive/shymkent-city-1280.webp": 1280,
+    "images/responsive/shymkent-city-480.webp": 480,
+    "images/responsive/shymkent-city-800.webp": 800,
+    "images/responsive/shymkent-city-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-1-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-1-480.webp": 480,
+    "images/responsive/shymkent-gallery-1-800.webp": 800,
+    "images/responsive/shymkent-gallery-1-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-11-480.webp": 480,
+    "images/responsive/shymkent-gallery-11-800.webp": 800,
+    "images/responsive/shymkent-gallery-12-480.webp": 480,
+    "images/responsive/shymkent-gallery-12-800.webp": 800,
+    "images/responsive/shymkent-gallery-2-1200.webp": 1200,
+    "images/responsive/shymkent-gallery-2-480.webp": 480,
+    "images/responsive/shymkent-gallery-2-800.webp": 800,
+    "images/responsive/shymkent-gallery-2-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-3-1200.webp": 1200,
+    "images/responsive/shymkent-gallery-3-480.webp": 480,
+    "images/responsive/shymkent-gallery-3-800.webp": 800,
+    "images/responsive/shymkent-gallery-3-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-4-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-4-480.webp": 480,
+    "images/responsive/shymkent-gallery-4-800.webp": 800,
+    "images/responsive/shymkent-gallery-4-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-5-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-5-480.webp": 480,
+    "images/responsive/shymkent-gallery-5-800.webp": 800,
+    "images/responsive/shymkent-gallery-5-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-6-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-6-480.webp": 480,
+    "images/responsive/shymkent-gallery-6-800.webp": 800,
+    "images/responsive/shymkent-gallery-6-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-7-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-7-480.webp": 480,
+    "images/responsive/shymkent-gallery-7-800.webp": 800,
+    "images/responsive/shymkent-gallery-7-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-8-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-8-480.webp": 480,
+    "images/responsive/shymkent-gallery-8-800.webp": 800,
+    "images/responsive/shymkent-gallery-8-thumb.webp": 176,
+    "images/responsive/shymkent-gallery-9-1280.webp": 1280,
+    "images/responsive/shymkent-gallery-9-480.webp": 480,
+    "images/responsive/shymkent-gallery-9-800.webp": 800,
+    "images/responsive/shymkent-gallery-9-thumb.webp": 176,
+    "images/responsive/shymkent-park-800.webp": 800,
+    "images/responsive/shymkent-park-thumb.webp": 176,
+    "images/responsive/shymkent-thumb.webp": 176
   },
   "interfaceReview": {
     "checkedAtUTC": "2026-11-18T06:13:09.347372+00:00",
@@ -561,5 +673,109 @@
     "keyboardSelection": true,
     "navigationAndReload": true,
     "storageDeniedAppliesForCurrentPage": true
+  },
+  "imageLoading": {
+    "checkedAtUTC": "2026-11-18T07:20:10.274925+00:00",
+    "baselineCommit": "7f42c36",
+    "method": "Sum local raster asset body sizes once per requested URL during fresh Chrome sessions at 390 px and 1440 px. Gallery totals include all thumbnails and one selected slide.",
+    "comparisons": [
+      {
+        "page": "index.html",
+        "viewportWidth": 390,
+        "devicePixelRatio": 2,
+        "firstViewImageBytes": {
+          "before": 318518,
+          "after": 187440
+        },
+        "firstViewImageRequests": {
+          "before": 4,
+          "after": 2
+        },
+        "thumbnailBytes": {
+          "before": 8595027,
+          "after": 30360
+        },
+        "imageBytesAfterGallerySelection": {
+          "before": 8913545,
+          "after": 360504
+        }
+      },
+      {
+        "page": "shymkent.html",
+        "viewportWidth": 390,
+        "devicePixelRatio": 2,
+        "firstViewImageBytes": {
+          "before": 116398,
+          "after": 49512
+        },
+        "firstViewImageRequests": {
+          "before": 1,
+          "after": 1
+        },
+        "thumbnailBytes": {
+          "before": 5083597,
+          "after": 44678
+        },
+        "imageBytesAfterGallerySelection": {
+          "before": 5199995,
+          "after": 186356
+        }
+      },
+      {
+        "page": "login.html",
+        "viewportWidth": 390,
+        "devicePixelRatio": 2,
+        "firstViewImageBytes": {
+          "before": 120493,
+          "after": 0
+        },
+        "firstViewImageRequests": {
+          "before": 1,
+          "after": 0
+        }
+      },
+      {
+        "page": "index.html",
+        "viewportWidth": 1440,
+        "devicePixelRatio": 1,
+        "firstViewImageBytes": {
+          "before": 537448,
+          "after": 271050
+        },
+        "firstViewImageRequests": {
+          "before": 5,
+          "after": 3
+        },
+        "thumbnailBytes": {
+          "before": 8595027,
+          "after": 30360
+        },
+        "imageBytesAfterGallerySelection": {
+          "before": 9132475,
+          "after": 622940
+        }
+      },
+      {
+        "page": "shymkent.html",
+        "viewportWidth": 1440,
+        "devicePixelRatio": 1,
+        "firstViewImageBytes": {
+          "before": 116398,
+          "after": 116398
+        },
+        "firstViewImageRequests": {
+          "before": 1,
+          "after": 1
+        },
+        "thumbnailBytes": {
+          "before": 5083597,
+          "after": 44678
+        },
+        "imageBytesAfterGallerySelection": {
+          "before": 5199995,
+          "after": 339196
+        }
+      }
+    ]
   }
 }

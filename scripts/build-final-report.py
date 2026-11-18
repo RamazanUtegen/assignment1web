@@ -153,7 +153,7 @@ add('The forecast loads near the viewport. Users can choose another city or refr
 add('A fresh cache avoids repeat requests for 10 minutes. If an update fails, a clearly dated saved forecast up to 24 hours old may be shown. Expired or corrupt data is ignored. Without usable data the page offers retry and never fabricates a forecast. Source attribution and CC BY 4.0 are shown in the UI.')
 
 heading('RESPONSIVENESS AND THEMES','One interface across screen sizes')
-add('Bootstrap, Flexbox and CSS Grid adapt navigation, cards, the weather panel and account pages. The navbar collapses below 1200 px to leave room for the account action on tablets. Text and user details wrap; layouts stack on phones.')
+add('Bootstrap, Flexbox and CSS Grid adapt navigation, cards, the weather panel and account pages. Text wraps and layouts stack on phones. Responsive WebP photos match the display size. Gallery thumbnails use small previews and offscreen photos wait until they are needed.')
 row=[[picture('index-mobile',260,155),picture('destinations-desktop-night',240,325)],[p('Home at 390 px with the portrait crop.','KCaption'),p('City discovery in the night theme.','KCaption')]]
 t=Table(row,colWidths=[185,W-185]);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOTTOMPADDING',(0,0),(-1,-1),8)]));story.append(t)
 matrix = [

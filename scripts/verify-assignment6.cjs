@@ -46,7 +46,7 @@ async function run(browserType, viewport, channel) {
         assert.equal(await page.evaluate(() => jQuery.fn.jquery), '4.0.0');
         assert.ok(logs.includes('jQuery is ready!'));
         assert.ok(await page.locator('img[data-src]').count() > 5, 'offscreen images are deferred');
-        assert.ok(!requests.some(url => url.includes('/images/rocktrail.jpg')), 'offscreen carousel image was not fetched');
+        assert.ok(!requests.some(url => url.includes('/images/responsive/aktau-coast-thumb.webp')), 'offscreen gallery thumbnail was not fetched');
         await shot(live ? 'live-home' : 'home');
         if (!channel && viewport.width === 390) await page.screenshot({ path: path.join(shots, 'mobile-home.png') });
         const search = page.locator('[data-destination-search]');
@@ -151,7 +151,7 @@ async function run(browserType, viewport, channel) {
         await page.locator('#gallery').scrollIntoViewIfNeeded();
         await page.locator('.carousel-control-next').first().click();
         await page.waitForFunction(() => document.querySelector('.carousel-item.active img').getAttribute('data-lazy-state') === 'loaded');
-        assert.ok(requests.some(url => url.includes('/images/rocktrail.jpg')));
+        assert.match(await page.locator('.carousel-item.active img').evaluate(image => image.currentSrc), /\/images\/responsive\/aktau-coast-\d+\.webp$/);
         await shot('task-9-lazy', '.carousel');
         await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         await page.waitForTimeout(300);
