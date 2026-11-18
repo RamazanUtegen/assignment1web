@@ -1,68 +1,289 @@
-/* Final project: shared account pages and a responsive travel notebook. */
-.editorial .header-inner { gap: 24px; padding-inline: 32px; }
-.editorial .navbar-nav { gap: 16px; }
-.nav-actions { gap: 8px; }
-.account-nav { color: var(--blue); font-weight: 700; font-size: 12px; white-space: nowrap; padding: 12px 6px; }
-.account-page { background: var(--wash); }
-.account-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; padding-block: 72px; }
-.account-intro h1 { font-size: clamp(42px, 5.5vw, 74px); line-height: 1.05; font-weight: 800; margin: 0 0 22px; }
-.account-intro > p { max-width: 480px; }
-.account-intro img { display: block; width: 100%; height: 290px; object-fit: cover; border-radius: 10px; margin-top: 30px; }
-.account-intro figcaption { font-size: 12px; color: var(--muted); margin-top: 9px; }
-.account-form { background: var(--panel); padding: 32px; border: 1px solid var(--line); border-radius: 12px; }
-body.editorial .account-form h2 { font-size: 26px; margin: 0 0 10px; }
-.account-form .field { margin-block: 18px; }
-.account-form label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 7px; }
-.account-form .form-control { padding: 12px 14px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; }
-.account-form .form-text, .account-note { font-size: 12px; color: var(--muted); }
-.account-form .form-status { margin: 16px 0 0; }
-.account-form .field-error { font-size: 12px; }
-.password-field { position: relative; }
-.password-field input { padding-right: 68px !important; }
-.password-field .field-error { padding-right: 0; }
-.password-toggle { position: absolute; top: 6px; right: 6px; padding: 7px 10px; min-height: 34px; border: 0; border-radius: 4px; background: var(--wash); color: var(--blue); font: 650 12px 'DM Sans', Arial, sans-serif; }
-.account-submit { width: 100%; margin-top: 10px; }
-.account-consent { display: flex; gap: 10px; align-items: flex-start; margin-block: 20px; flex-wrap: wrap; }
-.account-consent label { font-size: 12px; font-weight: 400; flex: 1; margin-bottom: 0; }
-.account-consent input { width: 17px; height: 17px; margin-top: 3px; }
-.account-consent .field-error { flex-basis: 100%; order: 3; }
-.community-join { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.community-join p { max-width: 650px; color: var(--muted); }
-.community-actions { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
-.profile-hero { padding: 58px 0 36px; background: var(--wash); }
-.profile-hero h1 { font-size: clamp(36px, 5vw, 60px); margin: 0 0 14px; font-weight: 800; }
-.profile-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; padding-block: 40px 64px; }
-.profile-panel { border: 1px solid var(--line); border-radius: 12px; padding: 30px; background: var(--panel); min-width: 0; }
-.profile-avatar { width: 64px; height: 64px; background: var(--lime); color: #172124; display: grid; place-items: center; border-radius: 50%; font-weight: 800; font-size: 24px; margin-bottom: 20px; }
-body.editorial .profile-panel h2 { font-size: 26px; }
-.profile-details { margin: 24px 0; }
-.profile-details dt { color: var(--muted); font-size: 12px; margin-top: 15px; }
-.profile-details dd { overflow-wrap: anywhere; font-size: 15px; margin-top: 4px; }
-.profile-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
-.saved-guides { list-style: none; margin: 22px 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.saved-guide-link { display: block; border: 1px solid var(--line); border-radius: 6px; padding: 18px; font-weight: 650; transition: background .2s, transform .2s; }
-.saved-guide-link:hover { background: var(--wash); transform: translateY(-2px); }
-.profile-scene { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: 6px; margin-block: 20px; }
-.profile-locked { max-width: 720px; padding-block: 80px; }
-.editorial .btn:hover:not(:disabled) { transform: translateY(-2px); }
-.editorial .btn:active:not(:disabled) { transform: translateY(0); }
-.account-link-row { font-size: 13px; margin-top: 22px; }
-.auth-noscript { padding: 18px; border-left: 3px solid var(--blue); background: var(--panel); }
-@media(max-width: 1199px) {
-    .editorial .nav-actions { padding-block: 12px; flex-wrap: wrap; }
-    .editorial .header-inner { padding-inline: 24px; }
-    .editorial .navbar .nav-link { padding: 12px 0 !important; }
-    .account-layout { gap: 32px; padding-block: 48px; }
-    .community-join { flex-direction: column; align-items: flex-start; }
+/* Account pages share the guide's typography and controls. */
+.editorial .account-nav {
+    display: inline-flex;
+    align-items: center;
+    color: var(--nav-ink);
+    min-height: 44px;
+    padding: 0 8px;
+    font-size: .94rem;
+    font-weight: 700;
+    white-space: nowrap;
 }
-@media(max-width: 767px) {
-    .account-layout, .profile-layout { grid-template-columns: 1fr; gap: 25px; }
-    .account-layout { padding-block: 34px; }
-    .account-intro img { height: 180px; margin-top: 20px; }
-    .account-form, .profile-panel { padding: 22px; }
-    .profile-layout { padding-block: 26px 40px; }
-    .profile-hero { padding-block: 38px 24px; }
-    .saved-guides { grid-template-columns: 1fr; }
-    .community-actions { flex-shrink: 1; }
+
+.editorial :is(.account-page, .profile-layout) {
+    color: var(--ink);
 }
-@media(prefers-reduced-motion:reduce) { .editorial .btn:hover, .saved-guide-link:hover { transform: none; } }
+
+.editorial:is(.page-signup, .page-login, .page-profile) #main-header {
+    --nav-height: 62px;
+}
+
+.account-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(36px, 8vw, 116px);
+    max-width: 1130px;
+    padding: clamp(28px, 4.1vw, 58px) var(--gutter) !important;
+}
+
+.account-intro h1,
+.profile-hero h1 {
+    font-size: clamp(2.45rem, 3.7vw, 3.15rem);
+    line-height: 1.03;
+    font-weight: 780;
+    margin: 0 0 14px;
+    text-wrap: balance;
+}
+
+.account-intro > p,
+.profile-hero p {
+    max-width: 48ch;
+    color: var(--muted);
+    margin: 0 0 24px;
+}
+
+.account-photo {
+    position: relative;
+    margin: 0;
+}
+
+.account-photo img {
+    width: 100%;
+    height: clamp(400px, 49vw, 645px);
+    object-fit: cover;
+    object-position: 47% 42%;
+    border-radius: 12px;
+}
+
+.account-photo figcaption {
+    margin-top: 8px;
+    text-align: left;
+    font-size: .86rem;
+}
+
+.account-form .field {
+    margin-block: 12px;
+}
+
+.account-form label {
+    display: block;
+    font-size: .92rem;
+    font-weight: 680;
+    margin-bottom: 4px;
+}
+
+.editorial .account-form .form-control {
+    min-height: 48px;
+    padding: 10px 13px;
+    color: var(--ink);
+    border-radius: 6px;
+}
+
+.account-note,
+.account-form .form-text {
+    font-size: .87rem;
+    color: var(--muted);
+}
+
+.account-note {
+    margin: 0 0 18px;
+}
+
+.account-form .form-status {
+    margin: 10px 0 13px;
+}
+
+.account-form .field-error {
+    margin-bottom: 0;
+}
+
+.password-field {
+    position: relative;
+}
+
+.editorial .password-field input {
+    padding-right: 73px !important;
+}
+
+.editorial .password-field .form-control.is-invalid {
+    background-image: none;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    min-height: 44px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--accent);
+    font: 650 .88rem 'DM Sans', Arial, sans-serif;
+}
+
+.password-toggle:hover {
+    text-decoration: underline;
+}
+
+.account-submit {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.account-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0 10px;
+    margin-block: 9px;
+    flex-wrap: wrap;
+}
+
+.account-consent label {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    flex: 1;
+    cursor: pointer;
+    font-weight: 450;
+    margin-bottom: 0;
+}
+
+.account-consent input {
+    width: 18px;
+    height: 18px;
+    margin-top: 13px;
+}
+
+.account-consent .field-error {
+    flex-basis: 100%;
+}
+
+.account-link-row {
+    margin: 16px 0 0;
+    font-size: .92rem;
+}
+
+.account-link-row a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.auth-noscript {
+    padding: 12px 16px;
+    background: var(--wash);
+    border-radius: 6px;
+}
+
+.community-join {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.community-join p {
+    max-width: 62ch;
+    color: var(--muted);
+}
+
+.community-actions,
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-hero {
+    padding-top: clamp(32px, 4.5vw, 64px);
+    padding-bottom: 18px;
+    background: var(--wash);
+    border-bottom: 1px solid var(--line);
+}
+
+.profile-hero > .container,
+.profile-layout {
+    max-width: 1130px;
+    padding-inline: var(--gutter) !important;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.22fr) minmax(0, .78fr);
+    gap: clamp(22px, 4vw, 58px);
+    padding-block: clamp(24px, 4vw, 58px);
+    align-items: start;
+}
+
+.profile-panel {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+    padding: clamp(17px, 3vw, 36px);
+    overflow-wrap: anywhere;
+}
+
+.editorial .profile-panel h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.55rem, 2.9vw, 2.3rem);
+    text-wrap: wrap;
+}
+
+.profile-avatar {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    color: var(--accent);
+    background: var(--accent-wash);
+    font-weight: 760;
+}
+
+.profile-details dt {
+    font-size: .83rem;
+    color: var(--muted);
+}
+
+.profile-details dd {
+    margin-bottom: 12px;
+}
+
+.profile-actions {
+    margin-top: 18px;
+}
+
+.saved-guides {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+}
+
+.saved-guides:empty {
+    border: 0;
+}
+
+.saved-guide-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 9px 4px;
+    border-bottom: 1px solid var(--line);
+    font-weight: 700;
+}
+
+.editorial .profile-locked {
+    min-height: 40vh;
+}
+
+@media (max-width: 767.98px) {
+    .account-layout, .profile-layout { grid-template-columns: minmax(0, 1fr); }
+    .account-photo { display: none; }
+    .account-intro > p { margin-bottom: 18px; }
+    .community-join { align-items: flex-start; flex-direction: column; gap: 8px; }
+}

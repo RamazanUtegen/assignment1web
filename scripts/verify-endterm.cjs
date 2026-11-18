@@ -195,8 +195,9 @@ async function formAndMobile(browser) {
     const form = page.locator('dialog [data-demo-form]');
     await form.locator('[name=name]').fill('Demo Traveller');
     await form.locator('[name=email]').fill('demo@example.com');
+    await form.locator('[name=phone]').fill('+7 777 123 45 67');
     await form.locator('[name=message]').fill('A sample travel enquiry.');
-    await form.locator('input[type=checkbox][required]').check();
+    await form.locator('input[type=checkbox][data-rules~=required]').check();
     await form.locator('button[type=submit]').click();
     assert.equal(await form.locator('[name=name]').isDisabled(), true);
     assert.equal(await form.locator('[name=email]').isDisabled(), true);

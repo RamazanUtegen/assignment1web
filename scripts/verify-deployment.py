@@ -29,9 +29,17 @@ for page in sorted(path for path in paths if Path(path).suffix == '.html'):
             if not node.has_attr(attribute): continue
             url = urlsplit(node[attribute])
             if not url.scheme and not url.netloc: paths.add(unquote(url.path))
-for font in re.findall(r'url\([\'"]?([^\)\'\"]+)', (ROOT / 'css/editorial.css').read_text(encoding='utf-8')):
-    path = unquote(urlsplit(urljoin(BASE + 'css/editorial.css', font)).path)
-    paths.add(path.removeprefix('/assignment1web/'))
+    for node in soup.select('img[srcset], source[srcset]'):
+        for candidate in node['srcset'].split(','):
+            url = urlsplit(candidate.split()[0])
+            if not url.scheme and not url.netloc: paths.add(unquote(url.path))
+for stylesheet in [path for path in paths if path.endswith('.css')]:
+    css = (ROOT / stylesheet).read_text(encoding='utf-8')
+    for value in re.findall(r'url\([\'"]?([^\)\'\"]+)', css):
+        url = urlsplit(value)
+        if not url.scheme and not url.netloc:
+            path = unquote(urlsplit(urljoin(BASE + stylesheet, value)).path)
+            paths.add(path.removeprefix('/assignment1web/'))
 
 def check(path):
     url = BASE + path + '?verify=' + args.commit[:12]

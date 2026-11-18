@@ -37,8 +37,11 @@ for name, soup in soups.items():
     old = subprocess.run(['git', 'show', f'{BASE_REF}:{name}'], cwd=ROOT, capture_output=True, check=True).stdout.decode('utf-8')
     old_sources = {img.get('src') for img in BeautifulSoup(old, 'html.parser').select('img')}
     new_sources = {img.get('src') for img in soup.select('img')}
+    if name == 'almaty.html':
+        # The original mountain portrait now supports the account pages.
+        new_sources.update(img.get('src') for img in BeautifulSoup((ROOT / 'signup.html').read_text(encoding='utf-8'), 'html.parser').select('img'))
     if old_sources - new_sources: errors.append(f'{name}: removed original images {old_sources - new_sources}')
-changed_images = subprocess.run(['git', 'diff', '--name-only', BASE_REF, '--', 'images'], cwd=ROOT, capture_output=True, check=True).stdout.decode().strip()
+changed_images = subprocess.run(['git', 'diff', '--diff-filter=DMRT', '--name-only', BASE_REF, '--', 'images'], cwd=ROOT, capture_output=True, check=True).stdout.decode().strip()
 if changed_images: errors.append('Original image files changed: ' + changed_images)
 if errors: raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(PAGES)} pages; resources and anchors; IDs; semantics; team credits; no inline scripts/styles; all original photos preserved.')

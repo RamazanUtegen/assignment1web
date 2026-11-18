@@ -11,6 +11,7 @@ const password = 'TravelPass9!';
 const email = 'demo.traveller@example.com';
 const pages = ['index.html','aktau.html','astana.html','almaty.html','shymkent.html','about.html','signup.html','login.html','profile.html'];
 const api = 'https://api.open-meteo.com/v1/forecast**';
+const viewports = [{width:1440,height:1000},{width:1024,height:900},{width:768,height:900},{width:390,height:844}];
 const fixture = {
     current_units: { temperature_2m: '°C', wind_speed_10m: 'km/h' },
     current: { time: Math.floor(Date.now()/1000), temperature_2m: 8, apparent_temperature: 5, weather_code: 2, wind_speed_10m: 12, is_day: 1 },
@@ -38,9 +39,42 @@ async function theme(page) {
     await page.locator('[data-theme-toggle]').click();
     if(mobile) { await page.locator('.navbar-toggler').click(); await page.locator('#main-navigation.show').waitFor({state:'hidden'}); }
 }
+function launch(channel) {
+    const executablePath = channel === 'msedge' ? process.env.KZ_EDGE_EXECUTABLE : process.env.KZ_CHROMIUM_EXECUTABLE;
+    return chromium.launch({ headless:true, channel, executablePath });
+}
+async function keyboardNavigation(page) {
+    // A same-page fragment navigation can leave the previous control focused.
+    await page.evaluate(() => {
+        document.body.tabIndex = -1;
+        document.body.focus();
+        document.body.removeAttribute('tabindex');
+    });
+    await page.keyboard.press('Tab');
+    assert.equal(await page.locator('.skip-link').evaluate(link=>link===document.activeElement),true);
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('#main-content').evaluate(main=>main===document.activeElement),true);
+    const toggle = page.locator('.navbar-toggler');
+    const links = page.locator('#main-navigation .nav-link');
+    if (await toggle.isVisible()) {
+        await toggle.focus();
+        await page.keyboard.press('Space');
+        await links.first().waitFor();
+        await links.first().focus();
+        await page.keyboard.press('Escape');
+        await links.first().waitFor({state:'hidden'});
+        assert.equal(await toggle.evaluate(button=>button===document.activeElement),true);
+        assert.ok((await toggle.boundingBox()).height>=44);
+    } else {
+        await links.first().focus();
+        await page.keyboard.press('ArrowRight');
+        assert.equal(await links.nth(1).evaluate(link=>link===document.activeElement),true);
+    }
+}
 async function run(channel,viewport) {
-    const browser=await chromium.launch({headless:true,...(channel?{channel}:{})});
-    const context=await browser.newContext({viewport,timezoneId:'America/New_York',reducedMotion:'reduce'});
+    const browser=await launch(channel);
+    const mobile=viewport.width===390;
+    const context=await browser.newContext({viewport,hasTouch:mobile,isMobile:mobile,timezoneId:'America/New_York',reducedMotion:'reduce'});
     await context.grantPermissions(['clipboard-read','clipboard-write']);
     await context.route(api,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fixture)}));
     const page=await context.newPage();
@@ -48,6 +82,7 @@ async function run(channel,viewport) {
     page.on('pageerror',error=>errors.push(error.message));
     page.on('response',response=>{if(response.status()>=400)errors.push(`${response.status()}: ${response.url()}`);});
     const capture=!channel&&viewport.width===1440;
+    const layoutChecks=[];
     async function shot(name,selector) {
         if(!capture) return;
         if(selector) {
@@ -58,7 +93,35 @@ async function run(channel,viewport) {
     }
     try {
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
-        await ready(page,'signup.html');
+        await ready(page,'index.html');
+        const search=page.locator('[data-destination-search]');
+        await search.fill('a'); await search.press('ArrowDown'); await search.press('Enter');
+        assert.equal(await search.inputValue(),'Aktau');
+        await search.fill('');
+        await page.locator('[data-filter=nature]').click();
+        assert.equal(await page.locator('.destination-column:visible').count(),2);
+        await search.fill('almaty');
+        assert.equal(await page.locator('.destination-column:visible').count(),1);
+        assert.ok(await page.locator('[data-destination=almaty] mark').count()>0);
+        const save=page.locator('[data-save=almaty]');
+        if(capture) {
+            await page.emulateMedia({reducedMotion:'no-preference'});
+            assert.equal(await save.evaluate(button=>getComputedStyle(button).transitionDuration),'0.12s, 0.18s, 0.18s, 0.18s');
+            await page.emulateMedia({reducedMotion:'reduce'});
+            assert.equal(await save.evaluate(button=>getComputedStyle(button).transitionDuration),'0s');
+        }
+        if(mobile) await save.tap(); else await save.click();
+        assert.equal(await save.getAttribute('aria-pressed'),'true');
+        assert.match(await save.innerText(),/Saved/);
+        await page.locator('[data-filter=saved]').click();
+        await shot('search','#destinations');
+        await page.reload();
+        assert.equal(await save.getAttribute('aria-pressed'),'true');
+        const menu=page.locator('.navbar-toggler');
+        if(await menu.isVisible()) await menu.click();
+        await page.locator('[data-account-link]').click();
+        await page.locator('.account-link-row a[href="signup.html"]').click();
+        await page.locator('[data-auth-ready=true]').waitFor();
         await page.locator('button[type=submit]').click();
         assert.equal(await page.locator('[aria-invalid=true]').count(),6);
         await fillSignup(page,{email:'invalid-email',phone:'123',password:'short',confirmPassword:'different'});
@@ -67,6 +130,7 @@ async function run(channel,viewport) {
         assert.match(await page.locator('#account-phone-error').innerText(),/10–15/);
         assert.match(await page.locator('#account-password-error').innerText(),/uppercase/);
         assert.match(await page.locator('#account-confirm-error').innerText(),/match/);
+        assert.equal(await page.locator('#account-password').evaluate(field=>getComputedStyle(field).backgroundImage),'none');
         await shot('signup-validation','.account-form');
         await page.locator('[data-password-toggle=account-password]').click();
         assert.equal(await page.locator('#account-password').getAttribute('type'),'text');
@@ -90,56 +154,126 @@ async function run(channel,viewport) {
         await page.locator('button[type=submit]').click(); await page.waitForURL('**/profile.html');
         assert.equal(await page.locator('[data-profile-name]').innerText(),'Demo Traveller');
         assert.equal(await page.locator('[data-profile-email]').innerText(),email);
+        assert.equal(await page.locator('[data-profile-phone]').innerText(),'+7 777 123 45 67');
+        assert.equal(await page.locator('[data-profile-saved] a').getAttribute('href'),'almaty.html');
         await page.reload(); await page.locator('[data-profile-content]:visible').waitFor();
+        assert.match(await page.locator('[data-profile-saved]').innerText(),/Almaty/);
         await shot('profile');
         await ready(page,'signup.html'); await fillSignup(page);
         await page.locator('button[type=submit]').click();
         await page.waitForFunction(()=>document.querySelector('#account-email-error').textContent.includes('already exists'));
         assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kz-users-v1')).length),1);
-        await ready(page,'index.html');
-        await page.locator('[data-destination-search]').fill('almaty');
-        assert.equal(await page.locator('.destination-column:visible').count(),1);
-        assert.ok(await page.locator('[data-destination=almaty] mark').count()>0);
-        await page.locator('[data-destination-search]').fill('a');
-        await page.locator('[data-destination-search]').press('ArrowDown');
-        await page.locator('[data-destination-search]').press('Enter');
-        assert.equal(await page.locator('[data-destination-search]').inputValue(),'Aktau');
-        await page.locator('[data-destination-search]').fill('');
-        await page.locator('[data-filter=nature]').click(); assert.equal(await page.locator('.destination-column:visible').count(),2);
-        await page.locator('[data-save=aktau]').click();
-        await shot('search','#destinations');
-        await ready(page,'profile.html'); assert.equal(await page.locator('[data-profile-saved] a').innerText(),'Aktau ↗');
+        await ready(page,'profile.html');
         await theme(page); assert.equal(await page.locator('body').getAttribute('data-theme'),'night');
         await ready(page,'login.html'); assert.equal(await page.locator('body').getAttribute('data-theme'),'night');
         await shot('login-night','.account-layout');
         await ready(page,'profile.html'); await shot('profile-night');
         await theme(page);
-        await ready(page,'index.html');
+        await page.locator('.profile-actions a[href="index.html#trip-planner"]').click();
+        await page.locator('[data-jquery-ready=true]').waitFor();
         await page.locator('[data-faq-search]').fill('guide'); assert.ok(await page.locator('#faq mark').count()>0);
         await page.locator('[data-faq-search]').fill('['); assert.equal(await page.locator('.faq-item:visible').count(),0);
         await page.locator('[data-faq-search]').fill('');
+        const next=page.locator('[data-planner-next]');
+        await next.click();
+        assert.match(await page.locator('#trip-planner-error').innerText(),/Choose a destination/);
         await page.locator('[data-trip-planner] [value=almaty]').check();
-        await page.locator('[data-planner-next]').click(); await page.locator('[name=traveler]').fill('Demo');
-        await page.locator('[name=days]').selectOption('3');
-        await page.locator('[data-planner-next]').click(); await page.locator('[data-planner-next]').click();
-        await page.locator('[data-copy=route-copy-text]').click();
-        await page.locator('#route-copy-tooltip').waitFor({state:'visible'});
-        assert.match(await page.evaluate(()=>navigator.clipboard.readText()),/Day 3:/);
+        await next.click();
+        if(capture) {
+            const step=page.locator('[data-planner-step="1"]');
+            assert.equal(await step.evaluate(node=>getComputedStyle(node).animationName),'none');
+            await page.emulateMedia({reducedMotion:'no-preference'});
+            assert.equal(await step.evaluate(node=>getComputedStyle(node).animationDuration),'0.18s');
+            await page.emulateMedia({reducedMotion:'reduce'});
+        }
+        await next.click();
+        assert.match(await page.locator('#trip-name-error').innerText(),/Enter your first name/);
+        assert.equal(await page.locator('#trip-name').getAttribute('aria-invalid'),'true');
+        await page.locator('[name=traveler]').fill('Demo');
+        await page.locator('[name=days]').selectOption('2');
+        await next.click(); await next.click();
+        assert.equal(await page.locator('[data-trip-stops] li').count(),2);
+        const copyRoute=page.locator('[data-copy=route-copy-text]');
+        await copyRoute.focus();
+        await page.keyboard.press('Enter');
+        await page.locator('#route-copy-tooltip').filter({hasText:'Copied to clipboard.'}).waitFor();
+        assert.equal(await copyRoute.evaluate(button=>button===document.activeElement),true);
+        assert.ok(await copyRoute.evaluate(button=>{
+            const {color,backgroundColor}=getComputedStyle(button);
+            return color!==backgroundColor;
+        }), 'Focused copy label remains visible');
+        assert.match(await page.evaluate(()=>navigator.clipboard.readText()),/Day 2:/);
         await shot('planner','[data-trip-planner]');
+        await page.locator('#weather').scrollIntoViewIfNeeded();
+        await page.locator('[data-weather-state=ready]').waitFor();
+        assert.equal(await page.locator('[data-weather-name]').innerText(),'Almaty');
+        assert.equal(await page.locator('[data-weather-days] li').count(),3);
+        assert.equal(await page.locator('[data-weather-result] svg').count(),4);
+        if(capture) {
+            const refresh=page.locator('[data-weather-refresh]');
+            await refresh.hover();
+            assert.ok(await refresh.evaluate(button=>{
+                const {color,backgroundColor}=getComputedStyle(button);
+                return color!==backgroundColor;
+            }), 'Hovered weather refresh label remains visible');
+        }
+        await shot('weather-fixture','#weather');
         await page.locator('#gallery').scrollIntoViewIfNeeded(); await page.locator('.carousel-control-next').click();
         await page.waitForFunction(()=>document.querySelector('.carousel-item.active img').getAttribute('data-lazy-state')==='loaded');
         await page.locator('[data-star="4"]').click(); assert.match(await page.locator('[data-rating-message]').innerText(),/4\/5/);
+        await page.locator('.guide-stats').scrollIntoViewIfNeeded();
+        await page.waitForFunction(()=>[...document.querySelectorAll('[data-counter]')].every(node=>node.textContent===node.dataset.counter));
+        const clock=page.locator('[data-live-clock]');
+        const before=await clock.getAttribute('datetime');
+        await page.waitForFunction(value=>document.querySelector('[data-live-clock]').dateTime!==value,before);
+        await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
+        await page.waitForFunction(()=>document.querySelector('[data-scroll-progress]').getAttribute('aria-valuenow')==='100');
+        const sound=page.locator('[data-sound-toggle]');
+        if(await menu.isVisible()) await menu.click();
+        await sound.click(); assert.equal(await sound.getAttribute('aria-pressed'),'true');
+        await sound.click(); assert.equal(await sound.getAttribute('aria-pressed'),'false');
+        if(await menu.isVisible()) await menu.click();
 
-        for(const filename of pages) {
+        for(const mode of ['day','night']) {
+          if(mode==='night') await theme(page);
+          for(const filename of pages) {
             await ready(page,filename);
             assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,filename+' width '+viewport.width);
             assert.equal(await page.locator('h1:visible').count(),1,filename+' one visible heading');
+            assert.equal(await page.locator('body').getAttribute('data-theme'),mode,filename+' persisted theme');
             assert.equal((await page.locator('[data-account-link]').innerText()).trim(),'My profile',filename+' '+(channel||'chromium')+' '+viewport.width);
-            if(capture) await shot(filename.replace('.html','')+'-desktop');
-            if(!channel&&viewport.width===390&&['index.html','signup.html','profile.html'].includes(filename)) {
-                await page.screenshot({path:path.join(shots,filename.replace('.html','')+'-mobile.png')});
+            const lead = page.locator('img[fetchpriority=high]');
+            if(await lead.count()) {
+                await lead.evaluate(image=>image.decode());
+                assert.match(await lead.evaluate(image=>image.currentSrc), /\/images\/responsive\/.+\.webp$/);
+                if(filename==='index.html') {
+                    assert.equal(await lead.evaluate(image=>image.currentSrc.includes('-portrait-')),mobile);
+                }
             }
-            if(['aktau.html','almaty.html','shymkent.html','about.html'].includes(filename)) {
+            if(filename==='index.html') {
+                assert.equal(await page.locator('.destination-grid').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length),mobile?1:2);
+                const hitArea=await page.locator('[data-save=almaty]').boundingBox();
+                assert.ok(hitArea.height>=44&&hitArea.width>=44,'Save target is at least 44px');
+            }
+            if(!channel && (capture||mobile)) {
+                const name=filename.replace('.html','');
+                const device=mobile?'mobile':'desktop';
+                if(mode==='day' || filename==='index.html') {
+                    await page.screenshot({path:path.join(shots,`${name}-${device}${mode==='night'?'-night':''}.png`)});
+                }
+                if(filename==='index.html') {
+                    const cards=page.locator('#destinations');
+                    await cards.evaluate(node=>node.scrollIntoView());
+                    await cards.locator('.destination-photo').evaluateAll(images=>Promise.all(images
+                        .filter(image=>image.getBoundingClientRect().top<innerHeight)
+                        .map(image=>image.decode())));
+                    await page.screenshot({path:path.join(shots,`destinations-${device}${mode==='night'?'-night':''}.png`)});
+                    await page.evaluate(()=>scrollTo(0,0));
+                }
+            }
+            await keyboardNavigation(page);
+            layoutChecks.push({ page:filename, theme:mode });
+            if(mode==='day' && ['aktau.html','almaty.html','shymkent.html','about.html'].includes(filename)) {
                 if(filename==='about.html') await page.locator('[data-popup-open]').click();
                 const form=page.locator('[data-demo-form]');
                 await form.locator('button[type=submit]').click();
@@ -158,14 +292,18 @@ async function run(channel,viewport) {
                 assert.equal(await form.locator('[name=phone]').isEnabled(),true);
                 if(filename==='about.html') { await shot('contact-form','dialog'); await page.keyboard.press('Escape'); }
             }
+          }
         }
         const second=await context.newPage(); await ready(second,'profile.html');
-        await page.locator('[data-logout]').click(); await page.waitForURL('**/login.html?loggedOut=1');
-        await second.waitForURL('**/login.html?next=profile');
+        await Promise.all([
+            page.waitForURL('**/login.html?loggedOut=1',{waitUntil:'domcontentloaded'}),
+            second.waitForURL('**/login.html?next=profile',{waitUntil:'domcontentloaded'}),
+            page.locator('[data-logout]').click()
+        ]);
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         assert.deepEqual(errors,[]);
-        results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,
-            scenarios:['registration and hashed local persistence','empty/invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','login redirect and profile','persistent session','cross-page light/dark','saved city in profile','search/filter/autocomplete/highlight','FAQ literal query','route builder and actual clipboard','carousel lazy loading','ratings','nine connected responsive pages','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
+        results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
+            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
         console.log('PASS',channel||'chromium',viewport.width);
     } catch(error) {
         console.error('STATE',channel||'chromium',viewport.width,page.url(),await page.evaluate(()=>({session:localStorage.getItem('kz-session-v1'),jquery:document.body.dataset.jqueryReady,authScripts:[...document.scripts].filter(s=>s.src.includes('auth.js')).length})).catch(()=>null),errors);
@@ -173,7 +311,7 @@ async function run(channel,viewport) {
     } finally { await browser.close(); }
 }
 async function restricted() {
-    const browser=await chromium.launch();
+    const browser=await launch();
     try {
         const context=await browser.newContext();
         await context.route('https://code.jquery.com/**',route=>route.abort());
@@ -195,8 +333,42 @@ async function restricted() {
         results.push({status:'passed',scenarios:['CDN fallback','storage-denied signup restores controls','no plaintext password on failure','no-JavaScript readable navigation and FAQ','account no-JavaScript explanation']});
     } finally {await browser.close();}
 }
+async function weatherRecovery() {
+    const browser = await launch();
+    try {
+        const page = await browser.newPage();
+        let shouldFail = true;
+        let requests = 0;
+        await page.route(api, route => {
+            requests += 1;
+            if (shouldFail) return route.fulfill({ status:503, body:'' });
+            return route.fulfill({ json:fixture });
+        });
+        await ready(page,'index.html');
+        await page.locator('#weather').scrollIntoViewIfNeeded();
+        await page.locator('[data-weather-state=error]').waitFor();
+        assert.equal(await page.locator('[data-weather-result]').isVisible(),false);
+        const retry = page.locator('[data-weather-refresh]');
+        assert.match(await retry.innerText(),/Try again/);
+        shouldFail = false;
+        await retry.click();
+        await page.locator('[data-weather-state=ready]').waitFor();
+        assert.equal(await page.locator('[data-weather-days] li').count(),3);
+        await page.reload();
+        await page.locator('#weather').scrollIntoViewIfNeeded();
+        await page.locator('[data-weather-state=ready]').waitFor();
+        assert.equal(requests,2,'Reload uses the saved forecast');
+        shouldFail = true;
+        await retry.click();
+        await page.locator('[data-weather-state=cached]').waitFor();
+        assert.match(await page.locator('[data-weather-status]').innerText(),/saved forecast/);
+        assert.equal(await page.locator('[data-weather-days] li').count(),3);
+        results.push({status:'passed',scenarios:['weather HTTP failure and successful retry','fresh forecast survives reload','failed refresh falls back to a dated cached forecast']});
+        console.log('PASS weather failure, retry and cache');
+    } finally { await browser.close(); }
+}
 async function realWeather() {
-    const browser=await chromium.launch();
+    const browser=await launch();
     try {
         const page=await browser.newPage({viewport:{width:1440,height:1000}});
         await ready(page,'index.html'); await page.locator('#weather').scrollIntoViewIfNeeded();
@@ -205,16 +377,18 @@ async function realWeather() {
         await page.locator('#weather').screenshot({path:path.join(shots,'weather-real.png')});
         await theme(page);await page.locator('#weather').screenshot({path:path.join(shots,'weather-real-night.png')});
         results.push({status:'passed',scenarios:['real Open-Meteo forecast, three days, light/dark renders']});
+        console.log('PASS live Open-Meteo');
     } finally {await browser.close();}
 }
 (async()=>{
     await fs.mkdir(shots,{recursive:true});
-    for(const channel of [undefined,'msedge']) for(const viewport of [{width:1440,height:1000},{width:1024,height:900},{width:390,height:844}]) {
+    for(const channel of [undefined,'msedge']) for(const viewport of viewports) {
         if(process.env.KZ_FINAL_WIDTH && String(viewport.width)!==process.env.KZ_FINAL_WIDTH) continue;
         if(process.env.KZ_FINAL_CHANNEL && (channel||'chromium')!==process.env.KZ_FINAL_CHANNEL) continue;
         await run(channel,viewport);
     }
     await restricted();
+    await weatherRecovery();
     if(process.env.KZ_WEATHER_LIVE==='1') await realWeather();
     await fs.writeFile(path.join(output,process.env.KZ_TRAVEL_LIVE==='1'?'live-browser-verification.json':'browser-verification.json'),JSON.stringify({checkedAtUTC:new Date().toISOString(),baseURL,fixtureWeather:'Only deterministic layout scenarios use fixture weather. weather-real screenshots use the real API.',results},null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;});

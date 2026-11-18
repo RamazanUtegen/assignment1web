@@ -7,7 +7,7 @@ A responsive Kazakhstan travel guide with nine connected pages: Home, four city 
 | Member | Original page ownership |
 | --- | --- |
 | Ramazan Utegen | Home and Aktau |
-| Ziyadinkhan Kudaibergenuly | Astana and About Us |
+| Ziyadinkhan Kudaibergenuly | Astana and Our Story |
 | Ruzimuhammad | Almaty and Shymkent |
 
 [Open the website](https://ramazanutegen.github.io/assignment1web/) · [Final requirement map](docs/final/README.md) · [4:45 presentation script](docs/final/presentation-script.md)
@@ -64,9 +64,9 @@ python scripts/verify-final.py
 node scripts/verify-final.cjs
 ```
 
-Set `KZ_WEATHER_LIVE=1` to include an actual Open-Meteo smoke test. Final journeys cover Chromium and Edge at desktop, tablet and phone sizes: signup, inline validation, wrong credentials, duplicate email, profile, reload, logout, cross-tab session handling, search, filters, saved cities, route clipboard, gallery and enquiries. Results and backup screenshots are in `docs/final/`. Earlier endterm API evidence covers malformed data, expired cache, timeout and stale responses. Deployment checks include every root page and referenced local asset, including lazy image URLs.
+Set `KZ_WEATHER_LIVE=1` to include an actual Open-Meteo smoke test. Final journeys cover Chromium and Edge in both themes at 390, 768, 1024 and 1440 px: signup, inline validation, wrong credentials, duplicate email, profile, reload, logout, cross-tab session handling, search, filters, saved cities, route clipboard, gallery and enquiries. Results and backup screenshots are in `docs/final/`. Earlier endterm API evidence covers malformed data, expired cache, timeout and stale responses. Deployment checks include every root page and referenced local asset, including lazy image URLs and every responsive image variant.
 
-The final submission is in `output/final/`: `KZTravel_SE2501_FinalProject.zip`, `KZTravel_SE2501_Report.pdf` and `KZTravel_SE2501_Links.txt`. Every member submits all three individually in the Final Exam folder. `scripts/package-final.py` builds the clean project ZIP without previous submissions, temporary files or Git metadata. The timed presentation script and backup screenshots are included.
+The submission files are in `output/final/`: `KZTravel_SE2501_FinalProject.zip`, `KZTravel_SE2501_Report.pdf` and `KZTravel_SE2501_Links.txt`. Every member submits all three individually in the Final Exam folder. `scripts/package-final.py` builds the clean project ZIP without previous submissions, temporary files or Git metadata. The timed presentation script and backup screenshots are included. See the [Design branch review](docs/final/README.md) for the rubric, preview instructions and current publication status.
 
 ## Data and attribution
 

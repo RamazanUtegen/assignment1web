@@ -26,24 +26,24 @@
   </script>
   <script defer="" src="js/clock.js?v=5">
   </script>
-  <link href="css/editorial.css?v=6" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=8">
+  <link href="css/editorial.css?v=9" rel="stylesheet"/>
+  <script defer="" src="js/experience.js?v=9">
   </script>
-  <link href="css/assignment6.css?v=6" rel="stylesheet"/>
+  <link href="css/assignment6.css?v=9" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
   </script>
-  <script defer="" src="script.js?v=8">
+  <script defer="" src="script.js?v=9">
   </script>
-  <script defer="" src="js/weather.js?v=7">
+  <script defer="" src="js/weather.js?v=9">
   </script>
-  <link href="css/endterm.css?v=7" rel="stylesheet"/>
+  <link href="css/endterm.css?v=9" rel="stylesheet"/>
   <noscript>
-   <link href="css/no-js.css?v=8" rel="stylesheet"/>
+   <link href="css/no-js.css?v=9" rel="stylesheet"/>
   </noscript>
   <script defer="" src="js/auth.js?v=8">
   </script>
-  <link href="css/final.css?v=8" rel="stylesheet"/>
+  <link href="css/final.css?v=9" rel="stylesheet"/>
  </head>
  <body class="assignment-three editorial page-aktau">
   <div aria-label="Page reading progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="reading-progress" data-scroll-progress="" role="progressbar">
@@ -71,9 +71,6 @@
        KZ
        <span class="brand-light">
         travel
-       </span>
-       <span class="brand-dot">
-        .
        </span>
       </span>
      </a>
@@ -115,20 +112,16 @@
        </li>
       </ul>
       <div class="nav-actions">
-       <button aria-label="Switch to night theme" aria-pressed="false" class="icon-button" data-theme-toggle="" title="Switch day / night theme">
-        ☾
+       <button aria-label="Switch to night theme" aria-pressed="false" class="icon-button" data-theme-toggle="" title="Switch day / night theme" type="button">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="theme-moon"><path d="M20.8 15.2A8.6 8.6 0 0 1 8.8 3.2a9 9 0 1 0 12 12Z"/></svg>
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="theme-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
        </button>
-       <button aria-label="Enable sound effects" aria-pressed="false" class="icon-button sound-button" data-sound-toggle="" title="Sound effects">
-        ♪
-        <span aria-hidden="true" class="sound-off">
-         /
-        </span>
+       <button aria-label="Enable sound effects" aria-pressed="false" class="icon-button sound-button" data-sound-toggle="" title="Sound effects" type="button">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="sound-waves" d="M16 9a4 4 0 0 1 0 6m2.8-9a8 8 0 0 1 0 12"/><path class="sound-off" d="m16 10 5 5m0-5-5 5"/></svg>
        </button>
        <a class="btn btn-primary plan-link" href="index.html#trip-planner">
         Plan a trip
-        <span aria-hidden="true">
-         ↗
-        </span>
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg>
        </a>
        <a class="account-nav" data-account-link="" href="login.html">
         Log in
@@ -141,61 +134,30 @@
   <div class="container-fluid px-0">
    <div class="row g-0">
     <main class="w-100" id="main-content" tabindex="-1">
-     <section class="hero editorial-hero">
-      <img alt="Camel and plateau in the Mangystau steppe" class="hero-bg-img" decoding="async" fetchpriority="high" src="images/Aktaumainpage.jpg"/>
+     <section class="hero editorial-hero city-hero" aria-labelledby="city-title">
+      <img alt="Camel crossing the Mangystau steppe outside Aktau" class="hero-bg-img" decoding="async" fetchpriority="high" height="2403" src="images/Aktaumainpage.jpg" srcset="images/responsive/aktau-768.webp 768w, images/responsive/aktau-1440.webp 1440w, images/responsive/aktau-1920.webp 1920w" sizes="100vw" width="3784"/>
       <div class="hero-content">
-       <p class="hero-kicker">
-        THE CASPIAN COAST &amp; MANGYSTAU
-       </p>
-       <h1>
-        AKTAU.
-        <br/>
-        WILD AT HEART.
-       </h1>
-       <div class="hero-bottom">
-        <div>
-         <p>
-          Chalk-white canyons. Endless horizons. A different kind of escape on the Caspian Sea.
-         </p>
-         <a class="btn hero-cta" href="#places">
-          Explore the highlights
-          <span aria-hidden="true">
-           ↗
-          </span>
-         </a>
-        </div>
-        <span class="hero-caption">
-         02 / The landscapes of Mangystau
-        </span>
-       </div>
-      </div>
-      <div aria-hidden="true" class="hero-coordinate">
-       CASPIAN COAST
-       <br/>
-       <strong>
-        43.65°N / 51.17°E
-       </strong>
+       <h1 id="city-title">Aktau</h1>
+       <p>Walk the Caspian coast and explore the chalk canyons of Mangystau.</p>
+       <a class="btn hero-cta" href="#places">Things to do <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10m-5-5 5 5 5-5"/></svg></a>
       </div>
      </section>
      <div class="page-subnav">
-      <span class="subnav-label">
-       THE FIELD GUIDE
-      </span>
       <nav aria-label="On this page" class="section-links">
        <a class="py-1" href="#highlights">
-        01 / Mangystau spots
+        Mangystau spots
        </a>
        <a class="py-1" href="#places">
-        02 / Top highlights
+        Top highlights
        </a>
        <a class="py-1" href="#gallery">
-        03 / Coastal gallery
+        Coastal gallery
        </a>
        <a class="py-1" href="#schedule">
-        04 / 3-Day excursion
+        3-Day excursion
        </a>
        <a class="py-1" href="#contact-form">
-        05 / Plan excursion
+        Plan excursion
        </a>
        <a class="py-1" href="#weather">
         Weather outlook ↗
@@ -271,9 +233,6 @@
      </section>
      <section class="destinations fade-in delay-2 py-4 py-lg-5" id="places">
       <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
-       <p class="eyebrow mt-0 mb-3">
-        Three iconic destinations
-       </p>
        <h2 class="mt-0 mb-4">
         Top Highlights in Detail
        </h2>
@@ -289,9 +248,6 @@
            <img alt="Bozjyra Canyon chalk spires" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/bozjyra.jpg" width="800"/>
           </noscript>
           <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Desert Canyons
-           </p>
            <h3 class="mt-0 mb-2 card-title">
             Bozjyra Canyon
            </h3>
@@ -311,9 +267,6 @@
            <img alt="Aktau Rock Trail along Caspian Sea" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/rocktrail.jpg" width="800"/>
           </noscript>
           <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Pedestrian Coast
-           </p>
            <h3 class="mt-0 mb-2 card-title">
             Aktau Rock Trail
            </h3>
@@ -333,9 +286,6 @@
            <img alt="Rock Trail beside the Caspian Sea" class="card-img-top" decoding="async" height="500" loading="lazy" src="images/rocktrail.jpg" width="800"/>
           </noscript>
           <div class="card-body d-flex flex-column p-4">
-           <p class="eyebrow mt-0 mb-3 card-text">
-            Seaside Escapes
-           </p>
            <h3 class="mt-0 mb-2 card-title">
             Caspian Coastline
            </h3>
@@ -385,9 +335,6 @@
      </section>
      <section aria-labelledby="aktau-gallery-title" class="about-site py-4 py-lg-5" id="gallery">
       <div class="container mx-auto py-4 py-lg-5 px-3 px-md-4">
-       <p class="eyebrow mt-0 mb-3">
-        Western Kazakhstan Photo Journal
-       </p>
        <h2 class="mt-0 mb-4" id="aktau-gallery-title">
         Mangystau &amp; Caspian Horizons
        </h2>
@@ -705,11 +652,8 @@
       <div class="container px-3 px-md-4">
        <div class="weather-heading">
         <div>
-         <p class="eyebrow">
-          BEFORE YOU GO
-         </p>
          <h2 id="weather-title">
-          Pack for the possibilities.
+          Weather forecast
          </h2>
          <p class="weather-intro">
           A coast-side stroll or a mountain morning? Check the next three days before you head out.
@@ -744,14 +688,10 @@
        <div aria-busy="false" class="weather-result" data-weather-result="" hidden="">
         <div class="weather-current">
          <div class="weather-current-top">
-          <p class="eyebrow">
-           CURRENT CONDITIONS
-          </p>
-          <span aria-hidden="true" class="weather-current-icon" data-weather-icon="">
-          </span>
+          <h3 data-weather-name=""></h3>
+          <span aria-hidden="true" class="weather-current-icon" data-weather-icon=""></span>
          </div>
-         <h3 data-weather-name="">
-         </h3>
+         <p class="weather-current-label">Current conditions</p>
          <p class="weather-temperature" data-weather-temperature="">
          </p>
          <p class="weather-condition" data-weather-condition="">
@@ -963,9 +903,6 @@
      <section aria-labelledby="rating-title" class="rating-section">
       <div class="container">
        <div>
-        <p class="eyebrow">
-         YOUR PERSPECTIVE MATTERS
-        </p>
         <h2 id="rating-title">
          How was your virtual escape?
         </h2>
@@ -1062,9 +999,6 @@
      KZ
      <span class="brand-light">
       travel
-     </span>
-     <span class="brand-dot">
-      .
      </span>
     </span>
     <span>

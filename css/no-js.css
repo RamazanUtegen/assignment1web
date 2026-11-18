@@ -9,3 +9,18 @@ img[data-src], .reading-progress, .discovery-controls, [data-results-count],
 .faq-panel { grid-template-rows: 1fr; visibility: visible; }
 .carousel-item { display: block; float: none; margin: 0 0 20px; }
 .gallery-caption { display: none; }
+
+@media (max-width: 1199.98px) {
+    .editorial.page-index #main-header {
+        --nav-ink: var(--ink);
+        --nav-line: var(--line);
+        --nav-focus: var(--accent);
+        position: static;
+        background: var(--paper);
+    }
+    .editorial #main-header .navbar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0 15px;
+    }
+}

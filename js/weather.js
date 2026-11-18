@@ -25,18 +25,37 @@
     let controller;
     let requestNumber = 0;
     let started = false;
+    const iconPaths = {
+        sun: 'M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',
+        moon: 'M20.8 15.2A8.6 8.6 0 0 1 8.8 3.2a9 9 0 1 0 12 12Z',
+        cloud: 'M7 17a4.5 4.5 0 1 1 .9-8.9A5 5 0 0 1 17 9a4 4 0 0 1 0 8H7Z',
+        fog: 'M4 8h13m-10 4h13M3 16h14m-9 4h12',
+        rain: 'M6 14a3.5 3.5 0 1 1 1.2-6.8 5 5 0 0 1 9.3.8H18a3 3 0 0 1 0 6H6Zm3 3-1 3m5-3-1 3m5-3-1 3',
+        snow: 'M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 3 3-3m-6 16 3-3 3 3M4.5 10l4.1-.9-.9-4.1m8.6 14.2-.9-4.1 4.1-.9m0-4-4.1-.9.9-4.1M7.7 19l.9-4.1-4.1-.9',
+        storm: 'M8 14H6a3.5 3.5 0 1 1 1.2-6.8 5 5 0 0 1 9.3.8H18a3 3 0 0 1 0 6h-2m-4-3-3 6h5l-3 5',
+        unavailable: 'M6 12h12'
+    };
 
     function conditions(code, isDay = true) {
-        if (code === 0) return { label: isDay ? 'Clear sky' : 'Clear night', icon: isDay ? '☀' : '☾' };
-        if (code === 1) return { label: 'Mostly clear', icon: '☀' };
-        if (code === 2) return { label: 'Partly cloudy', icon: '☁' };
-        if (code === 3) return { label: 'Overcast', icon: '☁' };
-        if ([45, 48].includes(code)) return { label: 'Fog', icon: '≋' };
-        if ([51, 53, 55, 56, 57].includes(code)) return { label: 'Drizzle', icon: '☂' };
-        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { label: 'Rain', icon: '☂' };
-        if ([71, 73, 75, 77, 85, 86].includes(code)) return { label: 'Snow', icon: '❄' };
-        if ([95, 96, 99].includes(code)) return { label: 'Thunderstorms', icon: 'ϟ' };
-        return { label: 'Conditions unavailable', icon: '—' };
+        if (code === 0) return { label: isDay ? 'Clear sky' : 'Clear night', icon: isDay ? 'sun' : 'moon' };
+        if (code === 1) return { label: 'Mostly clear', icon: 'sun' };
+        if (code === 2) return { label: 'Partly cloudy', icon: 'cloud' };
+        if (code === 3) return { label: 'Overcast', icon: 'cloud' };
+        if ([45, 48].includes(code)) return { label: 'Fog', icon: 'fog' };
+        if ([51, 53, 55, 56, 57].includes(code)) return { label: 'Drizzle', icon: 'rain' };
+        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { label: 'Rain', icon: 'rain' };
+        if ([71, 73, 75, 77, 85, 86].includes(code)) return { label: 'Snow', icon: 'snow' };
+        if ([95, 96, 99].includes(code)) return { label: 'Thunderstorms', icon: 'storm' };
+        return { label: 'Conditions unavailable', icon: 'unavailable' };
+    }
+    function renderIcon(container, name) {
+        const svgNamespace = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNamespace, 'svg');
+        const path = document.createElementNS(svgNamespace, 'path');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        path.setAttribute('d', iconPaths[name]);
+        svg.append(path);
+        container.replaceChildren(svg);
     }
     const numberInRange = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
     const validTime = value => numberInRange(value, 1, 100000000000);
@@ -91,7 +110,7 @@
         setText('[data-weather-name]', cities[id].name);
         setText('[data-weather-temperature]', degrees(current.temperature_2m) + 'C');
         setText('[data-weather-condition]', weather.label);
-        setText('[data-weather-icon]', weather.icon);
+        renderIcon(panel.querySelector('[data-weather-icon]'), weather.icon);
         setText('[data-weather-feels]', 'Feels like ' + degrees(current.apparent_temperature) + 'C');
         setText('[data-weather-wind]', 'Wind ' + Math.round(current.wind_speed_10m) + ' km/h');
         const updated = panel.querySelector('[data-weather-time]');
@@ -103,7 +122,7 @@
             const outlook = conditions(day.code);
             card.querySelector('time').dateTime = new Date(day.time * 1000).toISOString();
             card.querySelector('time').textContent = dayFormat.format(day.time * 1000);
-            card.querySelector('[data-day-icon]').textContent = outlook.icon;
+            renderIcon(card.querySelector('[data-day-icon]'), outlook.icon);
             card.querySelector('[data-day-condition]').textContent = outlook.label;
             card.querySelector('[data-day-high]').textContent = degrees(day.high);
             card.querySelector('[data-day-low]').textContent = degrees(day.low);

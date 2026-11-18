@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 pages = {p.name: BeautifulSoup(p.read_text(encoding='utf-8'),'html.parser') for p in ROOT.glob('*.html')}
 errors, assets, graph = [], set(), {}
-if len(pages) < 6: errors.append('At least six pages are needed.')
+if len(pages) != 9: errors.append('Expected all nine site pages.')
 sri = 'sha256-' + b64encode(sha256((ROOT/'vendor/jquery-4.0.0.min.js').read_bytes()).digest()).decode()
 for name, soup in pages.items():
     graph[name] = set()
@@ -36,6 +36,20 @@ for name, soup in pages.items():
             if url.fragment and target.name in pages and not pages[target.name].find(id=url.fragment): errors.append(f'{name}: missing fragment {node[attr]}')
     for image in soup.select('img'):
         if not image.has_attr('alt'): errors.append(name+': image without alt')
+    for node in soup.select('img[srcset], source[srcset]'):
+        widths = set()
+        for candidate in node['srcset'].split(','):
+            fields = candidate.split()
+            if len(fields) != 2 or not re.fullmatch(r'[1-9]\d*w', fields[1]) or fields[1] in widths:
+                errors.append(f'{name}: invalid source candidate {candidate.strip()}')
+                continue
+            source, width = fields
+            widths.add(width)
+            target = ROOT / unquote(urlsplit(source).path)
+            if not target.is_file(): errors.append(f'{name}: missing responsive image {source}')
+            else: assets.add(str(target.relative_to(ROOT)))
+        if len(widths) < 2: errors.append(f'{name}: expected multiple responsive image widths')
+        if not node.get('sizes'): errors.append(f'{name}: responsive image missing sizes')
     for selector in ['[data-account-link]','[data-theme-toggle]']:
         if not soup.select_one(selector): errors.append(name+': missing '+selector)
     for member in ['Ramazan Utegen','Ziyadinkhan Kudaibergenuly','Ruzimuhammad','SE-2501']:
@@ -55,4 +69,4 @@ for css in (ROOT/'css').glob('*.css'):
         url=urlsplit(value)
         if not url.scheme and not (css.parent/unquote(url.path)).is_file(): errors.append(css.name+': missing '+value)
 if errors: raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(pages)} connected pages; {len(assets)} resources; explicit JS validation; novalidate; no native validation constraints; labels/IDs/anchors; theme/account controls; team credits; jQuery SRI.')
+print(f'PASS: {len(pages)} connected pages and {len(assets)} resources, including responsive image variants. Explicit JS validation, novalidate, labels, IDs, anchors, shared controls, team credits and jQuery SRI passed.')

@@ -7,13 +7,19 @@ OUT=ROOT/'output/final'
 REPORT=OUT/'KZTravel_SE2501_Report.pdf'
 LINKS=OUT/'KZTravel_SE2501_Links.txt'
 ZIP=OUT/'KZTravel_SE2501_FinalProject.zip'
-if not REPORT.is_file() or not LINKS.is_file(): raise SystemExit('Build the PDF report and links TXT before packaging.')
+if not REPORT.is_file(): raise SystemExit('Build the PDF report before packaging.')
+LINKS.write_text(
+    'GitHub Repository: https://github.com/RamazanUtegen/assignment1web\n'
+    'Live Website: https://ramazanutegen.github.io/assignment1web/\n',
+    encoding='utf-8',
+)
 files={ROOT/'README.md',ROOT/'script.js',ROOT/'favicon.svg',ROOT/'.nojekyll'}
 files.update(ROOT.glob('*.html'))
 for folder in ['css','js','fonts','images','vendor']:
     files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix.lower() in {'.html','.js','.css','.svg','.jpg','.jpeg','.png','.webp','.gif','.avif','.woff','.woff2','.ttf','.txt'})
 files.update(p for p in (ROOT/'docs/final').rglob('*') if p.is_file() and p.suffix in {'.md','.json','.png'} and p.name!='submission-checksums.json')
-files.update([ROOT/'scripts/verify-final.py',ROOT/'scripts/verify-final.cjs',ROOT/'scripts/package-final.py'])
+files.update(ROOT/'scripts'/name for name in ['verify-final.py','verify-final.cjs','verify-deployment.py',
+    'build-final-report.py','package-final.py'])
 OUT.mkdir(parents=True,exist_ok=True)
 with ZipFile(ZIP,'w',ZIP_DEFLATED,compresslevel=6) as archive:
     for file in sorted(files): archive.write(file,Path('KZTravel')/file.relative_to(ROOT))

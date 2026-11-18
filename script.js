@@ -15,7 +15,7 @@
             let toastTimer;
             function notify(message) {
                 clearTimeout(toastTimer);
-                $toast.stop(true, true).text(message).fadeIn(duration(160));
+                $toast.stop(true, true).text(message).fadeIn(duration(180));
                 toastTimer = setTimeout(() => {
                     $toast.fadeOut(duration(350), function () { $(this).empty(); });
                 }, 2800);
@@ -191,11 +191,13 @@
             // Task 8: copy actual guide/route text; acknowledge only real success.
             $('[data-copy]').on('click', async function () {
                 const $button = $(this);
-                if ($button.prop('disabled')) return;
+                if ($button.prop('disabled') || $button.attr('aria-disabled') === 'true') return;
                 const original = $button.text();
-                const $tooltip = $('#' + $button.attr('aria-describedby'));
+                const $feedback = $('#' + $button.attr('aria-describedby'));
+                const inline = $feedback.attr('role') === 'status';
                 const target = document.getElementById($button.attr('data-copy'));
-                $button.prop('disabled', true);
+                if (inline) $button.attr('aria-disabled', 'true');
+                else $button.prop('disabled', true);
                 try {
                     const text = target.innerText.trim();
                     if (navigator.clipboard && window.isSecureContext) {
@@ -209,16 +211,23 @@
                         focused?.focus();
                         if (!copied) throw new Error('Clipboard unavailable');
                     }
-                    $button.text('✓ Copied');
-                    $tooltip.text('Copied to clipboard!').prop('hidden', false);
-                    notify('Copied to clipboard! Your next adventure is ready to share.');
+                    $feedback.text('Copied to clipboard.').prop('hidden', false);
+                    if (!inline) {
+                        $button.text('✓ Copied');
+                        notify('Copied to clipboard.');
+                    }
                 } catch {
-                    $tooltip.text('Copy unavailable. Select and copy the text.').prop('hidden', false);
-                    notify('Clipboard access was unavailable. You can select and copy the text.');
+                    $feedback.text('Copy unavailable. Select and copy the text.').prop('hidden', false);
+                    if (!inline) notify('Clipboard access was unavailable. You can select and copy the text.');
                 } finally {
                     setTimeout(() => {
-                        $button.text(original).prop('disabled', false);
-                        $tooltip.prop('hidden', true);
+                        if (inline) {
+                            $button.removeAttr('aria-disabled');
+                            $feedback.empty();
+                        } else {
+                            $button.text(original).prop('disabled', false);
+                            $feedback.prop('hidden', true);
+                        }
                     }, 2200);
                 }
             });

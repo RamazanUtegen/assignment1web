@@ -37,8 +37,12 @@ for name, soup in soups.items():
         selected = soup.select_one('[data-weather-city] option[selected]')
         if not weather or weather.get('data-default-city') != expected or not selected or selected.get('value') != expected:
             errors.append(f'{name}: incorrect weather default')
-    for selector in ['[data-demo-form] .form-status', '[data-theme-toggle]', '[data-sound-toggle]', '[data-live-clock]', '[data-rating]', '[data-copy]']:
-        if name == 'astana.html' and 'data-demo-form' in selector: continue
+    selectors = ['[data-theme-toggle]', '[data-sound-toggle]', '[data-live-clock]', '[data-rating]', '[data-copy]']
+    if name == 'index.html':
+        selectors.append('[data-trip-planner] .planner-error')
+    elif name != 'astana.html':
+        selectors.append('[data-demo-form] .form-status')
+    for selector in selectors:
         if not soup.select_one(selector): errors.append(f'{name}: missing {selector}')
     for member in ['Ramazan Utegen', 'Ziyadinkhan Kudaibergenuly', 'Ruzimuhammad', 'SE-2501']:
         if member not in soup.footer.get_text(' ', strip=True): errors.append(f'{name}: missing {member}')

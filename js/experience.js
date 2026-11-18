@@ -117,7 +117,6 @@
         document.body.dataset.bsTheme = theme === 'night' ? 'dark' : 'light';
         themeToggle?.setAttribute('aria-pressed', String(theme === 'night'));
         themeToggle?.setAttribute('aria-label', theme === 'night' ? 'Switch to day theme' : 'Switch to night theme');
-        if (themeToggle) themeToggle.textContent = theme === 'night' ? '☀' : '☾';
         document.dispatchEvent(new Event('kz-theme-change'));
     }
     applyTheme(storage.read('theme', 'day') === 'night' ? 'night' : 'day');
@@ -152,23 +151,21 @@
         document.dispatchEvent(new Event('kz:destinations-change'));
     }
     document.querySelectorAll('[data-save]').forEach(button => {
+        const id = button.dataset.save;
+        const city = destinations.find(place => place.id === id).name;
         function updateButton() {
-            const selected = saved.has(button.dataset.save);
+            const selected = saved.has(id);
             button.setAttribute('aria-pressed', String(selected));
-            button.setAttribute('aria-label', `${selected ? 'Unsave' : 'Save'} ${button.dataset.save[0].toUpperCase() + button.dataset.save.slice(1)}`);
-            button.querySelector('span').textContent = selected ? '♥' : '♡';
+            button.setAttribute('aria-label', `${selected ? 'Saved' : 'Save'} ${city}`);
+            button.querySelector('span').textContent = selected ? 'Saved' : 'Save';
         }
         updateButton();
         button.addEventListener('click', () => {
-            const id = button.dataset.save;
             if (saved.has(id)) saved.delete(id); else saved.add(id);
             storage.write('saved', [...saved]);
             updateButton();
-            button.classList.remove('is-pulsing');
-            void button.offsetWidth;
-            button.classList.add('is-pulsing');
             renderDestinations(false);
-            notify(saved.has(id) ? 'Saved for a little later.' : 'Removed from your saved places.');
+            notify(saved.has(id) ? `Saved ${city}.` : `Removed ${city} from saved places.`);
             playChime();
         });
     });
@@ -214,10 +211,11 @@
         const result = planner.querySelector('[data-trip-result]');
         const back = planner.querySelector('[data-planner-back]');
         const next = planner.querySelector('[data-planner-next]');
-        const error = planner.querySelector('[data-planner-error]');
-        const fields = Array.from(planner.querySelectorAll('input, select'));
-        const destinationFields = fields.filter(field => field.name === 'destination');
-        const labels = ['01 / YOUR DESTINATION', '02 / YOUR TRAVEL STYLE', '03 / YOUR ADVENTURE'];
+        const fieldGroups = [
+            [Array.from(planner.querySelectorAll('[name=destination]'))],
+            [[planner.elements.traveler], [planner.elements.days]]
+        ];
+        const labels = ['Step 1 of 3 · Destination', 'Step 2 of 3 · Trip length', 'Step 3 of 3 · Review'];
         let step = 0;
         let complete = false;
 
@@ -229,36 +227,36 @@
             element.textContent = text; // User input is never interpreted as HTML.
             container.append(element);
         }
-        function clearError() {
-            error.textContent = '';
-            fields.forEach(field => {
-                field.removeAttribute('aria-invalid');
-                field.classList.remove('is-invalid');
-            });
+        function setError(fields, message = '') {
+            document.getElementById(fields[0].getAttribute('aria-describedby')).textContent = message;
+            for (const field of fields) {
+                if (message) field.setAttribute('aria-invalid', 'true');
+                else field.removeAttribute('aria-invalid');
+            }
         }
-        function validationIssue(current) {
+        function clearErrors() {
+            fieldGroups.flat().forEach(fields => setError(fields));
+        }
+        function validationIssues(current) {
+            const issues = [];
             if (current === 0 && !chosenDestination()) {
-                return { message: 'Choose a destination to start your journey.', fields: destinationFields };
+                issues.push({ message: 'Choose a destination to start your route.', fields: fieldGroups[0][0] });
             }
             if (current === 1) {
                 const name = planner.elements.traveler.value.trim();
                 if (!name || name.length > 60) {
-                    return { message: 'Enter your first name using 1 to 60 characters, not just spaces.', fields: [planner.elements.traveler] };
+                    issues.push({ message: 'Enter your first name using 1 to 60 characters.', fields: fieldGroups[1][0] });
                 }
                 if (!['1', '2', '3'].includes(planner.elements.days.value)) {
-                    return { message: 'Choose a stay of 1, 2 or 3 days.', fields: [planner.elements.days] };
+                    issues.push({ message: 'Choose a stay of 1, 2 or 3 days.', fields: fieldGroups[1][1] });
                 }
             }
-            return null;
+            return issues;
         }
-        function showError(issue) {
-            clearError();
-            error.textContent = issue.message;
-            issue.fields.forEach(field => {
-                field.setAttribute('aria-invalid', 'true');
-                field.classList.add('is-invalid');
-            });
-            issue.fields[0].focus();
+        function showErrors(issues) {
+            clearErrors();
+            issues.forEach(({ fields, message }) => setError(fields, message));
+            issues[0].fields[0].focus();
         }
         function focusStep() {
             const current = steps[step];
@@ -273,24 +271,25 @@
             result.hidden = true;
             next.hidden = false;
             back.hidden = current === 0;
-            clearError();
+            clearErrors();
             planner.querySelector('[data-step-label]').textContent = labels[current];
             planner.querySelector('[data-step-progress]').style.width = `${((current + 1) / steps.length) * 100}%`;
-            next.textContent = current === 2 ? 'Build my route ↗' : 'Next step ↗';
+            next.textContent = current === 2 ? 'Build my route' : 'Continue';
             if (current === 2) {
                 const review = planner.querySelector('[data-trip-review]');
                 review.replaceChildren();
                 addText(review, 'p', 'Destination: ' + chosenDestination().name);
                 addText(review, 'p', 'Traveller: ' + planner.elements.traveler.value.trim());
-                addText(review, 'p', 'Duration: ' + planner.elements.days.value + ' day(s)');
+                const days = Number(planner.elements.days.value);
+                addText(review, 'p', `Duration: ${days} ${days === 1 ? 'day' : 'days'}`);
             }
             animate(steps[current]);
         }
         // A higher-order function receives the display callback. Inputs stay in the DOM.
         function changeStep(direction, onStepChanged) {
-            const issue = direction > 0 ? validationIssue(step) : null;
-            if (issue) {
-                showError(issue);
+            const issues = direction > 0 ? validationIssues(step) : [];
+            if (issues.length) {
+                showErrors(issues);
                 return;
             }
             step = Math.max(0, Math.min(2, step + direction));
@@ -300,17 +299,17 @@
         function buildRoute() {
             // Recheck every required value before producing the final result.
             for (let index = 0; index < 2; index += 1) {
-                const issue = validationIssue(index);
-                if (issue) {
+                const issues = validationIssues(index);
+                if (issues.length) {
                     step = index;
                     showStep(step);
-                    showError(issue);
+                    showErrors(issues);
                     return;
                 }
             }
             const place = chosenDestination();
             const days = Number(planner.elements.days.value);
-            planner.querySelector('[data-trip-greeting]').textContent = `${planner.elements.traveler.value.trim()}, ${place.name} is calling.`;
+            planner.querySelector('[data-trip-greeting]').textContent = `${planner.elements.traveler.value.trim()}, your route for ${place.name}`;
             planner.querySelector('[data-trip-description]').textContent = place.description;
             const stops = planner.querySelector('[data-trip-stops]');
             stops.replaceChildren();
@@ -326,8 +325,8 @@
             complete = true;
             next.hidden = true;
             back.hidden = true;
-            clearError();
-            planner.querySelector('[data-step-label]').textContent = 'YOUR ROUTE IS READY';
+            clearErrors();
+            planner.querySelector('[data-step-label]').textContent = 'Your route is ready';
             animate(result);
             result.focus();
             playChime();
@@ -350,8 +349,10 @@
             if (complete) return;
             if (step === 2) buildRoute(); else changeStep(1, showStep);
         });
-        planner.addEventListener('input', clearError);
-        planner.addEventListener('change', clearError);
+        planner.addEventListener('input', event => {
+            const fields = fieldGroups.flat().find(group => group.includes(event.target));
+            if (fields) setError(fields);
+        });
         showStep(step);
     }
 })();
