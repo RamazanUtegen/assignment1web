@@ -12,6 +12,7 @@ if (typeof bootstrap !== 'undefined') {
 // Close the mobile menu after an in-page link and return Escape focus to its toggle.
 const navigation = document.getElementById('main-navigation');
 const navigationToggle = document.querySelector('.navbar-toggler');
+const header = navigation?.closest('header');
 function closeNavigation() {
     const collapse = bootstrap.Collapse.getOrCreateInstance(navigation, { toggle: false });
     if (navigation.classList.contains('collapsing')) {
@@ -32,4 +33,12 @@ navigation?.addEventListener('click', function (event) {
     if (target.pathname === location.pathname && target.hash) {
         closeNavigation();
     }
+});
+header?.addEventListener('focusout', function (event) {
+    const target = event.relatedTarget;
+    if (!target || header.contains(target) || navigationToggle.getAttribute('aria-expanded') !== 'true') return;
+    navigation.addEventListener('hidden.bs.collapse', () => {
+        if (target === document.activeElement) target.scrollIntoView({ block: 'nearest' });
+    }, { once: true });
+    closeNavigation();
 });

@@ -9,8 +9,10 @@
             catch { return fallback; }
         },
         write(key, value) {
-            try { localStorage.setItem('kz-' + key, JSON.stringify(value)); }
-            catch { /* Keep controls usable when browser storage is unavailable. */ }
+            try {
+                localStorage.setItem('kz-' + key, JSON.stringify(value));
+                return true;
+            } catch { return false; }
         }
     };
 
@@ -144,7 +146,7 @@
     }
 
     const savedData = storage.read('saved', []);
-    const saved = new Set(Array.isArray(savedData) ? savedData.filter(id => destinations.some(place => place.id === id)) : []);
+    let saved = new Set(Array.isArray(savedData) ? savedData.filter(id => destinations.some(place => place.id === id)) : []);
     // Assignment 6 owns the search/filter UI through jQuery.
     function renderDestinations() {
         document.querySelectorAll('[data-saved-count]').forEach(label => { label.textContent = saved.size; });
@@ -153,6 +155,7 @@
     document.querySelectorAll('[data-save]').forEach(button => {
         const id = button.dataset.save;
         const city = destinations.find(place => place.id === id).name;
+        const feedback = button.closest('[data-destination]').querySelector('[data-save-error]');
         function updateButton() {
             const selected = saved.has(id);
             button.setAttribute('aria-pressed', String(selected));
@@ -161,8 +164,15 @@
         }
         updateButton();
         button.addEventListener('click', () => {
-            if (saved.has(id)) saved.delete(id); else saved.add(id);
-            storage.write('saved', [...saved]);
+            const removing = saved.has(id);
+            const updated = new Set(saved);
+            if (removing) updated.delete(id); else updated.add(id);
+            if (!storage.write('saved', [...updated])) {
+                feedback.textContent = `Couldn’t ${removing ? 'remove' : 'save'} ${city}. Check your browser’s site storage settings and try again.`;
+                return;
+            }
+            saved = updated;
+            feedback.textContent = '';
             updateButton();
             renderDestinations(false);
             notify(saved.has(id) ? `Saved ${city}.` : `Removed ${city} from saved places.`);
@@ -341,6 +351,7 @@
             planner.querySelector('[data-trip-description]').textContent = '';
             planner.querySelector('[data-trip-stops]').replaceChildren();
             planner.querySelector('[data-trip-guide]').setAttribute('href', 'aktau.html');
+            planner.querySelector('#route-copy-tooltip').textContent = '';
             showStep(step);
             focusStep();
         });

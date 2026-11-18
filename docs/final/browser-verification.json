@@ -1,5 +1,5 @@
 {
-  "checkedAtUTC": "2026-11-18T05:42:04.609Z",
+  "checkedAtUTC": "2026-11-18T06:12:00.490Z",
   "baseURL": "http://127.0.0.1:8765/",
   "fixtureWeather": "Only deterministic layout scenarios use fixture weather. weather-real screenshots use the real API.",
   "results": [
@@ -837,7 +837,7 @@
     }
   ],
   "weatherRegression": {
-    "checkedAtUTC": "2026-11-18T05:38:16.346Z",
+    "checkedAtUTC": "2026-11-18T06:10:04.992Z",
     "baseURL": "http://127.0.0.1:8765/",
     "results": [
       {

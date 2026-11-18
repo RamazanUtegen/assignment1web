@@ -16,7 +16,7 @@
   <link href="css/assignment4.css?v=5" rel="stylesheet"/>
   <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js?v=7">
+  <script defer="" src="js/site.js?v=10">
   </script>
   <script defer="" src="js/validation.js?v=8">
   </script>
@@ -24,26 +24,26 @@
   </script>
   <script defer="" src="js/preferences.js?v=5">
   </script>
-  <script defer="" src="js/clock.js?v=5">
+  <script defer="" src="js/clock.js?v=10">
   </script>
   <script defer="" src="js/accordion.js?v=7">
   </script>
-  <link href="css/editorial.css?v=9" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=9">
+  <link href="css/editorial.css?v=10" rel="stylesheet"/>
+  <script defer="" src="js/experience.js?v=10">
   </script>
-  <link href="css/assignment6.css?v=9" rel="stylesheet"/>
+  <link href="css/assignment6.css?v=10" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
   </script>
-  <script defer="" src="script.js?v=9">
+  <script defer="" src="script.js?v=10">
   </script>
-  <script defer="" src="js/weather.js?v=9">
+  <script defer="" src="js/weather.js?v=10">
   </script>
-  <link href="css/endterm.css?v=9" rel="stylesheet"/>
+  <link href="css/endterm.css?v=10" rel="stylesheet"/>
   <noscript>
    <link href="css/no-js.css?v=9" rel="stylesheet"/>
   </noscript>
-  <script defer="" src="js/auth.js?v=8">
+  <script defer="" src="js/auth.js?v=10">
   </script>
   <link href="css/final.css?v=9" rel="stylesheet"/>
  </head>
@@ -197,6 +197,7 @@
             <a class="destination-link" href="aktau.html">Aktau guide <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg></a>
             <button aria-label="Save Aktau" aria-pressed="false" class="save-place" data-save="aktau" type="button"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4V5Z"/></svg><span>Save</span></button>
            </div>
+           <p class="save-error" data-save-error="" role="status"></p>
           </div>
          </article>
         </div>
@@ -210,6 +211,7 @@
             <a class="destination-link" href="astana.html">Astana guide <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg></a>
             <button aria-label="Save Astana" aria-pressed="false" class="save-place" data-save="astana" type="button"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4V5Z"/></svg><span>Save</span></button>
            </div>
+           <p class="save-error" data-save-error="" role="status"></p>
           </div>
          </article>
         </div>
@@ -223,6 +225,7 @@
             <a class="destination-link" href="almaty.html">Almaty guide <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg></a>
             <button aria-label="Save Almaty" aria-pressed="false" class="save-place" data-save="almaty" type="button"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4V5Z"/></svg><span>Save</span></button>
            </div>
+           <p class="save-error" data-save-error="" role="status"></p>
           </div>
          </article>
         </div>
@@ -236,19 +239,16 @@
             <a class="destination-link" href="shymkent.html">Shymkent guide <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg></a>
             <button aria-label="Save Shymkent" aria-pressed="false" class="save-place" data-save="shymkent" type="button"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4V5Z"/></svg><span>Save</span></button>
            </div>
+           <p class="save-error" data-save-error="" role="status"></p>
           </div>
          </article>
         </div>
        </div>
        <div class="no-results" data-no-results="" hidden="">
-        <h3>
- No destinations found
-        </h3>
-        <p>
-         No places match yet. Try another search or save a destination using its heart button.
-        </p>
+        <h3>No cities found</h3>
+        <p>Try a different search or show all cities.</p>
         <button class="btn btn-outline-primary" data-clear-filters="" type="button">
-         Show all places
+         Show all cities
         </button>
        </div>
       </div>
@@ -479,16 +479,12 @@
          </p>
          <div class="weather-range">
           <strong>
-           <span class="visually-hidden">
-            High
-           </span>
+           <span class="weather-range-label">High</span>
            <b data-day-high="">
            </b>
           </strong>
           <span>
-           <span class="visually-hidden">
-            Low
-           </span>
+           <span class="weather-range-label">Low</span>
            <b data-day-low="">
            </b>
           </span>
@@ -766,26 +762,6 @@
           Explore more of Kazakhstan using the arrows or the nine slide indicators.
          </p>
          <div aria-label="Destination photo gallery" aria-labelledby="carousel-title" aria-roledescription="carousel" class="carousel slide mx-auto rounded overflow-hidden" data-bs-interval="false" id="kazakhstan-carousel" role="region" tabindex="0">
-          <div class="carousel-indicators mb-3">
-           <button aria-current="true" aria-label="Slide 1: Mangystau landscape" class="active" data-bs-slide-to="0" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 2: Rock Trail, Aktau" data-bs-slide-to="1" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 3: Bozjyra, Mangystau" data-bs-slide-to="2" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 4: Astana cityscape" data-bs-slide-to="3" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 5: Baiterek, Astana" data-bs-slide-to="4" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 6: Khan Shatyr, Astana" data-bs-slide-to="5" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 7: Mountains near Almaty" data-bs-slide-to="6" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 8: Shymkent cityscape" data-bs-slide-to="7" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-           <button aria-label="Slide 9: Shymkent park" data-bs-slide-to="8" data-bs-target="#kazakhstan-carousel" type="button">
-           </button>
-          </div>
           <div aria-live="polite" class="carousel-inner">
            <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
             <img alt="Camel and plateau in the Mangystau steppe" class="d-block w-100 carousel-photo" data-src="images/Aktaumainpage.jpg" decoding="async" height="600" src="vendor/lazy-placeholder.svg" width="1200"/>

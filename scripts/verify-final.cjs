@@ -97,6 +97,8 @@ async function run(channel,viewport) {
         const search=page.locator('[data-destination-search]');
         await search.fill('a'); await search.press('ArrowDown'); await search.press('Enter');
         assert.equal(await search.inputValue(),'Aktau');
+        await search.fill('al'); await search.press('ArrowDown'); await search.press('Enter');
+        assert.equal(await search.inputValue(),'Almaty','City-name prefixes rank ahead of description matches');
         await search.fill('');
         await page.locator('[data-filter=nature]').click();
         assert.equal(await page.locator('.destination-column:visible').count(),2);
@@ -115,6 +117,14 @@ async function run(channel,viewport) {
         assert.match(await save.innerText(),/Saved/);
         await page.locator('[data-filter=saved]').click();
         await shot('search','#destinations');
+        if(capture) {
+            await save.focus();
+            await page.keyboard.press('Enter');
+            assert.equal(await page.locator('[data-filter=saved]').evaluate(filter=>filter===document.activeElement),true);
+            assert.match(await page.locator('[data-no-results]').innerText(),/No saved places yet/);
+            await page.locator('[data-clear-filters]').click();
+            await search.fill('almaty'); await save.click();
+        }
         await page.reload();
         assert.equal(await save.getAttribute('aria-pressed'),'true');
         const menu=page.locator('.navbar-toggler');
@@ -149,6 +159,7 @@ async function run(channel,viewport) {
         await page.locator('button[type=submit]').click();
         await page.waitForFunction(()=>document.querySelector('.form-status').textContent.includes('incorrect'));
         assert.ok(page.url().includes('login.html'));
+        assert.equal(await page.locator('.account-form .form-status').evaluate(status=>status===document.activeElement),true);
         await shot('login-error','.account-form');
         await page.locator('[name=password]').fill(password);
         await page.locator('button[type=submit]').click(); await page.waitForURL('**/profile.html');
@@ -226,6 +237,15 @@ async function run(channel,viewport) {
         const clock=page.locator('[data-live-clock]');
         const before=await clock.getAttribute('datetime');
         await page.waitForFunction(value=>document.querySelector('[data-live-clock]').dateTime!==value,before);
+        if(capture) {
+            const toggle=page.locator('[data-clock-toggle]');
+            await toggle.click();
+            const frozen=await clock.getAttribute('datetime');
+            await page.waitForTimeout(1100);
+            assert.equal(await clock.getAttribute('datetime'),frozen);
+            await toggle.click();
+            assert.notEqual(await clock.getAttribute('datetime'),frozen);
+        }
         await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
         await page.waitForFunction(()=>document.querySelector('[data-scroll-progress]').getAttribute('aria-valuenow')==='100');
         const sound=page.locator('[data-sound-toggle]');
@@ -317,6 +337,12 @@ async function restricted() {
         await context.route('https://code.jquery.com/**',route=>route.abort());
         await context.addInitScript(()=>{Storage.prototype.setItem=()=>{throw new DOMException('Blocked','SecurityError');};});
         const page=await context.newPage(); const errors=[];page.on('pageerror',e=>errors.push(e.message));
+        await ready(page,'index.html');
+        const save=page.locator('[data-save=almaty]');
+        await save.click();
+        assert.equal(await save.getAttribute('aria-pressed'),'false');
+        assert.match(await page.locator('[data-destination=almaty] [data-save-error]').innerText(),/Couldn’t save Almaty/);
+        assert.equal(await page.evaluate(()=>localStorage.getItem('kz-saved')),null);
         await ready(page,'signup.html'); await fillSignup(page);await page.locator('button[type=submit]').click();
         await page.waitForFunction(()=>document.querySelector('.form-status').textContent.includes('storage is unavailable'));
         assert.equal(await page.locator('button[type=submit]').isEnabled(),true);
@@ -351,8 +377,10 @@ async function weatherRecovery() {
         const retry = page.locator('[data-weather-refresh]');
         assert.match(await retry.innerText(),/Try again/);
         shouldFail = false;
-        await retry.click();
+        await retry.focus();
+        await page.keyboard.press('Enter');
         await page.locator('[data-weather-state=ready]').waitFor();
+        assert.equal(await retry.evaluate(button=>button===document.activeElement),true);
         assert.equal(await page.locator('[data-weather-days] li').count(),3);
         await page.reload();
         await page.locator('#weather').scrollIntoViewIfNeeded();

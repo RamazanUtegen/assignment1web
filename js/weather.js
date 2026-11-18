@@ -143,7 +143,7 @@
             render(id, cached.data, true);
             status.textContent = 'Recent forecast for ' + cities[id].name + '. Refresh for an update.';
             panel.dataset.weatherState = 'ready';
-            refresh.disabled = false;
+            refresh.removeAttribute('aria-disabled');
             refresh.textContent = 'Refresh forecast ↻';
             result.setAttribute('aria-busy', 'false');
             return;
@@ -155,7 +155,7 @@
         // Keep the same city's previous forecast in place during a manual refresh.
         result.hidden = panel.querySelector('[data-weather-name]').textContent !== cities[id].name;
         result.setAttribute('aria-busy', 'true');
-        refresh.disabled = true;
+        refresh.setAttribute('aria-disabled', 'true');
         refresh.textContent = 'Updating…';
         panel.dataset.weatherState = 'loading';
         status.textContent = 'Loading the forecast for ' + cities[id].name + '…';
@@ -193,7 +193,7 @@
             clearTimeout(timeout);
             if (request === requestNumber) {
                 result.setAttribute('aria-busy', 'false');
-                refresh.disabled = false;
+                refresh.removeAttribute('aria-disabled');
                 refresh.textContent = panel.dataset.weatherState === 'error' ? 'Try again ↻' : 'Refresh forecast ↻';
             }
         }
@@ -203,7 +203,9 @@
     select.disabled = false;
     refresh.disabled = false;
     select.addEventListener('change', () => loadForecast());
-    refresh.addEventListener('click', () => loadForecast(true));
+    refresh.addEventListener('click', () => {
+        if (refresh.getAttribute('aria-disabled') !== 'true') loadForecast(true);
+    });
     // Request data only when the traveller reaches the forecast section.
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {

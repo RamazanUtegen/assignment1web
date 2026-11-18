@@ -521,10 +521,6 @@ body.editorial a {
     font: 650 .875rem/1.2 'DM Sans', Arial, sans-serif;
 }
 
-.filter-tab:hover {
-    background: var(--accent-wash);
-}
-
 .filter-tab.is-active {
     border-color: var(--accent);
     background: var(--accent);
@@ -680,7 +676,6 @@ body.editorial a {
     border-radius: 999px;
 }
 
-.save-place:hover,
 .save-place[aria-pressed=true] {
     background: var(--accent-wash);
     border-color: var(--accent);
@@ -690,10 +685,32 @@ body.editorial a {
     fill: currentColor;
 }
 
+@media (hover: hover) {
+    .filter-tab:not(.is-active):hover,
+    .save-place:hover {
+        background: var(--accent-wash);
+    }
+
+    .save-place:hover {
+        border-color: var(--accent);
+    }
+}
+
+.save-error {
+    margin: 0;
+    color: var(--error);
+    font-size: .875rem;
+}
+
+.save-error:not(:empty) {
+    margin-top: 6px;
+}
+
 .no-results {
     background: var(--wash);
     padding: 24px;
     border-radius: 12px;
+    overflow-wrap: anywhere;
 }
 
 .editorial .trip-planner {
@@ -1274,6 +1291,11 @@ body[data-theme=night] .rating-stars button.is-selected {
     color: var(--ink)
 }
 
+.clock-toggle {
+    margin-inline-start: 8px;
+    font-size: .82rem;
+}
+
 .editorial .travel-tools .btn {
     padding: 8px 14px !important;
     font-size: 10px;
@@ -1486,11 +1508,6 @@ body[data-theme=night] .rating-stars button.is-selected {
     min-height: 44px;
 }
 
-.editorial .carousel-indicators button[data-bs-slide-to] {
-    min-height: 24px;
-    border-block-width: 9px;
-}
-
 .editorial footer :focus-visible,
 .editorial .carousel :focus-visible {
     outline-color: #fff;
@@ -1498,7 +1515,13 @@ body[data-theme=night] .rating-stars button.is-selected {
 
 @media (max-width: 1199.98px) {
     .header-inner { gap: 0; }
-    .editorial .navbar-collapse { padding: 5px 4px 19px; }
+    .editorial .navbar-collapse { padding: 8px 8px 19px; }
+    .editorial .navbar-collapse.show {
+        max-block-size: calc(100dvh - var(--nav-height));
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        scroll-padding-block: 8px;
+    }
     .editorial .navbar-nav { gap: 0; }
     .editorial .navbar .nav-link { min-height: 44px; }
     .nav-actions { flex-wrap: wrap; margin-top: 10px; }
@@ -1527,6 +1550,7 @@ body[data-theme=night] .rating-stars button.is-selected {
     .planner-photo { display: none; }
     .search-combobox { width: 100%; }
     .destination-search { width: 100%; }
+    .editorial :is(.form-control, .form-select) { font-size: 1rem; }
     .story-layout img { aspect-ratio: 16 / 10; }
     .editorial .css-tips { margin-inline: var(--gutter); }
     .editorial .carousel-photo { height: 340px; }

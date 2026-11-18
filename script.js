@@ -58,6 +58,7 @@
             const $cards = $('[data-destination]');
             const $suggestions = $('#destination-suggestions');
             const $filters = $('[data-filter]');
+            const $emptyDestinations = $('[data-no-results]');
             let category = 'all';
             let activeSuggestion = -1;
             const queryText = $input => String($input.val() || '').trim().slice(0, 80).toLowerCase();
@@ -73,6 +74,7 @@
             // Tasks 1 and 2: live filtering and matching suggestions share criteria.
             function renderDestinations(showSuggestions = false) {
                 const query = queryText($search);
+                const focusedColumn = document.activeElement.closest('.destination-column');
                 const $matches = $cards.filter(function () {
                     return inCategory(this) && $(this).attr('data-search-text').includes(query);
                 });
@@ -80,7 +82,16 @@
                     $(this).closest('.destination-column').prop('hidden', !$matches.is(this));
                 });
                 $('[data-results-count]').text(`${$matches.length} ${$matches.length === 1 ? 'place' : 'places'} to discover`);
-                $('[data-no-results]').prop('hidden', $matches.length !== 0);
+                $emptyDestinations.prop('hidden', $matches.length !== 0);
+                if ($cards.length && !$matches.length) {
+                    const noSaved = category === 'saved' && !$cards.find('[data-save][aria-pressed=true]').length;
+                    const term = String($search.val() || '').trim().slice(0, 80);
+                    $emptyDestinations.find('h3').text(noSaved ? 'No saved places yet' : 'No cities found');
+                    $emptyDestinations.find('p').text(noSaved
+                        ? 'Select Save on a city to add it to this list.'
+                        : term ? `No cities match “${term}” with these filters. Try a different search or show all cities.`
+                            : 'Choose a different filter or show all cities.');
+                }
                 $filters.each(function () {
                     const active = $(this).attr('data-filter') === category;
                     $(this).toggleClass('is-active', active).attr('aria-pressed', String(active));
@@ -89,13 +100,21 @@
                 $suggestions.empty();
                 closeSuggestions();
                 if (showSuggestions && query && $matches.length) {
-                    $matches.each(function (index) {
+                    const candidates = $matches.toArray().sort((first, second) =>
+                        Number(second.dataset.destination.startsWith(query)) - Number(first.dataset.destination.startsWith(query)));
+                    candidates.forEach((card, index) => {
                         $('<li>', { role: 'option', id: `destination-option-${index}`,
-                            'aria-selected': 'false', text: $(this).find('.card-title').text().trim()
+                            'aria-selected': 'false', text: $(card).find('.card-title').text().trim()
                         }).appendTo($suggestions);
                     });
                     $suggestions.prop('hidden', false);
                     $search.attr('aria-expanded', 'true');
+                }
+                if (focusedColumn?.hidden) {
+                    const next = $(focusedColumn).nextAll('.destination-column:not([hidden])').first();
+                    const nearby = next.length ? next : $(focusedColumn).prevAll('.destination-column:not([hidden])').first();
+                    const target = nearby.find('[data-save]')[0] || $filters.filter('.is-active')[0];
+                    target?.focus();
                 }
                 scheduleViewport();
             }
@@ -196,8 +215,10 @@
                 const $feedback = $('#' + $button.attr('aria-describedby'));
                 const inline = $feedback.attr('role') === 'status';
                 const target = document.getElementById($button.attr('data-copy'));
-                if (inline) $button.attr('aria-disabled', 'true');
-                else $button.prop('disabled', true);
+                if (inline) {
+                    $button.attr('aria-disabled', 'true');
+                    $feedback.empty();
+                } else $button.prop('disabled', true);
                 try {
                     const text = target.innerText.trim();
                     if (navigator.clipboard && window.isSecureContext) {
@@ -220,15 +241,13 @@
                     $feedback.text('Copy unavailable. Select and copy the text.').prop('hidden', false);
                     if (!inline) notify('Clipboard access was unavailable. You can select and copy the text.');
                 } finally {
-                    setTimeout(() => {
-                        if (inline) {
-                            $button.removeAttr('aria-disabled');
-                            $feedback.empty();
-                        } else {
+                    if (inline) $button.removeAttr('aria-disabled');
+                    else {
+                        setTimeout(() => {
                             $button.text(original).prop('disabled', false);
                             $feedback.prop('hidden', true);
-                        }
-                    }, 2200);
+                        }, 2200);
+                    }
                 }
             });
 

@@ -90,6 +90,7 @@
     }));
     document.querySelectorAll('[data-auth-form]').forEach(form => {
         const status = form.querySelector('.form-status');
+        status.tabIndex = -1;
         if (form.dataset.authForm === 'login' && new URLSearchParams(location.search).has('loggedOut')) status.textContent = 'You are logged out. Your local account is still saved.';
         const validator = KZValidation.bind(form, async values => {
             const email = values.email.toLowerCase();
@@ -119,7 +120,7 @@
                     location.assign('login.html?registered=1');
                 } else {
                     const user = accounts.find(account => account.email === email);
-                    if (!user || await passwordHash(values.password, user.password.salt) !== user.password.hash) throw new Error('Email or password is incorrect. Please try again.');
+                    if (!user || await passwordHash(values.password, user.password.salt) !== user.password.hash) throw new Error('Email or password is incorrect. Check your email and re-enter your password.');
                     localStorage.setItem(SESSION_KEY, JSON.stringify({ email, loggedInAt: new Date().toISOString() }));
                     status.textContent = 'Welcome back. Opening your travel notebook…';
                     location.assign('profile.html');
@@ -133,6 +134,8 @@
                 form.setAttribute('aria-busy', 'false');
                 form.querySelectorAll('input[data-rules~="password"], input[data-rules~="confirm"]').forEach(field => { field.value = ''; });
                 if (fieldError) validator.invalidate(...fieldError);
+                else if (status.classList.contains('form-status-error') &&
+                    (document.activeElement === document.body || document.activeElement === submit)) status.focus();
             }
         });
         if (form.dataset.authForm === 'login' && new URLSearchParams(location.search).has('registered')) status.textContent = 'Your local account is ready. Log in to open your profile.';

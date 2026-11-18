@@ -6,13 +6,33 @@ if (clockBlocks.length) {
         timeZone: 'Asia/Almaty', month: 'long', day: 'numeric', year: 'numeric',
         hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
     });
-    function updateClock() {
-        const now = new Date();
-        clockBlocks.forEach(function (clock) {
+    clockBlocks.forEach(clock => {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'text-button clock-toggle';
+        toggle.setAttribute('data-clock-toggle', '');
+        clock.after(toggle);
+        let interval;
+
+        function updateClock() {
+            const now = new Date();
             clock.dateTime = now.toISOString();
             clock.textContent = dateFormatter.format(now);
+        }
+        function resumeClock() {
+            updateClock();
+            interval = setInterval(updateClock, 1000);
+            toggle.textContent = 'Pause clock';
+        }
+        toggle.addEventListener('click', () => {
+            if (interval === undefined) {
+                resumeClock();
+            } else {
+                clearInterval(interval);
+                interval = undefined;
+                toggle.textContent = 'Resume clock';
+            }
         });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+        resumeClock();
+    });
 }

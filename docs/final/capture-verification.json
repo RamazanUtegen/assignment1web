@@ -1,5 +1,5 @@
 {
-  "checkedAtUTC": "2026-11-18T05:39:42.918566+00:00",
+  "checkedAtUTC": "2026-11-18T06:07:40.768126+00:00",
   "widths": [
     390,
     768,
@@ -419,5 +419,85 @@
     "images/responsive/shymkent-640.webp": 640,
     "images/responsive/shymkent-park-1000.webp": 1000,
     "images/responsive/shymkent-park-520.webp": 520
+  },
+  "interfaceReview": {
+    "checkedAtUTC": "2026-11-18T06:13:09.347372+00:00",
+    "narrowViewport": {
+      "width": 320,
+      "scans": 18,
+      "violations": 0,
+      "horizontalOverflow": 0
+    },
+    "browserZoom": {
+      "percent": 200,
+      "beforeClippedActions": 4,
+      "afterClippedActions": 0,
+      "focusAfterNav": "account-email"
+    },
+    "coldWeather": {
+      "beforeMaxOverflowPx": 14.97,
+      "afterMaxOverflowPx": 0
+    },
+    "refreshContrast": {
+      "before": [
+        {
+          "theme": "day",
+          "opacity": 0.65,
+          "fg": "rgb(78, 96, 90)",
+          "bg": "rgb(255, 255, 255)",
+          "backdrop": "rgb(255, 255, 255)",
+          "contrast": 3
+        },
+        {
+          "theme": "night",
+          "opacity": 0.65,
+          "fg": "rgb(181, 201, 191)",
+          "bg": "rgb(34, 52, 56)",
+          "backdrop": "rgb(19, 28, 32)",
+          "contrast": 4.14
+        }
+      ],
+      "after": [
+        {
+          "theme": "day",
+          "opacity": 1,
+          "fg": "rgb(78, 96, 90)",
+          "bg": "rgb(255, 255, 255)",
+          "backdrop": "rgb(255, 255, 255)",
+          "contrast": 6.68
+        },
+        {
+          "theme": "night",
+          "opacity": 1,
+          "fg": "rgb(181, 201, 191)",
+          "bg": "rgb(34, 52, 56)",
+          "backdrop": "rgb(19, 28, 32)",
+          "contrast": 7.47
+        }
+      ]
+    },
+    "asyncControls": {
+      "refresh": {
+        "whileLoading": true,
+        "requestsBefore": 2,
+        "afterFailure": true,
+        "requests": 2
+      },
+      "copy": {
+        "message": "Copy unavailable. Select and copy the text.",
+        "visible": true,
+        "afterWait": "Copy unavailable. Select and copy the text.",
+        "retainedFocus": true
+      }
+    },
+    "keyboardGalleryPages": [
+      "index View photo 9: Green park entrance in Shymkent reached by keyboard",
+      "aktau View photo 9: Green park entrance in Shymkent reached by keyboard",
+      "almaty View photo 9: Local Market reached by keyboard",
+      "shymkent View photo 9: Tree-lined walkway reached by keyboard",
+      "about View photo 9: Historic-style gateway with camel sculptures reached by keyboard"
+    ],
+    "pausedClockResumes": true,
+    "plannerMotionReplayPercent": 10
   }
 }

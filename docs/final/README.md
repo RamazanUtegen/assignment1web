@@ -30,7 +30,7 @@ The complete review journey starts by finding and saving Almaty. Register with s
 | Presentation | 5 | The script allocates 4:45 across three speakers. Seven backup slides support the live walkthrough. |
 | Code quality and organization | 5 | Shared CSS, local dependencies, explicit validation and asset and navigation checks. |
 
-The [browser results](browser-verification.json) list the tested widths, pages and themes. The [capture checks](capture-verification.json) record the image and contrast review. The course instructor assesses design and presentation.
+The [interface review](interface-review.md) ranks the fixes for keyboard focus, narrow layouts, saving and recovery. The [browser results](browser-verification.json) list the tested widths, pages and themes. The [capture checks](capture-verification.json) record the image and contrast review. The course instructor assesses design and presentation.
 
 ## Build the submission
 

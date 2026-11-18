@@ -28,6 +28,7 @@ mark.search-match { background: var(--accent-wash); color: var(--ink); padding: 
 img[data-src] { background: var(--wash); }
 @media(max-width: 767px) {
     .search-combobox { width: 100%; min-width: 0; }
+    .search-combobox input { font-size: 1rem; }
     .guide-stats .container { grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: center; }
     .guide-stats .stats-intro { grid-column: 1 / -1; max-width: none; }
     .guide-stats p { font-size: 11px; }
