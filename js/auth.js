@@ -47,16 +47,13 @@
         text('[data-profile-initials]', user.name.split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase());
         const list = content.querySelector('[data-profile-saved]');
         list.replaceChildren();
-        let saved;
-        try { saved = JSON.parse(localStorage.getItem('kz-saved') || '[]'); } catch { saved = []; }
-        const names = { aktau: 'Aktau', astana: 'Astana', almaty: 'Almaty', shymkent: 'Shymkent' };
-        const valid = Array.isArray(saved) ? [...new Set(saved.filter(id => Object.hasOwn(names, id)))] : [];
-        valid.forEach(id => {
+        const saved = window.KZSavedPlaces.list();
+        saved.forEach(({ id, name }) => {
             const link = document.createElement('a');
-            link.href = id + '.html'; link.textContent = names[id] + ' ↗'; link.className = 'saved-guide-link';
+            link.href = id + '.html'; link.textContent = name + ' ↗'; link.className = 'saved-guide-link';
             const item = document.createElement('li'); item.append(link); list.append(item);
         });
-        content.querySelector('[data-profile-empty]').hidden = valid.length > 0;
+        content.querySelector('[data-profile-empty]').hidden = saved.length > 0;
         document.querySelector('[data-profile-locked]').hidden = true;
         content.hidden = false;
     }
@@ -73,8 +70,9 @@
         }
     }
     refreshSession();
+    document.addEventListener('kz:destinations-change', refreshSession);
     window.addEventListener('storage', event => {
-        if ([USERS_KEY, SESSION_KEY, 'kz-saved', null].includes(event.key)) refreshSession();
+        if (event.key === USERS_KEY || event.key === SESSION_KEY) refreshSession();
     });
     document.querySelectorAll('[data-logout]').forEach(button => button.addEventListener('click', () => {
         try { localStorage.removeItem(SESSION_KEY); location.replace('login.html?loggedOut=1'); }

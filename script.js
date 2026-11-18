@@ -118,6 +118,7 @@
             const $cards = $('[data-destination]');
             const $filters = $('[data-filter]');
             const $emptyDestinations = $('[data-no-results]');
+            const cardTitle = card => $(card).find('.card-title').text().trim();
             let category = 'all';
             function inCategory(card) {
                 if (category === 'saved') return $(card).find('[data-save]').attr('aria-pressed') === 'true';
@@ -125,10 +126,11 @@
             }
             function matchingDestinations(query) {
                 return $cards.filter(function () {
-                    return inCategory(this) && this.dataset.searchText.includes(query);
+                    const description = $(this).find('.card-text').text();
+                    const searchableText = `${this.dataset.searchText} ${cardTitle(this)} ${description}`.toLowerCase();
+                    return inCategory(this) && searchableText.includes(query);
                 });
             }
-            const cardTitle = card => $(card).find('.card-title').text().trim();
             // Tasks 1 and 2: live filtering and matching suggestions share criteria.
             function renderDestinations() {
                 const query = queryText($search);
@@ -185,10 +187,11 @@
             let faqState;
             function renderFaq() {
                 const query = queryText($faqSearch);
+                if (!query && !faqState) return;
                 if (query && !faqState) faqState = $faqItems.map(function () {
                     return $(this).find('[data-accordion-trigger]').attr('aria-expanded') === 'true';
                 }).get();
-                highlight($faqItems.find('.faq-question, .faq-panel p'), query);
+                highlight($faqItems.find('.faq-question-text, .faq-panel p'), query);
                 let count = 0;
                 $faqItems.each(function (index) {
                     const $item = $(this);
@@ -235,14 +238,10 @@
             $('[data-copy]').on('click', async function () {
                 const $button = $(this);
                 if ($button.prop('disabled') || $button.attr('aria-disabled') === 'true') return;
-                const original = $button.text();
                 const $feedback = $('#' + $button.attr('aria-describedby'));
-                const inline = $feedback.attr('role') === 'status';
                 const target = document.getElementById($button.attr('data-copy'));
-                if (inline) {
-                    $button.attr('aria-disabled', 'true');
-                    $feedback.empty();
-                } else $button.prop('disabled', true);
+                $button.attr('aria-disabled', 'true');
+                $feedback.empty();
                 try {
                     const text = target.innerText.trim();
                     if (navigator.clipboard && window.isSecureContext) {
@@ -250,28 +249,19 @@
                     } else {
                         const focused = document.activeElement;
                         const $buffer = $('<textarea>', { text, class: 'visually-hidden', readonly: true }).appendTo('body');
-                        $buffer[0].select();
-                        const copied = document.execCommand('copy');
-                        $buffer.remove();
-                        focused?.focus();
-                        if (!copied) throw new Error('Clipboard unavailable');
+                        try {
+                            $buffer[0].select();
+                            if (!document.execCommand('copy')) throw new Error('Clipboard unavailable');
+                        } finally {
+                            $buffer.remove();
+                            focused?.focus({ preventScroll: true });
+                        }
                     }
-                    $feedback.text('Copied to clipboard.').prop('hidden', false);
-                    if (!inline) {
-                        $button.text('✓ Copied');
-                        notify('Copied to clipboard.');
-                    }
+                    $feedback.text('Copied to clipboard.');
                 } catch {
-                    $feedback.text('Copy unavailable. Select and copy the text.').prop('hidden', false);
-                    if (!inline) notify('Clipboard access was unavailable. You can select and copy the text.');
+                    $feedback.text('Copy unavailable. Select and copy the text.');
                 } finally {
-                    if (inline) $button.removeAttr('aria-disabled');
-                    else {
-                        setTimeout(() => {
-                            $button.text(original).prop('disabled', false);
-                            $feedback.prop('hidden', true);
-                        }, 2200);
-                    }
+                    $button.removeAttr('aria-disabled');
                 }
             });
 

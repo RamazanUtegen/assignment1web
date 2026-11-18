@@ -16,7 +16,7 @@
   <link href="css/assignment4.css?v=5" rel="stylesheet"/>
   <script defer="" src="vendor/bootstrap.bundle.min.js?v=5">
   </script>
-  <script defer="" src="js/site.js?v=10">
+  <script defer="" src="js/site.js?v=11">
   </script>
   <script defer="" src="js/validation.js?v=8">
   </script>
@@ -29,13 +29,13 @@
   <script defer="" src="js/accordion.js?v=7">
   </script>
   <link href="css/editorial.css?v=12" rel="stylesheet"/>
-  <script defer="" src="js/experience.js?v=10">
+  <script defer="" src="js/experience.js?v=11">
   </script>
-  <link href="css/assignment6.css?v=11" rel="stylesheet"/>
+  <link href="css/assignment6.css?v=12" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
   </script>
-  <script defer="" src="script.js?v=13">
+  <script defer="" src="script.js?v=14">
   </script>
   <script defer="" src="js/weather.js?v=10">
   </script>
@@ -43,7 +43,7 @@
   <noscript>
    <link href="css/no-js.css?v=9" rel="stylesheet"/>
   </noscript>
-  <script defer="" src="js/auth.js?v=10">
+  <script defer="" src="js/auth.js?v=11">
   </script>
   <link href="css/final.css?v=9" rel="stylesheet"/>
  </head>
@@ -121,7 +121,7 @@
        <button aria-label="Enable sound effects" aria-pressed="false" class="icon-button sound-button" data-sound-toggle="" title="Sound effects" type="button">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="sound-waves" d="M16 9a4 4 0 0 1 0 6m2.8-9a8 8 0 0 1 0 12"/><path class="sound-off" d="m16 10 5 5m0-5-5 5"/></svg>
        </button>
-       <a class="btn btn-primary plan-link" href="index.html#trip-planner">
+       <a class="btn btn-primary plan-link" href="#trip-planner">
         Plan a trip
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h11m-5-5 5 5-5 5"/></svg>
        </a>
@@ -1011,7 +1011,7 @@
         <article class="faq-item">
          <h3>
           <button aria-controls="faq-answer-1" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-1" type="button">
-           Which cities can I explore?
+           <span class="faq-question-text">Which cities can I explore?</span>
           </button>
          </h3>
          <div aria-labelledby="faq-question-1" class="faq-panel" id="faq-answer-1" role="region">
@@ -1025,7 +1025,7 @@
         <article class="faq-item">
          <h3>
           <button aria-controls="faq-answer-2" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-2" type="button">
-           How can I compare the destinations?
+           <span class="faq-question-text">How can I compare the destinations?</span>
           </button>
          </h3>
          <div aria-labelledby="faq-question-2" class="faq-panel" id="faq-answer-2" role="region">
@@ -1039,7 +1039,7 @@
         <article class="faq-item">
          <h3>
           <button aria-controls="faq-answer-3" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-3" type="button">
-           Can I book a trip through KZ Travel?
+           <span class="faq-question-text">Can I book a trip through KZ Travel?</span>
           </button>
          </h3>
          <div aria-labelledby="faq-question-3" class="faq-panel" id="faq-answer-3" role="region">
@@ -1053,7 +1053,7 @@
         <article class="faq-item">
          <h3>
           <button aria-controls="faq-answer-4" aria-expanded="false" class="faq-question" data-accordion-trigger="" id="faq-question-4" type="button">
-           How do I try the contact form?
+           <span class="faq-question-text">How do I try the contact form?</span>
           </button>
          </h3>
          <div aria-labelledby="faq-question-4" class="faq-panel" id="faq-answer-4" role="region">
@@ -1157,12 +1157,10 @@
          </p>
         </div>
         <div class="copy-control">
-         <button aria-describedby="guide-copy-tooltip" class="btn btn-outline-primary" data-copy="guide-share-text" type="button">
+         <button aria-describedby="guide-copy-status" class="btn btn-outline-primary" data-copy="guide-share-text" type="button">
           Copy guide link ↗
          </button>
-         <span class="copy-tooltip" hidden="" id="guide-copy-tooltip" role="tooltip">
-          Copied to clipboard!
-         </span>
+         <span class="copy-feedback" id="guide-copy-status" role="status"></span>
         </div>
        </div>
       </div>

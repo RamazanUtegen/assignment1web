@@ -19,7 +19,7 @@ function closeNavigation() {
         navigation.addEventListener('shown.bs.collapse', () => collapse.hide(), { once: true });
     } else collapse.hide();
 }
-navigation?.addEventListener('keydown', function (event) {
+header?.addEventListener('keydown', function (event) {
     if (event.key === 'Escape' && navigationToggle.getAttribute('aria-expanded') === 'true') {
         event.preventDefault();
         closeNavigation();

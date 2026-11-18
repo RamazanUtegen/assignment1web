@@ -145,41 +145,57 @@
         });
     }
 
-    const savedData = storage.read('saved', []);
-    let saved = new Set(Array.isArray(savedData) ? savedData.filter(id => destinations.some(place => place.id === id)) : []);
-    // Assignment 6 owns the search/filter UI through jQuery.
-    function renderDestinations() {
-        document.querySelectorAll('[data-saved-count]').forEach(label => { label.textContent = saved.size; });
-        document.dispatchEvent(new Event('kz:destinations-change'));
+    const placesById = new Map(destinations.map(place => [place.id, place]));
+    const savedKey = id => 'saved-' + id;
+    function listSavedPlaces() {
+        // A city's own record overrides the older shared list, including removals.
+        const legacy = storage.read('saved', []);
+        const ids = new Set(Array.isArray(legacy) ? legacy.filter(id => placesById.has(id)) : []);
+        for (const id of placesById.keys()) {
+            const selected = storage.read(savedKey(id), null);
+            if (selected === true) ids.add(id);
+            if (selected === false) ids.delete(id);
+        }
+        return Array.from(ids, id => placesById.get(id));
     }
-    document.querySelectorAll('[data-save]').forEach(button => {
-        const id = button.dataset.save;
-        const city = destinations.find(place => place.id === id).name;
-        const feedback = button.closest('[data-destination]').querySelector('[data-save-error]');
-        function updateButton() {
-            const selected = saved.has(id);
+    window.KZSavedPlaces = Object.freeze({ list: listSavedPlaces });
+
+    const saveButtons = document.querySelectorAll('[data-save]');
+    function renderSavedPlaces() {
+        const ids = new Set(listSavedPlaces().map(place => place.id));
+        saveButtons.forEach(button => {
+            const city = placesById.get(button.dataset.save).name;
+            const selected = ids.has(button.dataset.save);
             button.setAttribute('aria-pressed', String(selected));
             button.setAttribute('aria-label', `${selected ? 'Saved' : 'Save'} ${city}`);
             button.querySelector('span').textContent = selected ? 'Saved' : 'Save';
-        }
-        updateButton();
+        });
+        document.querySelectorAll('[data-saved-count]').forEach(label => { label.textContent = ids.size; });
+        document.dispatchEvent(new Event('kz:destinations-change'));
+    }
+    saveButtons.forEach(button => {
+        const id = button.dataset.save;
+        const city = placesById.get(id).name;
+        const feedback = button.closest('[data-destination]').querySelector('[data-save-error]');
         button.addEventListener('click', () => {
-            const removing = saved.has(id);
-            const updated = new Set(saved);
-            if (removing) updated.delete(id); else updated.add(id);
-            if (!storage.write('saved', [...updated])) {
-                feedback.textContent = `Couldn’t ${removing ? 'remove' : 'save'} ${city}. Check your browser’s site storage settings and try again.`;
+            const selected = button.getAttribute('aria-pressed') !== 'true';
+            if (!storage.write(savedKey(id), selected)) {
+                feedback.textContent = `Couldn’t ${selected ? 'save' : 'remove'} ${city}. Check your browser’s site storage settings and try again.`;
                 return;
             }
-            saved = updated;
             feedback.textContent = '';
-            updateButton();
-            renderDestinations(false);
-            notify(saved.has(id) ? `Saved ${city}.` : `Removed ${city} from saved places.`);
+            renderSavedPlaces();
+            notify(selected ? `Saved ${city}.` : `Removed ${city} from saved places.`);
             playChime();
         });
     });
-    renderDestinations(false);
+    window.addEventListener('storage', event => {
+        if (event.key === null || event.key === 'kz-saved' || event.key.startsWith('kz-saved-')) renderSavedPlaces();
+    });
+    window.addEventListener('pageshow', event => {
+        if (event.persisted) renderSavedPlaces();
+    });
+    renderSavedPlaces();
 
     // Thumbnails use Bootstrap's existing gallery, preserving previous/next/keyboard controls.
     document.querySelectorAll('[data-gallery-for]').forEach(thumbnails => {

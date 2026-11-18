@@ -60,6 +60,11 @@ async function keyboardNavigation(page) {
         await toggle.focus();
         await page.keyboard.press('Space');
         await links.first().waitFor();
+        await page.keyboard.press('Escape');
+        await links.first().waitFor({state:'hidden'});
+        assert.equal(await toggle.evaluate(button=>button===document.activeElement),true);
+        await page.keyboard.press('Space');
+        await links.first().waitFor();
         await links.first().focus();
         await page.keyboard.press('Escape');
         await links.first().waitFor({state:'hidden'});
@@ -69,6 +74,36 @@ async function keyboardNavigation(page) {
         await links.first().focus();
         await page.keyboard.press('ArrowRight');
         assert.equal(await links.nth(1).evaluate(link=>link===document.activeElement),true);
+    }
+}
+async function savedAcrossTabs(profile) {
+    const context = profile.context();
+    await profile.evaluate(() => localStorage.setItem('kz-saved', '["shymkent"]'));
+    await ready(profile,'profile.html');
+    const first = await context.newPage();
+    const second = await context.newPage();
+    try {
+        await Promise.all([ready(first,'index.html'),ready(second,'index.html')]);
+        const savedLinks = profile.locator('[data-profile-saved] a');
+        await savedLinks.filter({hasText:'Shymkent'}).waitFor();
+        await Promise.all([
+            first.locator('[data-save=astana]').click(),
+            second.locator('[data-save=aktau]').click()
+        ]);
+        await savedLinks.filter({hasText:'Astana'}).waitFor();
+        await savedLinks.filter({hasText:'Aktau'}).waitFor();
+        await first.waitForFunction(() => document.querySelector('[data-saved-count]').textContent === '4');
+        await second.locator('[data-filter=saved]').click();
+        const legacyCard = second.locator('[data-destination=shymkent]');
+        await legacyCard.waitFor();
+        await first.locator('[data-save=shymkent]').click();
+        await legacyCard.waitFor({state:'hidden'});
+        await savedLinks.filter({hasText:'Shymkent'}).waitFor({state:'detached'});
+        await ready(first,'index.html');
+        assert.equal(await first.locator('[data-save=shymkent]').getAttribute('aria-pressed'),'false');
+        assert.equal(await first.locator('[data-saved-count]').textContent(),'3');
+    } finally {
+        await Promise.all([first.close(),second.close()]);
     }
 }
 async function run(channel,viewport) {
@@ -101,6 +136,13 @@ async function run(channel,viewport) {
         assert.equal(await search.inputValue(),'Aktau');
         await search.fill('al'); await search.press('ArrowDown'); await search.press('Enter');
         assert.equal(await search.inputValue(),'Almaty','City-name prefixes rank ahead of description matches');
+        for (const [query,city] of [['Baiterek','astana'],['Bozjyra','aktau'],['Medeu','almaty'],['Shymbulak','almaty']]) {
+            await search.fill(query);
+            const match = page.locator('[data-destination]:visible');
+            assert.equal(await match.count(),1);
+            assert.equal(await match.getAttribute('data-destination'),city);
+            assert.equal(await match.locator('.card-text mark').innerText(),query);
+        }
         await search.fill('');
         await page.locator('[data-filter=nature]').click();
         assert.equal(await page.locator('.destination-column:visible').count(),2);
@@ -184,6 +226,20 @@ async function run(channel,viewport) {
         await page.locator('.profile-actions a[href="index.html#trip-planner"]').click();
         await page.locator('[data-jquery-ready=true]').waitFor();
         const faq=page.locator('[data-faq-search]');
+        const firstQuestion=page.locator('.faq-question').first();
+        await firstQuestion.click();
+        await faq.fill(' ');
+        assert.equal(await firstQuestion.getAttribute('aria-expanded'),'true');
+        await faq.fill('a');
+        const highlightGap=await firstQuestion.locator('mark').first().evaluate(mark=>{
+            const precedingText=document.createRange();
+            precedingText.selectNodeContents(mark.previousSibling);
+            return mark.getBoundingClientRect().left-precedingText.getBoundingClientRect().right;
+        });
+        assert.ok(Math.abs(highlightGap)<5,'The highlighted letter stays next to the rest of the word');
+        await faq.fill('');
+        assert.equal(await firstQuestion.getAttribute('aria-expanded'),'true');
+        await firstQuestion.click();
         const faqSuggestions=page.locator('#faq-search-suggestions');
         const astana=faqSuggestions.getByRole('option',{name:'Astana',exact:true});
         await faq.fill('As');
@@ -205,6 +261,7 @@ async function run(channel,viewport) {
         await faq.fill('guide'); assert.ok(await page.locator('#faq mark').count()>0);
         await faq.fill('['); assert.equal(await page.locator('.faq-item:visible').count(),0);
         await faq.fill('');
+        await ready(page,'');
         const next=page.locator('[data-planner-next]');
         await next.click();
         assert.match(await page.locator('#trip-planner-error').innerText(),/Choose a destination/);
@@ -222,6 +279,11 @@ async function run(channel,viewport) {
         assert.equal(await page.locator('#trip-name').getAttribute('aria-invalid'),'true');
         await page.locator('[name=traveler]').fill('Demo');
         await page.locator('[name=days]').selectOption('2');
+        if(await menu.isVisible()) await menu.click();
+        await page.locator('.plan-link').click();
+        assert.equal(new URL(page.url()).href,new URL('#trip-planner',baseURL).href);
+        assert.equal(await page.locator('[name=traveler]').inputValue(),'Demo');
+        assert.equal(await page.locator('[name=days]').inputValue(),'2');
         await next.click(); await next.click();
         assert.equal(await page.locator('[data-trip-stops] li').count(),2);
         const copyRoute=page.locator('[data-copy=route-copy-text]');
@@ -250,8 +312,9 @@ async function run(channel,viewport) {
         }
         await shot('weather-fixture','#weather');
         await page.locator('#gallery').scrollIntoViewIfNeeded(); await page.locator('.carousel-control-next').click();
-        await page.waitForFunction(()=>document.querySelector('.carousel-item.active img').getAttribute('data-lazy-state')==='loaded');
-        assert.match(await page.locator('.carousel-item.active img').evaluate(image=>image.currentSrc),/\/images\/responsive\/aktau-coast-\d+\.webp$/);
+        const secondPhoto=page.locator('#gallery .carousel-item:nth-child(2).active img[data-lazy-state=loaded]');
+        await secondPhoto.waitFor();
+        assert.match(await secondPhoto.evaluate(image=>image.currentSrc),/\/images\/responsive\/aktau-coast-\d+\.webp$/);
         await page.locator('.gallery-thumbnails').scrollIntoViewIfNeeded();
         await page.waitForFunction(()=>[...document.querySelectorAll('.gallery-thumb img')].every(image=>image.dataset.lazyState==='loaded'));
         assert.ok(await page.locator('.gallery-thumb img').evaluateAll(images=>images.every(image=>image.currentSrc.endsWith('-thumb.webp'))));
@@ -356,6 +419,7 @@ async function run(channel,viewport) {
             }
           }
         }
+        await savedAcrossTabs(page);
         const second=await context.newPage(); await ready(second,'profile.html');
         await Promise.all([
             page.waitForURL('**/login.html?loggedOut=1',{waitUntil:'domcontentloaded'}),
@@ -364,8 +428,29 @@ async function run(channel,viewport) {
         ]);
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         assert.deepEqual(errors,[]);
-        results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
-            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','deferred WebP carousel photos and compact gallery thumbnails','ratings, optional sound, live clock, counters and reading progress','background colour selection across themes, navigation and reload','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
+        results.push({
+            browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
+            scenarios:[
+                'destination names and descriptions, keyboard autocomplete and filters',
+                'saved city persistence, concurrent tabs and legacy storage',
+                'registration and salted local verifier',
+                'empty or invalid email, password, phone and confirmation',
+                'password visibility',
+                'duplicate email',
+                'wrong credentials',
+                'profile redirect and saved Almaty after reload',
+                'two-day route, field errors, same-page navigation and clipboard',
+                'current Almaty weather and three-day fixture outlook',
+                'FAQ city suggestions, inline highlights and expanded state after clearing',
+                'deferred WebP carousel photos and compact gallery thumbnails',
+                'ratings, optional sound, live clock, counters and reading progress',
+                'background colour selection across themes, navigation and reload',
+                'nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow',
+                'custom validation on all enquiries',
+                'busy form lock and duplicate-submit guard',
+                'logout and cross-tab profile guard'
+            ]
+        });
         console.log('PASS',channel||'chromium',viewport.width);
     } catch(error) {
         console.error('STATE',channel||'chromium',viewport.width,page.url(),await page.evaluate(()=>({session:localStorage.getItem('kz-session-v1'),jquery:document.body.dataset.jqueryReady,authScripts:[...document.scripts].filter(s=>s.src.includes('auth.js')).length})).catch(()=>null),errors);
@@ -384,11 +469,23 @@ async function restricted() {
         await save.click();
         assert.equal(await save.getAttribute('aria-pressed'),'false');
         assert.match(await page.locator('[data-destination=almaty] [data-save-error]').innerText(),/Couldn’t save Almaty/);
-        assert.equal(await page.evaluate(()=>localStorage.getItem('kz-saved')),null);
+        assert.equal(await page.evaluate(()=>localStorage.length),0);
         await ready(page,'signup.html'); await fillSignup(page);await page.locator('button[type=submit]').click();
         await page.waitForFunction(()=>document.querySelector('.form-status').textContent.includes('storage is unavailable'));
         assert.equal(await page.locator('button[type=submit]').isEnabled(),true);
         assert.equal(await page.locator('[name=password]').inputValue(),'');
+        await ready(page,'almaty.html');
+        await page.evaluate(()=>{
+            navigator.clipboard.writeText=()=>Promise.reject(new DOMException('Denied','NotAllowedError'));
+        });
+        const copy=page.locator('[data-copy=guide-share-text]');
+        const copyStatus=page.locator('#'+await copy.getAttribute('aria-describedby'));
+        await copy.press('Enter');
+        await copyStatus.filter({hasText:'Copy unavailable'}).waitFor();
+        assert.equal(await copy.evaluate(button=>button===document.activeElement),true);
+        await page.waitForTimeout(2300);
+        assert.match(await copyStatus.innerText(),/Select and copy the text/);
+        assert.equal(await copyStatus.isVisible(),true);
         assert.deepEqual(errors,[]); await context.close();
         const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
         const staticPage=await nojs.newPage();await staticPage.goto(baseURL);
@@ -401,7 +498,7 @@ async function restricted() {
         assert.equal(await staticPage.locator('[data-auth-form]').isVisible(),false);
         assert.equal(await staticPage.locator('.auth-noscript').isVisible(),true);
         await nojs.close();
-        results.push({status:'passed',scenarios:['CDN fallback','storage-denied signup restores controls','no plaintext password on failure','no-JavaScript readable navigation and FAQ','account no-JavaScript explanation']});
+        results.push({status:'passed',scenarios:['CDN fallback','storage-denied save and signup do not change data','no plaintext password on failure','guide clipboard denial keeps focus and manual instructions','no-JavaScript readable navigation and FAQ','account no-JavaScript explanation']});
     } finally {await browser.close();}
 }
 async function weatherRecovery() {
