@@ -74,6 +74,7 @@ async function keyboardNavigation(page) {
 async function run(channel,viewport) {
     const browser=await launch(channel);
     const mobile=viewport.width===390;
+    const tablet=viewport.width===1024;
     const context=await browser.newContext({viewport,hasTouch:mobile,isMobile:mobile,timezoneId:'America/New_York',reducedMotion:'reduce'});
     await context.grantPermissions(['clipboard-read','clipboard-write']);
     await context.route(api,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fixture)}));
@@ -170,7 +171,6 @@ async function run(channel,viewport) {
         assert.equal(await page.locator('[data-profile-saved] a').getAttribute('href'),'almaty.html');
         await page.reload(); await page.locator('[data-profile-content]:visible').waitFor();
         assert.match(await page.locator('[data-profile-saved]').innerText(),/Almaty/);
-        await shot('profile');
         await ready(page,'signup.html'); await fillSignup(page);
         await page.locator('button[type=submit]').click();
         await page.waitForFunction(()=>document.querySelector('#account-email-error').textContent.includes('already exists'));
@@ -314,13 +314,14 @@ async function run(channel,viewport) {
                 const hitArea=await page.locator('[data-save=almaty]').boundingBox();
                 assert.ok(hitArea.height>=44&&hitArea.width>=44,'Save target is at least 44px');
             }
-            if(!channel && (capture||mobile)) {
+            const home=filename==='index.html';
+            if(!channel && (capture||mobile||(tablet && home && mode==='day'))) {
                 const name=filename.replace('.html','');
-                const device=mobile?'mobile':'desktop';
-                if(mode==='day' || filename==='index.html') {
+                const device=mobile?'mobile':tablet?'tablet':'desktop';
+                if(!tablet && (mode==='day' || home)) {
                     await page.screenshot({path:path.join(shots,`${name}-${device}${mode==='night'?'-night':''}.png`)});
                 }
-                if(filename==='index.html') {
+                if(home) {
                     const cards=page.locator('#destinations');
                     await cards.evaluate(node=>node.scrollIntoView());
                     await page.waitForFunction(()=>[...document.querySelectorAll('#destinations img[data-src]')]

@@ -37,8 +37,8 @@ The Before column describes the interface in review commit `3405ccb`. The After 
 
 ## Verification
 
-- `python3 scripts/verify-final.py`, `python3 scripts/verify-endterm.py` and `python3 scripts/verify-assignment5.py` passed.
-- `KZ_FINAL_CHANNEL=chromium KZ_WEATHER_LIVE=1 node scripts/verify-final.cjs` and `KZ_FINAL_CHANNEL=msedge node scripts/verify-final.cjs` passed at 390, 768, 1024 and 1440 px. The journeys cover both themes, registration, wrong credentials, Almaty persistence, the two-day route and the live API. `node scripts/verify-endterm.cjs` passed the forecast error, retry, timeout, cache, offline and concurrent-request checks. [Browser results](browser-verification.json)
+- `python3 scripts/verify-final.py` passed the link, asset, validation and page checks.
+- `KZ_FINAL_CHANNEL=chromium KZ_WEATHER_LIVE=1 node scripts/verify-final.cjs` and `KZ_FINAL_CHANNEL=msedge node scripts/verify-final.cjs` passed at 390, 768, 1024 and 1440 px. The journeys cover both themes, registration, wrong credentials, Almaty persistence, the two-day route and the live API. Forecast recovery checks cover errors, retry and dated cache. [Browser results](browser-verification.json)
 - At 320 px, all nine pages fit the viewport and the 18 axe scans across both themes reported zero violations. A cold fixture verified that the high and low values stay within their cards. Keyboard selection reached the ninth thumbnail on each carousel page.
 - At 200% native Chromium browser zoom, keyboard focus reached all ten navigation actions while they were visible, then moved to the visible email field after the menu closed.
 - With storage writes blocked, Save stayed unpressed and the inline recovery message appeared. With clipboard access denied, the instructions remained past the previous dismissal time. During a delayed forecast failure, focus stayed on Refresh and a second Enter did not start another request.

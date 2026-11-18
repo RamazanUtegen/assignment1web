@@ -4,14 +4,13 @@ from html import escape
 from hashlib import sha256
 import argparse
 import json
-import textwrap
 from PIL import Image as PILImage
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle,getSampleStyleSheet
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Image,Table,TableStyle,PageBreak,Preformatted
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle, PageBreak
 
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
@@ -59,147 +58,303 @@ for folder, regular, bold in font_locations:
         pdfmetrics.registerFont(TTFont(BOLD_FONT,str(bold_path)))
         pdfmetrics.registerFontFamily(BODY_FONT,normal=BODY_FONT,bold=BOLD_FONT)
         break
-styles=getSampleStyleSheet()
-for name,size,leading,font,color in [('KBody',10,14,BODY_FONT,INK),('KSmall',8.5,11.8,BODY_FONT,MUTED),('KCaption',8,11,BODY_FONT,MUTED),('KHeading',24,28,BOLD_FONT,INK),('KTitle',36,40,BOLD_FONT,INK),('KKicker',8,12,BOLD_FONT,ACCENT)]:
-    styles.add(ParagraphStyle(name=name,fontName=font,fontSize=size,leading=leading,textColor=color,spaceAfter=8))
-styles.add(ParagraphStyle(name='KCode',fontName='Courier',fontSize=7.2,leading=9.6,textColor=INK,backColor=WASH,borderPadding=10,spaceAfter=14))
-W=A4[0]-80;story=[]
-def p(text,style='KBody'):return Paragraph(text,styles[style])
-def add(text,style='KBody'):story.append(p(text,style))
-def heading(kicker,title):
-    story.append(PageBreak());add('KZ TRAVEL / '+kicker,'KKicker');add(title,'KHeading')
-def picture(name,max_h=220,max_w=W):
-    path=SHOTS/(name+'.png')
-    with PILImage.open(path) as image: scale=min(max_w/image.width,max_h/image.height);w,h=image.width*scale,image.height*scale
-    result=Image(str(path),width=w,height=h);result.hAlign='CENTER';return result
-def shot(name,caption,max_h=220):story.extend([picture(name,max_h),Spacer(1,4),p(caption,'KCaption')])
-def table(rows,widths=None):
-    data=[[p(str(cell),'KSmall') for cell in row] for row in rows]
-    result=Table(data,colWidths=widths or [W/len(rows[0])]*len(rows[0]),repeatRows=1,hAlign='LEFT')
-    result.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e0efe6')),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,WASH]),('LEFTPADDING',(0,0),(-1,-1),8),('RIGHTPADDING',(0,0),(-1,-1),8),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.extend([result,Spacer(1,10)])
-def code(file,marker,count):
-    lines=(ROOT/file).read_text(encoding='utf-8').splitlines();start=next(i for i,line in enumerate(lines) if marker in line)
-    text=[]
-    for i in range(start,min(len(lines),start+count)):
-        wrapped=textwrap.wrap(lines[i],width=98,replace_whitespace=False,drop_whitespace=False) or ['']
-        text.append(f'{i+1:>3} '+wrapped[0]);text.extend('    '+part for part in wrapped[1:])
-    add(escape(file)+' - actual source excerpt; long lines wrap.','KCaption')
-    story.append(Preformatted('\n'.join(text),styles['KCode']))
+styles = getSampleStyleSheet()
+for name, size, leading, font, color, after in [
+    ('KBody', 10.5, 14.5, BODY_FONT, INK, 9),
+    ('KSmall', 9, 12.6, BODY_FONT, MUTED, 7),
+    ('KCaption', 8.5, 11.5, BODY_FONT, MUTED, 9),
+    ('KCell', 9.3, 12.5, BODY_FONT, INK, 0),
+    ('KColumn', 9.3, 12.5, BOLD_FONT, ACCENT, 0),
+    ('KSection', 13, 17, BOLD_FONT, ACCENT, 5),
+    ('KHeading', 27, 32, BOLD_FONT, INK, 11),
+    ('KTitle', 46, 49, BOLD_FONT, INK, 6),
+    ('KSubtitle', 17, 22, BODY_FONT, MUTED, 14),
+    ('KKicker', 9, 12, BOLD_FONT, ACCENT, 7),
+]:
+    styles.add(ParagraphStyle(
+        name=name, fontName=font, fontSize=size, leading=leading,
+        textColor=color, spaceAfter=after,
+    ))
 
-add('KZ TRAVEL / SE-2501 / FINAL PROJECT','KKicker')
-add('Destinations in Kazakhstan','KTitle')
-shot('index-desktop','The river valley and city directory on the redesigned homepage.',275)
-table([['Team','Members and group'],['KZ Travel','Ramazan Utegen<br/>Ziyadinkhan Kudaibergenuly<br/>Ruzimuhammad<br/><b>SE-2501</b>']],[100,W-100])
-add('<b>Project type.</b> Multi-page responsive website. Nine connected pages continue the same team topic and previous assignments.')
-add('<b>Goal.</b> Help first-time visitors and students compare Kazakhstan destinations, find route ideas, save places and check local weather before a short trip.')
-add(f'<b>Live website</b> <link href="{URL}" color="#164d3c">{URL}</link>','KSmall')
-add(f'<b>Code repository</b> <link href="{REPO}" color="#164d3c">{REPO}</link>','KSmall')
-add('18 November 2026. '+('Design branch review edition. Publication verification follows team approval.' if review else 'GitHub Pages source and asset verification are recorded in docs/final/deployment.json.'),'KSmall')
+MARGIN = 40
+W = A4[0] - 2 * MARGIN - 12
+story = []
 
-heading('GOAL AND WORK DIVISION','A travel guide with a clear audience')
-add('KZ Travel serves first-time visitors, students and travellers planning short Kazakhstan breaks. It covers Aktau, Astana, Almaty and Shymkent. City content, photographs, quick facts and itineraries support destination choice. The notebook, search, route builder and forecast extend that same purpose.')
-add('The site uses HTML, shared CSS, Bootstrap, vanilla JavaScript and jQuery. GitHub Pages serves the site and the browser runs the account and itinerary features.')
-add('The page credits and Our Story page document the original work division. The rehearsal roles are shown alongside those contributions.')
-table([['Member','Original contribution recorded in the project','Presentation role'],['Ramazan Utegen','Home and Aktau; initial shared visual theme, destination cards, tables and forms.','Introduction, purpose, responsive design and conclusion.'],['Ziyadinkhan Kudaibergenuly','Astana and Our Story; city itinerary, team profiles, responsive sections and photo journal.','Local account flow and JavaScript validation demonstration.'],['Ruzimuhammad','Almaty and Shymkent; city information, attraction cards, tables, photographs and enquiries.','Search, saved guides, route builder and API demonstration.']],[110,245,W-355])
-add('<b>Shared final delivery.</b> Authentication, validation, weather handling, integration and repeatable verification are shared project functionality. Each member should review these modules and rehearse the complete demonstration, regardless of original page ownership.')
-add('The homepage uses a wide valley photo and a portrait crop that keeps the river in view on phones. Search and filters lead into a two-column city directory that stacks on phones. Each guide starts with a location-specific photo. The account pages use a shorter header and put the form or saved places first. Locally hosted DM Sans, white and slate surfaces, and pine-green controls tie the pages together.')
-add('The photography and centered homepage composition draw on <link href="https://www.visitfinland.com/en/places-to-go/" color="#164d3c">Visit Finland’s Places to go page</link>.','KSmall')
 
-heading('WEBSITE PAGES','The city guides and Our Story')
-cards=[('index-desktop','Home','Destination search and filters, FAQ, gallery, weather, three-step planner and links to the notebook.'),('aktau-desktop','Aktau','Mangystau landscapes, sights, gallery, three-day excursion, local forecast and validated enquiry.'),('astana-desktop','Astana','Capital architecture, places to visit, gallery, itinerary and city forecast.'),('almaty-desktop','Almaty','City and mountain attractions, photograph gallery, sample itinerary, forecast and enquiry.'),('shymkent-desktop','Shymkent','Southern culture, parks and food, photo gallery, itinerary, forecast and enquiry.'),('about-desktop','Our Story','Team members, project purpose, photo journal and keyboard-accessible contact dialog.')]
-grid=[]
-for i in range(0,len(cards),2):
-    row=[]
-    for image,title,description in cards[i:i+2]:row.append([picture(image,130,(W-24)/2),p('<b>'+title+'</b>','KBody'),p(description,'KSmall')])
-    grid.append(row)
-t=Table(grid,colWidths=[W/2,W/2]);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),14)]));story.append(t)
-add('Sign Up, Log In and Profile add three connected pages, giving nine in total. The public navigation leads to Login, Login links to Signup, and successful authentication opens Profile.','KSmall')
+def p(text, style='KBody'):
+    return Paragraph(text, styles[style])
 
-heading('AUTHENTICATION / SIGN UP','Create a local travel notebook')
-add('The Signup page collects name, email, phone, password and confirmation. It validates values before writing account data to localStorage. Duplicate emails are rejected after normalization. A successful registration opens Login with a confirmation message.')
-shot('signup','Sign Up on desktop with sample details.',320)
-add('The account collection is stored in <b>kz-users-v1</b>. Each record contains contact details and a PBKDF2 password verifier with its own random salt. Show and Hide control visibility while entering a password.')
-code('js/auth.js','async function passwordHash',9)
-add('The browser runs the classroom simulation. Use sample account details on localhost or the hosted HTTPS site.','KSmall')
 
-heading('AUTHENTICATION / LOGIN AND PROFILE','Log in, reload and return')
-add('Login checks the normalized email and derives a verifier from the entered password and stored salt. Incorrect credentials produce an inline message. A successful match writes <b>kz-session-v1</b> and redirects to <b>profile.html</b>.')
-shot('login-error','Log In shows a message beside the credentials when they are incorrect.',190)
-shot('profile','Profile shows the saved Almaty guide and the sample contact details.',245)
-add('Reloading Profile preserves the local session. Opening it without a valid session redirects to Login. Logout removes the session and returns to Login. A storage-event listener also updates another open profile tab. Saved-city links lead to the existing city guides; empty notebooks include working Explore and Build a route actions.')
-add('Saved cities are shared by accounts on the same browser and site origin. The notebook is a local planning tool.','KSmall')
+def add(text, style='KBody'):
+    story.append(p(text, style))
 
-heading('JAVASCRIPT VALIDATION','Validate values before processing')
-add('Every form has <b>novalidate</b>. JavaScript checks fields and consent according to their purpose. Inline errors identify the field with aria-invalid and associate the message with aria-describedby.')
-table([['Field or form','JavaScript rule'],['Required values','Reject empty and whitespace-only text. Check consent when the form requests it.'],['Email','Validate the address format and normalize account email case.'],['Phone','Accept 10–15 digits, optional + and common spaces, brackets and hyphens.'],['Account password','8–64 characters with uppercase, lowercase, a digit and a symbol, without spaces.'],['Confirmation','Must match the original password.'],['Enquiry message','10–2,000 characters.'],['Route planner','A valid destination, a 1–60 character traveller name and a 1–3 day duration.']],[130,W-130])
-code('js/validation.js',"if (rules.includes('phone')",9)
-add('Both account forms and all four enquiry forms use the shared validator. The planner shows the required message alongside each field or radio group. Valid enquiries show a spinner and lock fields during processing. The contact dialog keeps keyboard focus within enabled controls.')
 
-heading('DISCOVERY AND PLANNING','Find a place and build a route')
-add('jQuery combines destination search with category and Saved filters. It highlights matches and offers keyboard and touch autocomplete. FAQ search covers questions and answers and suggests cities as visitors type.')
-shot('search','Search, the Saved filter and the confirmation on the Almaty card.',200)
-shot('planner','A two-day Almaty itinerary with a clipboard control.',225)
-add('A Set tracks saved city IDs and localStorage persists them. Profile renders the same valid IDs as links. Clipboard confirmation appears only after successful copying. Galleries retain previous/next controls, keyboard handling and thumbnails. Ratings and theme preferences persist locally.')
+def heading(kicker, title):
+    story.append(PageBreak())
+    add(kicker, 'KKicker')
+    add(title, 'KHeading')
 
-heading('EXTERNAL API','Weather that fits the travel topic')
-add('Open-Meteo supplies current conditions and a three-day outlook for the four guide cities. The browser uses fetch and async/await, checks HTTP status, parses JSON and rejects incomplete numeric values. No API key or user geolocation is needed.')
-live_weather=any('real Open-Meteo' in scenario for result in tests['results'] for scenario in result['scenarios'])
-if live_weather:
-    shot('weather-real','Open-Meteo forecast captured live. Forecasts change over time.',245)
+
+def link(label, url):
+    return f'<link href="{escape(url, quote=True)}" color="#164d3c">{escape(label)}</link>'
+
+
+def picture(name, max_h=220, max_w=W):
+    path = SHOTS / (name + '.png')
+    with PILImage.open(path) as image:
+        scale = min(max_w / image.width, max_h / image.height)
+        width, height = image.width * scale, image.height * scale
+    result = Image(str(path), width=width, height=height)
+    result.hAlign = 'CENTER'
+    return result
+
+
+def shot(name, caption, max_h=220):
+    story.extend([picture(name, max_h), Spacer(1, 5), p(caption, 'KCaption')])
+
+
+def figures(items, height, widths):
+    cells = [
+        [picture(name, height, width - 10), Spacer(1, 5), p(caption, 'KCaption')]
+        for (name, caption), width in zip(items, widths, strict=True)
+    ]
+    grid = Table([cells], colWidths=widths, hAlign='LEFT')
+    grid.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 7),
+    ]))
+    story.append(grid)
+
+
+def table(rows, widths):
+    data = [
+        [p(str(cell), 'KColumn' if index == 0 else 'KCell') for cell in row]
+        for index, row in enumerate(rows)
+    ]
+    result = Table(data, colWidths=widths, repeatRows=1, hAlign='LEFT')
+    result.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#e0efe6')),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, WASH]),
+        ('LEFTPADDING', (0, 0), (-1, -1), 9),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 9),
+        ('TOPPADDING', (0, 0), (-1, -1), 7),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 7),
+    ]))
+    story.extend([result, Spacer(1, 11)])
+
+add('FINAL PROJECT REPORT  /  SE-2501', 'KKicker')
+add('KZ Travel', 'KTitle')
+add('A travel guide and itinerary planner for Kazakhstan', 'KSubtitle')
+shot('index-desktop', 'Figure 1. The published homepage introduces the four destinations and leads into the city directory.', 325)
+table([
+    ['Team', 'Members'],
+    ['KZ Travel<br/>SE-2501', 'Ramazan Utegen<br/>Ziyadinkhan Kudaibergenuly<br/>Ruzimuhammad'],
+], [107, W - 107])
+add('<b>Project goal.</b> Help first-time visitors choose a city, save places, plan a short trip and check the forecast before travelling.')
+add(f'{link("Live website", URL)} &nbsp;&nbsp; {link("Code repository", REPO)}', 'KSmall')
+edition = 'Design branch review edition' if review else 'Final submission edition'
+add(f'<b>{edition}</b> &nbsp; 18 November 2026', 'KSmall')
+
+heading('PROJECT OVERVIEW', 'Goal and work division')
+add('KZ Travel grew from the team\'s existing Kazakhstan guide. It serves first-time visitors, students and travellers planning short breaks. Visitors can compare Aktau, Astana, Almaty and Shymkent before opening a city guide for highlights, photographs and an itinerary.')
+add('From the homepage, a traveller can find Almaty, save the guide, see it in a local profile, build a two-day route and check the forecast. The same navigation connects the nine pages, and the notebook brings saved guides and trip planning together.')
+add('Documented team contributions', 'KSection')
+auth_commit = link('Initial account and validation implementation', REPO + '/commit/ddce3fb')
+design_commit = link('Final interface redesign', REPO + '/commit/3405ccb')
+image_commit = link('Responsive photo delivery', REPO + '/commit/f022667')
+release_commit = link('Publication evidence', REPO + '/commit/a83d4ce')
+table([
+    ['Member', 'Page and feature contributions'],
+    ['<b>Ramazan Utegen</b>', 'Home and Aktau. Built the original shared styles, destination cards, tables and forms. '
+     f'Implemented local registration, login, Profile and shared validation. {auth_commit}.'],
+    ['<b>Ziyadinkhan Kudaibergenuly</b>', 'Astana and Our Story. Built the capital itinerary and team profiles. '
+     'Redesigned the layout, improved keyboard access, optimized photography and verified the GitHub Pages release. '
+     f'{design_commit} | {image_commit} | {release_commit}.'],
+    ['<b>Ruzimuhammad</b>', 'Almaty and Shymkent. Built the city content, attraction cards, itinerary tables, photo galleries and enquiry forms.'],
+], [135, W - 135])
+add('Shared integration and testing', 'KSection')
+add('The team integrated the guides with shared navigation, account, search, itinerary and forecast modules. Static checks verify the page graph and assets. Browser journeys exercise the complete trip-planning flow, including invalid input, narrower layouts and recovery from forecast or storage errors.')
+add(f'Page ownership is recorded on {link("Our Story", URL + "about.html")} and in the repository README. Presentation roles are listed on page 11.', 'KSmall')
+
+heading('WEBSITE PAGES', 'Nine connected pages')
+add('The six public guide and team pages share a navigation menu. Log In links to Sign Up. A successful login opens Profile, which links back to saved guides and the route planner.')
+pages = [
+    ('Home', 'index.html', 'Search and filter cities, save guides, build itineraries, check the forecast and search travel FAQs.'),
+    ('Aktau', 'aktau.html', 'Explore Mangystau and the Caspian coast. The guide includes Bozjyra, a gallery, a three-day excursion and an enquiry form.'),
+    ('Astana', 'astana.html', 'Explore capital landmarks and architecture, including Baiterek and Khan Shatyr. The guide includes a day itinerary and forecast.'),
+    ('Almaty', 'almaty.html', 'Compare city and mountain attractions, browse the gallery and use the three-day schedule, forecast and enquiry form.'),
+    ('Shymkent', 'shymkent.html', 'Explore southern food, parks and regional sights. The page includes a gallery, a three-day itinerary, a forecast and an enquiry form.'),
+    ('Our Story', 'about.html', 'Read the project purpose and team credits, browse the photo journal and open the keyboard-accessible contact dialog.'),
+    ('Sign Up', 'signup.html', 'Create a browser-local account with validated contact details, password and confirmation.'),
+    ('Log In', 'login.html', 'Check credentials, show inline feedback and open the notebook after successful authentication.'),
+    ('Profile', 'profile.html', 'See stored contact details and saved cities, open the route planner or log out. A session is required.'),
+]
+table([
+    ['Page', 'File', 'What visitors can do'],
+    *[(f'<b>{name}</b>', link(filename, URL + filename), feature) for name, filename, feature in pages],
+], [78, 86, W - 164])
+figures([
+    ('astana-desktop', 'Figure 2. Astana guide and its city-specific header.'),
+    ('about-desktop', 'Figure 3. Our Story and the team introduction.'),
+], 148, [W / 2, W / 2])
+
+heading('DESIGN AND RESPONSIVENESS', 'One guide across screen sizes')
+add('The valley photograph and city-specific headers establish a travel identity. Locally hosted DM Sans, a pine-green accent '
+    'and shared spacing give cards, forms and navigation a consistent hierarchy. The centered lead image draws on a Finnish '
+    'travel guide. ' + link("Visit Finland's Places to Go", 'https://www.visitfinland.com/en/places-to-go/') + '.')
+add('Bootstrap, Flexbox and Grid adapt the same content. The menu collapses on smaller screens, the directory uses two columns on tablets, and cards stack on phones. Responsive WebP variants and a portrait crop keep the images useful at each width.')
+figures([
+    ('destinations-desktop', 'Figure 4. Desktop, 1440 px. Two columns and full navigation.'),
+    ('destinations-tablet', 'Figure 5. Tablet, 1024 px. Two columns and a collapsed menu.'),
+    ('destinations-mobile', 'Figure 6. Phone, 390 px. One column with touch-sized Save buttons.'),
+], 224, [207, 174, W - 381])
+add('Light and dark modes', 'KSection')
+add('The theme toggle updates shared CSS variables and saves the choice in localStorage across pages. Both themes use the same layout and make controls, keyboard focus and error text readable. The independent Sand, Sky and Steppe background choices also persist.')
+shot('destinations-desktop-night', 'Figure 7. The same city directory in dark mode. Saved state and labels remain visible.', 165)
+add('Focus outlines, a skip link, labelled controls and reduced-motion styles support keyboard navigation and different motion preferences.', 'KSmall')
+
+heading('AUTHENTICATION', 'From Sign Up to the travel notebook')
+add('The account simulation runs on the hosted HTTPS site or localhost. It uses localStorage for account records and session state. Saved city IDs are shared within the same browser and site origin.')
+table([
+    ['Stage', 'Behaviour'],
+    ['<b>Sign Up</b>', 'Validate name, email, phone, password and confirmation. Normalize email and reject duplicates. Store the submitted details with a salted PBKDF2-SHA-256 password verifier.'],
+    ['<b>Log In</b>', 'Normalize the email, derive a verifier from the entered password and compare it to the saved value. An incorrect login shows an inline message. A successful login opens Profile.'],
+    ['<b>Profile</b>', 'Display the name, email, phone and saved guide links. The session persists after reload. Logging out clears it and updates another open Profile tab.'],
+], [85, W - 85])
+figures([
+    ('signup', 'Figure 8. Sign Up with synthetic contact details.'),
+    ('login-error', 'Figure 9. Log In feedback after incorrect credentials.'),
+], 168, [W / 2, W / 2])
+shot('profile-desktop', 'Figure 10. Profile displays a saved Almaty guide and the demo contact details.', 200)
+add('The simulation uses kz-users-v1 and kz-session-v1. Passwords are verified using a hash stored with a per-account salt. ' +
+    link('Account implementation', REPO + '/blob/main/js/auth.js') + '.', 'KSmall')
+
+heading('FORM VALIDATION', 'Show the user what to correct')
+add('Each form uses <b>novalidate</b> and applies explicit JavaScript rules to the fields it contains. The markup omits required, pattern, minlength, maxlength, min, max and type="email" validation constraints.')
+table([
+    ['Field', 'Accepted input and feedback'],
+    ['<b>Required values</b>', 'Reject empty or whitespace-only values. Require consent where the form has a consent control.'],
+    ['<b>Email</b>', 'Validate the address format. Invalid values such as invalid-email get a message beside the field.'],
+    ['<b>Phone</b>', 'Require 10-15 digits with an optional plus sign and common separators. A short value such as 123 is rejected.'],
+    ['<b>Password</b>', 'Require 8-64 characters with uppercase, lowercase, a digit and a symbol, without spaces. Confirmation must match.'],
+    ['<b>Enquiry message</b>', 'Require 10-2,000 characters. The form displays a spinner and locks checked fields while processing.'],
+    ['<b>Route planner</b>', 'Check the destination, a 1-60 character traveller name and a 1-3 day duration before generating the route.'],
+], [119, W - 119])
+figures([
+    ('signup-validation', 'Figure 11. Sign Up marks incorrect email, phone, password and confirmation beside their fields.'),
+    ('contact-form', 'Figure 12. The contact dialog provides inline feedback and keeps actions keyboard-reachable.'),
+], 255, [174, W - 174])
+add('Registration, login and enquiries use shared rules that attach errors with aria-invalid and aria-describedby. '
+    'The planner validates its steps in JavaScript. ' + link('Shared validation rules', REPO + '/blob/main/js/validation.js') +
+    '.', 'KSmall')
+
+heading('DISCOVERY, SAVING AND PLANNING', 'Turn a search into an itinerary')
+add('On Home, jQuery combines the typed query and the category or Saved filter. Results update immediately, and keyboard or touch suggestions let visitors choose a city. The FAQ search also filters its questions and answers.')
+shot('search', 'Figure 13. Search and the Saved filter keep Almaty visible. The Save control confirms that the city was stored.', 210)
+add('Saving a city stores its ID locally. Profile uses the same IDs for guide links. The planner keeps choices when a traveller goes back and builds a route from the city, traveller name and preferred duration.')
+shot('planner', 'Figure 14. An Almaty itinerary for two days, with a copy control and confirmation.', 205)
+add('<b>Motion and feedback.</b> A 120 ms press animation acknowledges button taps. Saving and planner steps use a 180 ms transition. Clipboard confirmation follows a successful copy, and manual-copy instructions appear if access fails. Reduced motion preserves the controls and messages.')
+
+heading('EXTERNAL API', 'Weather for all four cities')
+add('Open-Meteo provides current conditions and a three-day outlook on Home and the city guides. The forecast supports a practical decision such as when to leave for an outdoor stop or whether to bring rain gear.')
+live_weather = any(
+    'real Open-Meteo' in scenario
+    for result in tests['results'] for scenario in result['scenarios']
+)
+if publication:
+    shot('weather-published', 'Figure 15. A live forecast captured on GitHub Pages on 18 November 2026. The values are a snapshot.', 243)
+elif live_weather:
+    shot('weather-real', 'Figure 15. A live Open-Meteo forecast captured during browser verification.', 243)
 else:
-    shot('weather-fixture','Browser test using a forecast fixture.',245)
-code('js/weather.js','const response = await fetch',8)
-add('The forecast loads near the viewport. Users can choose another city or refresh it. Loading and error states are visible. A 10-second timeout restores controls; superseded requests are aborted and a request counter prevents stale results from replacing a newer city.')
-add('A fresh cache avoids repeat requests for 10 minutes. If an update fails, a clearly dated saved forecast up to 24 hours old may be shown. Expired or corrupt data is ignored. Without usable data the page offers retry and never fabricates a forecast. Source attribution and CC BY 4.0 are shown in the UI.')
+    shot('weather-fixture', 'Figure 15. Forecast layout with controlled data from the browser test.', 243)
+table([
+    ['State', 'What users see'],
+    ['<b>Loading</b>', 'The panel identifies the city being fetched and signals progress. A newer request cancels the previous one.'],
+    ['<b>Success</b>', 'The current temperature, feels-like temperature, wind and three forecast days appear after validation.'],
+    ['<b>Cached</b>', 'A fresh forecast can be reused for 10 minutes. If a refresh fails, a dated saved forecast up to 24 hours old can be shown.'],
+    ['<b>Error</b>', 'The panel explains the failure and offers Retry. A 10-second timeout restores the controls.'],
+], [95, W - 95])
+add('The forecast uses fetch and async/await with HTTP and JSON checks. Requests use the selected city coordinates. '
+    'The panel credits Open-Meteo and the CC BY 4.0 licence. ' +
+    link('Forecast implementation', REPO + '/blob/main/js/weather.js') + '.', 'KSmall')
 
-heading('RESPONSIVENESS AND THEMES','One interface across screen sizes')
-add('Bootstrap, Flexbox and CSS Grid adapt navigation, cards, the weather panel and account pages. Text wraps and layouts stack on phones. Responsive WebP photos match the display size. Gallery thumbnails use small previews and offscreen photos wait until they are needed.')
-row=[[picture('index-mobile',260,155),picture('destinations-desktop-night',240,325)],[p('Home at 390 px with the portrait crop.','KCaption'),p('City discovery in the night theme.','KCaption')]]
-t=Table(row,colWidths=[185,W-185]);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BOTTOMPADDING',(0,0),(-1,-1),8)]));story.append(t)
+heading('PROJECT ORGANIZATION AND CHECKS', 'How the build was verified')
+table([
+    ['Area', 'Files and responsibilities'],
+    ['<b>Pages and layout</b>', 'Root HTML, css/editorial.css and shared styles define the nine pages, responsive grid, palettes and account layouts.'],
+    ['<b>Travel features</b>', 'script.js and js/experience.js handle search, saved places, itinerary steps, clipboard, galleries and interactive feedback.'],
+    ['<b>Accounts and forms</b>', 'js/auth.js, js/validation.js and js/forms.js handle local identity, inline rules and enquiry states.'],
+    ['<b>Forecast</b>', 'js/weather.js manages requests, checks returned data, handles caching and updates the panel.'],
+    ['<b>Assets and verification</b>', 'images/, fonts/ and vendor/ supply local resources. scripts/ and docs/final/ contain the final checks, generator and evidence.'],
+], [126, W - 126])
+add('Browser and deployment evidence', 'KSection')
 matrix = [
-    [browser, ', '.join(str(width) for width in sorted({
-        item['viewport']['width'] for item in layout_runs if item['browser']==browser
-    })), '9 pages in day and night']
+    ['Chromium' if browser == 'chromium' else 'Microsoft Edge',
+     ', '.join(str(width) for width in sorted({
+         item['viewport']['width'] for item in layout_runs if item['browser'] == browser
+     })),
+     'Nine pages in both themes']
     for browser in sorted({item['browser'] for item in layout_runs})
 ]
-table([['Browser','Widths in px','Pages and themes'],*matrix],[100,195,W-295])
-add('The theme toggle saves day or night. The background chooser saves Sand, Sky or Steppe and applies the selected colour in either theme. Tests verify that these choices persist between pages. Error messages, controls and panels remain readable in both modes. Account details use overflow wrapping so long values do not break columns.')
-add('Reduced-motion preference removes unnecessary transitions and counter movement. Skip links, field labels, inline error descriptions, menu Escape, dialog focus management and accessible status messages support keyboard use. Without JavaScript, city content, navigation, photographs and FAQ answers remain available; account pages explain that JavaScript is needed.')
-
-heading('UI EFFECTS AND ORGANIZATION','Keep feedback useful and code readable')
-add('Buttons scale slightly on a 120 ms press. Save feedback and planner steps use a 180 ms ease-out. Search and keyboard focus respond immediately. Reduced motion keeps state, text and colour feedback. The reading progress bar and counters support longer guide pages. Optional sound starts after a user turns it on.')
-add('Motion reference <link href="https://emilkowal.ski/ui/7-practical-animation-tips" color="#164d3c">Emil Kowalski’s 7 Practical Animation Tips</link>.','KSmall')
-table([['File / folder','Responsibility'],['index.html, city HTML, about.html','Travel content, connected navigation, structured sections and images.'],['signup.html, login.html, profile.html','Account and notebook pages that reuse the shared design.'],['js/validation.js and js/forms.js','Explicit validation and enquiry completion.'],['js/auth.js','Account storage, salted verifier, session, profile and logout.'],['script.js','jQuery search, highlights, notification, clipboard, spinner and lazy images.'],['js/experience.js','Route planner, theme, saved cities, ratings and Web Audio.'],['js/weather.js','API, response validation, cache and forecast states.'],['css/, images/, fonts/, vendor/','Shared presentation, original photos and local dependencies.'],['scripts/ and docs/final/','Repeatable checks, report/package builders and presentation backups.']],[170,W-170])
-add('Complex sections include comments explaining password verification, stale-request guards and callbacks. The clean submission preserves folder structure and excludes Git history, temporary files and earlier submission archives.')
-
-heading('VERIFICATION AND PUBLICATION','Check the user journeys, then publish')
-add('Static checks cover nine connected pages, internal links and fragments, responsive image variants, unique IDs, form validation and jQuery integrity. Browser checks cover the nine pages in both themes at 390, 768, 1024 and 1440 px.')
-for text in [
- 'Registration: required fields, invalid email/phone, weak and mismatched passwords, duplicate email and no plaintext password persistence.',
- 'Authentication: wrong credentials, successful redirect, profile details, reload persistence, logout and another open profile tab.',
- 'Travel journey. Find Almaty, save it before registration, confirm it on Profile after reload, copy a two-day route and view its forecast.',
- 'Enquiries. Check inline messages, accepted phone formats, locked fields and duplicate submission.',
- 'Weather. Recover with Retry after an HTTP error. Reuse a fresh cache on reload and show a dated forecast after a failed refresh.',
- 'Fallbacks. Keep controls usable if storage is denied, use the bundled jQuery when the CDN fails and make guide content readable with JavaScript disabled.'
-]:add('- '+text)
-add(f"{len(tests['results'])} browser scenario groups passed. The layout runs covered {sum(len(item['layoutChecks']) for item in layout_runs)} page, theme and width combinations across the tested browsers.")
+table([['Browser', 'Viewport widths (px)', 'Coverage'], *matrix], [104, 165, W - 269])
+layout_count = sum(len(item['layoutChecks']) for item in layout_runs)
+add(f'The recorded browser run passed {len(tests["results"])} scenario groups and {layout_count} page, theme and width combinations. The journeys cover keyboard navigation, responsive images, validation, logout, search, saving, clipboard, weather retry and cache.')
 if publication:
-    add('<b>Website source:</b> '+escape(publication['sourceCommit']),'KSmall')
-    add('<b>Published assets:</b> '+str(publication['http']['fileCount'])+' HTML/resources returned HTTP 200 and matched the checkout.','KSmall')
-    workflow=publication['workflowUrl'];add(f'<b>GitHub Pages</b> <link href="{workflow}" color="#164d3c">successful workflow</link>.','KSmall')
-else:add('The verified Design branch is ready for team review. The GitHub Pages check follows approval and deployment.','KSmall')
-add('The browser results and screenshots are in docs/final. The rubric map links the evidence to each criterion.','KSmall')
-add('A future improvement is a server-backed notebook that syncs saved cities and trips between devices.')
+    count = publication['http']['fileCount']
+    commit = publication['sourceCommit']
+    add(f'All {count} checked GitHub Pages URLs returned HTTP 200. The nine pages and their assets matched the published source by SHA-256. '
+        f'{link("Published website source " + commit[:7], REPO + "/commit/" + commit)}. '
+        f'{link("Successful GitHub Pages workflow", publication["workflowUrl"])}.')
+else:
+    add('This edition records branch checks and local browser results.', 'KSmall')
+add('Verification files include ' +
+    link('static checks', REPO + '/blob/main/scripts/verify-final.py') + ' | ' +
+    link('browser results', REPO + '/blob/main/docs/final/browser-verification.json') + ' | ' +
+    link('hosted verification', REPO + '/blob/main/docs/final/http-verification.json'), 'KSmall')
 
-heading('SUBMISSION AND PRESENTATION','Three files and a rehearsed demonstration')
-add('Every team member submits all three files together in the Final Exam folder:')
-for name in ['KZTravel_SE2501_FinalProject.zip','KZTravel_SE2501_Report.pdf','KZTravel_SE2501_Links.txt']:add(escape(name),'KSmall')
-add('The TXT file lists the live website and repository on separate lines.')
-table([['Time','Speaker','Focus'],['0:00–0:30','Ramazan','Team, goal and audience'],['0:30–1:15','Ramazan','Responsive design, both themes and saving Almaty'],['1:15–2:00','Ziyadinkhan','Inline validation and registration'],['2:00–2:45','Ziyadinkhan','Log in, find Almaty on Profile and reload'],['2:45–3:35','Ruzimuhammad','Build and copy a two-day route, motion feedback'],['3:35–4:20','Ruzimuhammad','Live weather, cache and retry'],['4:20–4:45','Ramazan','Future improvement, links and close']],[85,105,W-190])
-add('The timed script and backup screenshots support the 4:45 product demonstration. Each participant presents their assigned portion.')
-add('<b>Moodle deadline</b> 18 November 2026 at 23:59.','KSmall')
-add('Course sources are the Final Project Requirements and Final Project Presentation Guideline PDFs. The project includes the font and library licences.','KSmall')
-for label,url in [('Open-Meteo API','https://open-meteo.com/en/docs'),('Web Crypto PBKDF2','https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveBits'),('Local Storage','https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage')]:add(f'<link href="{url}" color="#164d3c">{label}</link>','KSmall')
+heading('COURSE RUBRIC', 'Requirements and evidence')
+add('The course requires at least six connected pages. KZ Travel has nine, including the signup, login and profile flow. The table maps each grading criterion to the relevant pages of this report.')
+table([
+    ['Criterion', 'Points', 'Evidence in the report'],
+    ['Responsiveness', 10, 'Page 4 shows desktop, tablet and phone layouts. Page 9 records both-theme browser checks.'],
+    ['Hosting', 5, 'Pages 1 and 9 give the live site, repository, successful deploy and HTTP verification.'],
+    ['Light and dark modes', 5, 'Page 4 shows the stylesheet themes, toggle and saved preferences.'],
+    ['Design and user experience', 20, 'Pages 2-4 explain the audience, navigation, typography, palette and image choices.'],
+    ['Enhanced JavaScript functionality', 25, 'Pages 5-7 cover local authentication, inline validation, search, filtering and saved results.'],
+    ['Animated buttons and UI effects', 5, 'Page 7 covers press animation, planner transitions and confirmation feedback.'],
+    ['External API integration', 10, 'Page 8 documents the live weather API and its loading, success, retry and cache states.'],
+    ['Feature cohesion', 10, 'Pages 2 and 7 connect city discovery, the notebook and route planning to the same trip.'],
+    ['Presentation', 5, 'Page 11 covers the 4:45 plan, speakers, demonstration and backups.'],
+    ['Code quality and organization', 5, 'Page 9 maps shared files and shows repeatable static, browser and deployment checks.'],
+], [172, 55, W - 227])
+
+heading('PRESENTATION AND SUBMISSION', 'A five-minute demonstration')
+add('The planned live walkthrough runs for 4:45. Every member presents part of the finished site on GitHub Pages. Backup slides and screenshots support the same sequence if the connection fails.')
+table([
+    ['Time', 'Presenter', 'What to show'],
+    ['0:00-0:30', 'Ramazan', 'Introduce the team, SE-2501, the travel goal and audience.'],
+    ['0:30-1:15', 'Ramazan', 'Show desktop, tablet and phone, switch themes and save Almaty from search.'],
+    ['1:15-2:45', 'Ziyadinkhan', 'Show inline form errors, create an account, log in and reload the saved Almaty guide on Profile.'],
+    ['2:45-4:20', 'Ruzimuhammad', 'Build and copy the two-day route, show UI feedback and switch the live forecast city.'],
+    ['4:20-4:45', 'Ramazan', 'Summarize strengths, propose synced saved places and thank the audience.'],
+], [86, 100, W - 186])
+add('Moodle submission', 'KSection')
+add('Every team member uploads these three files together in <b>Final Exam</b> by <b>18 November 2026 at 23:59</b>.')
+table([
+    ['File', 'Contents'],
+    ['KZTravel_SE2501_FinalProject.zip', 'Complete runnable project with the folder structure, scripts, images and backup materials.'],
+    ['KZTravel_SE2501_Report.pdf', 'Team, goal, work division, website explanation and screenshots.'],
+    ['KZTravel_SE2501_Links.txt', 'Separate links to the GitHub repository and hosted site.'],
+], [210, W - 210])
+add('References', 'KSection')
+add('Course guidance comes from the Final Project Requirements and Final Project Presentation Guidelines. Technical references include ' +
+    link('Open-Meteo API', 'https://open-meteo.com/en/docs') + ' | ' +
+    link('Web Crypto PBKDF2', 'https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveBits') + ' | ' +
+    link('Local Storage', 'https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage') + '.', 'KSmall')
 
 def footer(canvas,document):
     canvas.saveState();canvas.setStrokeColor(colors.HexColor('#dce0de'));canvas.line(40,34,A4[0]-40,34)

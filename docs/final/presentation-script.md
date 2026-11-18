@@ -1,6 +1,6 @@
 # Демонстрация KZ Travel за 4:45
 
-SE-2501. Рамазан Утеген, Зиядинхан Кудайбергенулы и Рузимухаммад показывают один маршрут от выбора города до прогноза. Откройте версию для командного просмотра, режим телефона на 390 px и папку с резервными слайдами. Начните в чистом тестовом профиле браузера. Используйте вымышленные данные и одноразовый пароль.
+SE-2501. Рамазан Утеген, Зиядинхан Кудайбергенулы и Рузимухаммад показывают один маршрут от выбора города до прогноза. Откройте опубликованный сайт и подготовьте три ширины экрана: 1440, 1024 и 390 px. Держите под рукой резервные слайды. Начните в чистом тестовом профиле браузера. Используйте вымышленные данные и одноразовый пароль.
 
 ## 0:00–0:30 · Рамазан · Слайд 1
 
@@ -10,9 +10,9 @@ SE-2501. Рамазан Утеген, Зиядинхан Кудайберген�
 
 ## 0:30–1:15 · Рамазан · Слайд 2
 
-> Visit Finland inspired the large photograph and centered heading. We used our own river-valley photo and cropped it for phones so you can still see the river and mountains. The two-column city directory becomes a single column on a phone. The theme choice follows you between pages. I’ll type Almaty into the search, choose the suggestion and save the city.
+> Visit Finland inspired the large photograph and centered heading. We used our own river-valley photo and cropped it for phones so you can still see the river and mountains. The menu collapses on a tablet, and the city directory stacks in one column on a phone. The theme choice follows you between pages. I’ll find Almaty with search and save it.
 
-Покажите 390 px, переключите тему через меню и покажите список городов. Вернитесь на широкий экран, выберите Almaty через подсказку и нажмите **Save**. Передайте управление Зиядинхану.
+На ширине 1024 px покажите свёрнутое меню и две колонки городов. Переключитесь на 390 px, покажите одну колонку и смените тему через меню. Вернитесь на 1440 px, выберите Almaty через подсказку и нажмите **Save**. Передайте управление Зиядинхану.
 
 ## 1:15–2:00 · Зиядинхан · Слайд 3
 

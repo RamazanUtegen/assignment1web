@@ -15,7 +15,7 @@ From a checkout or an extracted project ZIP, run `python3 -m http.server 8765 --
 | Our Story | [Desktop](screenshots/about-desktop.png) | [Phone](screenshots/about-mobile.png) |
 | Account | [Sign Up](screenshots/signup-desktop.png), [Log In](screenshots/login-desktop.png), [Profile](screenshots/profile-desktop.png) | [Sign Up](screenshots/signup-mobile.png), [Log In](screenshots/login-mobile.png), [Profile](screenshots/profile-mobile.png) |
 
-The complete review journey starts by finding and saving Almaty. Register with sample details, log in, reload Profile and follow **Build a route**. Select Almaty and two days, copy the itinerary, then check the forecast. Evidence includes [validation](screenshots/signup-validation.png), [wrong credentials](screenshots/login-error.png), [saved Almaty](screenshots/profile.png), [the two-day route](screenshots/planner.png) and [the live forecast](screenshots/weather-real.png).
+The complete review journey starts by finding and saving Almaty. Register with sample details, log in, reload Profile and follow **Build a route**. Select Almaty and two days, copy the itinerary, then check the forecast. Evidence includes [validation](screenshots/signup-validation.png), [wrong credentials](screenshots/login-error.png), [saved Almaty](screenshots/profile-desktop.png), [the two-day route](screenshots/planner.png) and [the live forecast](screenshots/weather-published.png). The [tablet screenshot](screenshots/destinations-tablet.png) shows the city directory at 1024 px.
 
 ## Rubric results
 
