@@ -136,7 +136,7 @@ code('js/validation.js',"if (rules.includes('phone')",9)
 add('Both account forms and all four enquiry forms use the shared validator. The planner shows the required message alongside each field or radio group. Valid enquiries show a spinner and lock fields during processing. The contact dialog keeps keyboard focus within enabled controls.')
 
 heading('DISCOVERY AND PLANNING','Find a place and build a route')
-add('jQuery listens to search input, combines text with category or Saved filters, updates the results count and offers keyboard/touch autocomplete. Matches are highlighted by building mark elements from text nodes; regular-expression characters are escaped. FAQ search covers both questions and answers.')
+add('jQuery combines destination search with category and Saved filters. It highlights matches and offers keyboard and touch autocomplete. FAQ search covers questions and answers and suggests cities as visitors type.')
 shot('search','Search, the Saved filter and the confirmation on the Almaty card.',200)
 shot('planner','A two-day Almaty itinerary with a clipboard control.',225)
 add('A Set tracks saved city IDs and localStorage persists them. Profile renders the same valid IDs as links. Clipboard confirmation appears only after successful copying. Galleries retain previous/next controls, keyboard handling and thumbnails. Ratings and theme preferences persist locally.')

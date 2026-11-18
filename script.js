@@ -54,30 +54,86 @@
                 });
             }
 
+            const queryText = $input => String($input.val() || '').trim().slice(0, 80).toLowerCase();
+
+            function bindSuggestions($input, getLabels, updateResults) {
+                if (!$input.length) return;
+                const listId = $input.attr('aria-controls');
+                const $suggestions = $(document.getElementById(listId));
+                const optionPrefix = listId.replace(/-suggestions$/, '');
+                let activeSuggestion = -1;
+
+                function close() {
+                    $suggestions.prop('hidden', true).empty();
+                    $input.attr('aria-expanded', 'false').removeAttr('aria-activedescendant');
+                    activeSuggestion = -1;
+                }
+                function open() {
+                    close();
+                    const query = queryText($input);
+                    if (!query) return;
+                    const labels = getLabels(query);
+                    if (!labels.length) return;
+                    labels.forEach((label, index) => {
+                        $('<li>', { role: 'option', id: `${optionPrefix}-option-${index}`,
+                            'aria-selected': 'false', text: label
+                        }).appendTo($suggestions);
+                    });
+                    $suggestions.prop('hidden', false);
+                    $input.attr('aria-expanded', 'true');
+                }
+                function choose($option) {
+                    $input.val($option.text());
+                    updateResults();
+                    $input.trigger('focus');
+                    close();
+                }
+                $suggestions.on('pointerdown', event => event.preventDefault());
+                $suggestions.on('click', '[role=option]', function () { choose($(this)); });
+                $input.on('input', () => { updateResults(); open(); });
+                $input.on('focus', open);
+                $input.on('blur', close);
+                $input.on('keydown', function (event) {
+                    if (event.key === 'Escape') { event.preventDefault(); close(); return; }
+                    if (event.key === 'Enter' && activeSuggestion >= 0) {
+                        event.preventDefault();
+                        choose($suggestions.children().eq(activeSuggestion));
+                        return;
+                    }
+                    if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+                    if ($suggestions.prop('hidden')) open();
+                    const $options = $suggestions.children();
+                    if (!$options.length) return;
+                    event.preventDefault();
+                    const direction = event.key === 'ArrowDown' ? 1 : -1;
+                    activeSuggestion = activeSuggestion < 0 ? (direction === 1 ? 0 : $options.length - 1) :
+                        (activeSuggestion + direction + $options.length) % $options.length;
+                    $options.attr('aria-selected', 'false').eq(activeSuggestion).attr('aria-selected', 'true');
+                    $input.attr('aria-activedescendant', $options.eq(activeSuggestion).attr('id'));
+                });
+                return close;
+            }
+
             const $search = $('[data-destination-search]');
             const $cards = $('[data-destination]');
-            const $suggestions = $('#destination-suggestions');
             const $filters = $('[data-filter]');
             const $emptyDestinations = $('[data-no-results]');
             let category = 'all';
-            let activeSuggestion = -1;
-            const queryText = $input => String($input.val() || '').trim().slice(0, 80).toLowerCase();
-            function closeSuggestions() {
-                $suggestions.prop('hidden', true);
-                $search.attr('aria-expanded', 'false').removeAttr('aria-activedescendant');
-                activeSuggestion = -1;
-            }
             function inCategory(card) {
                 if (category === 'saved') return $(card).find('[data-save]').attr('aria-pressed') === 'true';
                 return category === 'all' || $(card).attr('data-categories').split(' ').includes(category);
             }
+            function matchingDestinations(query) {
+                return $cards.filter(function () {
+                    return inCategory(this) && this.dataset.searchText.includes(query);
+                });
+            }
+            const cardTitle = card => $(card).find('.card-title').text().trim();
             // Tasks 1 and 2: live filtering and matching suggestions share criteria.
-            function renderDestinations(showSuggestions = false) {
+            function renderDestinations() {
                 const query = queryText($search);
                 const focusedColumn = document.activeElement.closest('.destination-column');
-                const $matches = $cards.filter(function () {
-                    return inCategory(this) && $(this).attr('data-search-text').includes(query);
-                });
+                const $matches = matchingDestinations(query);
                 $cards.each(function () {
                     $(this).closest('.destination-column').prop('hidden', !$matches.is(this));
                 });
@@ -97,19 +153,7 @@
                     $(this).toggleClass('is-active', active).attr('aria-pressed', String(active));
                 });
                 highlight($cards.find('.card-title, .card-text'), query);
-                $suggestions.empty();
-                closeSuggestions();
-                if (showSuggestions && query && $matches.length) {
-                    const candidates = $matches.toArray().sort((first, second) =>
-                        Number(second.dataset.destination.startsWith(query)) - Number(first.dataset.destination.startsWith(query)));
-                    candidates.forEach((card, index) => {
-                        $('<li>', { role: 'option', id: `destination-option-${index}`,
-                            'aria-selected': 'false', text: $(card).find('.card-title').text().trim()
-                        }).appendTo($suggestions);
-                    });
-                    $suggestions.prop('hidden', false);
-                    $search.attr('aria-expanded', 'true');
-                }
+                closeDestinationSuggestions?.();
                 if (focusedColumn?.hidden) {
                     const next = $(focusedColumn).nextAll('.destination-column:not([hidden])').first();
                     const nearby = next.length ? next : $(focusedColumn).prevAll('.destination-column:not([hidden])').first();
@@ -118,7 +162,10 @@
                 }
                 scheduleViewport();
             }
-            $search.on('input focus', () => renderDestinations(true));
+            const closeDestinationSuggestions = bindSuggestions($search, query =>
+                matchingDestinations(query).get()
+                    .sort((first, second) => Number(second.dataset.destination.startsWith(query)) - Number(first.dataset.destination.startsWith(query)))
+                    .map(cardTitle), renderDestinations);
             $filters.on('click', function () {
                 category = $(this).attr('data-filter');
                 renderDestinations();
@@ -130,38 +177,14 @@
                 $search.trigger('focus');
             });
             $(document).on('kz:destinations-change', () => renderDestinations());
-            function chooseSuggestion($option) {
-                $search.val($option.text());
-                renderDestinations();
-                $search.trigger('focus');
-                closeSuggestions();
-            }
-            $suggestions.on('pointerdown', event => event.preventDefault());
-            $suggestions.on('click', '[role=option]', function () { chooseSuggestion($(this)); });
-            $search.on('blur', closeSuggestions);
-            $search.on('keydown', function (event) {
-                if (event.key === 'Escape') { event.preventDefault(); closeSuggestions(); return; }
-                if (event.key === 'Enter' && activeSuggestion >= 0) {
-                    event.preventDefault();
-                    chooseSuggestion($suggestions.children().eq(activeSuggestion));
-                    return;
-                }
-                if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
-                if ($suggestions.prop('hidden')) renderDestinations(true);
-                const $options = $suggestions.children();
-                if (!$options.length) return;
-                event.preventDefault();
-                activeSuggestion = activeSuggestion < 0 ? (event.key === 'ArrowDown' ? 0 : $options.length - 1) :
-                    (activeSuggestion + (event.key === 'ArrowDown' ? 1 : -1) + $options.length) % $options.length;
-                $options.attr('aria-selected', 'false').eq(activeSuggestion).attr('aria-selected', 'true');
-                $search.attr('aria-activedescendant', $options.eq(activeSuggestion).attr('id'));
-            });
 
             // Task 3 also searches full FAQ answers, including collapsed text.
+            const $faqSearch = $('[data-faq-search]');
             const $faqItems = $('.faq-item');
+            const cityNames = $cards.get().map(cardTitle);
             let faqState;
-            $('[data-faq-search]').on('input', function () {
-                const query = queryText($(this));
+            function renderFaq() {
+                const query = queryText($faqSearch);
                 if (query && !faqState) faqState = $faqItems.map(function () {
                     return $(this).find('[data-accordion-trigger]').attr('aria-expanded') === 'true';
                 }).get();
@@ -180,7 +203,8 @@
                 if (!query) faqState = undefined;
                 $('[data-faq-results]').text(query ? `${count} matching ${count === 1 ? 'question' : 'questions'}` : 'Search questions and answers.');
                 scheduleViewport();
-            });
+            }
+            bindSuggestions($faqSearch, query => cityNames.filter(name => name.toLowerCase().startsWith(query)), renderFaq);
 
             // Task 6: run only after the existing form validator accepts inputs.
             $(document).on('kz:form-loading', '[data-demo-form]', function (event) {

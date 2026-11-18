@@ -25,7 +25,7 @@ Then open [localhost:8765](http://127.0.0.1:8765/). No build, backend or package
 ## What works
 
 - Destination search combines with category and Saved filters; keyboard/touch autocomplete and safe match highlighting.
-- FAQ search checks questions and answers, highlights all matches and restores accordion state on clear.
+- FAQ search suggests city names, checks questions and answers, highlights matches and restores accordion state on clear.
 - A three-step route planner validates input, keeps choices on Back and generates a copyable itinerary.
 - Day/night theme, saved places and per-page ratings persist in the browser. Optional sound starts only after a click.
 - Gallery controls, keyboard navigation, thumbnails and viewport lazy loading preserve the original photographs.

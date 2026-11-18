@@ -28,14 +28,14 @@
   </script>
   <script defer="" src="js/accordion.js?v=7">
   </script>
-  <link href="css/editorial.css?v=10" rel="stylesheet"/>
+  <link href="css/editorial.css?v=11" rel="stylesheet"/>
   <script defer="" src="js/experience.js?v=10">
   </script>
-  <link href="css/assignment6.css?v=10" rel="stylesheet"/>
+  <link href="css/assignment6.css?v=11" rel="stylesheet"/>
   <!-- Assignment 6, Task 0: CDN first, local fallback in external script.js. -->
   <script crossorigin="anonymous" defer="" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" src="https://code.jquery.com/jquery-4.0.0.min.js">
   </script>
-  <script defer="" src="script.js?v=10">
+  <script defer="" src="script.js?v=11">
   </script>
   <script defer="" src="js/weather.js?v=10">
   </script>
@@ -1011,10 +1011,11 @@
        <p class="mb-4">
         Select a question to read the answer. Select it again to close it.
        </p>
-       <label class="faq-search" for="faq-search">
-        Find an answer
-        <input aria-describedby="faq-search-results" data-faq-search="" id="faq-search" placeholder="Try ‘guide’, ‘trip’ or ‘contact’" type="search"/>
-       </label>
+       <div class="faq-search">
+        <label for="faq-search">Find an answer</label>
+        <input aria-autocomplete="list" aria-controls="faq-search-suggestions" aria-describedby="faq-search-results" aria-expanded="false" autocomplete="off" data-faq-search="" id="faq-search" placeholder="Try ‘Astana’, ‘trip’ or ‘contact’" role="combobox" type="search"/>
+        <ul aria-label="Suggested cities" class="search-suggestions" hidden="" id="faq-search-suggestions" role="listbox"></ul>
+       </div>
        <p class="results-count" data-faq-results="" id="faq-search-results" role="status">
         Search questions and answers.
        </p>

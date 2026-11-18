@@ -182,9 +182,28 @@ async function run(channel,viewport) {
         await theme(page);
         await page.locator('.profile-actions a[href="index.html#trip-planner"]').click();
         await page.locator('[data-jquery-ready=true]').waitFor();
-        await page.locator('[data-faq-search]').fill('guide'); assert.ok(await page.locator('#faq mark').count()>0);
-        await page.locator('[data-faq-search]').fill('['); assert.equal(await page.locator('.faq-item:visible').count(),0);
-        await page.locator('[data-faq-search]').fill('');
+        const faq=page.locator('[data-faq-search]');
+        const faqSuggestions=page.locator('#faq-search-suggestions');
+        const astana=faqSuggestions.getByRole('option',{name:'Astana',exact:true});
+        await faq.fill('As');
+        await astana.waitFor();
+        await faq.press('Escape');
+        assert.equal(await faqSuggestions.isVisible(),false);
+        assert.equal(await faq.inputValue(),'As');
+        await faq.press('ArrowDown');
+        assert.equal(await astana.getAttribute('aria-selected'),'true');
+        await faq.press('Enter');
+        assert.equal(await faq.inputValue(),'Astana');
+        assert.equal(await faqSuggestions.isVisible(),false);
+        assert.equal(await page.locator('[data-faq-results]').innerText(),'1 matching question');
+        assert.equal(await page.locator('.faq-panel mark:visible').innerText(),'Astana');
+        if (mobile) {
+            await faq.fill('As'); await astana.tap();
+            assert.equal(await faq.inputValue(),'Astana');
+        }
+        await faq.fill('guide'); assert.ok(await page.locator('#faq mark').count()>0);
+        await faq.fill('['); assert.equal(await page.locator('.faq-item:visible').count(),0);
+        await faq.fill('');
         const next=page.locator('[data-planner-next]');
         await next.click();
         assert.match(await page.locator('#trip-planner-error').innerText(),/Choose a destination/);
@@ -323,7 +342,7 @@ async function run(channel,viewport) {
         await ready(page,'profile.html'); await page.waitForURL('**/login.html?next=profile');
         assert.deepEqual(errors,[]);
         results.push({browser:channel||'chromium',viewport,status:'passed',pageErrors:errors,layoutChecks,
-            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
+            scenarios:['Almaty search, keyboard autocomplete, filters and saved state after reload','registration and salted local verifier','empty or invalid email, password, phone and confirmation','password visibility','duplicate email','wrong credentials','profile redirect and saved Almaty after reload','two-day route, field errors and clipboard','current Almaty weather and three-day fixture outlook','FAQ city suggestions, keyboard selection and literal query','carousel lazy loading','ratings, optional sound, live clock, counters and reading progress','nine pages in both themes, keyboard navigation, responsive photos and no horizontal overflow','custom validation on all enquiries','busy form lock and duplicate-submit guard','logout and cross-tab profile guard']});
         console.log('PASS',channel||'chromium',viewport.width);
     } catch(error) {
         console.error('STATE',channel||'chromium',viewport.width,page.url(),await page.evaluate(()=>({session:localStorage.getItem('kz-session-v1'),jquery:document.body.dataset.jqueryReady,authScripts:[...document.scripts].filter(s=>s.src.includes('auth.js')).length})).catch(()=>null),errors);

@@ -499,5 +499,37 @@
     ],
     "pausedClockResumes": true,
     "plannerMotionReplayPercent": 10
+  },
+  "homepageFeedback": {
+    "checkedAtUTC": "2026-11-18T06:28:42.140269+00:00",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "themes": [
+      "day",
+      "night"
+    ],
+    "horizontalOverflow": 0,
+    "galleryTitleSizesPx": [
+      20.0,
+      24.0
+    ],
+    "galleryDescriptionSizesPx": [
+      15.0
+    ],
+    "carouselTitleSizesPx": [
+      18.0,
+      22.0
+    ],
+    "clockSizesPx": [
+      18.0,
+      25.6
+    ],
+    "galleryTitleMinContrast": 15.35,
+    "galleryDescriptionMinContrast": 9.59,
+    "carouselTitleMinContrast": 15.35
   }
 }
